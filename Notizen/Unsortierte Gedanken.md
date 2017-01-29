@@ -1,4 +1,4 @@
-** Potentiale ** 
+## Potentiale ##
 
 Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man in Richtung i, entspricht der Anstieg/Abstieg dem entsprechenden Kostenanstieg/-abstieg f¸r Spieler i. Die tats‰chliche Kostenfunktion entspricht damit dem Potential verschoben um eine nur von den Strategiewahlen der _anderen_ Spieler abh‰ngige Funktion (f¸r den Spaltenspieler ist diese also bspw. Zeilenweise konstant).
  -> Das Potential beschreibt ein Koordinationsspiel (gleiche Kostenfkt. f¸r alle Spieler)
@@ -9,7 +9,7 @@ Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man 
 		--Opti4-Skript-Harks
 
 		
-** exakte Potentialspiele = Auslastungsspiele **
+## exakte Potentialspiele = Auslastungsspiele ##
 
 * Jedes Auslastungsspiel besitzt ein Potential (Rosenthalpotentialfunktion)		
 * Jedes Spiel mit einem exakten Potential ist isomorph zu einem Auslastungsspiel
@@ -20,7 +20,7 @@ Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man 
  -> Die Abbildung Ausl.spiel -> Ausl.spiel erzeugt nur Auslastungsspiele mit Kostenfunktionen mit einpunktigem Tr‰ger => jedes Auslastungsspiel ist isomorph zu einem mit ausschlieﬂlich solchen Kostenfunktion.
 
 		
-** Lemma von Monderer und Shapley **
+## Lemma von Monderer und Shapley ##
 
 Aussage: Endliches Strategiespiel G besitzt exaktes Potential <=> jeder 4-Zykel im Strategieraum hat Gesamt‰nderung 0
 

@@ -1,5 +1,5 @@
-######################################################################################################################################
-** A universal construction generating potential games **
+--------------------------------------------------------------------------------------------------------------------------------
+## A universal construction generating potential games ##
 	by Nikolai S. Kukushkin | ACLU.pdf
 	
 beschreibt Games with (additive) Common Local Utilities (CLU): Erweiterung des Konzeptes ungewichteter Auslastungsspiele - Kosten pro Fabrik hängen nun von der Menge der diese wählenden Spieler und deren gewählten Strategien ab (aus der gewählten Strategie ergeben sich die gewählten Fabriken, aber nicht notwendigerweise umgekehrt). Außerdem darf der Strategieraum und die Menge der Fabriken unendlich groß sein.
@@ -22,8 +22,8 @@ Erweiterung von CLU mit (bestimmten) Spielerspezifischen Kostenfunktionen -> es 
 
 
 
-######################################################################################################################################
-** Characterizing the Existence of Potential Functions in Weighted Congestion Games **
+--------------------------------------------------------------------------------------------------------------------------------
+## Characterizing the Existence of Potential Functions in Weighted Congestion Games ##
 	by Tobias Harks, Max Klimm, Rolf H. Möhring | DOI 10.1007/s00224-011-9315-x | TOCS-HKM-2011.pdf
 	
 Zentrales Theorem1: Geg. eine Menge von lokal beschränkten Funktionen C. Dann besitzt jedes mit Funktionen daraus konstruierte gewichtete Auslastungsspiel ein exaktes Potential <=> C enthält nur affin lineare Funktionen
@@ -34,8 +34,8 @@ Zentrales Theorem2: Geg. eine Menge von stetigen Funktionen C. Dann besitzt jede
 
 	
 	
-######################################################################################################################################
-** On the Existence of Pure Nash Equilibria in Weighted Congestion Games **
+--------------------------------------------------------------------------------------------------------------------------------
+## On the Existence of Pure Nash Equilibria in Weighted Congestion Games ##
 	by Tobias Harks, Max Klimm | http://dx.doi.org/10.1287/moor.1120.0543 | HK-MOR-2012.pdf
 	
 Im Wesentlichen TOCS-HKM-2011 mit Nash-Gleichgewichten statt exakten Potentialfunktionen?
@@ -48,8 +48,8 @@ Weiteres Theorem: Für 2-Personenspiele sind mehr Funktionen erlaubt (monoton mit
 + Spezialisierungen für gew. Netzwerkspiele und gew. Singelton Auslastungsspiele
 
 
-######################################################################################################################################
-** Potential Games **
+--------------------------------------------------------------------------------------------------------------------------------
+## Potential Games ##
 	by Dov Monderer, Lloyd S. Shapley | Monderer-Shapley-1996.pdf
 
 Lemma (2.5): Ein Spiel hat FIP <=> Spiel hat verallg. oridinales Potential
@@ -57,14 +57,14 @@ Lemma (2.5): Ein Spiel hat FIP <=> Spiel hat verallg. oridinales Potential
 ...
 
 
-######################################################################################################################################
-** Tight Bounds for Cost-Sharing in Weighted Congestion Games **
+--------------------------------------------------------------------------------------------------------------------------------
+## Tight Bounds for Cost-Sharing in Weighted Congestion Games ##
 
 ???
 
 
-######################################################################################################################################
-** On Some Categories of Games and Corresponding Equilibria **
+--------------------------------------------------------------------------------------------------------------------------------
+## On Some Categories of Games and Corresponding Equilibria ##
 	by Victor Lapitsky
 	
 Definiert _Spiele in einer Kategorie C_ als Klasse <I, (S_i)_{i\in I}, (K_i)_{i\in I}, (\phi_i)_{i\in I}>, wobei
@@ -83,8 +83,8 @@ Lemma (4.1): Sind die Abbildungen auf den Strategieraum-Garben surjektiv, so erh
 Weiter wird dann der Begriff von Gleichgewichten und (nicht-strategischen) Spielen verallgemeinert.
 
 
-######################################################################################################################################
-** Multipotential Games **
+--------------------------------------------------------------------------------------------------------------------------------
+## Multipotential Games ##
 	by Dov Monderer | Multipotential Games.pdf
 	
 q-Potentialspiel: Ein Spiel, das sich durch q verschiedene Potentiale überdecken lässt. D.h. für jeden Spieler ist mindestens eines der q Potentiale ein (spielerspezifisches Potential).
@@ -104,8 +104,8 @@ Weiteres Theorem: Jedes q-Auslastungsspiel ist isomorph zu einem q-Netzwerkspiel
 Laut Fußnote 10 haben Monderer und Shapley in ihrem Paper bereits eine Variante eines weighted congestion games definiert. Im entsprechenden Paper kann ich aber nichts davon finden...
 
 
-######################################################################################################################################
-** Algorithms for Pure Nash Equilibria in Weighted Congestion Games **
+--------------------------------------------------------------------------------------------------------------------------------
+## Algorithms for Pure Nash Equilibria in Weighted Congestion Games ##
 	by PANAGIOTA N. PANAGOPOULOU and PAUL G. SPIRAKIS | Algorithms for pure Nash equilibria in weighted congestion games.pdf
 	
 Relevantes Theorem (5.1): Jedes gewichtete Netzwerkauslastungsspiel mit exponentiellen Kostenfunktionen ist w-Potentialspiel.
