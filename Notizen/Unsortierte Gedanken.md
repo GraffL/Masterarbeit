@@ -1,7 +1,7 @@
-## Potentiale ##
+ï»¿## Potentiale ##
 
-Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man in Richtung i, entspricht der Anstieg/Abstieg dem entsprechenden Kostenanstieg/-abstieg für Spieler i. Die tatsächliche Kostenfunktion entspricht damit dem Potential verschoben um eine nur von den Strategiewahlen der _anderen_ Spieler abhängige Funktion (für den Spaltenspieler ist diese also bspw. Zeilenweise konstant).
- -> Das Potential beschreibt ein Koordinationsspiel (gleiche Kostenfkt. für alle Spieler)
+Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man in Richtung i, entspricht der Anstieg/Abstieg dem entsprechenden Kostenanstieg/-abstieg fÃ¼r Spieler i. Die tatsÃ¤chliche Kostenfunktion entspricht damit dem Potential verschoben um eine nur von den Strategiewahlen der _anderen_ Spieler abhÃ¤ngige Funktion (fÃ¼r den Spaltenspieler ist diese also bspw. Zeilenweise konstant).
+ -> Das Potential beschreibt ein Koordinationsspiel (gleiche Kostenfkt. fÃ¼r alle Spieler)
  -> Die Verschiebungsfunktionen beschreiben ein Dummyspiel (bei gegebener Wahl der Gegenstrategien hat die Strategiewahl _eines_ Spielers keinen Einfluss auf _seine_ Kosten)
  
  => G hat exaktes Potential <=> G ist "Summe" eines Koordinations- und eines Dummyspiels
@@ -16,20 +16,20 @@ Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man 
 		--Opti4-Skript-Harks
 
  -> Man bekommt Abbildungen von Auslastungsspielen auf Auslastungsspiele und von exakten Potentialspielen auf exakte Potentialspiele
-		letztere ist die Identität (inkl. Potentialfunktion! d.h. Rosenthalfunktion ist ursprüngliche Potentialfunktion), erstere nicht (was auch Sinn macht, denn mehrere Auslastungsspiele können das gleiche Spiel sein (und damit erst recht das gleiche Potential haben)).
- -> Die Abbildung Ausl.spiel -> Ausl.spiel erzeugt nur Auslastungsspiele mit Kostenfunktionen mit einpunktigem Träger => jedes Auslastungsspiel ist isomorph zu einem mit ausschließlich solchen Kostenfunktion.
+		letztere ist die IdentitÃ¤t (inkl. Potentialfunktion! d.h. Rosenthalfunktion ist ursprÃ¼ngliche Potentialfunktion), erstere nicht (was auch Sinn macht, denn mehrere Auslastungsspiele kÃ¶nnen das gleiche Spiel sein (und damit erst recht das gleiche Potential haben)).
+ -> Die Abbildung Ausl.spiel -> Ausl.spiel erzeugt nur Auslastungsspiele mit Kostenfunktionen mit einpunktigem TrÃ¤ger => jedes Auslastungsspiel ist isomorph zu einem mit ausschlieÃŸlich solchen Kostenfunktion.
 
 		
 ## Lemma von Monderer und Shapley ##
 
-Aussage: Endliches Strategiespiel G besitzt exaktes Potential <=> jeder 4-Zykel im Strategieraum hat Gesamtänderung 0
+Aussage: Endliches Strategiespiel G besitzt exaktes Potential <=> jeder 4-Zykel im Strategieraum hat GesamtÃ¤nderung 0
 
-Intuition: Besitzt ein Spiel ein exaktes Potential (=Topografie auf Strategieraum), so muss die Gesamtänderung (=Höhenunterschied) entlang jedes Kreises 0 sein. Umgekehrt kann ein Potential konstruiert werden, indem man eine beliebige Stelle zum 0-Punkt erklärt und allen anderen Punkten im Strategieraum den Höhenunterschied zum 0-Punkt als Potential zuweist. Dieses Vorgehen führt genau dann zu einem wohldefinierten Potential, wenn die Gesamtänderung entlang aller Kreise 0 ist.
-Das Lemma besagt nun, dass es genügt die Gesamtänderung entlang aller 4-Kreise zu testen (kleinstmögliche Kreise!)
+Intuition: Besitzt ein Spiel ein exaktes Potential (=Topografie auf Strategieraum), so muss die GesamtÃ¤nderung (=HÃ¶henunterschied) entlang jedes Kreises 0 sein. Umgekehrt kann ein Potential konstruiert werden, indem man eine beliebige Stelle zum 0-Punkt erklÃ¤rt und allen anderen Punkten im Strategieraum den HÃ¶henunterschied zum 0-Punkt als Potential zuweist. Dieses Vorgehen fÃ¼hrt genau dann zu einem wohldefinierten Potential, wenn die GesamtÃ¤nderung entlang aller Kreise 0 ist.
+Das Lemma besagt nun, dass es genÃ¼gt die GesamtÃ¤nderung entlang aller 4-Kreise zu testen (kleinstmÃ¶gliche Kreise!)
 
-Beweis: (vermutlich?) längere Kreise lassen sich in Teilkreise der Länge 4 zerlegen (klingt irgendwie ähnlich zum beweis vom Satz von Stokes :O).
+Beweis: (vermutlich?) lÃ¤ngere Kreise lassen sich in Teilkreise der LÃ¤nge 4 zerlegen (klingt irgendwie Ã¤hnlich zum beweis vom Satz von Stokes :O).
 
-Für 2-mal diffbare Funktionen (wobei die Strategieräume reele Intervalle sind) gilt: 
+FÃ¼r 2-mal diffbare Funktionen (wobei die StrategierÃ¤ume reele Intervalle sind) gilt: 
 	G hat exaktes Potential <=> d^2 u_i/(dx_i dx_j) = d^2 u_j/(dx_i dx_j)
 (kontinuierliches Analagon zu oben (auch die Konstruktion des Potentials ist entsprechend))
 
