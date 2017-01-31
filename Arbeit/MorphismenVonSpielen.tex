@@ -1,5 +1,7 @@
 \section{Morphismen von Spielen}
 
+\subsection{Definitionen}
+
 \begin{defn}
 	Ein \emph{Spiel in strategischer Form $\Gamma$} ist gegeben durch ein Tupel $(I, X = \prod_{i \in I}X_i, (K_i)_{i\in I}, (u_i: X \to K_i)_{i\in I})$. Dabei ist:
 	\begin{itemize}
@@ -36,12 +38,87 @@
 \end{bem}
 
 \begin{defn}
-	Zwei isomorphe Spiele (im Sinne von \cref{def:SpielIsomLap}) $\Gamma = (I, X, (K_i)_{i\in I}, (u_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (u'_i)_{i\in I})$ heißen \emph{sozial isomorph}, wenn zusätzlich die Funktion
+	Zwei im Sinne von \cref{def:SpielIsomLap} isomorphe Spiele heißen \emph{sozial isomorph}, wenn zusätzlich die Funktion
 		\[\sum \psi_i: \prod_{i \in I}K_i \to \prod_{i \in I} K'_i \]
 	monoton ist. \todo{Das macht natürlich nur Sinn, wenn auf den beiden Produkträumen auch totale (?) Ordnungen existieren}
 \end{defn}
 
+\begin{bsp}
+	lineare Funktionen
+\end{bsp}
+
 \begin{defn}\label{def:NashMorphismus}
 	Ein \emph{Nash-Morphismus} $\gamma: \Gamma \to \Gamma'$ zwischen zwei Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (u_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (u'_i)_{i\in I})$ ist gegeben durch Abbildungen $\phi_i: X_i \to X'_i$ sodass gilt:
 		\[\forall x\in X, i \in I, \hat{x}_i \in X_i: u_i(\hat{x}_i,x_{-i}) > u_i(x) \Rightarrow u'_i(\phi(\hat{x}_i,x_{-i})) > u'_i(\phi(x))\]
+	Der Morphismus $\gamma$ heißt \emph{Nash-Isomorphismus} (und die beiden Spiele dann \emph{Nash-isomorph}), wenn die $\phi_i$ bijektiv sind und gilt:
+		\[\forall x\in X, i \in I, \hat{x}_i \in X_i: u_i(\hat{x}_i,x_{-i}) > u_i(x) \iff u'_i(\phi(\hat{x}_i,x_{-i})) > u'_i(\phi(x))\]
 \end{defn}
+
+\begin{beob}
+	Es gilt:
+	\begin{center}
+		äquivalent $\Rightarrow$ sozial isomorph $\Rightarrow$ isomorph $\Rightarrow$ Nash-isomorph
+	\end{center}
+\end{beob}
+
+
+\subsection{Erste Sätze}
+
+\begin{lemma}
+	Seien $\Gamma$ und $\Gamma'$ zwei Nash-isomorphe Spiele. Dann ist $x \in X$ genau dann ein Nashgleichgewicht von $\Gamma$, wenn $\phi(x) \in X'$ ein Nashgleichgewicht von $\Gamma'$ ist.
+\end{lemma}
+
+\begin{proof}.
+	
+	\todo[inline]{folgt direkt mit Definitionen}
+\end{proof}
+
+\begin{lemma}
+	Seien $\Gamma$ und $\Gamma'$ zwei Nash-isomorphe Spiele. Dann hat $\Gamma$ genau dann die FIP, wenn $\Gamma'$ diese besitzt.
+\end{lemma}
+
+\begin{proof}.
+	
+	\todo[inline]{Beweis über Verbesserungspfad im einen entspricht Verbesserungspfad im anderen. Evtl. direkt das als Lemma formulieren und dann die beiden vorherigen Lemmas als Korollare daraus?}
+\end{proof}
+
+\begin{lemma}
+	Sei $\gamma: \Gamma \to \Gamma'$ ein Nash-Morphismus und $x \in X$. Ist dann $\phi(x) \in X'$ ein Nashgleichgewicht von $\Gamma'$, so ist auch $x$ selbst schon ein Nashgleichgewicht (von $\Gamma$).
+\end{lemma}
+
+\begin{proof}
+	.
+	
+	\todo[inline]{Nachrechnen - evtl. mit vorherigen Sätzen verbinden bzw. schon davor zeigen, damit diese ein Korollar werden?}
+\end{proof}
+
+\begin{lemma}
+	Seien $\Gamma$ und $\Gamma'$ zwei sozial isomorphe Spiele. Dann ist $x \in X$ genau dann ein soziales Optimum von $\Gamma$, wenn $\phi(x) \in X'$ ein soziales Optimum von $\Gamma'$ ist.
+\end{lemma}
+
+\begin{proof}
+	.
+	
+	\todo[inline]{Folgt direkt mit Definitionen}
+\end{proof}
+
+\begin{satz}
+	Besitzt ein Spiel $\Gamma$ ein ordinales Potential, so ist es isomorph zu einem Auslastungsspiel.
+\end{satz}
+
+\begin{proof}
+	Analog zum Beweis der Äquivalenz von Spielen mit exaktem Potential und Auslastungsspielen in \cite{MonShap}, Beweis orientiert sich an \cite{MultiPotGames}.
+\end{proof}
+
+\begin{beob}
+	Besitzt ein Spiel ein verallgemeinertes ordinales Potential, so gibt es einen Nash-Morphismus in/von \todo{Was von beidem?} ein Auslastungsspiel.
+\end{beob}
+
+\begin{proof}
+	.
+	\todo[inline]{Proofmining in oberem Beweis}
+\end{proof}
+
+\begin{beob}
+	Nach \cite{MonShap} Lemma 2.5 hat jedes Spiel mit FIP ein verallgemeinertes Potential, also \todo[inline]{in/von...}
+\end{beob}
