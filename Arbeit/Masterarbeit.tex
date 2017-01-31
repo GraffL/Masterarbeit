@@ -13,11 +13,12 @@
 \usepackage{textcomp}
 \usepackage{stmaryrd}
 
-%\usepackage{tikz}
-%\usetikzlibrary{shapes,arrows}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
 % Für kommutative Diagramme
 \usepackage{tikz-cd}
-\usepackage{amscd}
+% Vermeidet Konflikte mit babel ngerman (speziell bei Verwendung der \arrowvert[r, "Text"]-Notation)
+\usetikzlibrary{babel}
 
 \usepackage[protrusion=true,expansion=true]{microtype}
 
