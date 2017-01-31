@@ -1,1 +1,9 @@
 Quellen
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.xml
+*.gz
+*.toc

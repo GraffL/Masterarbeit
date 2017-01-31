@@ -1,0 +1,146 @@
+\documentclass[a4paper,ngerman,11pt,bibtotoc]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{amsmath, amsthm, amssymb, stmaryrd, color, graphicx, mathtools, mathrsfs}
+\usepackage{setspace}
+\usepackage{bussproofs}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{comment}
+\usepackage{textcomp}
+\usepackage{stmaryrd}
+
+%\usepackage{tikz}
+%\usetikzlibrary{shapes,arrows}
+% Für kommutative Diagramme
+\usepackage{tikz-cd}
+\usepackage{amscd}
+
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{lmodern}
+\usepackage{tabto}
+
+\usepackage[backend=bibtex,style=alphabetic]{biblatex}
+\usepackage[babel]{csquotes}
+\bibliography{literatur}
+
+\usepackage{titling}
+
+% \usepackage[all]{xy}
+
+% Automatische Referenzen mit Namen
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{cleveref}			% Referenzen mit Name
+
+\usepackage{icomma}				% Korrektes Typesetting von Kommazahlen
+
+\usepackage[font={small,it}]{caption} % Kleinere Captions
+
+
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$\slash\slash$ #1}
+%\newcommand{\LineFor}[2]{\State\algorithmicfor\ {#1}\ \algorithmicdo\ {#2} \algorithmicend\ \algorithmicfor}
+%
+%\usepackage{listings}			% Anzeige von Sourcecode
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{axiom}[defn]{Axiom}
+\newtheorem{bsp}[defn]{Beispiel}
+
+\theoremstyle{plain}
+
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{kor}[defn]{Korollar}
+\newtheorem{satz}[defn]{Satz}
+
+\theoremstyle{remark}
+\newtheorem{erin}[defn]{Erinnerung}
+\newtheorem{bem}[defn]{Bemerkung}
+\newtheorem{beob}[defn]{Beobachtung}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\newcommand{\IZ}{\mathbb{Z}}
+\newcommand{\IQ}{\mathbb{Q}}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IC}{\mathbb{C}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Oc}{\mathcal{O}}
+
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+
+% Nur für dieses Dokument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{3}
+
+
+\usepackage{todonotes}
+\usepackage{tabu}
+
+
+% DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\author{Lukas Graf}
+\date{Letzte Aktualisierung: \today}
+
+\selectlanguage{ngerman}
+\thispagestyle{empty}
+
+
+\begin{titlepage}\center
+	\textsc{\LARGE Universität Augsburg}\\[1cm]
+	
+	\textsc{\Large Institut für Mathematik}\\[1.5cm]
+	
+	% Title
+	{\Large Masterarbeit \\[1cm]}
+	{\huge \todo[inline]{Insert Title}}
+
+	\vfill
+	
+	% Author and supervisor
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\emph{von:}\\
+			Lukas \textsc{Graf}
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright} \large
+			\emph{Betreut von:} \\
+			Prof. Dr. Tobias \textsc{Harks}
+		\end{flushright}
+	\end{minipage}
+	
+\end{titlepage}
+
+% CONTENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\tableofcontents
+
+\include{MorphismenVonSpielen}
+
+\newpage
+\nocite{*}
+\printbibliography
+
+\end{document}
