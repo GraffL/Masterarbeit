@@ -53,6 +53,8 @@ Weiteres Theorem: Für 2-Personenspiele sind mehr Funktionen erlaubt (monoton mi
 	by Dov Monderer, Lloyd S. Shapley | Monderer-Shapley-1996.pdf
 
 Lemma (2.5): Ein Spiel hat FIP <=> Spiel hat verallg. oridinales Potential
+Beweis über Relation > auf dem Strategieraum, mit x > y <=> es gibt einen (endlichen) Verbesserungspfad von x nach y. Eine Teilmenge von Y heißt dann "repräsentiert" <=> es gibt ein Ordinales Potential für diese. Dann nimmt man eine maximale solche Teilmenge und führt die Annahme, diese wäre nicht ganz Y, zu einem Widerspruch (mit drei Fällen). Ein konstruktiver (und eleganterer) Beweis wird zitiert - das müsste der gleiche wie im Opti IV-Skript sein.
+Beachte: Der erste Beweis könnte evtl. auch für unendliche Strategieräume funktionieren, der zweite sicher nicht.
 
 ...
 
@@ -106,10 +108,69 @@ Laut Fußnote 10 haben Monderer und Shapley in ihrem Paper bereits eine Variante
 
 --------------------------------------------------------------------------------------------------------------------------------
 ## Algorithms for Pure Nash Equilibria in Weighted Congestion Games ##
-	by PANAGIOTA N. PANAGOPOULOU and PAUL G. SPIRAKIS | Algorithms for pure Nash equilibria in weighted congestion games.pdf
+	by Panagiota N. Panagopoulou and Paul G. Spirakis | Algorithms for pure Nash equilibria in weighted congestion games.pdf
 	
 Relevantes Theorem (5.1): Jedes gewichtete Netzwerkauslastungsspiel mit exponentiellen Kostenfunktionen ist w-Potentialspiel.
 	Müsste eigentlich mit gleichem Beweis für allgemeine gew. Auslastungsspiele mit exp. Kostenfunktionen gelten.
 	Gewicht der Potentialfkt. ist exp(w_i)/(exp(w_i)-1), Potentialfkt. ist \sum r\in R c(x)
 
 + experimentelle Analyse des Nashify-Alg. (Bestresponse-Alg.) zum Finden von Nashgleichgewichten. Vermutung: Polynomialzeit.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## A Characterization of Ordinal Potential Games ##
+	by Mark Vorneveld and Henk Norde | A Characterization of Ordinal Potential Games.pdf
+	
+Ein _schwacher Verbesserungskreis_ ist ein Kreis, der sich nie verschlechtert und mindestens einmal echt verbessert (jeweils aus Sicht des abweichenden Spielers).
+
+Definiere eine Relation <= auf dem Strategieraum durch x <= y <=> Es gibt einen sich nirgends verschlechternden Pfad von x nach y. Die sich daraus ergebende Gleichheitsrelation ist eine Äquivalenzrelation und induziert einen Raum von Äquivalenzklassen [X] auf X. Auf diesem wiederum definiert man eine Relation < durch [x] < [y] <=> [x] != [y] UND x <= y.
+
+Eine Menge mit einer Partialordnung heißt "properly ordered", wenn es eine streng monotone Abbildung von ihr in die reellen Zahlen gibt. (Beob: jede abzählbare Partialordnung ist "properly ordered")
+
+Zentrales Theorem (3.1): Ein Spiel hat ein ordinales Potential <=> es keine schwachen Verbesserungskreise enthält UND ([X], <) properly ordered ist.
+Im Beweis von "<=" erhält man die Potentialfunktion durch die streng monotone Funktion, welche "properly ordered" belegt.
+
+Das Paper enthält jeweils Beispiele für die Notwendigkeit der verschiedenen Voraussetungen!
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Best-response potential games ##
+	by Mark Vorneveld | Best-response potential games.pdf
+	
+Ein _Beste-Antwort-Potential_ ist eine Funktion P: X -> |R, sodass gilt:
+	\forall i \in N, x_{-i} \in X_{-i}: argmax_{x_i \in X_i} u_i(x) = argmax_{x_i \in X_i} P(x)
+Das heißt das Potential zeigt jeweils die beste(n) Antwort(en) an.
+
+Prop: Ersetzt man die Kostenfunktionen durch ein Beste-Antwort-Potential, so bleiben die Nashgleichgewichte genau erhalten.
+
+Ein Pfad heißt _beste-Antwort-kompatibel_ <=> der abweichende Spieler wechselt jeweils zu einer besten Antwort.
+
+Zentrales Theorem (3.1): Ein Spiel hat ein Beste-Antwort-Potential <=> es keine beste-Antwort-kompatiblen Kreise enthält UND ([X], <) properly ordered ist.
+Beweis scheint sehr analog zu dem entsprechenden für ordinale Potentiale in "A Characterization of Ordinal Potential Games" zu sein.
+
+Ordinalspiele sind (echt) im Schnitt von verallgemeinerten Ordinalspielen und Beste-Antwort-Potentialspielen enthalten. Für letztere ist keines im anderen enthalten. Das Paper enthält entsprechende Beispiele.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Congestion Games and Potentials Reconsidered ##
+	by Mark Vorneveld, Peter Borm, Freek van Megen, Stef Tijs and Giovanni Facchini | Congestion Games and Potentials Reconsidered.pdf
+	
+Definition von _Koordinations- und Dummy-Spielen_. Beweis für Auslastungsspiel <=> exaktes Potentialspiel über Zerlegung von Potentialspielen in ein Koordinations- und ein Dummyspiel.
+
+Eine Strategie heißt _starkes Nashgleichgewicht_ <=> für jede abweichende Koalition gibt es wenigstens einen Spieler, der sich nicht verbessert.
+
+Verschiedene (leicht andere) Definitionen von Auslastungsspielen werden diskutiert und wann diese exakte Potentiale haben bzw. (starke) Nashgleichgewichte.
+
+Für eine gewisse Klasse an Auslastungsspielen (die gewisse Axiome erfüllen) wird gezeigt, dass Nashgleichgewichte, starke Nashgleichgewichte und Potentialmaximierer zusammenfallen (Theorem 6.1).
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Congestion Games with Player-Specific Payoff Functions ##
+	by Igal Milchtaich
+
+Definiert Auslastungsspiele mit spielerspezifischem Nutzen. Dabei wählen Spieler genau eine Fabrik und der Nutzen sinkt monoton mit der Anzahl der Spieler, die die jeweilige Fabrik gewählt haben.
+
+Enthält einen konstruktiven Beweis für: Hat FIP => hat ordinales Potential
+
+Theorem: Jedes solche Spiel besitzt ein Nash-Gleichgewicht.
+Beweis läuft durch Induktion über die Zahl der Spieler.
