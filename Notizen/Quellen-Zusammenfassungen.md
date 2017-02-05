@@ -70,6 +70,15 @@ Ordinalspiele sind (echt) im Schnitt von verallgemeinerten Ordinalspielen und Be
 # Auslastungsspiele #
 
 --------------------------------------------------------------------------------------------------------------------------------
+## A Class of Games Possessing Pure-Strategy Nash Equilibria ##
+	by Robert W. Rosenthal | A Class of Games Possessing Pure-Strategy Nash Equilibria.pdf
+	
+Erste Definition von Auslastungsspielen.
+
+Zentrales Theorem: Alle Auslastungsspiele besitzen ein Nash-Gleichgewicht (über Rosenthalpotentialfunktion - wird allerdings noch nicht als Potentialfunktion bezeichnet).
+	
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Congestion Games and Potentials Reconsidered ##
 	by Mark Voorneveld, Peter Borm, Freek van Megen, Stef Tijs and Giovanni Facchini | Congestion Games and Potentials Reconsidered.pdf
 	

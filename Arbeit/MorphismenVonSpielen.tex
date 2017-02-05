@@ -1,20 +1,10 @@
-\section{Morphismen von Spielen}
+\section[Morphismen]{Morphismen von Spielen}\label{sec:Morphismen}
 
 \subsection{Definitionen}
 
 \begin{defn}
-	Ein \emph{Spiel in strategischer Form $\Gamma$} ist gegeben durch ein Tupel $(I, X = \prod_{i \in I}X_i, (K_i)_{i\in I}, (u_i: X \to K_i)_{i\in I})$. Dabei ist:
-	\begin{itemize}
-		\item $I$ die Menge der Spieler,
-		\item $X_i$ die Menge der (reinen) Strategien von Spieler $i$,
-		\item $K_i$ die \todo[inline]{Übersetzung von Payoff-Raum evtl. angepasst für Kosten?} von Spieler $i$ und
-		\item $u_i$ die Kostenfunktion von Spieler $i$
-	\end{itemize}
-\end{defn}
-
-\begin{defn}
-	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (u_i)_{i\in I})$ und $\Gamma' = (I, X', (K_i)_{i\in I}, (u'_i)_{i\in I})$ heißen \emph{äquivalent}, wenn es für jeden Spieler $i$ eine bijektive Abbildung $\phi_i: X_i \to X'_i$ gibt, sodass gilt:
-		\[\forall x \in X: u_i(x) = u'_i(\phi(x)) \]
+	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K_i)_{i\in I}, (c'_i)_{i\in I})$ heißen \emph{äquivalent}, wenn es für jeden Spieler $i$ eine bijektive Abbildung $\phi_i: X_i \to X'_i$ gibt, sodass gilt:
+		\[\forall x \in X: c_i(x) = c'_i(\phi(x)) \]
 	\todo{Permutation von Spielern erlauben?}
 \end{defn}
 
@@ -23,11 +13,11 @@
 \end{bem}
 
 \begin{defn}\label{def:SpielIsomLap}
-	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (u_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (u'_i)_{i\in I})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
+	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
 	
 	\begin{center}
-			\begin{tikzcd}
-			X \rar{\phi} \dar{u_i} & X' \dar{u'_i} \\
+		\begin{tikzcd}
+			X \rar{\phi} \dar{c_i} & X' \dar{c'_i} \\
 			K_i \rar{\psi_i}		& K'_i
 		\end{tikzcd}
 	\end{center}
@@ -38,20 +28,20 @@
 \end{bem}
 
 \begin{defn}
-	Zwei im Sinne von \cref{def:SpielIsomLap} isomorphe Spiele heißen \emph{sozial isomorph}, wenn zusätzlich die Funktion
+	Zwei im Sinne von \Cref{def:SpielIsomLap} isomorphe Spiele heißen \emph{sozial isomorph}, wenn zusätzlich die Funktion
 		\[\sum \psi_i: \prod_{i \in I}K_i \to \prod_{i \in I} K'_i \]
 	monoton ist. \todo{Das macht natürlich nur Sinn, wenn auf den beiden Produkträumen auch totale (?) Ordnungen existieren}
 \end{defn}
 
 \begin{bsp}
 	lineare Funktionen
-\end{bsp}
+\end{bsp}	
 
 \begin{defn}\label{def:NashMorphismus}
-	Ein \emph{Nash-Morphismus} $\gamma: \Gamma \to \Gamma'$ zwischen zwei Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (u_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (u'_i)_{i\in I})$ ist gegeben durch Abbildungen $\phi_i: X_i \to X'_i$ sodass gilt:
-		\[\forall x\in X, i \in I, \hat{x}_i \in X_i: u_i(\hat{x}_i,x_{-i}) > u_i(x) \Rightarrow u'_i(\phi(\hat{x}_i,x_{-i})) > u'_i(\phi(x))\]
+	Ein \emph{Nash-Morphismus} $\gamma: \Gamma \to \Gamma'$ zwischen zwei Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ ist gegeben durch Abbildungen $\phi_i: X_i \to X'_i$ sodass gilt:
+		\[\forall x\in X, i \in I, \hat{x}_i \in X_i: c_i(\hat{x}_i,x_{-i}) > c_i(x) \Rightarrow c'_i(\phi(\hat{x}_i,x_{-i})) > c'_i(\phi(x))\]
 	Der Morphismus $\gamma$ heißt \emph{Nash-Isomorphismus} (und die beiden Spiele dann \emph{Nash-isomorph}), wenn die $\phi_i$ bijektiv sind und gilt:
-		\[\forall x\in X, i \in I, \hat{x}_i \in X_i: u_i(\hat{x}_i,x_{-i}) > u_i(x) \iff u'_i(\phi(\hat{x}_i,x_{-i})) > u'_i(\phi(x))\]
+		\[\forall x\in X, i \in I, \hat{x}_i \in X_i: c_i(\hat{x}_i,x_{-i}) > c_i(x) \iff c'_i(\phi(\hat{x}_i,x_{-i})) > c'_i(\phi(x))\]
 \end{defn}
 
 \begin{beob}

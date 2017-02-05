@@ -1,5 +1,11 @@
 \documentclass[a4paper,ngerman,11pt,bibtotoc]{scrartcl}
 
+
+%draft-options:
+\usepackage[ngerman, textsize=small, textwidth=4.5cm]{todonotes}
+\usepackage[left=1cm, right=5cm]{geometry}
+
+
 \usepackage[utf8]{inputenc}
 
 \usepackage[ngerman]{babel}
@@ -31,7 +37,7 @@
 
 \usepackage{titling}
 
-% \usepackage[all]{xy}
+\usepackage[all]{xy}
 
 % Automatische Referenzen mit Namen
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
@@ -68,6 +74,7 @@
 \newtheorem{erin}[defn]{Erinnerung}
 \newtheorem{bem}[defn]{Bemerkung}
 \newtheorem{beob}[defn]{Beobachtung}
+\newtheorem{notation}[defn]{Notation}
 
 \clubpenalty=10000
 \widowpenalty=10000
@@ -84,17 +91,25 @@
 \newcommand{\Tc}{\mathcal{T}}
 \newcommand{\Sc}{\mathcal{S}}
 \newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Pc}{\mathcal{P}}
+
+\newcommand{\PSet}{\Pc}		% Potenzmenge
 
 \newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\abs}[1]{\left|#1\right|}
 
 % Nur für dieses Dokument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{tocdepth}{3}
 
 
-\usepackage{todonotes}
 \usepackage{tabu}
 
+% Ordnungsrelation auf dem Kostenraum
+\newcommand{\cordleq}{\preccurlyeq}
+\newcommand{\cordgeq}{\succcurlyeq}
+\newcommand{\cordle}{\prec}
+\newcommand{\cordge}{\succ}
 
 % DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -138,6 +153,9 @@
 
 \tableofcontents
 
+\include{Grundlagen}
+\include{Potentiale}
+\include{Auslastungsspiele}
 \include{MorphismenVonSpielen}
 
 \newpage

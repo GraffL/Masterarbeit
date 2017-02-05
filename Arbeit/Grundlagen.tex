@@ -1,0 +1,44 @@
+\section{Grundlagen}\label{sec:Grundlagen}
+
+\begin{defn}
+	Ein \emph{Spiel $\Gamma$ in strategischer Form} ist ein Tupel $(I, X = (X_i)_{i \in I}, (K_i)_{i\in I}, (c_i)_{i\in I})$. Dabei ist
+	\begin{itemize}
+		\item $I$ die Menge der Spieler,
+		\item $X_i$ die Menge der (reinen) Strategien von Spieler $i$,
+		\item $(K_i, \cordleq)$, eine total geordnete Menge, der Kostenraum von Spieler $i$ und
+		\item $c_i: X \to K_i$ die Kostenfunktion von Spieler $i$.
+	\end{itemize}
+	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler versucht durch die Wahl seiner Strategie seine Kosten zu minimieren.
+\end{defn}
+
+\begin{beob}
+	Klassische Kostenminimierungsspiele erhält man durch Wahl von $(\IR_{\geq 0}, \leq)$ als Kostenraum für alle Spieler, Nutzenmaximierungsspiele durch Wahl von $(\IR, \geq)$ als \glqq Kosten\grqq raum.
+\end{beob}
+
+\begin{notation}
+	Zu einem festen Spieler $i$ bezeichne $X_{-i} := \prod_{j \in I\backslash\{i\}} X_j$ das Produkt aller Strategieräume außer dem von Spieler $i$. Zu jedem Strategieprofil\todo{Sollte der Begriff Strategieprofil eigens definiert werden?}{} $x \in X$ bezeichne dann $x_{-i}$ die Projektion dieses Profils auf den Raum $X_{-i}$ und $x_i$ die Projektion auf $X_i$ (also die von Spieler $i$ gewählte Strategie). Wir schreiben dann auch $(x_i, x_{-i})$ für das Strategieprofil $x$.
+\end{notation}
+
+\begin{defn}
+	Ein Strategieprofil $x \in X$ ist ein \emph{Nash-Gleichgewicht}, wenn für jeden Spieler $i \in I$ und jede seiner Strategien $\hat{x}_i$ gilt:
+		\[c_i(\hat{x}_i, x_{-i}) \cordgeq c_i(x)\]
+	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
+\end{defn}
+
+Aus \cite{MonShap}:
+
+\begin{defn}
+	Eine Folge von Strategieprofilen $x^0, x^1, x^2, \dots$ ist ein \emph{Verbesserungspfad}, wenn folgende beiden Eigenschaften erfüllt sind:
+	\begin{enumerate}
+		\item Für jede Stelle $n$ gibt es einen Spieler $i(n) \in I$, sodass das Profil $x^{n+1}$ aus $x^n$ durch alleinige Abweichung dieses Spielers entsteht, d.h. $x^{n+1} = (x^{n+1}_{i(n)}, x^n_{-i(n)})$
+		\item Der abweichende Spieler $i(n)$ verbessert sich, d.h. $u_{i(n)}(x^{n+1}) \cordle u_{i(n)}(x^n)$.
+	\end{enumerate}
+\end{defn}
+
+\begin{defn}
+	Ein Spiel $\Gamma$ hat die \emph{finite improvement property (FIP)}, wenn jeder Verbesserungspfad endlich ist.
+\end{defn}
+
+\begin{beob}
+	Jedes Ende eines maximalen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. Ein Spiel mit FIP besitzt daher wenigstens ein Nash-Gleichgewicht.
+\end{beob}

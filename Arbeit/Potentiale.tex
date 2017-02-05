@@ -1,0 +1,27 @@
+\section{Potentiale}\label{sec:Potentiale}
+
+\begin{defn}
+	Eine Funktion $P: X \to \IR$ heißt\todo{Verallgemeinern? (total geordnete Menge $K$ statt $\IR$?)}
+	\begin{itemize}
+		\item \emph{Beste Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ gilt:
+			\[\arg \max_{x_i \in X_i}c_i(x) = \arg \max_{x_i \in X_i} P(x)\]
+		\item \emph{verallgemeinertes ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
+			\[c_i(x_i,x_{-i}) > c_i(\hat{x}_i, x_{-i}) \implies P(x_i,x_{-i}) > P(\hat{x}_i, x_{-i})\]
+		\item \emph{ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
+			\[c_i(x_i,x_{-i}) > c_i(\hat{x}_i, x_{-i}) \iff P(x_i,x_{-i}) > P(\hat{x}_i, x_{-i})\]
+	\end{itemize}
+	Sind die $K_i$ zudem geordnete abelsche Gruppen, so heißt $P$
+	\begin{itemize}
+		\item \emph{skaliertes Potential}, wenn es streng monotone Funktionen $f_i: \IR \to K_i$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
+			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = f_i(P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i}))\]
+	\end{itemize}
+	Sind die $K_i$ Teilmengen einer gemeinsamen geordneten abelschen Gruppe $K$, so heißt $P$
+	\begin{itemize}	
+		\item \emph{gewichtetes Potential}, wenn es einen Gewichtsvektor $(w_i)_{i\in I}$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
+			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = w_i\cdot(P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i}))\]
+		\item \emph{exaktes Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
+			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i})\]
+	\end{itemize}
+\end{defn}\todo{Kann man diese Definition irgendwie kompakter/übersichtlicher machen?}
+
+Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden erstmals in \cite{MonShap} definiert, beste Antwort-Potentiale erstmals in \cite{BestRespPot}.

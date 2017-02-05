@@ -34,3 +34,30 @@ Für 2-mal diffbare Funktionen (wobei die Strategieräume reele Intervalle sind)
 (kontinuierliches Analagon zu oben (auch die Konstruktion des Potentials ist entsprechend))
 
 		--Monderer-Shapley-1996.pdf
+		
+		
+## Ordnungstheorie ##
+
+Eine _Präordnung_ ist eine reflexive und trasitive Relation.
+
+Eine _Partialordnung_ ist eine antisymmetrische Präordnung.
+
+Jede partielle Ordnung ≤ entspricht einer strikten Ordnung < via  
+a < b <=> a ≤ b UND nicht a = b bzw. a ≤ b <=> a < b ODER a = b
+
+Jede Präordnung induziert eine Partialordnung auf ihren Äquivalenzklassen.
+
+Eine _totale Ordnung_ ist eine partiale Ordnung, sodass für je zwei Elemente x ≤ y oder y ≤ x gilt.
+
+Eine _Wohlordnung_ ist eine totale Ordnung, sodass jede nicht-leere Teilmenge ein kleinstes Element hat.
+
+Ein _Verband_ (_Lattice_) ist eine Partialordnung, wenn es zu jede zweielementige Teilmenge Infemum und Supremum besitzt (in der ganzen Menge!).
+
+Eine Funktion f: M -> N zwischen zwei partiell geordneten Mengen heißt
+* _monoton/ordnungserhaltend_ <=> a ≤ b => f(a) ≤ f(b)
+* _streng monoton_ <=> a < b => f(a) < f(b)
+* _Ordnungs-reflektierend_ <=> f(a) ≤ f(b) => a ≤ b
+* _Ordnungseinbettung_ <=> a ≤ b <=> f(a) ≤ f(b)
+* _Ordnungsisomorphismus_ <=> f surjektive Ordnungseinbettung
+
+		--https://en.wikipedia.org/wiki/Order_relation
