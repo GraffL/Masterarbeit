@@ -20,11 +20,11 @@
 \begin{defn}\label{def:gewAuslastungsspiel}
 	Zusammen mit einem Gewichtsvektor $(w_i)_{i\in I}$ induziert ein Auslastungsmodel $M$ 
 	\begin{itemize}
-		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (K){i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(x)) \]
 		und die gleiche Lastfunktion wie im ungewichteten Fall.
-		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (K){i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
-		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (K){i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
+		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(x)) \]
 		und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
 	\end{itemize}	
@@ -34,12 +34,12 @@
 	\todo{Ist diese Definition wirklich sinnvoll?}
 	Zusammen mit einer Skalierungsfunktionen $(f_i: K \to K_i)_{i\in I}$ und verallgemeinerten Lastfunktionen $(h_r: X \to \IR)_{r\in R}$ induziert ein Auslastungsmodel $M$ 
 	\begin{itemize}
-		\item ein \emph{kostenskaliertes Auslastungsspiel} $\Gamma_c(M, f_i) := (I, S, (K){i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\item ein \emph{kostenskaliertes Auslastungsspiel} $\Gamma_c(M, f_i) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(l_r(x))) \]
 		und die gleiche Lastfunktion wie im ungewichteten Fall.
-		\item ein \emph{lastskaliertes Auslastungsspiel} $\Gamma_l(M, h_r) := (I, S, (K){i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\item ein \emph{lastskaliertes Auslastungsspiel} $\Gamma_l(M, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(h_r(x)) \]
-		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, f_i, h_r := (I, S, (K){i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, f_i, h_r := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(h_r(x))).\]
 	\end{itemize}	
 \end{defn}
