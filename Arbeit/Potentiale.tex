@@ -1,5 +1,7 @@
 \section{Potentiale}\label{sec:Potentiale}
 
+\subsection{Definitionen}
+
 \begin{defn}
 	Eine Funktion $P: X \to \IR$ heißt\todo{Verallgemeinern? (total geordnete Menge $K$ statt $\IR$?)}
 	\begin{itemize}
@@ -25,3 +27,34 @@
 \end{defn}\todo{Kann man diese Definition irgendwie kompakter/übersichtlicher machen?}
 
 Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden erstmals in \cite{MonShap} definiert, beste Antwort-Potentiale erstmals in \cite{BestRespPot}.
+
+\todo[inline]{Anschauung}
+
+\todo[inline]{Zusammenhänge (evtl. schon nächstes Kapitel?)}
+
+\subsection{Erste Sätze}
+
+Zu einem gegebenen Strategieprofil $x \in X$ sei dessen \emph{Nachbarschaft} die Menge aller durch höchstens eine Abweichung erreichbarer Strategieprofile, d.h. die Menge $\{(\hat{x}_i, x_{-i}) | i \in N, \hat{x}_i \in X_i\}$. Wir nennen $x$ dann ein \emph{lokales Minimum} einer Funktion $f: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist.
+
+\begin{satz}\label{satz:lokMinNG}
+	Sei $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Dann ist jedes lokale Minimum von $P$ ein Nash-Gleichgewicht von $\Gamma$. Ist $P$ sogar ein ordinales Potential, so gilt auch die umgekehrte Richtung.
+\end{satz}
+
+Dieser Satz zeigt also, dass man Nash-Gleichgewichte allein durch Betrachten einer Potentialfunktion finden kann. Insbesondere folgt daraus direkt die Existenz von Nash-Gleichgewichten in einer Vielzahl von Potentialspielen:
+
+\begin{kor}
+	Sei $\Gamma$ ein Spiel mit einem kompakten Strategieraum und einer stetigen verallgemeinerten ordinalen Potentialfunktion. Dann hat $\Gamma$ wenigstens ein Nash-Gleichgewicht.
+\end{kor}
+
+Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \Cref{satz:lokMinNG} folgt mit Hilfe von \Cref{kor:ExVerbPfadExNG} direkt aus dem folgenden Satz\todo{Streng genommen nicht wirklich, da das Korollar nur für Spiele gilt!?}:
+
+\begin{satz}
+	Sei $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Dann ist jeder Verbesserungspfad in $\Gamma$ auch ein Verbesserungspfad bezüglich $P$. Ist $P$ sogar ein ordinales Potential, so gilt auch die umgekehrte Richtung.
+\end{satz}
+
+\begin{proof}.
+	
+	\todo[inline]{Beweis}	
+\end{proof}
+
+\todo[inline]{Was kann man über Beste-Antwort-Potentiale sagen (vermtl. Zusammenhang zu Beste-Antwort-Pfade?)}

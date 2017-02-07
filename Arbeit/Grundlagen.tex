@@ -39,6 +39,20 @@ Aus \cite{MonShap}:
 	Ein Spiel $\Gamma$ hat die \emph{finite improvement property (FIP)}, wenn jeder Verbesserungspfad endlich ist.
 \end{defn}
 
-\begin{beob}
-	Jedes Ende eines maximalen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. Ein Spiel mit FIP besitzt daher wenigstens ein Nash-Gleichgewicht.
+\begin{beob}\label{beob:VerbPfadeundNGe}
+	Jedes Ende eines maximalen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
+		
+	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines maximalen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
 \end{beob}
+
+\begin{kor}\label{kor:ExVerbPfadExNG}\todo{Sollte eine Beobachtung wirklich ein Korrolar haben?}
+	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen endlichen, maximalen Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
+\end{kor}
+
+Aus \cite{BestRespPot}
+
+\begin{defn}
+	Eine Verbesserungspfad $x^0, x^1, x^2, \dots$ heißt \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es (ohne Verbesserungsbedinung) beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. 
+		\[u_{i(n)}(x^{n+1}) = \max_{\hat{x}_{i(n)} \in X_{i(n)}} u_{i(n)}(\hat{x}_i,x^n_{-i(n)}).\]
+	\todo{Insbesondere setzt das natürlich voraus, dass ein solches Maximum auf dem Pfad immer existiert.}
+\end{defn}
