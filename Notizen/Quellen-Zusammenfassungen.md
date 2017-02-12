@@ -141,6 +141,17 @@ Erweiterung von CLU mit (bestimmten) Spielerspezifischen Kostenfunktionen -> es 
 
 
 --------------------------------------------------------------------------------------------------------------------------------
+## Algorithms for Pure Nash Equilibria in Weighted Congestion Games ##
+	by Panagiota N. Panagopoulou and Paul G. Spirakis | Algorithms for pure Nash equilibria in weighted congestion games.pdf
+	
+Relevantes Theorem (5.1): Jedes gewichtete Netzwerkauslastungsspiel mit exponentiellen Kostenfunktionen ist w-Potentialspiel.  
+Müsste eigentlich mit gleichem Beweis für allgemeine gew. Auslastungsspiele mit exp. Kostenfunktionen gelten.  
+Gewicht der Potentialfkt. ist exp(w_i)/(exp(w_i)-1), Potentialfkt. ist \sum r\in R c(x)  
+
++ experimentelle Analyse des Nashify-Alg. (Bestresponse-Alg.) zum Finden von Nashgleichgewichten. Vermutung: Polynomialzeit.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Congestion Games with Player-Specific Payoff Functions ##
 	by Igal Milchtaich
 
@@ -153,14 +164,22 @@ Beweis läuft durch Induktion über die Zahl der Spieler.
 
 
 --------------------------------------------------------------------------------------------------------------------------------
-## Algorithms for Pure Nash Equilibria in Weighted Congestion Games ##
-	by Panagiota N. Panagopoulou and Paul G. Spirakis | Algorithms for pure Nash equilibria in weighted congestion games.pdf
+## Weighted Congestion Games With Separable Preferences ##
+	by Igal Milchtaich | Weighted Congestion Games With Separable Preferences.pdf
 	
-Relevantes Theorem (5.1): Jedes gewichtete Netzwerkauslastungsspiel mit exponentiellen Kostenfunktionen ist w-Potentialspiel.  
-Müsste eigentlich mit gleichem Beweis für allgemeine gew. Auslastungsspiele mit exp. Kostenfunktionen gelten.  
-Gewicht der Potentialfkt. ist exp(w_i)/(exp(w_i)-1), Potentialfkt. ist \sum r\in R c(x)  
+Ein _seperable Auslastungsspiel mit seperablen Präferenzen_ ist eine Variante eines gewichteten Auslastungsspiels, in dem die Strategien Singeltons sind und die Kosten für Spieler i bei Wahl von Resource r ist gegeben durch a_r^i * c(\sum_{j, die r wählen} w_r^j) oder c(\sum_{j, die r wählen} w_r^j) + b_r^i, wobei c monoton wachsend ist und w_r^j das Gewicht von Spieler j bei Wahl von Resource r.
 
-+ experimentelle Analyse des Nashify-Alg. (Bestresponse-Alg.) zum Finden von Nashgleichgewichten. Vermutung: Polynomialzeit.
+Prop: In obigem Modell spielerspezifische Funktionen c zuzulassen erweitert die Klasse der Spiele nicht, da dies durch "ausreichend verschiedene" Gewichte mit einer gemeinsamen GEwichtsfunktion simuliert werden kann (hier gezeigt für endliche Spiele - sollte mMn aber zumindest auch für abzählbare funktionieren)
+
+Theorem 1: Sind die Kosten (pro Resource) für alle Spieler gleich (a_r^i = a_r^j bzw. b_r^i = b_r^j), so besitzt das Spiel die FIP
+
+Theorem 2: Sind die Gewichte (pro Resource) für alle Spieler gleich, so besitzt das Spiel die FIP.   
+	Beweis über eine Verallgemeinerung des Rosenthalpotentials.
+	
+Theorem 3: Sind die Gewichte (pro Spieler) für alle Resourcen gleich, so ist ein Nash-Gleichgewicht bei bis zu 3 Spielern garantiert. Für 8 Spieler gibt es ein Beispiel, in dem kein NG existiert.
+
+Theorem 4: Sind die Gewichte (pro Spieler) für alle Resourcen gleich und die Kostenfunktionen linear, so hat das Spiel die FIP.
+
 
 
 ================================================================================================================================
