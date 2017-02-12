@@ -1,7 +1,7 @@
 \section{Auslastungsspiele}\label{sec:Auslastungsspiele}
 
 \begin{defn}\label{def:Auslastungsmodel}
-	Ein \emph{Auslastungsmodel $M$} ist gegeben durch ein Tupel $(I, R, (S_i)_{i\in I}, K, (g_r)_{r \in R})$. Dabei ist
+	Ein \emph{Auslastungsmodell $M$} ist gegeben durch ein Tupel $(I, R, (S_i)_{i\in I}, K, (g_r)_{r \in R})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
 		\item $R$ die Menge der zur Verfügung stehenden Ressourcen,
@@ -12,13 +12,13 @@
 \end{defn}
 
 \begin{defn}\label{def:Auslastungsspiel}
-	Jedes Auslastungsmodel $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+	Jedes Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(l_r(x)) \]
 	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die \emph{Lastfunktion}\todo{Hier bekommt man wohl Probleme, wenn Spieler- bzw. Ressourcenmenge unendlich ist.}{} der Ressource ist.
 \end{defn}
 
 \begin{defn}\label{def:gewAuslastungsspiel}
-	Zusammen mit einem Gewichtsvektor $(w_i)_{i\in I}$ induziert ein Auslastungsmodel $M$ 
+	Zusammen mit einem Gewichtsvektor $(w_i)_{i\in I}$ induziert ein Auslastungsmodell $M$ 
 	\begin{itemize}
 		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(x)) \]
@@ -32,7 +32,7 @@
 
 \begin{defn}\label{def:skalierteAuslastungsspiel}
 	\todo{Ist diese Definition wirklich sinnvoll?}
-	Zusammen mit einer Skalierungsfunktionen $(f_i: K \to K_i)_{i\in I}$ und verallgemeinerten Lastfunktionen $(h_r: X \to \IR)_{r\in R}$ induziert ein Auslastungsmodel $M$ 
+	Zusammen mit einer Skalierungsfunktionen $(f_i: K \to K_i)_{i\in I}$ und verallgemeinerten Lastfunktionen $(h_r: X \to \IR)_{r\in R}$ induziert ein Auslastungsmodell $M$ 
 	\begin{itemize}
 		\item ein \emph{kostenskaliertes Auslastungsspiel} $\Gamma_c(M, f_i) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(l_r(x))) \]
