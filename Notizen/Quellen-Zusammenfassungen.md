@@ -153,7 +153,7 @@ Gewicht der Potentialfkt. ist exp(w_i)/(exp(w_i)-1), Potentialfkt. ist \sum r\in
 
 --------------------------------------------------------------------------------------------------------------------------------
 ## Congestion Games with Player-Specific Payoff Functions ##
-	by Igal Milchtaich
+	by Igal Milchtaich | Congestion Games with Player-Specific Payoff Functions.pdf
 
 Definiert Auslastungsspiele mit spielerspezifischem Nutzen. Dabei wählen Spieler genau eine Fabrik und der Nutzen sinkt monoton mit der Anzahl der Spieler, die die jeweilige Fabrik gewählt haben.
 
@@ -181,9 +181,8 @@ Theorem 3: Sind die Gewichte (pro Spieler) für alle Resourcen gleich, so ist ei
 Theorem 4: Sind die Gewichte (pro Spieler) für alle Resourcen gleich und die Kostenfunktionen linear, so hat das Spiel die FIP.
 
 
-
 ================================================================================================================================
-# Morphismen #
+# Morphismen/Isomorphismen/Äquivalenzen #
 
 --------------------------------------------------------------------------------------------------------------------------------
 ## On Some Categories of Games and Corresponding Equilibria ##
@@ -203,6 +202,32 @@ Definiert _topologische Spiele_ als topologischen Raum (Spielermenge) mit zwei G
 Lemma (4.1): Sind die Abbildungen auf den Strategieraum-Garben surjektiv, so erhält die Abbildung Gleichgewichtspunkte. Ist die Spielerabbildung surjektiv und die Payoff-Garben-Abbildungen injektiv, so ist das Urbild eines schwachen Gleichgewichtes ein schwaches Gleichgewicht.
 
 Weiter wird dann der Begriff von Gleichgewichten und (nicht-strategischen) Spielen verallgemeinert.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Best Responce Equivalence ##
+	by Stephen Morris, Takashi Ui | Best responce equivalence.pdf
+
+Drei weitere Äquivalenzbegriffe von (Auszahlungs-!)Spielen auf gemeinsamem Strategieraum:
+
+Zu Spieler i, Strategie x_i \in X_i, Strategiemenge A_i \subseteq X_i und Kostenfunktion c_i ist  
+L_i(x_i, A_i | c_i) := {l_i Wktvtlg auf X_{-i} | F.a. y_i \in X_i: \sum_{x_{-i} \in X_{-i} l_i(x_{-i})*(c_i(x)-c_i(y_i, x_{-i})) \geq 0}  
+die Menge aller gemischten Gegenstrategien, für die Spieler i x_i gegenüber allen Strategien aus A_i bevorzugt.
+
+Dann heißen zwei Spiele (mit Kostenfunktionen c_i bzw. c'_i)
+* _von Neumann (VNM)-äquivalent_ <=> \exists w_i>0, Q_i:X_{-i} -> IR: \forall x_i: c_i(x_i, _) = w_i*c'_i(x_i,_) + Q_i(_)
+* _bessere Antwort-äquivalent_ <=> \forall i, x_i, y_i: L_i(x_i,y_i | c_i) = L_i(x_i, y_i | c'_i)
+* _beste Antwort-äquivalent_ <=> \forall i, x_i: L_i(x_i, X_i | c_i) = L_i(x_i, X_i | c'_i)  
+Die Definitionen werden von oben nach unten schwächer, d.h. aus VNM-äq folgt bessere Antwort-äq. und daraus beste Antwort-äq.
+
+Lemma: Zwei Spiele sind VNM-äq <=> \w_i: c_i(x_i, _) - c_i(y_i, _) = w_i (c'_i(x_i, _) - c'_i(y_i, _))
+
+Beob: VNM-Äq. führt zur Definition von gew. Potentialen: Alle Spiele mit w-Potential P, gehören zur selben VNM-Äq.-klasse wie das Spiel mit (einheitlicher) Kostenfunktion P.  
+Analog dazu erhält man die Begriffe "bessere Antwort-Potential" und "beste Antwort-Potential" (der entsprechende Begriff in "Best-response potential games" ist anscheinend allgemeiner (da dort nur degenerierte Wkts-vtlgen erlaubt sind?)).
+
+Unter der Annahme verschiedener generischer Eigenschaften werden Charakterisierungen der verschiedenen Äquivalenzen gezeigt.
+
+Schließlich werden entsprechende Begriffe für gemischte Strategien definiert.
 
 
 ================================================================================================================================
