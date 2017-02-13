@@ -32,3 +32,5 @@ Definitionen und erste Sätze
 
 ## Zusammenhänge von Potential- und Auslastungsspielen ##
 Was ist bereits bekannt?
+
+"Venn-Diagramm" für Inklusionen zusammen mit (verschiedenartigen Pfeilen) für die verschiedenen Einbettungen - evtl. getrennt für endliche/abzählbare/... Spiele
