@@ -181,6 +181,43 @@ Theorem 3: Sind die Gewichte (pro Spieler) für alle Resourcen gleich, so ist ei
 Theorem 4: Sind die Gewichte (pro Spieler) für alle Resourcen gleich und die Kostenfunktionen linear, so hat das Spiel die FIP.
 
 
+--------------------------------------------------------------------------------------------------------------------------------
+## Representation of Finite Games as Network Congestion Games ##
+	by Igal Milchtaich | Representation of Finite Games as Network Congestion Games.pdf (s. auch Vortrag: https://www.youtube.com/watch?v=QxjJyL-t9TE )
+
+Ein _Homomorphismus_ zwischen zwei Spielen ist gegeben durch eine Umnummerierung der Spieler und ein kostenerhaltende (aber nicht notwendigerweise surjektive oder injektive) Abbildungen zwischen den Strategieräumen
+
+Zwei Spiele mit gleichen Spieler- und Strategiemengen heißen _ähnlich_ <=> die Kostendifferenzen für einen abweichenden Spieler sind jeweils in beiden Spielen gleich.  
+	-> Ein Spiel hat ein exaktes Potential <=> es ist ähnlich zu einem Spiel mit gemeinsamer Kostenfunktion für alle Spieler
+	
+
+Ein _gewichtetes Netzwerkauslastungsspiel_ ist gegeben durch einen gerichteten Graphen mit Quelle und Senke, monotonen Kostenfunktionen auf allen Kanten und zu jeder Kante eine Menge an Spielern, die diese benutzen dürfen. Alle Quelle-Senke-Pfade die nur Kanten benutzen, welche für Spieler i erlaubt sind, bilden zusammen den Strategieraum dieses Spielers. Zusätzlich hat jeder Spieler ein Gewicht w_i > 0. Die Kosten für einen Spieler ergeben sich dann als Summe der Kosten die (durch alle Spieler) auf allen von diesem Spieler benutzten Kanten entstehen.  
+Sind alle Gewichte 1, so heißt das Spiel _ungewichtetes Netzwerkauslastungsspiel_. Ein solches wird zu einem _(ungewichteten) Netzwerkauslastungsspiel mit spielerspezifischen Kosten_, wenn die Kantenkosten spielerspezifisch sind.
+
+Theorem: Jedes endliche Spiel kann als gewichtetes Netzwerkauslastungsspiel repräsentiert werden.  
+         Jedes endliche Spiel kann als Netzwerkauslastungsspiel mit spielerspezifischen Kosten repräsentiert werden.  
+		 Ein endliches Spiel kann als ungewichtetes Netzwerkauslastungsspiel repräsentiert werden <=> es besitzt ein exaktes Potential
+		 
+Die Endlichkeit des Spiels scheint relativ zentral in den Beweis einzugehen (eine entsprechende Zahl erscheint als Nenner eines Bruchs - ist es schlimm, wenn dieser Bruch 0 wird?)
+
+		 
+Die _sequentielle Zug-Version_ (_sequential-move version_) eines Spiels ist ein perfekte Informationsspiel, in dem die Spieler die Strategien aus dem ursprünglichen Spiel nacheinander wählen. 
+
+Ein Spiel heißt _sequentiell lösbar_ <=> für jede Anordnung der Spieler gibt es ein perfektes Teilspielgleichgewicht ...
+	
+Gewichtete Singelton-Netzwerkauslastungsspiele haben kein exaktes Potential, aber FIP (also ordinales Potential)
+
+Singelton-Netzwerkauslastungsspiele mit spielerspezifischen Kosten haben nicht FIP, aber immer Nash-Gleichgewichte und sind sequentiell-lösbar.
+
+
+		 
+		 
+--------------------------------------------------------------------------------------------------------------------------------
+## Polyequilibrium ##
+	by Igal Milchtaich | polyequilibrium.pdf
+	
+...	
+
 ================================================================================================================================
 # Morphismen/Isomorphismen/Äquivalenzen #
 
