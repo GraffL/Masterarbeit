@@ -1,11 +1,28 @@
-\section[Morphismen]{Morphismen von Spielen}\label{sec:Morphismen}
+\section[Morphismen]{Morphismen und Isomorphismen von Spielen}\label{sec:Morphismen}
+
+\todo[inline]{Motivation: Warum betrachtet man überhaupt Morphismen von Spielen. Wie induzieren diese Isomorphismen?}
 
 \subsection{Definitionen}
+
+Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I', X', (K_i)_{i\in I}, (c'_i)_{i\in I})$ kann man wie folgt eine Abbildung zwischen diesen beiden definieren:
+\begin{itemize}
+	\item Eine bijektive Abbildung $\sigma: I \to I'$ zwischen den Spielermengen und
+	\item für jeden Spieler $i \in I$ eine Abbildung $\phi_i: X_i \to X'_{\sigma(i)}$ seiner Strategien.
+\end{itemize}
+\cite{Polyequilibrium} bezeichnet derartige Abbildungen \emph{Strategieersetzungsvorschriften}.\todo{Mehr dazu schreiben - erst später bei rationalen SEVs erwähnen?}
+
+\begin{beob}
+	Mit dieser Definition ist es also nur möglich Abbildungen zwischen Spielen mit Spielermengen gleicher Kardinalität zu definieren. Im Folgenden werden wir auch nur solche Abbildungen betrachten (vergleiche aber \Cref{bem:LapMorDef} dazu wie auch in anderen Fällen Abbildungen zwischen Spielen definiert werden können). Zur Vereinfachung der Notation werden wir daher ab sofort immer davon ausgehen, dass die Spielermengen beider an einer Abbildung beteiligten Spiele bereits gleich und geeignet permutiert sind.
+\end{beob}
+
+Abbildungen der obigen Form nehmen noch keinerlei Rücksicht auf die Kostenfunktionen der jeweiligen Spiele. Da diese aber in der Regel die interessierenden Eigenschaften eines Spiels (wie beispielsweise Gleichgewichte) festlegen, werden derartige Abbildungen im Allgemeinen noch wenig Aussagen über die beteiligten Spiele ermöglichen. So besagt der durch diese Art Abbildungen induzierte Isomorphiebegriff bspw. nur, dass zwei Spiele Spieler- und Strategiemengen gleicher Kardinalität besitzen.
+
+Echte Morphismen zwischen Spielen sollten folglich noch mehr der Struktur eines Spiels erhalten, insbesondere in irgendeiner Form \glqq verträglich\grqq{} mit den Kostenfunktionen sein. Je nach dem, welche Eigenschaften die Morphismen (und insbesondere die dadurch induzierten Isomorphismen) erhalten sollen, erhält man so unterschiedlich starke Einschränkungen daran, welche Abbildungen zwischen Spielen als \emph{Morphismen zwischen Spielen} bezeichnet werden dürfen. Einige Möglichkeiten dafür werden wir nun kennenlernen:
 
 \begin{defn}
 	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K_i)_{i\in I}, (c'_i)_{i\in I})$ heißen \emph{äquivalent}, wenn es für jeden Spieler $i$ eine bijektive Abbildung $\phi_i: X_i \to X'_i$ gibt, sodass gilt:
 		\[\forall x \in X: c_i(x) = c'_i(\phi(x)) \]
-	\todo{Permutation von Spielern erlauben?}
+	\todo{Permutation von Spielern erlauben? Das entspricht dann einer bereits von Nash verwendeten Definition!}
 \end{defn}
 
 \begin{bem}
@@ -23,8 +40,10 @@
 	\end{center}
 \end{defn}
 
-\begin{bem}
-	Diese Definition ergibt sich aus der abstrakteren Definition für \todo{...} in \cite{LapGameCat}.
+\begin{bem}\label{bem:LapMorDef}
+	Diese Definition ergibt sich aus der abstrakteren Definition für \todo{...} in \cite{LapGameCat}. 
+	
+	\todo[inline]{Auch auf Verallgemeinerung mit Garben hinweisen (erlaubt Abbildungen zwischen Spielen mit Spielermengen unterschiedlicher Kardinalität!)}
 \end{bem}
 
 \begin{defn}

@@ -259,6 +259,14 @@ Schließlich werden entsprechende Begriffe für gemischte Strategien definiert.
 
 
 --------------------------------------------------------------------------------------------------------------------------------
+## Fictitious Play Property for Games with Identical Interests ##
+	by Dov Monderer | Fictitious Play Property for Games with Identical Interests.pdf
+	
+Erwähnt den Begriff Beste Antwort-Äquivalent (best response equivalent): Zwei Spiele mit gleichem Strategieraum, aber verschiedenen Kostenfunktionen sind _beste Antwort-äquivalent_ <=> Für jedes Strategieprofil x und jeden Spieler i wird die beste Antwort für Spieler i auf x an der gleichen Stelle (den gleichen Stellen?) angenommen.  
+(wird hier nur für gemischte Strategien definiert und verwendet - sollte aber genauso für reine Strategien gehen)
+
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Polyequilibrium ##
 	by Igal Milchtaich | polyequilibrium.pdf
 	
@@ -301,14 +309,6 @@ Des Weiteren beschreibt das Paper Zusammenhänge zu Polyequilibria in gemischten
 	by John Nash | Non-cooperative Games (Nash).pdf
 
 Enthält bereits das Konzept eines _Automorphismuses_ (bzw. einer _Symmetrie_) eines Spiels: Eine Permutation der Spielermenge und eine Familie (dazu passender) Bijektionen der Strategiemengen, sodass die Kosten erhalten bleiben.
-
-
---------------------------------------------------------------------------------------------------------------------------------
-## Fictitious Play Property for Games with Identical Interests ##
-	by Dov Monderer | Fictitious Play Property for Games with Identical Interests.pdf
-	
-Erwähnt den Begriff Beste Antwort-Äquivalent (best response equivalent): Zwei Spiele mit gleichem Strategieraum, aber verschiedenen Kostenfunktionen sind _beste Antwort-äquivalent_ <=> Für jedes Strategieprofil x und jeden Spieler i wird die beste Antwort für Spieler i auf x an der gleichen Stelle (den gleichen Stellen?) angenommen.  
-(wird hier nur für gemischte Strategien definiert und verwendet - sollte aber genauso für reine Strategien gehen)
 
 
 ================================================================================================================================
