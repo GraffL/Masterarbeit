@@ -6,7 +6,7 @@
 
 Lemma (2.5): Ein Spiel hat FIP <=> Spiel hat verallg. oridinales Potential  
 Beweis über Relation > auf dem Strategieraum, mit x > y <=> es gibt einen (endlichen) Verbesserungspfad von x nach y. Eine Teilmenge von Y heißt dann "repräsentiert" <=> es gibt ein Ordinales Potential für diese. Dann nimmt man eine maximale solche Teilmenge und führt die Annahme, diese wäre nicht ganz Y, zu einem Widerspruch (mit drei Fällen). Ein konstruktiver (und eleganterer) Beweis wird zitiert - das müsste der gleiche wie im Opti IV-Skript sein.  
-Beachte: Der erste Beweis könnte evtl. auch für unendliche Strategieräume funktionieren, der zweite sicher nicht.
+Beachte: Der erste Beweis könnte evtl. auch für unendliche Strategieräume funktionieren, der zweite vermutlich nicht (evtl. aber für abzählbare Räume?).
 
 ...
 
@@ -100,7 +100,6 @@ Zentrales Theorem1: Geg. eine Menge von lokal beschränkten Funktionen C. Dann b
 Zentrales Theorem2: Geg. eine Menge von stetigen Funktionen C. Dann besitzt jedes mit Funktionen daraus konstruierte gewichtete Auslastungsspiel ein w-Potential <=> C enthält nur affin lineare Funktionen oder C enthält nur Exponentialfunktionen mit gemeinsamer Basis
 	
 + Erweiterungen für Spiele mit fabrikabhängigen Bedarfen oder elastischen Bedarfen	
-
 	
 	
 --------------------------------------------------------------------------------------------------------------------------------
@@ -210,14 +209,6 @@ Gewichtete Singelton-Netzwerkauslastungsspiele haben kein exaktes Potential, abe
 Singelton-Netzwerkauslastungsspiele mit spielerspezifischen Kosten haben nicht FIP, aber immer Nash-Gleichgewichte und sind sequentiell-lösbar.
 
 
-		 
-		 
---------------------------------------------------------------------------------------------------------------------------------
-## Polyequilibrium ##
-	by Igal Milchtaich | polyequilibrium.pdf
-	
-...	
-
 ================================================================================================================================
 # Morphismen/Isomorphismen/Äquivalenzen #
 
@@ -267,8 +258,62 @@ Unter der Annahme verschiedener generischer Eigenschaften werden Charakterisieru
 Schließlich werden entsprechende Begriffe für gemischte Strategien definiert.
 
 
+--------------------------------------------------------------------------------------------------------------------------------
+## Polyequilibrium ##
+	by Igal Milchtaich | polyequilibrium.pdf
+	
+Polyequilibria verallgemeinern die Ideen von Nash-Gleichgewichten.
+
+Interessante Notation: Für Strategieprofil x und Strategie y_i bezeichnet x | y_i das Strategieprofil, welches man aus x durch Ersetzen von x_i durch y_i erhält.
+
+Seien x_i und y_i zwei Strategien von i, sowie S eine Menge von Strategieprofilen. 
+* Dann ist x_i _eine mindestens so gute Antwort auf S_ wie y_i <=> F.a. x \in S: c(x | x_i) ≤ c(x | y_i).  
+* Ist mindestens eine der Ungleichungen strikt, so _dominiert x_i schwach y_i relativ zu S_. Sind alle Ungleichungen strikt, so _dominiert x_i strikt y_i relativ zu S_.  
+* x_i ist eine _beste Antwort_ auf S, wenn es für jede Strategie von i eine mindestens so gute Antwort auf die Strategien aus S ist.
+
+Ein Strategieprofil x ist _eine mindestens so gute Antwort auf S_ wie ein anderes Strategieprofil y <=> für jeden Spieler i ist x_i eine mindestens so gute Antwort auf S wie y_i.
+
+Eine _Polystrategie_ von Spieler i ist eine (nicht-leere) Teilmenge seines Strategieraums.
+
+Ein _Teilspiel_ ist gegeben durch eine Polystrategieprofil (d.h. je eine Polystrategie für jeden Spieler).
+
+Eine Polystrategieprofil Y ist 
+* ein _Polyequilibrium_ <=> für jedes nicht darin enthaltene Strategieprofil gibt es ein darin enthaltenes Strategieprofil, das eine mindestens so gute Antwort auf Y ist.
+* ein _striktes Polyequilibrium_ <=> für jeden Spieler i und jede Strategie x_i \notin Y_i gibt es ein y_i \in Y_i, welches x_i relativ zu Y strikt dominiert.
+* ein _einfaches Polyequilibrium_ <=> es enthält ein Strategieprofil, welches eine beste Antwort auf Y ist.
+
+Beob: Singelton-Polyequilibria entsprechend Nash-Gleichgewichten (ebenso für die strikten Varianten).
+
+
+Eine _Strategieersetzungsvorschrift_ für Spieler i ist gegeben durch eine (beliebige!) Funktion f_i: X_i -> X_i. Eine _Strategieersetzungsvorschrift_ (für alle Spieler) ist eine Familie solche Funktionen für alle Spieler.  
+Eine solche Strategieersetzungsvorschrift heißt _rational_ <=> f.a. Spieler i und Strategieprofile x gilt: c_i(f(x)) ≤ c_i(f(x) | x_i). D.h. folgen alle anderen Spieler der Ersetzungsvorschrift, so ist dies auch für Spieler i sinnvoll.
+
+Beob: Ein Polystrategieprofil Y ist ein Polyequilibrium <=> Es ist Bild einer rationalen Strategieersetzungsvorschrift X -> X. (diese liefert also sozusagen jeweils die Begründung für das Weglassen einer bestimmten Strategie).
+
+Prop 1: Jedes Polyequilibrium enthält den Support eines gemischten Nash-Gleichgewichtes.
+
+
+Des Weiteren beschreibt das Paper Zusammenhänge zu Polyequilibria in gemischten Erweiterungen und beschäftigt sich dann mit sogenannten Dynamischen Spielen (=Spiele in extensive Form?).
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Non-Cooperative Games ##
+	by John Nash | Non-cooperative Games (Nash).pdf
+
+Enthält bereits das Konzept eines _Automorphismuses_ (bzw. einer _Symmetrie_) eines Spiels: Eine Permutation der Spielermenge und eine Familie (dazu passender) Bijektionen der Strategiemengen, sodass die Kosten erhalten bleiben.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Fictitious Play Property for Games with Identical Interests ##
+	by Dov Monderer | Fictitious Play Property for Games with Identical Interests.pdf
+	
+Erwähnt den Begriff Beste Antwort-Äquivalent (best response equivalent): Zwei Spiele mit gleichem Strategieraum, aber verschiedenen Kostenfunktionen sind _beste Antwort-äquivalent_ <=> Für jedes Strategieprofil x und jeden Spieler i wird die beste Antwort für Spieler i auf x an der gleichen Stelle (den gleichen Stellen?) angenommen.  
+(wird hier nur für gemischte Strategien definiert und verwendet - sollte aber genauso für reine Strategien gehen)
+
+
 ================================================================================================================================
 # Unsortiertes #
+
 
 --------------------------------------------------------------------------------------------------------------------------------
 ## Tight Bounds for Cost-Sharing in Weighted Congestion Games ##
