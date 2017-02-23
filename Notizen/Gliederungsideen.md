@@ -1,4 +1,6 @@
-﻿Mögliche Kapitel:
+﻿<h1>Gliederungsideen</h1>
+
+Mögliche Kapitel:
 
 ## Grundlagen ##
 Definition von Spielen in strategischer Form - evtl. auf verschiedene Allgemeinheitsstufen eingehen?

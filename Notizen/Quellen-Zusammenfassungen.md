@@ -1,12 +1,14 @@
-﻿# Potentialspiele #
+﻿<h1>Quellen-Zusammenfassung</h1>
+
+# Potentialspiele #
 
 --------------------------------------------------------------------------------------------------------------------------------
 ## Potential Games ##
 	by Dov Monderer, Lloyd S. Shapley | Monderer-Shapley-1996.pdf
 
 Lemma (2.5): Ein Spiel hat FIP <=> Spiel hat verallg. oridinales Potential  
-Beweis über Relation > auf dem Strategieraum, mit x > y <=> es gibt einen (endlichen) Verbesserungspfad von x nach y. Eine Teilmenge von Y heißt dann "repräsentiert" <=> es gibt ein Ordinales Potential für diese. Dann nimmt man eine maximale solche Teilmenge und führt die Annahme, diese wäre nicht ganz Y, zu einem Widerspruch (mit drei Fällen). Ein konstruktiver (und eleganterer) Beweis wird zitiert - das müsste der gleiche wie im Opti IV-Skript sein.  
-Beachte: Der erste Beweis könnte evtl. auch für unendliche Strategieräume funktionieren, der zweite vermutlich nicht (evtl. aber für abzählbare Räume?).
+Beweis über Relation > auf dem Strategieraum, mit x > y <=> es gibt einen (endlichen) Verbesserungspfad von x nach y und x != y. Aus der FIP folgert, dass diese transitiv ist, denn die einzige Stelle, an der dies scheitern könnte, ist ein Auftreten von x > y und y > x (denn daraus kann nicht x > x folgern). Und dieser Fall kann nicht eintreten, da er einen Verbesserungskreis verursachen würde. Eine Teilmenge von Y heißt dann "repräsentiert" <=> es gibt ein Ordinales Potential für diese. Dann nimmt man eine maximale solche Teilmenge und führt die Annahme, diese wäre nicht ganz Y, zu einem Widerspruch (mit drei Fällen). Ein konstruktiver (und eleganterer) Beweis wird zitiert - das müsste der gleiche wie im Opti IV-Skript sein.  
+Beachte: Der erste Beweis kann wohl einfach für unendliche Strategieräume übernommen werden (ersetze max durch sup, min durch inf, "Funktion Q" durch "beschränkte Funktion Q"), der zweite zumindest noch für abzähbare Strategieräume (weise jedem Strategieprofil eine Zahl der Form 1/3^k zu und verwende dann als Potentialfunktion das Negative der Summe über die Werte an allen Strategieprofilen, von denen aus dieses Strategieprofil über einen Verbesserungspfad erreichbar ist).
 
 ...
 
@@ -319,3 +321,17 @@ Enthält bereits das Konzept eines _Automorphismuses_ (bzw. einer _Symmetrie_) e
 ## Tight Bounds for Cost-Sharing in Weighted Congestion Games ##
 
 ???
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+## Optimierung, Operations Research, Spieltheorie ##
+	by Karl Heinz Borgwardt
+	
+Enthält ein Teil "Einführung in die Spieltheorie" (könnte auch ganz praktisch für deutsche Übersetzungen englischer Begriffe sein). 
+
+Arbeitet recht viel mit Spielen in extensiver Form, hat z.B. Sätze über Gleichgewichte in diesen und eine Definition für Teilspiele (in extensiver Form).
+
+Definiert eine dritte Form von Spielen: _Spiele in Charakteristischer Funktionsform_. Für eine Spielermenge N ist ein solches Spiel gegeben durch eine charakteristische Funktion P(N) -> IR, wobei der entsprechende Wert einer Teilmenge S \subseteq N die durch eine Koalition der Spieler in S erzwingbare Auszahlung darstellt.
+
+Theorem (Allgemeiner Satz über die Existenz von Nash-Gleichgewichten in Spielen in strategischer Form): Sind die Strategieräume konvexe und kompakte Teilmengen von IR^n, die Auszahlungsfunktionen stetig auf dem Produkt der Strategieräume und für die Auszahlungsfunktionen konkav in der Strategie des jeweiligen Spielers für jedes feste Strategieprofil aller anderen Spieler, so besitzt das Spiel mindestens ein Gleichgewicht.  
+Beweis über Browerschen Fixpunktsatz (dürfte analog zu dem Theorem aus dem Online Optimierungs-Seminar sein).

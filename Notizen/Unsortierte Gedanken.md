@@ -1,4 +1,6 @@
-﻿## Potentiale ##
+﻿<h1>Unsortierte Gedanken</h1>
+
+## Potentiale ##
 
 Ein Potential entspricht einer "Topografischie" auf dem Strategieraum. Geht man in Richtung i, entspricht der Anstieg/Abstieg dem entsprechenden Kostenanstieg/-abstieg für Spieler i. Die tatsächliche Kostenfunktion entspricht damit dem Potential verschoben um eine nur von den Strategiewahlen der _anderen_ Spieler abhängige Funktion (für den Spaltenspieler ist diese also bspw. Zeilenweise konstant).
  -> Das Potential beschreibt ein Koordinationsspiel (gleiche Kostenfkt. für alle Spieler)
@@ -61,3 +63,18 @@ Eine Funktion f: M -> N zwischen zwei partiell geordneten Mengen heißt
 * _Ordnungsisomorphismus_ <=> f surjektive Ordnungseinbettung
 
 		--https://en.wikipedia.org/wiki/Order_relation
+		
+		
+## Äquivalenz von Spielen in strategischer und extensiver Form ##
+
+Ein _Spiel in extensiver Form_ ist gegeben durch eine Spielermenge N und einen gerichteten Baum. Die internen Knoten dieses Baumes sind mit jeweils einem der Spielernamen aus N beschriftet (zusätzlich kann auch noch eine Beschriftung "Zufall" erlaubt sein - ein derart beschrifteter Knoten besitzt dann zusätzlich eine Wahrscheinlichkeitsverteilung über die ausgehenden Kanten). Die ausgehenden Kanten eines Knotens von Spieler i entsprechend den ihm in dieser Spielsituation zur Verfügung stehenden _Aktionen/Spielzügen_ und sie sind mit den Namen dieser beschriftet. Die Knotenmenge jedes Spielers ist zusätzlich noch in _Informationsmengen_ partitioniert, wobei alle Knoten, die in der gleichen Informationsmenge liegen, die gleiche Anzahl und Beschriftung der ausgehenden Kanten haben müssen. Schließlich ist jedes Blatt b mit einer _Auszahlungsfunktion_ c_b: N -> K beschriftet.  
+Jeder Wurzel-Blatt-Pfad entspricht nun einem möglichen Spielverlauf. Tatsächlich gespielt wird das Spiel, indem jeder Spieler für jede Informationsmenge die auszuführende Aktion festlegt (und bei Zufallsknoten ggfl.s die Wahrscheinlichkeitsverteilung "gefragt" wird). Dabei ist es egal, ob all diese Festlegungen zu Beginn oder erst im Laufe des Spiels getroffen werden.
+
+Theorem: Zu jedem Spiel in extensiver Form existiert ein äquivalentes Spiel in strategischer Form und umgekehrt.
+
+Beweis: Entscheidungen in extensiver Form zu Beginn festlegen entspricht reiner Strategie in strategischer Form. Umgekehrt kann jedes strategische Spiel zu einem Baum gemacht werden, indem man eine Informationsmenge für jeden Spieler einführt, aus der je eine Kante für jede Strategie dieses Spielers in die Informationsmenge des nächsten Spielers führt. Diese Richtung funktioniert vermutlich nur für endlich viele Spieler (aber beliebige Strategieräume)?
+
+Bem: In Spielen mit nicht-vollständiger Information/nicht perfektem Gedächtnis gibt es für Spiele in extensiver Form verschiedene Varianten für Randomisierung, die __nicht__ äquivalent sind.
+
+		--Online Computation and Competetitive Analysis von Allan Borodin, Ran El-Yaniv (Kapitel 6)
+		
