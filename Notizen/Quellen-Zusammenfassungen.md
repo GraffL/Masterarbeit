@@ -8,7 +8,7 @@
 
 Lemma (2.5): Ein Spiel hat FIP <=> Spiel hat verallg. oridinales Potential  
 Beweis über Relation > auf dem Strategieraum, mit x > y <=> es gibt einen (endlichen) Verbesserungspfad von x nach y und x != y. Aus der FIP folgert, dass diese transitiv ist, denn die einzige Stelle, an der dies scheitern könnte, ist ein Auftreten von x > y und y > x (denn daraus kann nicht x > x folgern). Und dieser Fall kann nicht eintreten, da er einen Verbesserungskreis verursachen würde. Eine Teilmenge von Y heißt dann "repräsentiert" <=> es gibt ein Ordinales Potential für diese. Dann nimmt man eine maximale solche Teilmenge und führt die Annahme, diese wäre nicht ganz Y, zu einem Widerspruch (mit drei Fällen). Ein konstruktiver (und eleganterer) Beweis wird zitiert - das müsste der gleiche wie im Opti IV-Skript sein.  
-Beachte: Der erste Beweis kann wohl einfach für unendliche Strategieräume übernommen werden (ersetze max durch sup, min durch inf, "Funktion Q" durch "beschränkte Funktion Q"), der zweite zumindest noch für abzähbare Strategieräume (weise jedem Strategieprofil eine Zahl der Form 1/3^k zu und verwende dann als Potentialfunktion das Negative der Summe über die Werte an allen Strategieprofilen, von denen aus dieses Strategieprofil über einen Verbesserungspfad erreichbar ist).
+Beachte: Die Hinrichtung des ersten Beweises kann wohl einfach für unendliche Strategieräume übernommen werden (ersetze max durch sup, min durch inf, "Funktion Q" durch "beschränkte Funktion Q"), die des zweiten zumindest noch für abzähbare Strategieräume (weise jedem Strategieprofil eine Zahl der Form 1/3^k zu und verwende dann als Potentialfunktion das Negative der Summe über die Werte an allen Strategieprofilen, von denen aus dieses Strategieprofil über einen Verbesserungspfad erreichbar ist). Die Rückrichtung hingegen gilt für unendliche Strategieräume i.A. nicht!
 
 ...
 
@@ -313,6 +313,17 @@ Des Weiteren beschreibt das Paper Zusammenhänge zu Polyequilibria in gemischten
 Enthält bereits das Konzept eines _Automorphismuses_ (bzw. einer _Symmetrie_) eines Spiels: Eine Permutation der Spielermenge und eine Familie (dazu passender) Bijektionen der Strategiemengen, sodass die Kosten erhalten bleiben.
 
 
+--------------------------------------------------------------------------------------------------------------------------------
+## Foundations of Game Theory: Non-Cooperative Games ##
+	by Nicolai N. Vorob'ev | Foundations of Game Theory - Non-Cooperative Games.pdf
+
+Definiert _Teilspiele_ (Einschränkung der Strategieräume), _strategische Äquivalenz_ zwischen Spielen mit gemeinsamem Strategieraum (gegeben durch strikt monotone Funktionen zwischen den Kostenräumen) und _\epsilon-Homomorphismen_ (erlauben Permutation der Spieler und one-to-many Abbildungen zwischen Strategieräumen, sodass sich die Kosten jedes Spielers dabei um höchstens \epsilon ändern (~unpräzise Zusammenfassung!)). Letztere führen dann zu 4 Aussagen, welche als Axiome für eine Kategorie der Spiele verwendet werden.
+
+Weiter wird der Begriff _Optimalitätsprinzip_ definiert: Jedes solche ist gegeben durch eine Abbildung von der Menge der Spiele in eine Teilmenge seines jeweiligen Strategieraums. Diese Teilmenge wird dann als "Gleichgewichts-/Optimalitätsmenge" verstanden. Beispiele für solche Prinzipien sind dann Nash-Gleichgewicht oder soziales Optimum.
+
+
+	
+	
 ================================================================================================================================
 # Unsortiertes #
 
@@ -335,3 +346,17 @@ Definiert eine dritte Form von Spielen: _Spiele in Charakteristischer Funktionsf
 
 Theorem (Allgemeiner Satz über die Existenz von Nash-Gleichgewichten in Spielen in strategischer Form): Sind die Strategieräume konvexe und kompakte Teilmengen von IR^n, die Auszahlungsfunktionen stetig auf dem Produkt der Strategieräume und für die Auszahlungsfunktionen konkav in der Strategie des jeweiligen Spielers für jedes feste Strategieprofil aller anderen Spieler, so besitzt das Spiel mindestens ein Gleichgewicht.  
 Beweis über Browerschen Fixpunktsatz (dürfte analog zu dem Theorem aus dem Online Optimierungs-Seminar sein).
+
+
+@Article{CharExGewPotinWCG,
+	author		="Harks, Tobias and Klimm, Max and M{\"o}hring, Rolf H.",
+	title		="Characterizing the Existence of Potential Functions in Weighted Congestion Games",
+	journal		="Theory of Computing Systems",
+	year		="2011",
+	volume		="49",
+	number		="1",
+	pages		="46--70",
+	issn		="1433-0490",
+	doi			="10.1007/s00224-011-9315-x",
+	url			="http://dx.doi.org/10.1007/s00224-011-9315-x"
+}

@@ -6,7 +6,7 @@
 	Eine Funktion $P: X \to \IR$ heißt\todo{Verallgemeinern? (total geordnete Menge $K$ statt $\IR$?)}
 	\begin{itemize}
 		\item \emph{Beste Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ gilt:
-			\[\arg \max_{x_i \in X_i}c_i(x) = \arg \max_{x_i \in X_i} P(x)\]
+			\[\arg \min_{x_i \in X_i}c_i(x) = \arg \min_{x_i \in X_i} P(x)\]
 		\item \emph{verallgemeinertes ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
 			\[c_i(x_i,x_{-i}) > c_i(\hat{x}_i, x_{-i}) \implies P(x_i,x_{-i}) > P(\hat{x}_i, x_{-i})\]
 		\item \emph{ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
@@ -17,7 +17,7 @@
 		\item \emph{skaliertes Potential}, wenn es streng monotone Funktionen $f_i: \IR \to K_i$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
 			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = f_i(P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i}))\]
 	\end{itemize}
-	Sind die $K_i$ Teilmengen einer gemeinsamen geordneten abelschen Gruppe $K$, so heißt $P$
+	Sind die $K_i$ Teilmengen eines gemeinsamen geordneten Rings $K$, so heißt $P$
 	\begin{itemize}	
 		\item \emph{gewichtetes Potential}, wenn es einen Gewichtsvektor $(w_i)_{i\in I}$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
 			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = w_i\cdot(P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i}))\]
@@ -40,6 +40,8 @@ Zu einem gegebenen Strategieprofil $x \in X$ sei dessen \emph{Nachbarschaft} die
 	Sei $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Dann ist jedes lokale Minimum von $P$ ein Nash-Gleichgewicht von $\Gamma$. Ist $P$ sogar ein ordinales Potential, so gilt auch die umgekehrte Richtung.
 \end{satz}
 
+\todo[inline]{Diese Sätze hier evtl. nur erwähnen und erst später (nach der Definition von Morphismen) formalisieren (und beweisen)}
+
 Dieser Satz zeigt also, dass man Nash-Gleichgewichte allein durch Betrachten einer Potentialfunktion finden kann. Insbesondere folgt daraus direkt die Existenz von Nash-Gleichgewichten in einer Vielzahl von Potentialspielen:
 
 \begin{kor}
@@ -58,3 +60,13 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \C
 \end{proof}
 
 \todo[inline]{Was kann man über Beste-Antwort-Potentiale sagen (vermtl. Zusammenhang zu Beste-Antwort-Pfade?)}
+
+\begin{satz}
+	Hat ein Spiel die FIP, so besitzt es auch ein verallgemeinertes ordinales Potential.
+	
+	Umgekehrt besitzt jedes \emph{endliche} Spiel mit einem verallgemeinerten ordinalen Potential auch die FIP.
+\end{satz}
+
+\begin{proof}
+	\cite{MonShap}/\cite{CongGamesPlayerSpecPayoff} (konstruktiver Beweis)
+\end{proof}

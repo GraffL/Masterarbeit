@@ -17,6 +17,8 @@
 
 \begin{notation}
 	Zu einem festen Spieler $i$ bezeichne $X_{-i} := \prod_{j \in I\backslash\{i\}} X_j$ das Produkt aller Strategieräume außer dem von Spieler $i$. Zu jedem Strategieprofil\todo{Sollte der Begriff Strategieprofil eigens definiert werden?}{} $x \in X$ bezeichne dann $x_{-i}$ die Projektion dieses Profils auf den Raum $X_{-i}$ und $x_i$ die Projektion auf $X_i$ (also die von Spieler $i$ gewählte Strategie). Wir schreiben dann auch $(x_i, x_{-i})$ für das Strategieprofil $x$.
+	
+	Später werden wir auch Abbildungen $\phi_i: X_i \to Y_i$ zwischen den spielerspezifischen Strategieräumen betrachten und die durch diese induzierte Abbildung $X \to Y: x = (x_i)_{i \in I} \mapsto \phi(x) := (\phi_i(x_i))_{i \in I}$ mit $\phi$ bezeichnen. Analog zur Notation für Strategieräume werden wir außerdem die Notation $\phi_{-i}: X_{-i} \to Y_{-i}$ verwenden.
 \end{notation}
 
 \begin{defn}
@@ -31,8 +33,9 @@ Aus \cite{MonShap}:
 	Eine Folge von Strategieprofilen $x^0, x^1, x^2, \dots$ ist ein \emph{Verbesserungspfad}, wenn folgende beiden Eigenschaften erfüllt sind:
 	\begin{enumerate}
 		\item Für jede Stelle $n$ gibt es einen Spieler $i(n) \in I$, sodass das Profil $x^{n+1}$ aus $x^n$ durch alleinige Abweichung dieses Spielers entsteht, d.h. $x^{n+1} = (x^{n+1}_{i(n)}, x^n_{-i(n)})$
-		\item Der abweichende Spieler $i(n)$ verbessert sich, d.h. $u_{i(n)}(x^{n+1}) \cordle u_{i(n)}(x^n)$.
+		\item Der abweichende Spieler $i(n)$ verbessert sich, d.h. $c_{i(n)}(x^{n+1}) \cordle c_{i(n)}(x^n)$.
 	\end{enumerate}
+	Wir nennen einen endlichen Verbesserungspfad $x^0, x^1, \dots, x^n$ \emph{abgeschlossen}, wenn er nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) \cordle c_{i}(x^n)$.
 \end{defn}
 
 \begin{defn}
@@ -40,9 +43,9 @@ Aus \cite{MonShap}:
 \end{defn}
 
 \begin{beob}\label{beob:VerbPfadeundNGe}
-	Jedes Ende eines maximalen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
+	Jedes Ende eines abgeschlossenen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
 		
-	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines maximalen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades\todo{damit das stimmt, darf sich das \glqq maximaler\grqq{} nur auf Verlängerung nach hinten beziehen (nicht auf Verlängerung nach vorne)}.
+	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades
 \end{beob}
 
 \begin{kor}\label{kor:ExVerbPfadExNG}\todo{Sollte eine Beobachtung wirklich ein Korrolar haben?}
@@ -52,7 +55,7 @@ Aus \cite{MonShap}:
 Aus \cite{BestRespPot}
 
 \begin{defn}
-	Eine Verbesserungspfad $x^0, x^1, x^2, \dots$ heißt \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es (ohne Verbesserungsbedinung) beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. 
-		\[u_{i(n)}(x^{n+1}) = \max_{\hat{x}_{i(n)} \in X_{i(n)}} u_{i(n)}(\hat{x}_i,x^n_{-i(n)}).\]
+	Ein Verbesserungspfad $x^0, x^1, x^2, \dots$ heißt \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es (ohne Verbesserungsbedinung) beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. 
+		\[c_{i(n)}(x^{n+1}) = \min_{\hat{x}_{i(n)} \in X_{i(n)}} c_{i(n)}(\hat{x}_i,x^n_{-i(n)}).\]
 	\todo{Insbesondere setzt das natürlich voraus, dass ein solches Maximum auf dem Pfad immer existiert.}
 \end{defn}
