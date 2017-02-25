@@ -7,3 +7,5 @@ Quellen
 *.xml
 *.gz
 *.toc
+*.RData
+*.Rhistory

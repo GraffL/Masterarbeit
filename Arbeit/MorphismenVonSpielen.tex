@@ -118,7 +118,7 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 
 \subsection{Erste Sätze}
 
-\begin{prop}
+\begin{prop}\label{prop:ordMorphVerbPf}
 	Sei $\phi: \Gamma \to \Gamma'$ ein ordinaler Morphismus und $x^0, x^1, \dots$ ein Verbesserungspfad in $\Gamma$. Dann ist $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Gamma'$. Ist der Pfad endlich und in $\Gamma'$ abgeschlossen, so auch in $\Gamma$.
 \end{prop}
 
@@ -133,38 +133,19 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 \end{kor}
 
 \begin{proof}
-	Nach \Cref{beob:VerbPfadeundNGe} ... \todo[inline]{weiter}
+	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Gamma'$ abgeschlossen ist. Daher ist mit \Cref{prop:ordMorphVerbPf}  $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
 \end{proof}
 
-
-
-\begin{lemma}
+\begin{kor}
 	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann ist $x \in X$ genau dann ein Nashgleichgewicht von $\Gamma$, wenn $\phi(x) \in X'$ ein Nashgleichgewicht von $\Gamma'$ ist.
-\end{lemma}
+\end{kor}
 
-\begin{proof}.
-	
-	\todo[inline]{folgt direkt mit Definitionen}
-\end{proof}
+Ordinal-isomorphe Spiele haben also die gleichen Nash-Gleichgewichte. Selbiges gilt auch für Verbesserungpfade, das heißt insbesondere, dass die FIP eines Spiels unter ordinaler Isomorphie erhalten bleibt.
 
-\begin{lemma}
+\begin{kor}
 	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann hat $\Gamma$ genau dann die FIP, wenn $\Gamma'$ diese besitzt.
-\end{lemma}
+\end{kor}
 
-\begin{proof}.
-	
-	\todo[inline]{Beweis über Verbesserungspfad im einen entspricht Verbesserungspfad im anderen. Evtl. direkt das als Lemma formulieren und dann die beiden vorherigen Lemmas als Korollare daraus?}
-\end{proof}
-
-\begin{lemma}
-	Sei $\gamma: \Gamma \to \Gamma'$ ein ordinaler Morphismus und $x \in X$. Ist dann $\phi(x) \in X'$ ein Nashgleichgewicht von $\Gamma'$, so ist auch $x$ selbst schon ein Nashgleichgewicht (von $\Gamma$).
-\end{lemma}
-
-\begin{proof}
-	.
-	
-	\todo[inline]{Nachrechnen - evtl. mit vorherigen Sätzen verbinden bzw. schon davor zeigen, damit diese ein Korollar werden?}
-\end{proof}
 
 \begin{lemma}
 	Seien $\Gamma$ und $\Gamma'$ zwei sozial isomorphe Spiele. Dann ist $x \in X$ genau dann ein soziales Optimum von $\Gamma$, wenn $\phi(x) \in X'$ ein soziales Optimum von $\Gamma'$ ist.
