@@ -31,7 +31,7 @@ Echte Morphismen zwischen Spielen sollten folglich noch mehr der Struktur eines 
 Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} sein müssen, wie sie in \cite{ReprOfFiniteGamesAsNCG} gestellt wird:
 
 \begin{defn}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K_i)_{i\in I}, (c'_i)_{i\in I})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $i \in I$ gilt:
+	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I', X', (K_i)_{i\in I'}, (c'_i)_{i\in I'})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $i \in I$ gilt:
 		\[c_i(x) = c'_i(\phi(x)) \]
 	Ist ein solcher Morphismus gleichzeitig ein Isomorphismus, so nennen wir $\Gamma$ und $\Gamma'$ \emph{äquivalent}.
 \end{defn}
@@ -43,14 +43,14 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form von Morphismen wird in \cite{Polyequilibrium} wie folgt definiert\todo{dort allerdings nur für Endomorphismen definiert}:
 
 \begin{defn}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $i \in I$ und jede Strategie $x'_i \in X'_i$ gilt:
+	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I', X', (K'_i)_{i\in I'}, (c'_i)_{i\in I'})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $i \in I$ und jede Strategie $x'_i \in X'_i$ gilt:
 	\[c'_i(\phi(x)) \leq c'_i(\phi_{-i}(x_{-i}), x'_i) \]
 \end{defn}
 
 \todo[inline]{Ist diese Definition sinnvoll/zielführend?}
 
 \begin{defn}\label{def:SpielIsomLap}
-	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
+	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I', X', (K'_i)_{i\in I'}, (c'_i)_{i\in I'})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
 	
 	\begin{center}
 		\begin{tikzcd}
@@ -89,7 +89,7 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = f_i(c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i)))\]
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
 			\[c_i(x) < c_i(x_{-i}, \hat{x}_i) \implies c'_i(\phi(x)) < c'_i(\phi(x_{-i}, \hat{x}_i))\]
-		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $i \in i$ und Strategieprofile $x_{-i} \in X_{-i}$ gilt:
+		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $i \in I$ und Strategieprofile $x_{-i} \in X_{-i}$ gilt:
 			\[\phi(\arg \min_{x_i \in X_i}c_i(x)) \subseteq \arg \min_{x'_i \in X'_i} c'_i(\phi_{-i}(x_{-i}), x'_i)\]
 	\end{itemize}	
 \end{defn}
