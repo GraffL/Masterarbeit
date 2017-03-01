@@ -346,17 +346,3 @@ Definiert eine dritte Form von Spielen: _Spiele in Charakteristischer Funktionsf
 
 Theorem (Allgemeiner Satz über die Existenz von Nash-Gleichgewichten in Spielen in strategischer Form): Sind die Strategieräume konvexe und kompakte Teilmengen von IR^n, die Auszahlungsfunktionen stetig auf dem Produkt der Strategieräume und für die Auszahlungsfunktionen konkav in der Strategie des jeweiligen Spielers für jedes feste Strategieprofil aller anderen Spieler, so besitzt das Spiel mindestens ein Gleichgewicht.  
 Beweis über Browerschen Fixpunktsatz (dürfte analog zu dem Theorem aus dem Online Optimierungs-Seminar sein).
-
-
-@Article{CharExGewPotinWCG,
-	author		="Harks, Tobias and Klimm, Max and M{\"o}hring, Rolf H.",
-	title		="Characterizing the Existence of Potential Functions in Weighted Congestion Games",
-	journal		="Theory of Computing Systems",
-	year		="2011",
-	volume		="49",
-	number		="1",
-	pages		="46--70",
-	issn		="1433-0490",
-	doi			="10.1007/s00224-011-9315-x",
-	url			="http://dx.doi.org/10.1007/s00224-011-9315-x"
-}
