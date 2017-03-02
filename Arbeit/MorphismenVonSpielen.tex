@@ -15,7 +15,7 @@ Mögliche Motivationen:
 
 Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I', X', (K'_i)_{i\in I'}, (c'_i)_{i\in I})$ kann man wie folgt eine Abbildung zwischen diesen beiden definieren:
 \begin{itemize}
-	\item Eine bijektive Abbildung $\sigma: I \to I'$ zwischen den Spielermengen und
+	\item Eine Abbildung $\sigma: I' \to I$ zwischen den Spielermengen und
 	\item für jeden Spieler $i \in I$ eine Abbildung $\phi_i: X_i \to X'_{\sigma(i)}$ seiner Strategien.
 \end{itemize}
 \cite{Polyequilibrium} bezeichnet derartige Abbildungen \emph{Strategieersetzungsvorschriften}.\todo{Mehr dazu schreiben - erst später bei rationalen SEVs erwähnen?}
@@ -85,7 +85,7 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i))\]
 		\item \emph{gewichtend}, wenn es einen Vektor $(w_i)_{i \in I}$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
 			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = w_i\cdot\left(c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i))\right)\]
-		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_i$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
+		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_i$ gibt, die $0$ auf $0$ abbilden, sodass für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
 			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = f_i(c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i)))\]
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
 			\[c_i(x) < c_i(x_{-i}, \hat{x}_i) \implies c'_i(\phi(x)) < c'_i(\phi(x_{-i}, \hat{x}_i))\]
@@ -189,3 +189,30 @@ Ordinal-isomorphe Spiele haben also die gleichen Nash-Gleichgewichte. Selbiges g
 	\includegraphics[width=.7\textwidth]{../Bilder/VennDiagramm.pdf}
 	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen}
 \end{figure}
+
+
+\section{Morphismen - Alternativ:}
+
+Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Delta = (J, Y, (L_j)_{j\in J}, (d_j)_{j\in J})$ kann man wie folgt eine Abbildung zwischen diesen beiden definieren:
+\begin{itemize}
+	\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen und
+	\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien.
+\end{itemize}
+
+\begin{defn}
+	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (\IR)_{i\in I}, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (\IR)_{j\in J}, (d_j)_{j\in J})$ heißt
+	\begin{itemize}
+		\item \emph{exakt}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\item \emph{gewichtend}, wenn es einen Vektor $(w_j)_{j \in J}$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j\cdot\left(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\right)\]
+		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, die $0$ auf $0$ abbilden, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
+		\item \emph{biordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x_{-\sigma(j)} \in X_{-\sigma(j)}$ gilt:
+		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x)) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi_{-\sigma(j)}(x \mid y_j)\]
+	\end{itemize}	
+\end{defn}

@@ -14,7 +14,7 @@ Definition der fünf Potentialbegriffe
 Topografieanschauung für Potentiale erklären (mit Bildern!):
 	- exaktes Potential: Spiegeln (zeilenweise) genau die Topografie wieder
 		- evtl. kann man so auch die Zerlegung in Dummy- und Koordinationsspiel visualisieren?
-	- gew. Potential: jetzt mit Skkalierung
+	- gew. Potential: jetzt mit Skalierung
 	- ordinales Potential: gibt zumindest noch Richtung der Steigung an
 	- verallg. ordinales Potential: ...
 	- beste Antwort Potential: Zeigt beste Antwort an
