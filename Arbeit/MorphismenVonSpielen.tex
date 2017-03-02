@@ -31,7 +31,7 @@ Echte Morphismen zwischen Spielen sollten folglich noch mehr der Struktur eines 
 Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} sein müssen, wie sie in \cite{ReprOfFiniteGamesAsNCG} gestellt wird:
 
 \begin{defn}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I', X', (K_i)_{i\in I'}, (c'_i)_{i\in I'})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $i \in I$ gilt:
+	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K_i)_{i\in I}, (c'_i)_{i\in I})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $i \in I$ gilt:
 		\[c_i(x) = c'_i(\phi(x)) \]
 	Ist ein solcher Morphismus gleichzeitig ein Isomorphismus, so nennen wir $\Gamma$ und $\Gamma'$ \emph{äquivalent}.
 \end{defn}
@@ -43,14 +43,14 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form von Morphismen wird in \cite{Polyequilibrium} wie folgt definiert\todo{dort allerdings nur für Endomorphismen definiert}:
 
 \begin{defn}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I', X', (K'_i)_{i\in I'}, (c'_i)_{i\in I'})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $i \in I$ und jede Strategie $x'_i \in X'_i$ gilt:
+	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $i \in I$ und jede Strategie $x'_i \in X'_i$ gilt:
 	\[c'_i(\phi(x)) \leq c'_i(\phi_{-i}(x_{-i}), x'_i) \]
 \end{defn}
 
 \todo[inline]{Ist diese Definition sinnvoll/zielführend?}
 
 \begin{defn}\label{def:SpielIsomLap}
-	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I', X', (K'_i)_{i\in I'}, (c'_i)_{i\in I'})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
+	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
 	
 	\begin{center}
 		\begin{tikzcd}
@@ -93,6 +93,10 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 			\[\phi(\arg \min_{x_i \in X_i}c_i(x)) \subseteq \arg \min_{x'_i \in X'_i} c'_i(\phi_{-i}(x_{-i}), x'_i)\]
 	\end{itemize}	
 \end{defn}
+
+\begin{bem}
+	Umgekehrt könnte man nun auch ausgehend von diesen Morphismen-Begriffen definieren, wann ein Spiel ein Potentialspiel ist: Ein Spiel ist nämlich genau dann ein exaktes/gewichtetes/ordinales/beste-Antwort-Potentialspiel, wenn es exakt/gewichtet/ordinal isomorph zu einem Spiel mit einer gemeinsamen Kostenfunktion für alle Spieler ist. Ein Spiel hat genau dann ein verallgemeinertes ordinales Potential, wenn es einen ordinalen Morphismus in ein solches Spiel gibt.
+\end{bem}
 
 \todo[inline]{Zu beste Antwort: vgl. \cite{FictPlayProp}, \cite{BestRespEq}}
 
@@ -177,3 +181,11 @@ Ordinal-isomorphe Spiele haben also die gleichen Nash-Gleichgewichte. Selbiges g
 \begin{beob}
 	Nach \cite{MonShap} Lemma 2.5 hat jedes Spiel mit FIP ein verallgemeinertes Potential, also \todo[inline]{in/von...}
 \end{beob}
+
+
+\subsection{Überblick}
+
+\begin{figure}[h]\centering
+	\includegraphics[width=.7\textwidth]{../Bilder/VennDiagramm.pdf}
+	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen}
+\end{figure}

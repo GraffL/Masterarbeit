@@ -9,10 +9,16 @@
 		\item $c_i: X_i \to K_i$ die Kostenfunktion von Spieler $i$.
 	\end{itemize}
 	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler versucht durch die Wahl seiner Strategie die eigenen Kosten zu minimieren.
+	
+	wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist.
 \end{defn}
 
 \begin{beob}
 	Klassische Kostenminimierungsspiele erhält man durch Wahl von $(\IR_{\geq 0}, \leq)$ als Kostenraum für alle Spieler, Nutzenmaximierungsspiele durch Wahl von $(\IR, \geq)$ als \glqq Kosten\grqq raum.
+\end{beob}
+
+\begin{beob}
+	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn höchsten endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. \todo{Kann man diese Erkenntnis irgendwie mit Morphismen formalisieren (evtl. über Retrakte?)}
 \end{beob}
 
 \begin{notation}
