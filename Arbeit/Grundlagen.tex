@@ -1,5 +1,7 @@
 \section{Grundlagen}\label{sec:Grundlagen}
 
+\subsection{Spiele in strategischer Form}
+
 \begin{defn}
 	Ein \emph{Spiel $\Gamma$ in strategischer Form} ist ein Tupel $(I, X = (X_i)_{i \in I}, (K_i)_{i\in I}, (c_i)_{i\in I})$. Dabei ist
 	\begin{itemize}
@@ -64,4 +66,61 @@ Aus \cite{BestRespPot}
 	Ein Verbesserungspfad $x^0, x^1, x^2, \dots$ heißt \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es (ohne Verbesserungsbedinung) beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. 
 		\[c_{i(n)}(x^{n+1}) = \min_{\hat{x}_{i(n)} \in X_{i(n)}} c_{i(n)}(\hat{x}_i,x^n_{-i(n)}).\]
 	\todo{Insbesondere setzt das natürlich voraus, dass ein solches Maximum auf dem Pfad immer existiert.}
+\end{defn}
+
+
+\subsection{Auslastungsspiele}
+
+\begin{defn}\label{def:Auslastungsmodel}
+	Ein \emph{Auslastungsmodell $M$} ist gegeben durch ein Tupel $(I, R, (S_i)_{i\in I}, K, (g_r)_{r \in R})$. Dabei ist
+	\begin{itemize}
+		\item $I$ die Menge der Spieler,
+		\item $R$ die Menge der zur Verfügung stehenden Ressourcen,
+		\item $S_i \subseteq \PSet(R)$ die Menge von endlichen Teilmengen der Ressourcenmenge, unter denen sich der Spieler $i$ für eine Teilmenge entscheiden kann,
+		\item $K$, eine geordnete abelsche Gruppe, der Kostenraum der Ressourcen und
+		\item $g_r: \IR \to K$ eine Funktion, welche die Kosten der Ressource $r \in R$ in Abhängigkeit von ihrer Auslastung beschreibt.
+	\end{itemize}
+\end{defn}
+
+\begin{defn}\label{def:Auslastungsspiel}
+	Jedes Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+	\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
+	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die \emph{Lastfunktion}\todo{Hier bekommt man wohl Probleme, wenn Spieler- bzw. Ressourcenmenge unendlich ist.}{} der Ressource ist.
+\end{defn}
+
+\begin{bsp}.
+	
+	\todo[inline]{Netzwerkauslastungsspiel}
+\end{bsp}
+
+\begin{defn}\label{def:gewAuslastungsspiel}
+	Zusammen mit einem Gewichtsvektor $(w_i)_{i\in I}$ induziert ein Auslastungsmodell $M$ 
+	\begin{itemize}
+		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
+		und die gleiche Lastfunktion wie im ungewichteten Fall.
+		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
+		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(x)) \]
+		und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
+	\end{itemize}	
+\end{defn}
+
+\begin{bsp}.
+	
+	\todo[inline]{gewichtetes Netzwerkauslastungsspiel}
+\end{bsp}
+
+\begin{defn}\label{def:skalierteAuslastungsspiel}
+	\todo{Ist diese Definition wirklich sinnvoll?}
+	Zusammen mit einer Skalierungsfunktionen $(f_i: K \to K_i)_{i\in I}$ und verallgemeinerten Lastfunktionen $(h_r: X \to \IR)_{r\in R}$ induziert ein Auslastungsmodell $M$ 
+	\begin{itemize}
+		\item ein \emph{kostenskaliertes Auslastungsspiel} $\Gamma_c(M, f_i) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(l_r(s))) \]
+		und die gleiche Lastfunktion wie im ungewichteten Fall.
+		\item ein \emph{lastskaliertes Auslastungsspiel} $\Gamma_l(M, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(h_r(s)) \]
+		\item ein \emph{verallgemeinertes gewichtetes Auslastungsspiel} $\Gamma(M, f_i, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(h_r(s))).\]
+	\end{itemize}	
 \end{defn}

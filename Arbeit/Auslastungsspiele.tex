@@ -1,84 +1,92 @@
-\section{Auslastungsspiele}\label{sec:Auslastungsspiele}
-
-\subsection{Definitionen}
-
-\begin{defn}\label{def:Auslastungsmodel}
-	Ein \emph{Auslastungsmodell $M$} ist gegeben durch ein Tupel $(I, R, (S_i)_{i\in I}, K, (g_r)_{r \in R})$. Dabei ist
-	\begin{itemize}
-		\item $I$ die Menge der Spieler,
-		\item $R$ die Menge der zur Verfügung stehenden Ressourcen,
-		\item $S_i \subseteq \PSet(R)$ die Menge von endlichen Teilmengen der Ressourcenmenge, unter denen sich der Spieler $i$ für eine Teilmenge entscheiden kann,
-		\item $K$, eine geordnete abelsche Gruppe, der Kostenraum der Ressourcen und
-		\item $g_r: \IR \to K$ eine Funktion, welche die Kosten der Ressource $r \in R$ in Abhängigkeit von ihrer Auslastung beschreibt.
-	\end{itemize}
-\end{defn}
-
-\begin{defn}\label{def:Auslastungsspiel}
-	Jedes Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
-	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die \emph{Lastfunktion}\todo{Hier bekommt man wohl Probleme, wenn Spieler- bzw. Ressourcenmenge unendlich ist.}{} der Ressource ist.
-\end{defn}
-
-\begin{bsp}.
-	
-	\todo[inline]{Netzwerkauslastungsspiel}
-\end{bsp}
-
-\begin{defn}\label{def:gewAuslastungsspiel}
-	Zusammen mit einem Gewichtsvektor $(w_i)_{i\in I}$ induziert ein Auslastungsmodell $M$ 
-	\begin{itemize}
-		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
-		und die gleiche Lastfunktion wie im ungewichteten Fall.
-		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
-		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(x)) \]
-		und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
-	\end{itemize}	
-\end{defn}
-
-\begin{bsp}.
-	
-	\todo[inline]{gewichtetes Netzwerkauslastungsspiel}
-\end{bsp}
-
-\begin{defn}\label{def:skalierteAuslastungsspiel}
-	\todo{Ist diese Definition wirklich sinnvoll?}
-	Zusammen mit einer Skalierungsfunktionen $(f_i: K \to K_i)_{i\in I}$ und verallgemeinerten Lastfunktionen $(h_r: X \to \IR)_{r\in R}$ induziert ein Auslastungsmodell $M$ 
-	\begin{itemize}
-		\item ein \emph{kostenskaliertes Auslastungsspiel} $\Gamma_c(M, f_i) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(l_r(s))) \]
-		und die gleiche Lastfunktion wie im ungewichteten Fall.
-		\item ein \emph{lastskaliertes Auslastungsspiel} $\Gamma_l(M, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(h_r(s)) \]
-		\item ein \emph{verallgemeinertes gewichtetes Auslastungsspiel} $\Gamma(M, f_i, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(h_r(s))).\]
-	\end{itemize}	
-\end{defn}
-
-
-\subsection{Zusammenhänge zu anderen Spielen}
-
-\todo[inline]{Sinnvollerweise eher nach Morphismen-Kapitel? Oder hier bereits als Motivation für dieses?}
+\section{Zusammenhänge von Auslastungs- und Potentialspielen}\label{sec:Auslastungsspiele}
 
 \todo[inline]{Welche Endlichkeitsvoraussetzungen benötigt man hier jeweils?}
 
 Berühmter Satz von \cite{MonShap}
 
-\begin{satz}
+\begin{satz}\label{satz:MondererShapley}
 	Jedes Auslastungsspiel besitzt ein exaktes Potential und jedes exakte Potentialspiel ist äquivalent zu einem Auslastungsspiel.
 \end{satz}
 
-Für gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG}:
+\subsection{Von ungewichtet zu gewichtet}
+
+Für gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG} in \cite[Theorem 3.9]{CharExGewPotinWCG}, dass die einzigen beiden Klassen stetiger Funktionen, die (als Kostenfunktionen verwendet) ausschließlich Spiele mit gewichtetem Potential erzeugen, affin lineare Funktionen bzw. exponentielle Funktionen (mit gemeinsamem Exponenten) sind:
+
+\begin{satz}\label{satz:CharExGewPotinWCG}
+	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$
+	\begin{itemize}
+		\item entweder ausschließlich affin lineare Funktionen enthält
+		\item oder ausschließlich Funktionen der Form $c(l) = a_c\cdot b^l + d_c$ enthält.
+	\end{itemize}
+\end{satz}
+
+In \cite[Theorem 5.1]{CharExNGinWCG} zeigen \citeauthor{CharExNGinWCG} weiter, dass diese beiden Klassen von Kostenfunktionen (unter allen Klassen stetiger Funktionen) auch die einzigen sind, die die Existenz eines Nash-Gleichgewichtes garantieren.\footnote{zugleich sind es auch die einzigen Klassen, welche für jedes gewichtete Auslastungsspiel das Erfüllen der FIP sicherstellen.}
+
+Da nun für endliche Spiele alle der in \Cref{sec:Potentiale} definierten Potentiale die Existenz eines Nash-Gleichgewichtes garantieren, folgt hiermit direkt, dass es auch für die allgemeineren Potentialbegriffe keine größeren oder anderen Klassen von stetigen Funktionen gibt, die immer die Existenz eines entsprechenden Potentials sicher stellen.
+
+Diese beiden Sätze zeigen bereits deutlich, dass der Schritt vom ungewichteten Fall zum gewichteten auf Seite der Auslastungsspiele erheblich größer ist als auf Seite der Potentiale. Tatsächlich zeigt \citeauthor{ReprOfFiniteGamesAsNCG} in \cite{ReprOfFiniteGamesAsNCG}, dass dieser Verallgemeinerungsschritt für Auslastungsspiele bereits der größtmögliche ist, denn es gilt:
 
 \begin{satz}
-	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein exaktes Potential, wenn $C$ ausschließlich affin lineare Funktionen enthält.
+	Jedes Spiel ist äquivalent zu einem gewichteten Auslastungsspiel \todo{(sogar Netzwerkauslastungsspiel mit ...)}.
+\end{satz}
+
+Die Menge der gewichteten Auslastungsspiele umfasst also (bis auf kostenerhaltende Isomorphie) bereits \emph{alle} (endlichen) Spiele in strategischer Form. Möchte man also eine wirklich analoge Verallgemeinerung von Auslastungsspielen passend zu gewichteten Potentialspielen finden, muss man also andere Varianten betrachten Gewichte ins Spiel zu bringen. In \Cref{def:gewAuslastungsspiel} hatten wir bereits zwei solche gesehen, welche wir nun näher untersuchen wollen:
+
+\subsection{Lastgewichtete Auslastungsspiele}
+
+Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Auslastungsspiele. \citeauthor{CharExGewPotinWCG} beobachten in \cite{CharExGewPotinWCG}, dass lastgewichtete Auslastungsspiele (die dort als normalisierte Auslastungsspiele bezeichnet werden) zwar nicht äquivalent, aber doch in verschiedenen Sinnen sehr ähnlich zu allgemeinen gewichteten Auslastungsspielen sind. Dieser Zusammenhang lässt sich nun leicht durch einen passenden Isomorphiebegriff formalisieren - es gilt nämlich:
+
+\begin{lemma}
+	Jedes lastgewichtete Auslastungsspiel ist gewichtet isomorph zu einem gewichteten Auslastungsspiel und umgekehrt. Die beiden Spiele basieren dabei jeweils auf dem gleichen Auslastungsmodell.
+\end{lemma}
+
+\begin{proof}
+	Der Existenz eines solchen Isomorphismus folgt direkt aus der auch in \cite{CharExGewPotinWCG} festgestellten Beobachtung ...
+\end{proof}
+
+Hieraus folgen dann direkt die in \cite{CharExGewPotinWCG} beobachteten Zusammenhänge zwischen gewichteten und lastgewichteten Auslastungsspielen:
+
+\begin{kor}
+	\todo[inline]{Beobachtungen}
+\end{kor}
+
+Insbesondere sehen wir damit aber auch, dass auch lastgewichtete Auslastungsspiele eine zu starke Verallgemeinerung von ungewichteten Auslastungsspielen sind, um eine Entsprechung der gewichteten Potentialspiele sein zu können.
+
+
+\subsection{Kostengewichtete Auslastungsspiele}
+
+Wie sich herausstellt sind kostengewichtete Auslastungsspiele hingegen ein geeigneter Kandidat:
+
+\begin{satz}
+	Jedes kostengewichtete Auslastungsspiel besitzt ein gewichtetes Potential und jedes Spiel mit einem gewichteten Potential ist äquivalent zu einem kostengewichteten Auslastungsspiel.
+\end{satz}
+
+Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen Satz für ungewichtete Auslastungsspiele und exakte Potentiale (\Cref{satz:MondererShapley}), auch der Beweis erfolgt völlig analog. 
+
+\begin{proof}
+	Sei $\Gamma$ ein kostengewichtetes Auslastungsspiel mit Gewichtsvektor $w := (w_i)_{i\in I}$. Dann ist die Rosenthal-Potentialfunktion (vgl. \cite{RosenthalPotential}) $P(x) := \sum_{r \in R}\sum_{k=1}^{l_r(x)}c_r(k)$ ein $w$-Potential für $\Gamma$, denn es gilt:
 	
-	Und genau dann besitzt jedes gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$ ausschließlich affin lineare Funktionen oder ausschließlich Funktionen der Form $c(l) = a_c\cdot b^l + d_c$ enthält.
-\end{satz}
+		\todo[inline]{Beweis!}	
+		
+	Ist umgekehrt $\Gamma$ ein Spiel mit einem gewichteten Potential $P$ (mit Gewichtsvektor $w$), so definieren wir wie folgt ein kostengewichtetes Auslastungsspiel (wir folgen hier dem Beweis in \cite[Theorem 1]{MultiPotGames}):
+	
+		\todo[inline]{Definition kostengewichtetes Auslastungsspiel}
+	
+	Zum Beweis der Äquivalenz der beiden Spiele betrachte man folgenden kostenerhaltenden Isomorphismus:
+	
+		\todo[inline]{Definition Iso}
+\end{proof}
 
-Für allgemeine Spiele gilt nach \cite{ReprOfFiniteGamesAsNCG}
+Zusammen mit \Cref{satz:CharExGewPotinWCG} wissen wir nun ...
 
-\begin{satz}
-	Jedes Spiel ist äquivalent zu einem gewichteten Auslastungsspiel (sogar Netzwerkauslastungsspiel mit ...).
-\end{satz}
+\todo[inline]{Direkte Konstruktion eines ungewichteten Auslastungsspiels zu gew. mit affin-linearen Kosten (wie ähnlich ist diese zu dem Beweis der Existenz eines exakten Potentials von Fotakis et al?)
+
+Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
+
+
+\subsection{Überblick}
+
+\begin{figure}[h]\centering
+	\includegraphics[width=.7\textwidth]{../Bilder/VennDiagramm.pdf}
+	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen für endliche Spiele}
+\end{figure}

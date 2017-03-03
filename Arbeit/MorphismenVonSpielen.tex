@@ -141,7 +141,7 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 \end{proof}
 
 \begin{kor}
-	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann ist $x \in X$ genau dann ein Nashgleichgewicht von $\Gamma$, wenn $\phi(x) \in X'$ ein Nashgleichgewicht von $\Gamma'$ ist.
+	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann ist $x \in X$ genau dann ein Nash-Gleichgewicht von $\Gamma$, wenn $\phi(x) \in X'$ ein Nash-Gleichgewicht von $\Gamma'$ ist.
 \end{kor}
 
 Ordinal-isomorphe Spiele haben also die gleichen Nash-Gleichgewichte. Selbiges gilt auch für Verbesserungpfade, das heißt insbesondere, dass die FIP eines Spiels unter ordinaler Isomorphie erhalten bleibt.
@@ -183,14 +183,6 @@ Ordinal-isomorphe Spiele haben also die gleichen Nash-Gleichgewichte. Selbiges g
 \end{beob}
 
 
-\subsection{Überblick}
-
-\begin{figure}[h]\centering
-	\includegraphics[width=.7\textwidth]{../Bilder/VennDiagramm.pdf}
-	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen}
-\end{figure}
-
-
 \section{Morphismen - Alternativ:}
 
 Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Delta = (J, Y, (L_j)_{j\in J}, (d_j)_{j\in J})$ kann man wie folgt eine Abbildung zwischen diesen beiden definieren:
@@ -198,6 +190,13 @@ Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und 
 	\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen und
 	\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien.
 \end{itemize}
+
+\begin{bem}
+	Alle Abbildungen $\phi_j$ zusammen induzieren eine Abbildung zwischen den Gesamtstrategieräumen:
+		\[\phi: X \to Y: x=(x_i)_{i\in I} \mapsto \phi(x) := \left(\phi_j(x_{\sigma(j)})\right)_{j \in J} \]
+\end{bem}
+
+\todo[inline]{Dass das funktioniert liegt daran, dass die Spielerabbildung in die umgekehrte Richtung geht!}
 
 \begin{defn}
 	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (\IR)_{i\in I}, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (\IR)_{j\in J}, (d_j)_{j\in J})$ heißt
@@ -216,3 +215,55 @@ Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und 
 		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x)) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi_{-\sigma(j)}(x \mid y_j)\]
 	\end{itemize}	
 \end{defn}
+
+\begin{beob}
+	Ordinale Isomorphismen sind automatisch biordinal.
+\end{beob}
+
+\begin{notation}
+	Ist $\sigma$ bijektiv (d.h. eine Permutation), so werden wir im Folgenden immer davon ausgehen, dass es bereits die Identität ist. Dies erlaubt es uns in der Notation alle $\sigma$ ganz wegzulassen.
+\end{notation}
+
+\begin{prop}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit injektivem $\sigma$. Dann ist für jeden Verbesserungspfad $x^0, x^1, \dots$ in $\Gamma$ auch $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Delta$. Ist der Pfad endlich und in $\Delta$ abgeschlossen, so auch in $\Gamma$.
+\end{prop}
+
+\begin{proof}
+	Da $\sigma$ injektiv ist, bleibt die Eigenschaft unilateralen Abweichung erhalten. Die Ordinalität des Morphismus stellt ferner sicher, dass jeder Verbesserungsschritt ein Verbesserungsschritt bleibt.
+	
+	Nehmen wir nun an $\phi(x^0), \dots, \phi(x^n)$ wäre ein abgeschlossener Verbesserungspfad in $\Delta$, aber $x^0, \dots, x^n$ nicht abgeschlossen in $\Gamma$. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches diesen Pfad in $\Gamma$ verlängert. Aber wie wir gerade gezeigt haben wäre dann auch $\phi(x^0), \dots, \phi(x^n), \phi(x^{n+1})$ ein Verbesserungspfad in $\Delta$, insbesondere also eine Verlängerung des ursprünglichen Pfades - im Widerspruch zu dessen vorausgesetzter Abgeschlossenheit.
+\end{proof}
+
+\begin{kor}\label{kor:ReflektNG}
+	Ordinale Morphismen mit injektiver Spielerabbildung reflektieren Nash-Gleichgewichte. Das heißt, ist $x \in X$ ein Strategieprofil in $\Gamma$ und $(\sigma, \phi)$ ein ordinaler Morphismus in ein Spiel $\Delta$, sodass $\phi(x)$ ein Nash-Gleichgewicht in diesem ist, dann war bereits $x$ ein Nash-Gleichgewicht von $\Gamma$.
+\end{kor}
+
+\begin{proof}
+	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{prop:ordMorphVerbPf}  $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
+\end{proof}
+
+\begin{prop}\label{prop:NGerhalten}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ eine biordinale Retraktion (d.h. ein biordinaler Morphismus, welcher ein Rechtsinverses besitzt). Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+\end{prop}
+
+\begin{proof}
+	Sei $(\tau, \psi): \Delta \to \Gamma$ ein Rechtsinverses von $(\sigma, \phi)$, d.h. es gelte $(\sigma, \phi) \circ (\tau, \psi) = (\tau\circ\sigma, \phi\circ\psi) = (\id_J, id_Y)$. Damit ist $\sigma$ offenbar injektiv und daher mit \Cref{kor:ReflektNG} die \glqq wenn\grqq-Richtung gezeigt.
+	
+	Zu \glqq dann\grqq: Sei also $x \in X$ ein Nash-Gleichgewicht und $y_j \in Y_j$. Wegen der Surjektivität von $\phi_j$ gibt es dann ein $\hat{x}_{\sigma(j)} \in X_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)} = y_j)$. Da $x$ ein Nash-Gleichgewicht ist, gilt nun 
+		\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})\]
+	und daher wegen Biordinalität von $\phi$ auch 
+		\[d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \overset{\ast}{=} d_j(\phi(x) \mid \phi_j(\hat{x}_{\sigma(j)})) = d_j(\phi(x) \mid y_j)\]
+	wobei in $\ast$ nochmal die Injektivität von $\sigma$ eingeht.
+\end{proof}
+
+\todo[inline]{In der Proposition explizit Surjektivität/Injektivität fordern - folgt die Retrakteigenschaft dann? In dem Fall also Bemerkung hinzufügen}
+
+\begin{bsp}
+	\todo{Bi?}Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{prop:NGerhalten}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
+\end{bsp}
+
+\begin{bsp}
+	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern. \todo{Formalisiert oBdA-Bemerkung aus Grundlagen}
+	
+	\todo[inline]{Beweis: Morphismus angeben und Eigenschaften zeigen}
+\end{bsp}
