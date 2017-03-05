@@ -94,6 +94,13 @@ Für eine gewisse Klasse an Auslastungsspielen (die gewisse Axiome erfüllen) wi
 
 
 --------------------------------------------------------------------------------------------------------------------------------
+## Selfish Unsplittable Flows / Atomic Congestion Games Among Coalitions ##
+	by Dimitris Fotakis, Spyros Kontogiannis, and Paul Spirakis |
+
+Beweisen zusammen effektiv, dass jedes lastgewichtete Auslastungsspiel mit affin linearen Kostenfunktionen ein exaktes Potential besitzt. In SUF wird dies für gewichtete l-layered Netwerke mit Kostenfunktion Identität gezeigt (Theorem 1), in ACGAC für multi–commodity Netzwerkauslastungsspiele mit Koalitionen und affin-linearen Kantenkosten (Theorem 6).
+
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Characterizing the Existence of Potential Functions in Weighted Congestion Games ##
 	by Tobias Harks, Max Klimm, Rolf H. Möhring | DOI 10.1007/s00224-011-9315-x | TOCS-HKM-2011.pdf
 	
