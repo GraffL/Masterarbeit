@@ -48,6 +48,14 @@ Geht man nun über zu einem gewichteten Potential, so lesen die beiden Spieler d
 
 \todo[inline]{Zusammenhänge (evtl. schon nächstes Kapitel?)}
 
+Eine Beobachtung aus \cite{CharExGewPotinWCG}:
+
+\begin{beob}\label{beob:ZshExGewPot}
+	Ein Spiel $\Gamma = (I, (X_i)_{i \in I}, (c_i)_{i \in I})$ besitzt genau dann ein gewichtetes Potential (mit Gewichtsvektor $(w_i)_{i \in I}$), wenn $\Gamma' := (I, (X_i)_{i \in I}, (w_i \cdot c_i)_{i \in I})$ ein exaktes Potential besitzt.
+\end{beob}
+
+Folgt auch aus einer allgemeineren Beobachtung in \Cref{sec:Morphismen}.
+
 \subsection{Erste Sätze}
 
 Zu einem gegebenen Strategieprofil $x \in X$ sei dessen \emph{Nachbarschaft} die Menge aller durch höchstens eine Abweichung erreichbarer Strategieprofile, d.h. die Menge $\{(\hat{x}_i, x_{-i}) | i \in N, \hat{x}_i \in X_i\}$. Wir nennen $x$ dann ein \emph{lokales Minimum} einer Funktion $f: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist.
@@ -77,6 +85,37 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \C
 
 \todo[inline]{Was kann man über Beste-Antwort-Potentiale sagen (vermtl. Zusammenhang zu Beste-Antwort-Pfade?)}
 
+
+\subsection{Charakterisierungen der Potentiale}
+
+\begin{satz}
+	Ein Spiel besitzt genau dann ein exaktes Potential, wenn alle 4-Zykel im Strategieraum eine Gesamtänderung von $0$ haben.
+\end{satz}
+
+\begin{proof}.
+	
+	\todo[inline]{vgl. \cite[Theorem 2.8]{MonShap}}
+\end{proof}
+
+\begin{satz}
+	Ein Spiel besitzt genau dann ein gewichtetes Potential, wenn ... \todo{analoge Bedingung zu exaktem Potential (vgl. \cite[Kapitel 3.2]{CharExGewPotinWCG})}
+\end{satz}
+
+\begin{proof}.
+	
+	\todo[inline]{mit \Cref{beob:ZshExGewPot}?}
+\end{proof}
+
+\begin{satz}
+	Ein Spiel besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungskreise enthält und $([X], <)$ properly ordered\todo{Fehlt Definition} ist.
+\end{satz}
+
+\begin{proof}.
+	
+	\todo[inline]{aus \cite{CharExOrdPot}}
+\end{proof}
+
+
 \begin{satz}
 	Hat ein Spiel die FIP, so besitzt es auch ein verallgemeinertes ordinales Potential.
 	
@@ -85,4 +124,13 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \C
 
 \begin{proof}
 	\cite{MonShap}/\cite{CongGamesPlayerSpecPayoff} (konstruktiver Beweis)
+\end{proof}
+
+\begin{satz}
+	Ein Spiel hat genau dann ein Beste Antwort-Potential, wenn es keine beste-Antwort-kompatiblen Kreise enthält und $([X], <)$ properly ordered ist.
+\end{satz}
+
+\begin{proof}.
+	
+	\todo[inline]{aus \cite{BestRespPot}}
 \end{proof}
