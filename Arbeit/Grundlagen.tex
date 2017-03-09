@@ -38,12 +38,17 @@
 Aus \cite{MonShap}:
 
 \begin{defn}
-	Eine Folge von Strategieprofilen $x^0, x^1, x^2, \dots$ ist ein \emph{Verbesserungspfad}, wenn folgende beiden Eigenschaften erfüllt sind:
-	\begin{enumerate}
-		\item Für jede Stelle $n$ gibt es einen Spieler $i(n) \in I$, sodass das Profil $x^{n+1}$ aus $x^n$ durch alleinige Abweichung dieses Spielers entsteht, d.h. $x^{n+1} = (x^{n+1}_{i(n)}, x^n_{-i(n)})$
-		\item Der abweichende Spieler $i(n)$ verbessert sich, d.h. $c_{i(n)}(x^{n+1}) \cordle c_{i(n)}(x^n)$.
-	\end{enumerate}
-	Wir nennen einen endlichen Verbesserungspfad $x^0, x^1, \dots, x^n$ \emph{abgeschlossen}, wenn er nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) \cordle c_{i}(x^n)$.
+	Eine Folge von Strategieprofilen $x^0, x^1, x^2, \dots$ ist 
+	\begin{itemize}
+		\item ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jede Stelle $k$ es einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = (x^{k+1}_{i(k)}, x^k_{-i(k)})$.
+		\item ein \emph{Verbesserungspfad}, wenn sie ein Pfad ist und sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $n$: $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$.
+		\item ein \emph{abgeschlossener Verbesserungspfad}, wenn sie ein endlicher Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) \cordle c_{i}(x^n)$.\todo{Schöner formulieren}
+	\end{itemize}
+
+	\todo[inline]{Zykel, bester Antwort Pfad}
+	
+	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist die \emph{Gesamtänderung} entlang des Pfades definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
+		\[\PfadAend(\gamma) \coloneqq \sum_{k=0}^{n} c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k) \]
 \end{defn}
 
 \begin{defn}

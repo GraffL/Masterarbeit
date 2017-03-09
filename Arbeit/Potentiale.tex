@@ -85,16 +85,19 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \C
 
 \todo[inline]{Was kann man über Beste-Antwort-Potentiale sagen (vermtl. Zusammenhang zu Beste-Antwort-Pfade?)}
 
-
 \subsection{Charakterisierungen der Potentiale}
 
 \begin{satz}
 	Ein Spiel besitzt genau dann ein exaktes Potential, wenn alle 4-Zykel im Strategieraum eine Gesamtänderung von $0$ haben.
 \end{satz}
 
-\begin{proof}.
-	
-	\todo[inline]{vgl. \cite[Theorem 2.8]{MonShap}}
+\begin{proof}
+	Wir folgen dem Beweis aus \cite[Anhang A]{MonShap}. Sei zunächst $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ ein beliebiger 4-Zykel in einem Spiel mit Potential $P$. Dann gilt für die Gesamtänderung:
+		\[\delta(\gamma) = \sum_{i=0}^3 c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k) = \sum_{k=0}^{3} P(x^{k+1}) - P(x^k) = P(x^4) - P(x^0) = 0^{}\]
+		
+	Ist umgekehrt $\Gamma$ ein Spiel, in dem für alle 4-Zykel $\gamma$ gilt $\PfadAend(\gamma) = 0$, und $\hat{x}$ ein beliebiges, aber festes Strategieprofil in $\Gamma$\todo{Für Spiele mit unendlich vielen Spielern sollte hier ein Strategieprofil pro Zusammenhangskomponente gewählt werden!}. Dann definiere wie folgt eine Funktion $P$ auf dem Strategieraum:
+		\[P: X \to \IR: x \mapsto \PfadAend(\gamma), \gamma \text{ beliebiger Pfad von } \hat{x} nach x \]
+	Damit diese Funktion tatsächlich wohldefiniert ist, muss für je zwei Pfade $\gamma$ und $\gamma'$ von $\hat{x}$ nach $x$ gelten, dass die jeweiligen Gesamtänderungen gleich sind, d.h. $\PfadAend(\gamma) = \PfadAend(\gamma')$. \todo[inline]{weiter (Induktion?)}
 \end{proof}
 
 \begin{satz}
