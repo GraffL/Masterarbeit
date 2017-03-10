@@ -85,22 +85,36 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \C
 
 \todo[inline]{Was kann man über Beste-Antwort-Potentiale sagen (vermtl. Zusammenhang zu Beste-Antwort-Pfade?)}
 
+Für Spiele mit unendlicher Spielermenge erweist es sich als hilfreiche Beobachtung, dass wir Potentiale pfadzusammenhangskomponentenweise definieren können:
+
+\begin{beob}\label{beob:KompWeisePotentiale}
+	Sei $\Gamma$ ein beliebiges Spiel und $P: X \to \IR$ eine Funktion. Erfüllt $P$ dann die Bedingung eines exakten/gewichteten/skalierten/ordinalen/verallgemeinerten ordinalen Potentials für jede (maximale) Pfadzusammenhangskomponente, so ist $P$ ein entsprechendes Potential für ganz $\Gamma$.
+\end{beob}
+
+\begin{proof}
+	Dies folgt direkt aus dem Umstand, dass die definierende Eigenschaft für alle aufgezählten Potentiale immer nur entlang eines Pfades (der Länge $1$) und damit innerhalb einer Zusammenhangskomponente geprüft werden muss.
+\end{proof}
+
 \subsection{Charakterisierungen der Potentiale}
 
-\begin{satz}
+\begin{satz}\label{satz:CharExPot}
 	Ein Spiel besitzt genau dann ein exaktes Potential, wenn alle 4-Zykel im Strategieraum eine Gesamtänderung von $0$ haben.
 \end{satz}
 
 \begin{proof}
-	Wir folgen dem Beweis aus \cite[Anhang A]{MonShap}. Sei zunächst $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ ein beliebiger 4-Zykel in einem Spiel mit Potential $P$. Dann gilt für die Gesamtänderung:
+	Wir folgen dem Beweis aus \cite[Anhang A]{MonShap}. Dort wird der Satz nur für $N$-Personenspiele gezeigt, mit \Cref{beob:KompWeisePotentiale} überträgt sich dessen Beweis aber direkt auch auf allgemeine Spiele.
+	
+	Sei zunächst $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ ein beliebiger 4-Zykel in einem Spiel mit Potential $P$. Dann gilt für die Gesamtänderung:
 		\[\delta(\gamma) = \sum_{i=0}^3 c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k) = \sum_{k=0}^{3} P(x^{k+1}) - P(x^k) = P(x^4) - P(x^0) = 0^{}\]
 		
-	Ist umgekehrt $\Gamma$ ein Spiel, in dem für alle 4-Zykel $\gamma$ gilt $\PfadAend(\gamma) = 0$, und $\hat{x}$ ein beliebiges, aber festes Strategieprofil in $\Gamma$\todo{Für Spiele mit unendlich vielen Spielern sollte hier ein Strategieprofil pro Zusammenhangskomponente gewählt werden!}. Dann definiere wie folgt eine Funktion $P$ auf dem Strategieraum:
-		\[P: X \to \IR: x \mapsto \PfadAend(\gamma), \gamma \text{ beliebiger Pfad von } \hat{x} nach x \]
+	Ist umgekehrt $\Gamma$ ein Spiel, in dem für alle 4-Zykel $\gamma$ gilt $\PfadAend(\gamma) = 0$, $x$ ein beliebiges, aber festes Strategieprofil in $\Gamma$ und $Y_x$ dessen Pfadzusammenhangskomponente. Dann definiere wie folgt eine Funktion $P_x$ auf $Y_x$:
+		\[P: Y_x \to \IR: y \mapsto \PfadAend(\gamma), \,\gamma \text{ beliebiger Pfad von } x \text{ nach } y \]
 	Damit diese Funktion tatsächlich wohldefiniert ist, muss für je zwei Pfade $\gamma$ und $\gamma'$ von $\hat{x}$ nach $x$ gelten, dass die jeweiligen Gesamtänderungen gleich sind, d.h. $\PfadAend(\gamma) = \PfadAend(\gamma')$. \todo[inline]{weiter (Induktion?)}
+	
+	Wählen wir nun für jede maximale Pfadzusammenhangskomponente ein einziges $x$ in dieser und definieren wie oben eine Funktion $P_x$, so lassen sich alle diese Funktionen zu einer Funktion $P$ auf ganz $X$ zusammensetzen. Nach Definition erfüllt diese auf jeder Pfadzusammenhangskomponente die Bedingung eines exakten Potentials. Also ist nach \Cref{beob:KompWeisePotentiale} $P$ ein exaktes Potential auf $X$.
 \end{proof}
 
-\begin{satz}
+\begin{satz}\label{satz:CharGewPot}
 	Ein Spiel besitzt genau dann ein gewichtetes Potential, wenn ... \todo{analoge Bedingung zu exaktem Potential (vgl. \cite[Kapitel 3.2]{CharExGewPotinWCG})}
 \end{satz}
 
@@ -109,13 +123,55 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. \C
 	\todo[inline]{mit \Cref{beob:ZshExGewPot}?}
 \end{proof}
 
-\begin{satz}
-	Ein Spiel besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungskreise enthält und $([X], <)$ properly ordered\todo{Fehlt Definition} ist.
+\begin{defn}
+	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gib, also $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
+\end{defn}
+
+Wir definieren nun eine Äquivalenzrelation auf dem Strategieraum:\todo{evtl. schon im Grundlagenkapitel gemeinsam mit Pfadzusammenhangskomponenten?}
+	\[x \approx y \colon\iff \text{ es gibt einen nicht-Verschlechterungspfad von $x$ nach $y$ und umgekehrt}\]
+Auf dem dadurch erzeugten Raum von Äquivalenzklassen $X/{\approx} \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine strikte Partialordnung
+	\[[x] \prec [y] \colon\iff x \not\approx y \text{ und es gibt einen nicht-Verschlechterungspfad von $y$ nach $x$}\]
+
+Damit zeigt \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgende Charakterisierung der Existenz von Ordinalen Potentialen:
+
+\begin{satz}\label{satz:CharOrdPot}
+	Ein Spiel besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungszykel enthält und $([X], \prec)$ reell-geordnet ist.
 \end{satz}
 
-\begin{proof}.
+\begin{proof}
+	Sei zunächst $P: X \to \IR$ ein ordinales Potential eines Spiels $\Gamma$. Dann gilt:
+	\begin{enumerate}
+		\item $\Gamma$ enthält keine schwachen Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Verbesserungszykel in $\Gamma$, so gilt für alle $0 \leq k < n$: $c_{i(k)}(x^{k+1}) \cordleq c_{i(k)}(x^k)$ und für ein solches $k$ sogar $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$. Da ferner $P$ ein ordinales Potential ist, folgt daraus:
+			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k+1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0)\]
+		Dies ist jedoch ein Widerspruch. Also kann es keinen solchen Verbesserungszykel geben.
+		
+		\item $([X], \prec)$ ist reell reell-geordnet. Definiere dazu die Abbildung $f: X/{\approx} \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es also nicht-Verschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen nicht-Verschlechterungszykel und da es keineschwachen Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
+		
+		Ferner ist diese Abbildung streng monoton, denn gilt $[x] \prec [y]$, so gibt es einen nicht-Verschlechterungspfad $\gamma$ von $y$ nach $x$, aber keinen in die umgekehrte Richtung. Insbesondere ist also $\overset{\leftarrow}{\gamma}$ kein nicht-Verschlechterungspfad, d.h. $\gamma$ ein schwacher Verbesserungspfad von $y$ nach $x$. Damit folgt analog zum ersten Punkt: $P(x) < P(y)$
+	\end{enumerate}
+
+	Ist umgekehrt $([X], \prec)$ reell-geordnet mit Abbildung $f: [X] \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein ordinales Potential, denn es gilt:
+	\begin{enumerate}
+		\item Gilt $c_i(x) > c_i(\hat{x}_i, x_{-i})$, so ist $(x, (\hat{x}_i, x_{-i}))$ ein schwacher Verbesserungspfad. Da es in $\Gamma$ keine schwachen Verbesserungszykel gibt, kann es also keinen nicht-Verschlechterungspfad in die andere Richtung geben und es gilt: $[x] \succ [(\hat{x}_i, x_{-i})]$. Daraus wiederum folgt $P(x) = f([x]) > f([(\hat{x}_i, x_{-i})]) = P(\hat{x}_i, x_{-i})$.
+		\item Gilt $c_i(x) = c_i(\hat{x}_i, x_{-i})$, so sind sowohl $(x, (\hat{x}_i, x_{-i}))$ als auch $((\hat{x}_i, x_{-i}), x)$ nicht-Verschlechterungspfade, also $[x] = [(\hat{x}_i, x_{-i})]$ und damit $P(x) = f([x]) = f([(\hat{x}_i, x_{-i})]) = P(\hat{x}_i, x_{-i})$. \qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{bem}
+	Im Gegensatz zur Charakterisierung von exakten Potentialspielen in \Cref{satz:CharExPot} genügt es für die Existenz eines ordinalen Potentials nicht, nur Zykel der Länge 4 zu betrachten. \citeauthor{CharExOrdPot} geben dafür in \cite[Beispiel 3.1]{CharExOrdPot} ein Gegenbeispiel mit zwei Spielern und je drei Strategien an.
+\end{bem}
+
+Analog zu \Cref{satz:CharOrdPot} gilt für verallgemeinerte ordinale Potentiale:
+\begin{satz}\label{satz:CharVerallOrdPot}
+	Ein Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungszykel enthält.
+\end{satz}
+
+\begin{proof}
+	Sei zunächst $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Angenommen $\gamma = (x^0, \dots, x^n)$ ist ein Verbesserungszykel, d.h. für alle $0 \leq k < n$ gilt $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$. Da $P$ ein verallgemeinertes ordinales Potential ist, folgt daraus $P(x^0) > P(x^1) > \dots > P(x^n) = P(x^0)$, ein Widerspruch. Also kann es keinen Verbesserungszykel geben.
 	
-	\todo[inline]{aus \cite{CharExOrdPot}}
+	Ist umgekehrt $\Gamma$ ein Spiel, indem es keine Verbesserungszykel gibt. 
+	
+	\todo[inline]{weiter (geht das überhaupt so allgemein?)}
 \end{proof}
 
 

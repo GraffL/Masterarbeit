@@ -3,19 +3,18 @@
 \subsection{Spiele in strategischer Form}
 
 \begin{defn}
-	Ein \emph{Spiel $\Gamma$ in strategischer Form} ist ein Tupel $(I, X = (X_i)_{i \in I}, (K_i)_{i\in I}, (c_i)_{i\in I})$. Dabei ist
+	Ein \emph{Spiel $\Gamma$ in strategischer Form} ist ein Tupel $(I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
 		\item $X_i$ die Menge der (reinen) Strategien von Spieler $i$,
-		\item $(K_i, \cordleq)$, eine total geordnete Menge, der Kostenraum von Spieler $i$ und
 		\item $c_i: X_i \to K_i$ die Kostenfunktion von Spieler $i$.
 	\end{itemize}
 	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler versucht durch die Wahl seiner Strategie die eigenen Kosten zu minimieren.
 	
-	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist.
+	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
 \end{defn}
 
-\begin{beob}
+\begin{beob}\todo{an weniger allgemeinen Ansatz anpassen}
 	Klassische Kostenminimierungsspiele erhält man durch Wahl von $(\IR_{\geq 0}, \leq)$ als Kostenraum für alle Spieler, Nutzenmaximierungsspiele durch Wahl von $(\IR, \geq)$ als \glqq Kosten\grqq raum.
 \end{beob}
 
@@ -38,22 +37,39 @@
 Aus \cite{MonShap}:
 
 \begin{defn}
-	Eine Folge von Strategieprofilen $x^0, x^1, x^2, \dots$ ist 
+	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist 
 	\begin{itemize}
 		\item ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jede Stelle $k$ es einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = (x^{k+1}_{i(k)}, x^k_{-i(k)})$.
-		\item ein \emph{Verbesserungspfad}, wenn sie ein Pfad ist und sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $n$: $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$.
-		\item ein \emph{abgeschlossener Verbesserungspfad}, wenn sie ein endlicher Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) \cordle c_{i}(x^n)$.\todo{Schöner formulieren}
+		\item ein \emph{nicht-Verschlechterungspfad}, wenn sie ein Pfad ist und sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) \cordleq c_{i(k)}(x^k)$.
+		\item ein \emph{schwacher Verbesserungspfad}, wenn sie ein nicht-Verschlechterungspfad ist und sich an mindestens einer Stelle der abweichende Spieler echt verbessert. Das heißt es gibt eine Stelle $k$ mit $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$.
+		\item ein \emph{Verbesserungspfad}, wenn sie ein Pfad ist und sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$.
 	\end{itemize}
-
-	\todo[inline]{Zykel, bester Antwort Pfad}
 	
-	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist die \emph{Gesamtänderung} entlang des Pfades definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
+	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist
+	\begin{itemize}
+		\item die \emph{Gesamtänderung} entlang des Pfades definiert $\PfadAend(\gamma)$ als die Summe aller Änderungen für die jeweils abweichenden Spieler:
 		\[\PfadAend(\gamma) \coloneqq \sum_{k=0}^{n} c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k) \]
+		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) \cordle c_{i}(x^n)$.\todo{Schöner formulieren}
+		\item $\gamma$ ein \emph{$n$-Zykel}, wenn $x^0 = x^n$ gilt.
+	\end{itemize}
+	\todo[inline]{bester Antwort Pfad}
 \end{defn}
+
+\todo[inline]{$\overset{\leftarrow}{\gamma}$ definieren und als Charakterisierung von schwacher Verbesserungspfad verwenden}
 
 \begin{defn}
 	Ein Spiel $\Gamma$ hat die \emph{finite improvement property (FIP)}, wenn jeder Verbesserungspfad endlich ist.
 \end{defn}
+
+\begin{defn}
+	Eine Teilmenge $Y \subseteq X$ des Strategieraumes heißt \emph{Pfadzusammenhangskomponente}, wenn es für je zwei $x, y \in Y$ einen Pfad von $x$ nach $y$ in $Y$ gibt. Zu einem gegebeenen Strategieprofil $x \in X$ ist \emph{die Pfadzusammenhangskomponente von $x$} die (bezüglich Inklusion) maximale Pfadzusammenhangskomponente $Y_x \subseteq X$, welche $x$ enthält.\todo{Wohldefiniertheit? Evtl. direkt mit Relationen definieren?}
+\end{defn}
+
+\begin{beob}
+	Die Pfadzusammenhangskomponente eines Strategieprofils $x$ besteht aus allen Strategieprofilen, die an höchstens endlich vielen Stellen von $x$ unterscheiden, d.h.
+		\[Y_x = \left\{y \in X \mid \exists J \subseteq I: \abs{J} < \infty \text{ und } \forall i \in I\setminus J: x_i = y_i \right\} \]
+	Insbesondere ist also für $N$-Personenspiele der gesamte Strategieraum eine einzige Zusammenhangskomponente.
+\end{beob}
 
 \begin{beob}\label{beob:VerbPfadeundNGe}
 	Jedes Ende eines abgeschlossenen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
