@@ -130,12 +130,14 @@ Für Spiele mit unendlicher Spielermenge erweist es sich als hilfreiche Beobacht
 Wir definieren nun eine Äquivalenzrelation auf dem Strategieraum:\todo{evtl. schon im Grundlagenkapitel gemeinsam mit Pfadzusammenhangskomponenten?}
 	\[x \approx y \colon\iff \text{ es gibt einen nicht-Verschlechterungspfad von $x$ nach $y$ und umgekehrt}\]
 Auf dem dadurch erzeugten Raum von Äquivalenzklassen $X/{\approx} \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine strikte Partialordnung
-	\[[x] \prec [y] \colon\iff x \not\approx y \text{ und es gibt einen nicht-Verschlechterungspfad von $y$ nach $x$}\]
+	\[[x] \nVerschlRel [y] \colon\iff x \not\approx y \text{ und es gibt einen nicht-Verschlechterungspfad von $y$ nach $x$}\]
+	
+\todo[inline]{zeige Irreflexivität und Transitivität}
 
 Damit zeigt \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgende Charakterisierung der Existenz von Ordinalen Potentialen:
 
 \begin{satz}\label{satz:CharOrdPot}
-	Ein Spiel besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungszykel enthält und $([X], \prec)$ reell-geordnet ist.
+	Ein Spiel besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungszykel enthält und $([X], \nVerschlRel)$ reell geordnet ist.
 \end{satz}
 
 \begin{proof}
@@ -145,12 +147,12 @@ Damit zeigt \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgen
 			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k+1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0)\]
 		Dies ist jedoch ein Widerspruch. Also kann es keinen solchen Verbesserungszykel geben.
 		
-		\item $([X], \prec)$ ist reell reell-geordnet. Definiere dazu die Abbildung $f: X/{\approx} \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es also nicht-Verschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen nicht-Verschlechterungszykel und da es keineschwachen Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
+		\item $([X], \nVerschlRel)$ ist reell geordnet. Definiere dazu die Abbildung $f: X/{\approx} \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es also nicht-Verschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen nicht-Verschlechterungszykel und da es keine schwachen Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
 		
-		Ferner ist diese Abbildung streng monoton, denn gilt $[x] \prec [y]$, so gibt es einen nicht-Verschlechterungspfad $\gamma$ von $y$ nach $x$, aber keinen in die umgekehrte Richtung. Insbesondere ist also $\overset{\leftarrow}{\gamma}$ kein nicht-Verschlechterungspfad, d.h. $\gamma$ ein schwacher Verbesserungspfad von $y$ nach $x$. Damit folgt analog zum ersten Punkt: $P(x) < P(y)$
+		Ferner ist diese Abbildung streng monoton, denn gilt $[x] \nVerschlRel [y]$, so gibt es einen nicht-Verschlechterungspfad $\gamma$ von $y$ nach $x$, aber keinen in die umgekehrte Richtung. Insbesondere ist also $\overset{\leftarrow}{\gamma}$ kein nicht-Verschlechterungspfad, d.h. $\gamma$ ein schwacher Verbesserungspfad von $y$ nach $x$. Damit folgt analog zum ersten Punkt: $P(x) < P(y)$
 	\end{enumerate}
 
-	Ist umgekehrt $([X], \prec)$ reell-geordnet mit Abbildung $f: [X] \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein ordinales Potential, denn es gilt:
+	Ist umgekehrt $\Gamma$ ein Spiel ohne schwache Verbesserungszykel und $([X], \nVerschlRel)$ reell-geordnet mit Abbildung $f: [X] \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein ordinales Potential, denn es gilt:
 	\begin{enumerate}
 		\item Gilt $c_i(x) > c_i(\hat{x}_i, x_{-i})$, so ist $(x, (\hat{x}_i, x_{-i}))$ ein schwacher Verbesserungspfad. Da es in $\Gamma$ keine schwachen Verbesserungszykel gibt, kann es also keinen nicht-Verschlechterungspfad in die andere Richtung geben und es gilt: $[x] \succ [(\hat{x}_i, x_{-i})]$. Daraus wiederum folgt $P(x) = f([x]) > f([(\hat{x}_i, x_{-i})]) = P(\hat{x}_i, x_{-i})$.
 		\item Gilt $c_i(x) = c_i(\hat{x}_i, x_{-i})$, so sind sowohl $(x, (\hat{x}_i, x_{-i}))$ als auch $((\hat{x}_i, x_{-i}), x)$ nicht-Verschlechterungspfade, also $[x] = [(\hat{x}_i, x_{-i})]$ und damit $P(x) = f([x]) = f([(\hat{x}_i, x_{-i})]) = P(\hat{x}_i, x_{-i})$. \qedhere
@@ -161,29 +163,75 @@ Damit zeigt \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgen
 	Im Gegensatz zur Charakterisierung von exakten Potentialspielen in \Cref{satz:CharExPot} genügt es für die Existenz eines ordinalen Potentials nicht, nur Zykel der Länge 4 zu betrachten. \citeauthor{CharExOrdPot} geben dafür in \cite[Beispiel 3.1]{CharExOrdPot} ein Gegenbeispiel mit zwei Spielern und je drei Strategien an.
 \end{bem}
 
-Analog zu \Cref{satz:CharOrdPot} gilt für verallgemeinerte ordinale Potentiale:
+Anlehnend an \Cref{satz:CharOrdPot} erhält man unter Verwendung der Relation
+	\[x \VerbRel y \dIff \text{ es gibt einen Verbesserungspfad der Länge $\geq 1$ von $y$ nach $x$}\]
+eine Charakterisierung der Existenz eines verallgemeinerten ordinalen Potentials:
 \begin{satz}\label{satz:CharVerallOrdPot}
-	Ein Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungszykel enthält.
+	Ein Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn $(X, \VerbRel)$ reell geordnet ist.
 \end{satz}
 
 \begin{proof}
-	Sei zunächst $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Angenommen $\gamma = (x^0, \dots, x^n)$ ist ein Verbesserungszykel, d.h. für alle $0 \leq k < n$ gilt $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$. Da $P$ ein verallgemeinertes ordinales Potential ist, folgt daraus $P(x^0) > P(x^1) > \dots > P(x^n) = P(x^0)$, ein Widerspruch. Also kann es keinen Verbesserungszykel geben.
+	$(X, \VerbRel)$ reell geordnet mit streng monotoner Abbildung $f: X \to \IR$, so sieht man direkt, dass $f$ auch ein verallgemeinertes Potential ist. Denn für $x \in X, \hat{x}_i \in X_i$ mit $c_i(x) > c_i(\hat{x}_i, x_{-i})$ ist $(x, (\hat{x}_i, x_{-i}))$ ein Verbesserungspfad, also $(\hat{x}_i, x_{-i}) \VerbRel x$ und damit $f(\hat{x}_i, x_{-i}) > f(x)$.
 	
-	Ist umgekehrt $\Gamma$ ein Spiel, indem es keine Verbesserungszykel gibt. 
-	
-	\todo[inline]{weiter (geht das überhaupt so allgemein?)}
+	Haben wir hingegen ein Spiel $\Gamma$ mit einem verallgemeinerten ordinalen Potential $P$, so ist $(X, \VerbRel)$ reell geordnet, denn
+	\begin{enumerate}
+		\item $\VerbRel$ ist eine strikte Partialordnung auf $X$: Sie ist transitiv, da die Verknüpfung zweier Verbesserungspfade wieder ein Verbesserungspfad ist, und irreflexiv, da es in $\Gamma$keine Verbesserungszykel gibt. Angenommen nämlich $\Gamma$ enthielte einen solchen Verbesserungszykel $\gamma = (x^0, \dots, x^n)$, d.h. für alle $0 \leq k < n$ gilt $c_{i(k)}(x^{k+1}) \cordle c_{i(k)}(x^k)$. Da $P$ ein verallgemeinertes ordinales Potential ist, folgt daraus $P(x^0) > P(x^1) > \dots > P(x^n) = P(x^0)$, ein Widerspruch. Also kann es keinen Verbesserungszykel geben und damit nie $x \VerbRel x$ gelten.
+		\item $(X, \VerbRel)$ ist reell geordnet durch die Funktion $P: X \to \IR$. Gilt nämlich $x \VerbRel y$, so gibt es also einen Verbesserungspfad von $y$ nach $x$. Da $P$ ein verallgemeinertes ordinales Potential ist, nimmt es entlang dieses Pfades in jedem Schritt ab, und folglich gilt $P(y) > P(x)$. Damit ist $P$ streng monoton auf $(X, \VerbRel)$. \qedhere
+	\end{enumerate} 
 \end{proof}
 
+In dieser Form ist dies eine wenig hilfreiche Charakterisierung, da sie Frage nach der Existenz eines verallgemeinerten ordinalen Potential durch die eine noch schwerer Frage ersetzt.\todo{Besser formulieren!}{} Allerdings erhält man daraus mit Hilfe der folgenden Proposition einfachere Charakterisierungen für gewisse Teilklassen von Spielen:
 
-\begin{satz}
-	Hat ein Spiel die FIP, so besitzt es auch ein verallgemeinertes ordinales Potential.
-	
-	Umgekehrt besitzt jedes \emph{endliche} Spiel mit einem verallgemeinerten ordinalen Potential auch die FIP.
-\end{satz}
+\begin{prop}\label{prop:VerRelPartOrdVerbz}
+	Die Relation $\VerbRel$ ist genau dann eine strikte Partialordnung, wenn $\Gamma$ keine Verbesserungszykel enthält.
+\end{prop}
 
 \begin{proof}
-	\cite{MonShap}/\cite{CongGamesPlayerSpecPayoff} (konstruktiver Beweis)
+	Da die Verknüpfung eines Verbesserungspfades von $z$ nach $y$ mit einem von $y$ nach $x$ einen Verbesserungspfad von $z$ nach $z$ ergibt, ist $\VerbRel$ automatisch immer transitiv.
+	
+	Ferner ist $\VerbRel$ genau dann irreflexiv, wenn für alle $x \in X$ gilt, dass $x \not\VerbRel x$, es also keinen Verbesserungspfad von $x$ nach $x$ gibt. Und letzteres entspricht genau einem (bei $x$ beginnenden) Verbesserungskreis.
 \end{proof}
+
+\begin{kor}
+	Ein Spiel mit abzählbarem Strategieraum besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungskreise enthält.
+\end{kor}
+
+\begin{proof}
+	Nach \cite[Lemma 2.2]{CharExOrdPot} ist jede abzählbare Menge mit einer strikten Partialordnung bereits reell geordnet. Also macht $\VerbRel$ einen abzählbaren Strategieraum genau dann zu einer reell geordneten Menge, wenn $\VerbRel$ eine strikte Partialordnung ist. Und dies ist nach \Cref{prop:VerRelPartOrdVerbz} genau dann der Fall, wenn das Spiel keine Verbesserungszykel enthält.
+\end{proof}
+
+\begin{kor}
+	Ein endliches Spiel besitzt genau dann ein verallgemeinertes Potential, wenn es die FIP besitzt.
+\end{kor}
+
+\begin{proof}
+	In einem Spiel mit endlichem Strategieraum sind unendliche Verbesserungspfade genau die Verbesserungskreise. Damit folgt die Aussage direkt aus dem vorherigen Korollar.
+\end{proof}
+
+Diese Charakterisierung der Existenz verallgemeinerter ordinaler Potentiale wurde (auf anderem Wege) erstmals von \citeauthor{MonShap} in \cite[Lemma 2.5]{MonShap} gezeigt.
+
+\begin{kor}
+	Ein Spiel mit abzählbarer Spielermenge besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungskreise enthält.
+\end{kor}
+
+\begin{proof}
+	Nach \cite[Lemma 2.3]{CharExOrdPot} genügt es für eine Menge mit strikter Partialordnung bereits, wenn sie eine abzählbare, bezüglich dieser Ordnung Teilmenge besitzt, um reell geordnet zu sein. Dabei heißt eine Teilmenge $Y$ einer Menge $X$ mit strikter Partialordnung $<$ \emph{dicht bezüglich der Ordnung $<$}, wenn gilt:
+		\[\forall x,z \in X\setminus Y: x < z \implies \exists y \in Y: x < y < z \]
+	Zusammen mit \Cref{prop:VerRelPartOrdVerbz} genügt es für den Beweis des Korollars also eine $\VerbRel$-ordnungsdichte Teilmenge des Strategieraumes zu finden.
+	
+	Dazu definieren wir für jeden Spieler $i \in I$, eine (abzählbare) Teilmenge
+		\[Y_i := \left\{x^{i,q} \,\middle|\, q \in \IQ, x^{i,q} \in X: \abs{c_i(x^{i,q})-q} = \min_{x \in X}\abs{c_i(x) - q}\right\}\]
+	Das heißt zu jeder rationalen Zahl $q$ enthält $Y_i$ ein Strategieprofil, dessen Kosten für Spieler $i$ möglichst nahe an $q$ liegen.
+	
+	Es ist nun $Y := \bigcup_{i \in I} Y_i \subseteq X$ eine abzählbare Menge (da $I$ abzählbar ist). Außerdem liegt $Y$ bezüglich der Ordnung $\VerbRel$ dicht in $X$, denn es gilt:
+	
+	Seien $x$ und $y$ zwei Strategieprofile aus $X\setminus Y$ mit $x < z$, dann gibt es also einen Verbesserungspfad $\gamma = (x^0, x^1, \dots, x^n)$ mit $x^0 = z$ und $x^n = x$. Insbesondere gilt für den als erstes abweichenden Spieler $i(0)$, dass $c_{i(0)}(x^1) \cordle c_{i(0)}(x^0)$. Da $\IQ$ dicht in $\IR$ liegt, gibt es nun eine rationale Zahl $q$ mit $c_{i(0)}(x^1) \cordle q \cordle c_{i(0)}(x^0)$. Nach Definition von $Y_i$ gilt nun für $x^{i,q} \in Y_i \subseteq Y$:
+		\[c_{i(0)}(x^1) \cordleq c_{i(0)}(x^{i,q}) \cordleq c_{i(0)}(x^0)\]
+	
+	\todo[inline]{Vermutlich funktioniert das so nicht...}
+\end{proof}
+
+\todo[inline]{alternativen (konstruktiven!) Beweis \cite{CongGamesPlayerSpecPayoff} erwähnen?}
 
 \begin{satz}
 	Ein Spiel hat genau dann ein Beste Antwort-Potential, wenn es keine beste-Antwort-kompatiblen Kreise enthält und $([X], <)$ properly ordered ist.
