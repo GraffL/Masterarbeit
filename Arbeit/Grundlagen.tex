@@ -47,7 +47,7 @@ Aus \cite{MonShap}:
 	
 	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist
 	\begin{itemize}
-		\item die \emph{Gesamtänderung} entlang des Pfades definiert $\PfadAend(\gamma)$ als die Summe aller Änderungen für die jeweils abweichenden Spieler:
+		\item die \emph{Gesamtänderung} entlang des Pfades $\PfadAend(\gamma)$ definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
 		\[\PfadAend(\gamma) \coloneqq \sum_{k=0}^{n} c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k) \]
 		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) \cordle c_{i}(x^n)$.\todo{Schöner formulieren}
 		\item $\gamma$ ein \emph{$n$-Zykel}, wenn $x^0 = x^n$ gilt.
@@ -62,19 +62,19 @@ Aus \cite{MonShap}:
 \end{defn}
 
 \begin{defn}
-	Eine Teilmenge $Y \subseteq X$ des Strategieraumes heißt \emph{Pfadzusammenhangskomponente}, wenn es für je zwei $x, y \in Y$ einen Pfad von $x$ nach $y$ in $Y$ gibt. Zu einem gegebeenen Strategieprofil $x \in X$ ist \emph{die Pfadzusammenhangskomponente von $x$} die (bezüglich Inklusion) maximale Pfadzusammenhangskomponente $Y_x \subseteq X$, welche $x$ enthält.\todo{Wohldefiniertheit? Evtl. direkt mit Relationen definieren?}
+	Eine Teilmenge $Y \subseteq X$ des Strategieraumes bezeichnen wir als \emph{Pfadzusammenhangskomponente}, wenn es für je zwei $x, y \in Y$ einen Pfad von $x$ nach $y$ in $Y$ gibt. Zu einem gegebeenen Strategieprofil $x \in X$ ist \emph{die Pfadzusammenhangskomponente von $x$} die (bezüglich Inklusion) maximale Pfadzusammenhangskomponente $Y_x \subseteq X$, welche $x$ enthält.\todo{Wohldefiniertheit? Evtl. direkt mit Relationen definieren?}
 \end{defn}
 
 \begin{beob}
-	Die Pfadzusammenhangskomponente eines Strategieprofils $x$ besteht aus allen Strategieprofilen, die an höchstens endlich vielen Stellen von $x$ unterscheiden, d.h.
+	Die Pfadzusammenhangskomponente eines Strategieprofils $x$ besteht aus allen Strategieprofilen, die sich an höchstens endlich vielen Stellen von $x$ unterscheiden, d.h.
 		\[Y_x = \left\{y \in X \mid \exists J \subseteq I: \abs{J} < \infty \text{ und } \forall i \in I\setminus J: x_i = y_i \right\} \]
 	Insbesondere ist also für $N$-Personenspiele der gesamte Strategieraum eine einzige Zusammenhangskomponente.
 \end{beob}
 
 \begin{beob}\label{beob:VerbPfadeundNGe}
-	Jedes Ende eines abgeschlossenen Verbesserungspfades ist ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
+	Das Ende eines abgeschlossenen Verbesserungspfades ist immer ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
 		
-	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades
+	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
 \end{beob}
 
 \begin{kor}\label{kor:ExVerbPfadExNG}\todo{Sollte eine Beobachtung wirklich ein Korrolar haben?}
