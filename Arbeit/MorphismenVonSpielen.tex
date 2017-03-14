@@ -13,16 +13,30 @@ Mögliche Motivationen:
 
 \subsection{Definitionen}
 
-Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I', X', (K'_i)_{i\in I'}, (c'_i)_{i\in I})$ kann man wie folgt eine Abbildung zwischen diesen beiden definieren:
+Zu zwei gegebenen Spielen $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y, (d_j)_{j\in J})$ kann man wie folgt eine Abbildung $(\sigma, \phi_j): \Gamma \to \Delta$ zwischen diesen beiden definieren:
 \begin{itemize}
-	\item Eine Abbildung $\sigma: I' \to I$ zwischen den Spielermengen und
-	\item für jeden Spieler $i \in I$ eine Abbildung $\phi_i: X_i \to X'_{\sigma(i)}$ seiner Strategien.
+	\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen und
+	\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien.
 \end{itemize}
-\cite{Polyequilibrium} bezeichnet derartige Abbildungen \emph{Strategieersetzungsvorschriften}.\todo{Mehr dazu schreiben - erst später bei rationalen SEVs erwähnen?}
 
-\begin{beob}
-	Mit dieser Definition ist es also nur möglich Abbildungen zwischen Spielen mit Spielermengen gleicher Kardinalität zu definieren. Im Folgenden werden wir ausschließlich solche Abbildungen betrachten (vergleiche aber \Cref{bem:LapMorDef} dazu wie auch in anderen Fällen Abbildungen zwischen Spielen definiert werden können). Zur Vereinfachung der Notation werden wir daher ab sofort immer davon ausgehen, dass die Spielermengen beider an einer Abbildung beteiligten Spiele bereits gleich und geeignet permutiert sind.
-\end{beob}
+Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}. Hierbei orientieren wir uns vor allem an dem dort vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist). 
+
+Insbesondere ergibt sich daraus auf natürliche Weise, dass die Abbildungen zwischen den Spielermengen in die entgegengesetzte Richtung zu der zwischen den Strategieräumen verläuft.\footnote{\todo[inline]{Beachte, dass Lapitsky Morphismen genau dual definert}} Eine andere, leichter einzusehende Motivation hierfür liefert aber auch die folgende Bemerkung:
+
+\begin{bem}
+	Alle Abbildungen $\phi_j$ zusammen induzieren eine Abbildung von Strategieprofilen:
+	\[\phi: X \to Y: x=(x_i)_{i\in I} \mapsto \phi(x) := \left(\phi_j(x_{\sigma(j)})\right)_{j \in J} \]
+\end{bem}
+
+Würde die Abbildung $\sigma$ zwischen den Spielermengen in die andere, \glqq natürlichere\grqq{} Richtung verlaufen (also von $I$ nach $J$), so müsste man automatisch auch fordern, dass diese bijektiv ist, wenn man möchte, dass in der obigen Form Strategieprofile auf Strategieprofile abgebildet werden. Denn nur dann wäre $\phi(x) \coloneqq \left(\phi_i(x_i)\right)$ wieder ein vollständiges Strategieprofil in $Y$.
+
+\begin{bem}\todo{Genauer beschreiben...}
+	Möchte man trotzdem Spieler- und Strategieabbildungen in die gleiche Richtung haben, so kann man einem alternativen Ansatz zur Definition von Morphismen von Spielen folgen, welcher von \citeauthor{Foundations} in \cite{Foundations} verwendet wird. Darin werden einzelne Strategien nicht zwangsläufig wieder auf einzelne Strategien abgebildet, sondern können gleich auf ganze Teilmengen des Bildstrategieraums abgebildet werden. Von diesem Morphismentyp werden dann verschiedene \glqq approximativ kostenerhaltende\grqq{} Varianten betrachtet und die sich dadurch ergebende Kategorie studiert.
+\end{bem}
+
+\begin{notation}
+	In den meisten Fällen wird die Abbildung zwischen den Spielermengen bijektiv sein. In diesen Fällen werden wir zur Vereinfachung der Notation ohne Einschränkung davon ausgehen, dass bereits die Spielermengen beider an der Abbildung beteiligten Spiele gleich und geeignet permutiert sind, sodass $\sigma$ die Identitätsabbildung ist. Damit kann diese dann in der Notation verschwinden und die Abbildung zwischen den Spielen besteht nur noch aus den Abbildungen $\phi_i: X_i \to Y_i$ zwischen den Strategieräumen.
+\end{notation}
 
 Abbildungen der obigen Form nehmen noch keinerlei Rücksicht auf die Kostenfunktionen der jeweiligen Spiele. Da diese aber in der Regel die interessierenden Eigenschaften eines Spiels (wie beispielsweise Gleichgewichte) festlegen, werden derartige Abbildungen im Allgemeinen noch wenig Aussagen über die beteiligten Spiele ermöglichen. So besagt der durch diese Art Abbildungen induzierte Isomorphiebegriff bspw. nur, dass zwei Spiele Spieler- und Strategiemengen gleicher Kardinalität besitzen.
 
@@ -31,25 +45,50 @@ Echte Morphismen zwischen Spielen sollten folglich noch mehr der Struktur eines 
 Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} sein müssen, wie sie in \cite{ReprOfFiniteGamesAsNCG} gestellt wird:
 
 \begin{defn}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K_i)_{i\in I}, (c'_i)_{i\in I})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $i \in I$ gilt:
-		\[c_i(x) = c'_i(\phi(x)) \]
-	Ist ein solcher Morphismus gleichzeitig ein Isomorphismus, so nennen wir $\Gamma$ und $\Gamma'$ \emph{äquivalent}.
+	Ein Morphismus $(\sigma, \phi_j)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $j \in J$ gilt:
+		\[c_{\sigma(j)}(x) = d_j(\phi(x)) \]
+	Ist ein solcher Morphismus gleichzeitig ein Isomorphismus, so nennen wir $\Gamma$ und $\Delta$ \emph{äquivalent}.
 \end{defn}
 
 \begin{bem}
 	Zwei Spiele sind also genau dann äquivalent, wenn sie sich ausschließlich durch Umbenennung der Strategien ineinander überführen lassen. In \cite{MonShap} (S. 133) wird dies als Isomorphie von Spielen bezeichnet.
 \end{bem}
 
+\begin{bsp}\todo{$\Gamma$ in $\Delta$ umbenennen um Konsistenz mit der Definition herzustellen? Evtl auch $\heartsuit$ in $1$ oder $\ast$.}
+	Ein Spiel $\Gamma = (I, X, (c_i)_{i \in I})$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden, auf den Strategieräumen surjektiven Morphismus von einem 1-Personenspiel nach $\Gamma$ gibt.
+	
+	Ist nämlich $\Gamma$ ein Koordinationsspiel mit gemeinsamer Kostenfunktion $c$, so erhält man folgenden Morphismus $(\sigma, \phi): (\{\heartsuit\}, X, c) \to \Gamma$:
+	\begin{align*}
+	&\sigma:	I									\to	 \{\heartsuit\}:	&i	\mapsto	\heartsuit  \\
+	&\phi_i:	X_{\sigma(i)} = X_\heartsuit = X	\to	 X_i:				&x	\mapsto	x_i
+	\end{align*}
+	Dieser ist auch kostenerhaltend, denn für jedes Strategieprofil $x \in X$ und jeden Spieler $i \in I$ gilt:
+	\[c_{\sigma(i)}(x) = c_\heartsuit(x) = c(x) \overset{\Gamma \text{ Koord.spiel}}{=} c_i(x) = c_i(\phi(x))\]
+	
+	Ist umgekehrt ein solcher Morphismus gegeben, dann ist $\Gamma$ bereits ein Koordinationsspiel, denn aufgrund der Surjektivität der Strategieabbildungen $\phi_i$ gibt es zu jedem Strategieprofil $x \in X$ auch ein Strategieprofil $y \in Y$ mit $\phi(y) = x$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $i, j \in I$: 
+		\[c_i(x) = c(x) = c_j(x)\]
+	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.\todo{Kann man so Potentialspiele \glqq charakterisieren\grqq? Evtl. muss man dazu die Pfeilrichtungen bei den Bedingungen an Potentialmorphismen umdrehen...}
+\end{bsp}
+
+\begin{bsp}
+	Ein Spiel ist genau dann ein Dummyspiel, wenn ...
+	
+	\todo[inline]{Gibt es hier eine analoge Definition mittels Morphismen? Evtl. auch weglassen...}
+\end{bsp}
+
 Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form von Morphismen wird in \cite{Polyequilibrium} wie folgt definiert\todo{dort allerdings nur für Endomorphismen definiert}:
 
 \begin{defn}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $i \in I$ und jede Strategie $x'_i \in X'_i$ gilt:
-	\[c'_i(\phi(x)) \leq c'_i(\phi_{-i}(x_{-i}), x'_i) \]
+	Ein Morphismus $\phi$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $j \in J$ und jede Strategie $y_j \in Y_j$ gilt:
+	\[d_j(\phi(x)) \leq d_j(\phi_{-j}(x_{-\sigma(j)}), y_j) \]
 \end{defn}
+
+\todo[inline]{\cite{Polyequilibrium} bezeichnet derartige Abbildungen \emph{Strategieersetzungsvorschriften}. Mehr dazu schreiben - oder erst später bei rationalen SEVs erwähnen?}
+
 
 \todo[inline]{Ist diese Definition sinnvoll/zielführend?}
 
-\begin{defn}\label{def:SpielIsomLap}
+\begin{defn}\label{def:SpielIsomLap}\todo{Anpassen! (evtl. auch erst als Morphismus definieren)}
 	Zwei Spiele $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißen \emph{isomorph}, falls es bijektive Abbildungen $\phi_i: X_i \to X'_i$ sowie bijektive und monotone Abbildungen $\psi_i: K_i \to K'_i$ gibt, sodass alle Diagramme der folgenden Form kommutieren:
 	
 	\begin{center}
@@ -63,7 +102,7 @@ Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form v
 \begin{bem}\label{bem:LapMorDef}
 	Diese Definition ergibt sich aus der abstrakteren Definition für \todo{...} in \cite{LapGameCat}. 
 	
-	\todo[inline]{Auch auf Verallgemeinerung mit Garben hinweisen (erlaubt Abbildungen zwischen Spielen mit Spielermengen unterschiedlicher Kardinalität!)}
+	\todo[inline]{Auch auf Verallgemeinerung mit Garben hinweisen}
 \end{bem}
 
 \begin{defn}
@@ -76,27 +115,29 @@ Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form v
 	lineare Funktionen
 \end{bsp}	
 
-Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potentiale} beschriebenen Potentialen: \citeauthor{ReprOfFiniteGamesAsNCG} definiert in \cite{ReprOfFiniteGamesAsNCG} einen Isomorphismusbegriff der dazu führt, dass jedes exakte Potentialspiel isomorph zu dem Spiel ist, bei dem die Potentialfunktion als für alle Spieler einheitliche Kostenfunktion verwendet wird. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren:
+Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potentiale} beschriebenen Potentialen: \citeauthor{ReprOfFiniteGamesAsNCG} definiert in \cite{ReprOfFiniteGamesAsNCG} einen Isomorphismusbegriff der dazu führt, dass jedes exakte Potentialspiel isomorph zu einem Koordinationsspiel mit der Potentialfunktion als gemeinsamer Kostenfunktion ist. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren:
 
 \begin{defn}\label{def:PotentialMorphismen}
-	Ein Morphismus $\phi$ von $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ nach $\Gamma' = (I, X', (K'_i)_{i\in I}, (c'_i)_{i\in I})$ heißt
+	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt
 	\begin{itemize}
-		\item \emph{exakt}, wenn für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
-			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i))\]
-		\item \emph{gewichtend}, wenn es einen Vektor $(w_i)_{i \in I}$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
-			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = w_i\cdot\left(c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i))\right)\]
-		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_i$ gibt, die $0$ auf $0$ abbilden, sodass für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
-			\[c_i(x) - c_i(x_{-i}, \hat{x}_i) = f_i(c'_i(\phi(x)) - c'_i(\phi(x_{-i}, \hat{x}_i)))\]
-		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $i \in I$ und Strategien $\hat{x}_i$ gilt:
-			\[c_i(x) < c_i(x_{-i}, \hat{x}_i) \implies c'_i(\phi(x)) < c'_i(\phi(x_{-i}, \hat{x}_i))\]
-		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $i \in I$ und Strategieprofile $x_{-i} \in X_{-i}$ gilt:
-			\[\phi(\arg \min_{x_i \in X_i}c_i(x)) \subseteq \arg \min_{x'_i \in X'_i} c'_i(\phi_{-i}(x_{-i}), x'_i)\]
+		\item \emph{exakt}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\item \emph{gewichtend}, wenn es einen Vektor $(w_j)_{j \in J} \in \IR_{\geq 0}^J$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j\cdot\left(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\right)\]
+		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, die $0$ auf $0$ abbilden, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
+		\item \emph{biordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x_{-\sigma(j)} \in X_{-\sigma(j)}$ gilt:
+		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x)) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi_{-\sigma(j)}(x \mid y_j)\]
 	\end{itemize}	
 \end{defn}
 
-\begin{defn}
-	Ein Spiel heißt \emph{Koordinationsspiel}\todo{\cite{KoordDummy}}, wenn alle Spieler eine gemeinsame Kostenfunktion verwenden.
-\end{defn}
+\begin{beob}
+	Ordinale Isomorphismen sind automatisch biordinal.
+\end{beob}
 
 \begin{bem}
 	Umgekehrt könnte man nun auch ausgehend von diesen Morphismen-Begriffen definieren, wann ein Spiel ein Potentialspiel ist: Ein Spiel ist nämlich genau dann ein exaktes/gewichtetes/ordinales/beste-Antwort-Potentialspiel, wenn es exakt/gewichtet/ordinal isomorph zu einem Koordinationsspiel ist. Ein Spiel hat genau dann ein verallgemeinertes ordinales Potential, wenn es einen ordinalen Morphismus in ein solches Spiel gibt.
@@ -105,6 +146,11 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 \todo[inline]{Zu beste Antwort: vgl. \cite{FictPlayProp}, \cite{BestRespEq}}
 
 \todo[inline]{Induzieren diese Morphismen jetzt wirklich die behaupteten Isomorphismen?}
+
+\begin{bsp}.
+	
+	\todo[inline]{Koprodukt von Spielen mit gleicher Spielermenge... Verweis auf entsprechende Konstruktion für Netzwerkauslastungsspiele}
+\end{bsp}
 
 \begin{beob}
 	Es gelten folgende Beziehungen zwischen den verschiedenen Morphismenbegriffen:
@@ -119,12 +165,51 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 \end{beob}
 
 
-\begin{bem}
-	Ein alternativer Ansatz zur Definition von Morphismen von Spielen verwendet \citeauthor{Foundations} in \cite{Foundations}. Darin werden einzelne Strategien nicht zwangsläufig wieder auf einzelne Strategien abgebildet, sondern können gleich auf ganze Teilmengen des Bildstrategieraums abgebildet werden. Von diesem Morphismentyp werden dann verschiedene \glqq approximativ kostenerhaltende\grqq{} Varianten betrachtet und die sich dadurch ergebende Kategorie studiert.
-\end{bem}
-
-
 \subsection{Erste Sätze}
+
+\begin{prop}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit injektivem $\sigma$. Dann ist für jeden Verbesserungspfad $x^0, x^1, \dots$ in $\Gamma$ auch $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Delta$. Ist der Pfad endlich und in $\Delta$ abgeschlossen, so auch in $\Gamma$.
+\end{prop}
+
+\begin{proof}
+	Da $\sigma$ injektiv ist, bleibt die Eigenschaft unilateralen Abweichung erhalten. Die Ordinalität des Morphismus stellt ferner sicher, dass jeder Verbesserungsschritt ein Verbesserungsschritt bleibt.
+	
+	Nehmen wir nun an $\phi(x^0), \dots, \phi(x^n)$ wäre ein abgeschlossener Verbesserungspfad in $\Delta$, aber $x^0, \dots, x^n$ nicht abgeschlossen in $\Gamma$. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches diesen Pfad in $\Gamma$ verlängert. Aber wie wir gerade gezeigt haben wäre dann auch $\phi(x^0), \dots, \phi(x^n), \phi(x^{n+1})$ ein Verbesserungspfad in $\Delta$, insbesondere also eine Verlängerung des ursprünglichen Pfades - im Widerspruch zu dessen vorausgesetzter Abgeschlossenheit.
+\end{proof}
+
+\begin{kor}\label{kor:ReflektNG}
+	Ordinale Morphismen mit injektiver Spielerabbildung reflektieren Nash-Gleichgewichte. Das heißt, ist $x \in X$ ein Strategieprofil in $\Gamma$ und $(\sigma, \phi)$ ein ordinaler Morphismus in ein Spiel $\Delta$, sodass $\phi(x)$ ein Nash-Gleichgewicht in diesem ist, dann war bereits $x$ ein Nash-Gleichgewicht von $\Gamma$.
+\end{kor}
+
+\begin{proof}
+	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{prop:ordMorphVerbPf}  $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
+\end{proof}
+
+\begin{prop}\label{prop:NGerhalten}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ eine biordinale Retraktion (d.h. ein biordinaler Morphismus, welcher ein Rechtsinverses besitzt). Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+\end{prop}
+
+\begin{proof}
+	Sei $(\tau, \psi): \Delta \to \Gamma$ ein Rechtsinverses von $(\sigma, \phi)$, d.h. es gelte $(\sigma, \phi) \circ (\tau, \psi) = (\tau\circ\sigma, \phi\circ\psi) = (\id_J, id_Y)$. Damit ist $\sigma$ offenbar injektiv und daher mit \Cref{kor:ReflektNG} die \glqq wenn\grqq-Richtung gezeigt.
+	
+	Zu \glqq dann\grqq: Sei also $x \in X$ ein Nash-Gleichgewicht und $y_j \in Y_j$. Wegen der Surjektivität von $\phi_j$ gibt es dann ein $\hat{x}_{\sigma(j)} \in X_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)} = y_j)$. Da $x$ ein Nash-Gleichgewicht ist, gilt nun 
+	\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})\]
+	und daher wegen Biordinalität von $\phi$ auch 
+	\[d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \overset{\ast}{=} d_j(\phi(x) \mid \phi_j(\hat{x}_{\sigma(j)})) = d_j(\phi(x) \mid y_j)\]
+	wobei in $\ast$ nochmal die Injektivität von $\sigma$ eingeht.
+\end{proof}
+
+\todo[inline]{In der Proposition explizit Surjektivität/Injektivität fordern - folgt die Retrakteigenschaft dann? In dem Fall also Bemerkung hinzufügen}
+
+\begin{bsp}
+	\todo{Bi?}Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{prop:NGerhalten}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
+\end{bsp}
+
+\begin{bsp}
+	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern. \todo{Formalisiert oBdA-Bemerkung aus Grundlagen}
+	
+	\todo[inline]{Beweis: Morphismus angeben und Eigenschaften zeigen}
+\end{bsp}
 
 \begin{prop}\label{prop:ordMorphVerbPf}
 	Sei $\phi: \Gamma \to \Gamma'$ ein ordinaler Morphismus und $x^0, x^1, \dots$ ein Verbesserungspfad in $\Gamma$. Dann ist $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Gamma'$. Ist der Pfad endlich und in $\Gamma'$ abgeschlossen, so auch in $\Gamma$.
@@ -196,91 +281,3 @@ Eine Verallgemeinerung von \Cref{beob:ZshExGewPot} lautet
 \begin{kor}
 	Zwei Spiele $\Gamma$ und $\Delta$ sind genau dann gewichtet isomorph, wenn ... \todo{usw.}
 \end{kor}
-
-
-\section{Morphismen - Alternativ:}
-
-Zu zwei gegebenen Spielen $\Gamma = (I, X, (K_i)_{i\in I}, (c_i)_{i\in I})$ und $\Delta = (J, Y, (L_j)_{j\in J}, (d_j)_{j\in J})$ kann man wie folgt eine Abbildung zwischen diesen beiden definieren:
-\begin{itemize}
-	\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen und
-	\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien.
-\end{itemize}
-
-\begin{bem}
-	Alle Abbildungen $\phi_j$ zusammen induzieren eine Abbildung zwischen den Gesamtstrategieräumen:
-		\[\phi: X \to Y: x=(x_i)_{i\in I} \mapsto \phi(x) := \left(\phi_j(x_{\sigma(j)})\right)_{j \in J} \]
-\end{bem}
-
-\todo[inline]{Dass das funktioniert liegt daran, dass die Spielerabbildung in die umgekehrte Richtung geht!}
-
-\todo[inline]{Später werden wir auch Abbildungen $\phi_i: X_i \to Y_i$ zwischen den spielerspezifischen Strategieräumen betrachten und die durch diese induzierte Abbildung $X \to Y: x = (x_i)_{i \in I} \mapsto \phi(x) := (\phi_i(x_i))_{i \in I}$ mit $\phi$ bezeichnen. Analog zur Notation für Strategieräume werden wir außerdem die Notation $\phi_{-i}: X_{-i} \to Y_{-i}$ verwenden.}
-
-\begin{defn}
-	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (\IR)_{i\in I}, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (\IR)_{j\in J}, (d_j)_{j\in J})$ heißt
-	\begin{itemize}
-		\item \emph{exakt}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
-		\item \emph{gewichtend}, wenn es einen Vektor $(w_j)_{j \in J}$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j\cdot\left(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\right)\]
-		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, die $0$ auf $0$ abbilden, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
-		\item \emph{biordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
-		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
-		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x_{-\sigma(j)} \in X_{-\sigma(j)}$ gilt:
-		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x)) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi_{-\sigma(j)}(x \mid y_j)\]
-	\end{itemize}	
-\end{defn}
-
-\begin{beob}
-	Ordinale Isomorphismen sind automatisch biordinal.
-\end{beob}
-
-\begin{notation}
-	Ist $\sigma$ bijektiv (d.h. eine Permutation), so werden wir im Folgenden immer davon ausgehen, dass es bereits die Identität ist. Dies erlaubt es uns in der Notation alle $\sigma$ ganz wegzulassen.
-\end{notation}
-
-\begin{prop}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit injektivem $\sigma$. Dann ist für jeden Verbesserungspfad $x^0, x^1, \dots$ in $\Gamma$ auch $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Delta$. Ist der Pfad endlich und in $\Delta$ abgeschlossen, so auch in $\Gamma$.
-\end{prop}
-
-\begin{proof}
-	Da $\sigma$ injektiv ist, bleibt die Eigenschaft unilateralen Abweichung erhalten. Die Ordinalität des Morphismus stellt ferner sicher, dass jeder Verbesserungsschritt ein Verbesserungsschritt bleibt.
-	
-	Nehmen wir nun an $\phi(x^0), \dots, \phi(x^n)$ wäre ein abgeschlossener Verbesserungspfad in $\Delta$, aber $x^0, \dots, x^n$ nicht abgeschlossen in $\Gamma$. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches diesen Pfad in $\Gamma$ verlängert. Aber wie wir gerade gezeigt haben wäre dann auch $\phi(x^0), \dots, \phi(x^n), \phi(x^{n+1})$ ein Verbesserungspfad in $\Delta$, insbesondere also eine Verlängerung des ursprünglichen Pfades - im Widerspruch zu dessen vorausgesetzter Abgeschlossenheit.
-\end{proof}
-
-\begin{kor}\label{kor:ReflektNG}
-	Ordinale Morphismen mit injektiver Spielerabbildung reflektieren Nash-Gleichgewichte. Das heißt, ist $x \in X$ ein Strategieprofil in $\Gamma$ und $(\sigma, \phi)$ ein ordinaler Morphismus in ein Spiel $\Delta$, sodass $\phi(x)$ ein Nash-Gleichgewicht in diesem ist, dann war bereits $x$ ein Nash-Gleichgewicht von $\Gamma$.
-\end{kor}
-
-\begin{proof}
-	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{prop:ordMorphVerbPf}  $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
-\end{proof}
-
-\begin{prop}\label{prop:NGerhalten}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ eine biordinale Retraktion (d.h. ein biordinaler Morphismus, welcher ein Rechtsinverses besitzt). Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
-\end{prop}
-
-\begin{proof}
-	Sei $(\tau, \psi): \Delta \to \Gamma$ ein Rechtsinverses von $(\sigma, \phi)$, d.h. es gelte $(\sigma, \phi) \circ (\tau, \psi) = (\tau\circ\sigma, \phi\circ\psi) = (\id_J, id_Y)$. Damit ist $\sigma$ offenbar injektiv und daher mit \Cref{kor:ReflektNG} die \glqq wenn\grqq-Richtung gezeigt.
-	
-	Zu \glqq dann\grqq: Sei also $x \in X$ ein Nash-Gleichgewicht und $y_j \in Y_j$. Wegen der Surjektivität von $\phi_j$ gibt es dann ein $\hat{x}_{\sigma(j)} \in X_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)} = y_j)$. Da $x$ ein Nash-Gleichgewicht ist, gilt nun 
-		\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})\]
-	und daher wegen Biordinalität von $\phi$ auch 
-		\[d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \overset{\ast}{=} d_j(\phi(x) \mid \phi_j(\hat{x}_{\sigma(j)})) = d_j(\phi(x) \mid y_j)\]
-	wobei in $\ast$ nochmal die Injektivität von $\sigma$ eingeht.
-\end{proof}
-
-\todo[inline]{In der Proposition explizit Surjektivität/Injektivität fordern - folgt die Retrakteigenschaft dann? In dem Fall also Bemerkung hinzufügen}
-
-\begin{bsp}
-	\todo{Bi?}Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{prop:NGerhalten}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
-\end{bsp}
-
-\begin{bsp}
-	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern. \todo{Formalisiert oBdA-Bemerkung aus Grundlagen}
-	
-	\todo[inline]{Beweis: Morphismus angeben und Eigenschaften zeigen}
-\end{bsp}
