@@ -336,6 +336,13 @@ Weiter wird der Begriff _Optimalitätsprinzip_ definiert: Jedes solche ist gegeb
 
 
 --------------------------------------------------------------------------------------------------------------------------------
+## Congestion Games with Variable Demands ##
+
+???
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Tight Bounds for Cost-Sharing in Weighted Congestion Games ##
 
 ???
