@@ -57,24 +57,33 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 \begin{bsp}
 	Ein Spiel $\Delta = (J, Y, (d_j)_{j \in J})$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
 	
-	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, Y, (c))$ mit $Y = Y_\ast \coloneqq X$ und $c(x) \coloneqq c_i(x)$ für einen beliebigen Spieler $i \in I$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
+	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_j(y)$ für einen beliebigen, aber festen Spieler $\hat{j} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
 	\begin{align*}
-	&\sigma:	I		\to	 \{\ast\}:	&i	\mapsto	\ast  \\
-	&\phi_i:	Y_\ast	\to	 X_i:		&x	\mapsto	x_i
+	&\sigma:	J		\to	 \{\ast\}:	&j	\mapsto	\ast  \\
+	&\phi_i:	X_\ast	\to	 Y_j:		&y	\mapsto	y_j
 	\end{align*}
-	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $x \in Y = X$ und jeden Spieler $i \in I$ gilt:
-	\[c_{\sigma(i)}(x) = c(x) \overset{\Gamma \text{ Koord.spiel}}{=} c_i(x) = c_i(\phi(x))\]
+	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $y \in X = Y$ und jeden Spieler $j \in J$ gilt:
+	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{j}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
 	Zudem ist offenbar die Strategieprofilabbildung $\phi$ surjektiv.
 	
-	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, Y, (c))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $x \in X$ ein Strategieprofil $y \in Y$ mit $\phi(y) = x$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $i, j \in I$: 
-		\[c_i(x) = c_i(\phi(y)) = c_{\sigma(i)}(y) = c_\ast(y) = c_{\sigma(j)}(y) = c_j(\phi(y)) = c_j(x)\]
+	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, X, (c_\ast))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $y \in Y$ ein Strategieprofil $x \in X$ mit $\phi(x) = y$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $j, \hat{j} \in J$: 
+		\[d_{\hat{j}}(y) = d_{\hat{j}}(\phi(x)) = c_{\sigma(\hat{j})}(x) = c_\ast(x) = c_{\sigma(j)}(x) = d_j(\phi(x)) = d_j(y)\]
 	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.
 \end{bsp}
 
+Dieses Beispiel formalisiert die Intuition, dass in einem Koordinationsspiel alle Spieler ein gemeinsames Ziel haben und daher zusammen \glqq wie ein Spieler\grqq spielen (d.h. das Koordinationsspiel kann durch ein 1-Personenspiel simuliert werden).\todo{Stimmt das so?}
+
 \begin{bsp}
-	Ein Spiel ist genau dann ein Dummyspiel, wenn ...
+	Ein Spiel $\Gamma = (I, X, (c_i)_{i \in I})$ ist genau dann ein Dummyspiel, wenn es für jeden Spieler $\hat{i} \in I$ ein Spiel $D^{\hat{i}}$ und einen kostenerhaltenden Morphismus $(\sigma, \phi): \Gamma \to D^{\hat{i}}$ gibt, sodass $\hat{i} \notin \sigma(J)$.
 	
-	\todo[inline]{Gibt es hier eine analoge Definition mittels Morphismen? Evtl. auch weglassen...}
+	Ist nämlich $\Gamma$ ein Dummyspiel, so definert man $D^{\hat{i}} \coloneqq (I\setminus\{\hat{i}\}, Y, (d_j)_{j \in I\setminus\{\hat{i}\}})$ mit $Y_j \coloneqq X_j$ und $d_j(y) \coloneqq c_j(y, \hat{x}_i)$ für eine beliebige, aber feste Strategie $\hat{x}_{\hat{i}} \in X_{\hat{i}}$. Der Morphismus $(\sigma, \phi): \Gamma \to D^{\hat{i}}$:
+	\begin{align*}
+	&\sigma:	I\setminus\{\hat{i}\}	\to	 I:			&i		\mapsto	i  \\
+	&\phi_i:	X_i						\to	 Y_i:		&x_i	\mapsto	x_i, \text{ für } i \neq \hat{i}
+	\end{align*}
+	erfüllt dann offenbar $\hat{i} \notin \sigma(I\setminus\{\hat{i}\})$ und er ist kostenerhaltend, denn
+	
+	\todo[inline]{Das funktioniert nicht (wäre nur Kostenerhaltend für Spieler $\hat{i}$) Evtl. anderen Morphismentyp (und/oder andere Richtung!) Probieren. Order einfach weglassen.}
 \end{bsp}
 
 Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form von Morphismen wird in \cite{Polyequilibrium} wie folgt definiert\todo{dort allerdings nur für Endomorphismen definiert}:
@@ -128,9 +137,9 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, die $0$ auf $0$ abbilden, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
 		\item \emph{biordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x_{-\sigma(j)} \in X_{-\sigma(j)}$ gilt:
 		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x)) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi_{-\sigma(j)}(x \mid y_j)\]
 	\end{itemize}	
@@ -138,6 +147,16 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 
 \begin{beob}
 	Ordinale Isomorphismen sind automatisch biordinal.
+\end{beob}
+
+\begin{beob}
+	Die Verknüpfung zweier \_-Morphismen ist nicht notwendigerweise wieder ein \_-Morphismus. 
+	
+	\todo[inline]{Beispiel!}
+	
+	Die Aussage gilt aber, wenn 
+	
+	\todo[inline]{einer der beiden/beide bijektiv auf ... sind?}
 \end{beob}
 
 \begin{bem}
@@ -167,6 +186,8 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 
 \begin{bsp}
 	Ein Spiel $\Delta$ besitzt genau dann ein exaktes/gewichtetes/ordinales/verallgemeinertes ordinales Potential, wenn es einen exakten/gewichteten/biordinalen/ordinalen Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
+	
+	\todo[inline]{Stimmt so noch nicht - präzisieren! Evtl. dafür auch gleich für $q$-Potentiale?}
 \end{bsp}
 
 \begin{proof}

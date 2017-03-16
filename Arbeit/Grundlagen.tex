@@ -43,14 +43,14 @@ In \cite[Definition 2.2]{KoordDummy} definieren \citeauthor{KoordDummy} die folg
 Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 
 \begin{defn}
-	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = (x^k \mid x^{k+1}_{i(k)})$.
+	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = \left(x^k \middle| x^{k+1}_{i(k)}\right)$.
 	
 	Ein solcher Pfad heißt
 	\begin{itemize}
 		\item \emph{Nichtverschlechterungspfad}, wenn sich der abweichende Spieler jeweils nicht verschlechtert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) \leq c_{i(k)}(x^k)$.
 		\item \emph{schwacher Verbesserungspfad}, wenn er ein Nichtverschlechterungspfad ist und sich an mindestens einer Stelle der abweichende Spieler echt verbessert. Das heißt es gibt eine Stelle $k$ mit $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
 		\item \emph{Verbesserungspfad}, wenn sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
-		\item \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(n)}(x^{n+1}) = \min_{\hat{x}_{i(n)} \in X_{i(n)}} c_{i(n)}(x^n \mid \hat{x}_i)$.
+		\item \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(k)}(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^n \mid \hat{x}_i)$.
 		\item \emph{schwacher Beste Antwort-Verbesserungspfad}, wenn er ein schwacher Verbesserungspfad und ein Beste Antwort-Pfad ist.
 		\item \emph{Beste Antwort-Verbesserungspfad}, wenn er ein Verbesserungspfad und ein Beste Antwort-Pfad ist.
 	\end{itemize}
@@ -109,21 +109,31 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 \begin{defn}\label{def:Auslastungsmodel}
 	Ein \emph{Auslastungsmodell $M$} ist gegeben durch ein Tupel $(I, R, (S_i)_{i\in I}, (g_r)_{r \in R})$. Dabei ist
 	\begin{itemize}
-		\item $I$ die endliche Menge der Spieler,
+		\item $I$ die Menge der Spieler,
 		\item $R$ die Menge der zur Verfügung stehenden Ressourcen,
-		\item $S_i \subseteq \PSet(R)$ die Menge von endlichen Teilmengen der Ressourcenmenge, unter denen sich der Spieler $i$ für eine Teilmenge entscheiden kann, und
-		\item $g_r: \IR_{\geq 0} \to \IR$ eine Funktion, welche die Kosten der Ressource $r \in R$ in Abhängigkeit von ihrer Auslastung beschreibt.
+		\item $g_r: \IR_{\geq 0} \to \IR$ eine Funktion, welche die Kosten der Ressource $r \in R$ in Abhängigkeit von ihrer Auslastung beschreibt, und
+		\item $S_i \subseteq \PSet(R)$ die Menge von Teilmengen der Ressourcenmenge, unter denen sich der Spieler $i$ für eine Teilmenge entscheiden kann. 
 	\end{itemize}
 \end{defn}
 
 \begin{defn}\label{def:Auslastungsspiel}
-	Jedes Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
+	Ein Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 	\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
-	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die der Ressource ist.
+	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die der Ressource ist, wenn alle $c_i$ und alle $L-r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ konvergieren).
 \end{defn}
+
+\begin{bem}
+	Eine Lastfunktion $l_r$ ist automatisch wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\left\{i \in I \middle| \exists s_i \in S_i: r \in s\right\}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Keine dieser Bedingungen ist aber notwendig.
+	
+	Insbesondere induzieren Auslastungsmodelle mit endlicher Ressourcen- und Spielerzahl immer ein Auslastungsspiel.
+	
+	Ist die Ressourcenmenge $R$ endlich, so ist das induzierte Auslastungsspiel ein endliches Spiel (d.h. dessen Strategieraum ist endlich). Ist umgekehrt der Strategieraum endlich, so können wir ohne Einschränkung davon ausgehen, dass auch $R$ endlich ist. Denn in diesem Fall tauchen nur endlich viele der Ressourcen in wenigstens einer Strategie wenigstens eines der Spieler auf - und alle anderen Ressourcen können für die Betrachtung des Spiels ignoriert werden.
+\end{bem}
 
 \begin{bsp}
 	Ein Beispiel für Auslastungsmodelle sind \emph{Netzwerkauslastungsmodelle}. Diese sind gegeben durch einen (nicht notwendigerweise endlichen) Graphen $G=(V,E)$, einer Kostenfunktion $c_e: \IR_{\geq 0} \to \IR$ für jede Kante $e \in E$ und für jeden Spieler $i \in I$ je ein ausgezeichneter Start- und Endknoten $s_i, t_i \in V$. Die Ressourcen sind dann die Kanten des Graphen, die Strategien von Spieler $i \in I$ entsprechen den endlichen $s_i,t_i$-Pfaden in $G$. 
+	
+	Zusätzlich ist es möglich bestimmte Kanten nur für einen Teil der Spieler zuzulassen. Dadurch wird dann der Strategieraum der anderen Spieler entsprechend eingeschränkt.
 \end{bsp}
 
 \begin{defn}\label{def:gewAuslastungsspiel}
