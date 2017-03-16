@@ -21,14 +21,14 @@ Zu zwei gegebenen Spielen $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y,
 
 Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}. Hierbei orientieren wir uns vor allem an dem dort vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist). 
 
-Insbesondere ergibt sich daraus auf natürliche Weise, dass die Abbildungen zwischen den Spielermengen in die entgegengesetzte Richtung zu der zwischen den Strategieräumen verläuft.\footnote{\todo[inline]{Beachte, dass Lapitsky Morphismen genau dual definert}} Eine andere, leichter einzusehende Motivation hierfür liefert aber auch die folgende Bemerkung:
+Insbesondere ergibt sich daraus auf natürliche Weise, dass die Abbildungen zwischen den Spielermengen in die entgegengesetzte Richtung zu der zwischen den Strategieräumen verläuft.\todo{eigentlich nicht?}\footnote{\todo[inline]{Beachte, dass Lapitsky Morphismen genau dual definert}} Eine andere, leichter einzusehende Motivation hierfür liefert aber auch die folgende Bemerkung:
 
 \begin{bem}
-	Alle Abbildungen $\phi_j$ zusammen induzieren eine Abbildung von Strategieprofilen:
+	Alle Strategieabbildungen $\phi_j$ zusammen induzieren eine \emph{Strategieprofilabbildung}
 	\[\phi: X \to Y: x=(x_i)_{i\in I} \mapsto \phi(x) := \left(\phi_j(x_{\sigma(j)})\right)_{j \in J} \]
 \end{bem}
 
-Würde die Abbildung $\sigma$ zwischen den Spielermengen in die andere, \glqq natürlichere\grqq{} Richtung verlaufen (also von $I$ nach $J$), so müsste man automatisch auch fordern, dass diese bijektiv ist, wenn man möchte, dass in der obigen Form Strategieprofile auf Strategieprofile abgebildet werden. Denn nur dann wäre $\phi(x) \coloneqq \left(\phi_i(x_i)\right)$ wieder ein vollständiges Strategieprofil in $Y$.
+Würde die Abbildung $\sigma$ zwischen den Spielermengen in die andere, \glqq natürlichere\grqq{} Richtung verlaufen (also von $I$ nach $J$), so müsste man automatisch auch fordern, dass diese bijektiv ist, wenn man möchte, dass in der obigen Form Strategieprofile auf Strategieprofile abgebildet werden (vgl. etwa \cite{CatGameTheory}). Denn nur dann wäre $\phi(x) \coloneqq \left(\phi_i(x_i)\right)$ wieder ein vollständiges Strategieprofil in $Y$.
 
 \begin{bem}\todo{Genauer beschreiben...}
 	Möchte man trotzdem Spieler- und Strategieabbildungen in die gleiche Richtung haben, so kann man einem alternativen Ansatz zur Definition von Morphismen von Spielen folgen, welcher von \citeauthor{Foundations} in \cite{Foundations} verwendet wird. Darin werden einzelne Strategien nicht zwangsläufig wieder auf einzelne Strategien abgebildet, sondern können gleich auf ganze Teilmengen des Bildstrategieraums abgebildet werden. Von diesem Morphismentyp werden dann verschiedene \glqq approximativ kostenerhaltende\grqq{} Varianten betrachtet und die sich dadurch ergebende Kategorie studiert.
@@ -54,20 +54,21 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 	Zwei Spiele sind also genau dann äquivalent, wenn sie sich ausschließlich durch Umbenennung der Strategien ineinander überführen lassen. In \cite{MonShap} (S. 133) wird dies als Isomorphie von Spielen bezeichnet.
 \end{bem}
 
-\begin{bsp}\todo{$\Gamma$ in $\Delta$ umbenennen um Konsistenz mit der Definition herzustellen? Evtl auch $\heartsuit$ in $1$ oder $\ast$.}
-	Ein Spiel $\Gamma = (I, X, (c_i)_{i \in I})$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden, auf den Strategieräumen surjektiven Morphismus von einem 1-Personenspiel nach $\Gamma$ gibt.
+\begin{bsp}
+	Ein Spiel $\Delta = (J, Y, (d_j)_{j \in J})$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
 	
-	Ist nämlich $\Gamma$ ein Koordinationsspiel mit gemeinsamer Kostenfunktion $c$, so erhält man folgenden Morphismus $(\sigma, \phi): (\{\heartsuit\}, X, c) \to \Gamma$:
+	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, Y, (c))$ mit $Y = Y_\ast \coloneqq X$ und $c(x) \coloneqq c_i(x)$ für einen beliebigen Spieler $i \in I$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
 	\begin{align*}
-	&\sigma:	I									\to	 \{\heartsuit\}:	&i	\mapsto	\heartsuit  \\
-	&\phi_i:	X_{\sigma(i)} = X_\heartsuit = X	\to	 X_i:				&x	\mapsto	x_i
+	&\sigma:	I		\to	 \{\ast\}:	&i	\mapsto	\ast  \\
+	&\phi_i:	Y_\ast	\to	 X_i:		&x	\mapsto	x_i
 	\end{align*}
-	Dieser ist auch kostenerhaltend, denn für jedes Strategieprofil $x \in X$ und jeden Spieler $i \in I$ gilt:
-	\[c_{\sigma(i)}(x) = c_\heartsuit(x) = c(x) \overset{\Gamma \text{ Koord.spiel}}{=} c_i(x) = c_i(\phi(x))\]
+	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $x \in Y = X$ und jeden Spieler $i \in I$ gilt:
+	\[c_{\sigma(i)}(x) = c(x) \overset{\Gamma \text{ Koord.spiel}}{=} c_i(x) = c_i(\phi(x))\]
+	Zudem ist offenbar die Strategieprofilabbildung $\phi$ surjektiv.
 	
-	Ist umgekehrt ein solcher Morphismus gegeben, dann ist $\Gamma$ bereits ein Koordinationsspiel, denn aufgrund der Surjektivität der Strategieabbildungen $\phi_i$ gibt es zu jedem Strategieprofil $x \in X$ auch ein Strategieprofil $y \in Y$ mit $\phi(y) = x$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $i, j \in I$: 
-		\[c_i(x) = c(x) = c_j(x)\]
-	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.\todo{Kann man so Potentialspiele \glqq charakterisieren\grqq? Evtl. muss man dazu die Pfeilrichtungen bei den Bedingungen an Potentialmorphismen umdrehen...}
+	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, Y, (c))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $x \in X$ ein Strategieprofil $y \in Y$ mit $\phi(y) = x$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $i, j \in I$: 
+		\[c_i(x) = c_i(\phi(y)) = c_{\sigma(i)}(y) = c_\ast(y) = c_{\sigma(j)}(y) = c_j(\phi(y)) = c_j(x)\]
+	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.
 \end{bsp}
 
 \begin{bsp}
@@ -80,7 +81,7 @@ Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form v
 
 \begin{defn}
 	Ein Morphismus $\phi$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt \emph{rational}, wenn für alle Strategieprofile $x \in X$, jeden Spieler $j \in J$ und jede Strategie $y_j \in Y_j$ gilt:
-	\[d_j(\phi(x)) \leq d_j(\phi_{-j}(x_{-\sigma(j)}), y_j) \]
+	\[d_j(\phi(x)) \leq d_j(\phi(x) \mid y_j) \]
 \end{defn}
 
 \todo[inline]{\cite{Polyequilibrium} bezeichnet derartige Abbildungen \emph{Strategieersetzungsvorschriften}. Mehr dazu schreiben - oder erst später bei rationalen SEVs erwähnen?}
@@ -140,8 +141,8 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 \end{beob}
 
 \begin{bem}
-	Umgekehrt könnte man nun auch ausgehend von diesen Morphismen-Begriffen definieren, wann ein Spiel ein Potentialspiel ist: Ein Spiel ist nämlich genau dann ein exaktes/gewichtetes/ordinales/beste-Antwort-Potentialspiel, wenn es exakt/gewichtet/ordinal isomorph zu einem Koordinationsspiel ist. Ein Spiel hat genau dann ein verallgemeinertes ordinales Potential, wenn es einen ordinalen Morphismus in ein solches Spiel gibt.
-\end{bem}
+	Umgekehrt könnte man nun auch ausgehend von diesen Morphismen-Begriffen definieren, wann ein Spiel ein Potentialspiel ist: Ein Spiel $\Delta$ ist nämlich genau dann ein exaktes/gewichtetes/ordinales/verallgemeinertes ordinales Potentialspiel\todo{Beste Antwort?}, wenn es einen exakten/gewichteten/biordinalen/ordinalen Morphismus von einem Koordinationsspiel nach $\Delta$ gibt, wobei alle Abbildungen des Morphismuses bijektiv sind.
+\end{bem}\todo{Beweis?}
 
 \todo[inline]{Zu beste Antwort: vgl. \cite{FictPlayProp}, \cite{BestRespEq}}
 
@@ -163,6 +164,15 @@ Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potenti
 	\end{center}
 	\todo[inline]{weitere Zusammenhänge? Evtl. dann als Diagramm?}
 \end{beob}
+
+\begin{bsp}
+	Ein Spiel $\Delta$ besitzt genau dann ein exaktes/gewichtetes/ordinales/verallgemeinertes ordinales Potential, wenn es einen exakten/gewichteten/biordinalen/ordinalen Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
+\end{bsp}
+
+\begin{proof}
+	Sei zunächst $\Delta$ ein Spiel mit einem \sPot{} $P$. 
+	\todo[inline]{Beweis einfügen}
+\end{proof}
 
 
 \subsection{Erste Sätze}

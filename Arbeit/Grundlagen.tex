@@ -19,12 +19,12 @@
 \end{beob}
 
 \begin{notation}
-	Zu einem festen Spieler $i$ bezeichne $X_{-i} := \prod_{j \in I\backslash\{i\}} X_j$ das Produkt aller Strategieräume außer dem von Spieler $i$. Zu jedem Strategieprofil $x \in X$ bezeichne dann $x_{-i}$ die Projektion dieses Profils auf den Raum $X_{-i}$ und $x_i$ die Projektion auf $X_i$ (also die von Spieler $i$ gewählte Strategie). Wir schreiben dann auch $(x_i, x_{-i})$ für das Strategieprofil $x$.
+	Zu einem Strategieprofil $x \in X$ und einer einzelnen Strategie $\hat{x}_i \in X_i$ bezeichnen wir einer Konvention aus \cite{Polyequilibrium} folgend mit $(x \mid \hat{x}_i)$ das Strategieprofil, das aus $x$ entsteht, wenn Spieler $i$ einseitig seine Strategie von $x_i$ auf $\hat{x}_i$ ändert.
 \end{notation}
 
 \begin{defn}
 	Ein Strategieprofil $x \in X$ ist ein \emph{Nash-Gleichgewicht}, wenn für jeden Spieler $i \in I$ und jede seiner Strategien $\hat{x}_i$ gilt:
-		\[c_i(\hat{x}_i, x_{-i}) \geq c_i(x)\]
+		\[c_i(x \mid \hat{x}_i) \geq c_i(x)\]
 	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
 \end{defn}
 
@@ -33,31 +33,24 @@ In \cite[Definition 2.2]{KoordDummy} definieren \citeauthor{KoordDummy} die folg
 	Ein Spiel $\Gamma = (I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$ heißt
 	\begin{itemize}
 		\item \emph{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_j$ für alle Spieler $i,j \in I$.
-		\item \emph{Dummyspiel}, wenn die alleinige Abweichung eines einzelnen Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X, i \in I$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x_{-i}, \hat{x}_i)$.
+		\item \emph{Dummyspiel}, wenn die alleinige Abweichung eines einzelnen Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X, i \in I$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$.
 	\end{itemize}
 \end{defn}
 
 
 \subsection{Abweichungspfade}
 
-Aus \cite{MonShap}/\cite{BestRespPot}
+Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 
 \begin{defn}
-	Ein Verbesserungspfad $x^0, x^1, x^2, \dots$ heißt \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es (ohne Verbesserungsbedinung) beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. 
-	\[c_{i(n)}(x^{n+1}) = \min_{\hat{x}_{i(n)} \in X_{i(n)}} c_{i(n)}(\hat{x}_i,x^n_{-i(n)}).\]
-	\todo{Insbesondere setzt das natürlich voraus, dass ein solches Maximum auf dem Pfad immer existiert.}
-\end{defn}
-
-
-\begin{defn}
-	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = (x^{k+1}_{i(k)}, x^k_{-i(k)})$.
+	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = (x^k \mid x^{k+1}_{i(k)})$.
 	
 	Ein solcher Pfad heißt
 	\begin{itemize}
 		\item \emph{Nichtverschlechterungspfad}, wenn sich der abweichende Spieler jeweils nicht verschlechtert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) \leq c_{i(k)}(x^k)$.
 		\item \emph{schwacher Verbesserungspfad}, wenn er ein Nichtverschlechterungspfad ist und sich an mindestens einer Stelle der abweichende Spieler echt verbessert. Das heißt es gibt eine Stelle $k$ mit $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
 		\item \emph{Verbesserungspfad}, wenn sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
-		\item \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(n)}(x^{n+1}) = \min_{\hat{x}_{i(n)} \in X_{i(n)}} c_{i(n)}(\hat{x}_i,x^n_{-i(n)})$.
+		\item \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(n)}(x^{n+1}) = \min_{\hat{x}_{i(n)} \in X_{i(n)}} c_{i(n)}(x^n \mid \hat{x}_i)$.
 		\item \emph{schwacher Beste Antwort-Verbesserungspfad}, wenn er ein schwacher Verbesserungspfad und ein Beste Antwort-Pfad ist.
 		\item \emph{Beste Antwort-Verbesserungspfad}, wenn er ein Verbesserungspfad und ein Beste Antwort-Pfad ist.
 	\end{itemize}
@@ -66,7 +59,7 @@ Aus \cite{MonShap}/\cite{BestRespPot}
 	\begin{itemize}
 		\item die \emph{Gesamtänderung} entlang des Pfades $\PfadAend(\gamma)$ definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
 		\[\PfadAend(\gamma) \coloneqq \sum_{k=0}^{n} \left(c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k)\right) \]
-		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n_{-i}, \hat{x}_i) < c_{i}(x^n)$.\todo{Schöner formulieren}
+		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n \mid \hat{x}_i) < c_{i}(x^n)$.\todo{Schöner formulieren}
 		\item $\gamma$ ein \emph{$n$-Zykel}, wenn $x^0 = x^n$ gilt.
 		\item $\invPf{\gamma} \coloneqq (x^n, x^{n-1}, \dots, x^0)$ der in die andere Richtung durchlaufende Pfad.
 	\end{itemize}

@@ -5,18 +5,18 @@
 \begin{defn}
 	Eine Funktion $P: X \to \IR$ heißt
 	\begin{itemize}
-		\item \emph{Beste Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ gilt:
+		\item \emph{Beste Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ gilt:
 			\[\arg \min_{x_i \in X_i}c_i(x) = \arg \min_{x_i \in X_i} P(x)\]
-		\item \emph{verallgemeinertes ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
-			\[c_i(x_i,x_{-i}) > c_i(\hat{x}_i, x_{-i}) \implies P(x_i,x_{-i}) > P(\hat{x}_i, x_{-i})\]
-		\item \emph{ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
-			\[c_i(x_i,x_{-i}) > c_i(\hat{x}_i, x_{-i}) \iff P(x_i,x_{-i}) > P(\hat{x}_i, x_{-i})\]
-		\item \emph{skaliertes Potential}, wenn es streng monotone Funktionen $f_i: \IR \to \IR$ gibt, die $0$ auf $0$ abbilden, sodass für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
-			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = f_i(P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i}))\]
-		\item \emph{gewichtetes Potential}, wenn es einen Gewichtsvektor $(w_i)_{i\in I} \in \IR_{>0}^I$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
-			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = w_i\cdot(P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i}))\]
-		\item \emph{exaktes Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x_{-i} \in X_{-i}$ sowie $x_i, \hat{x}_i \in X_i$ gilt:
-			\[c_i(x_i,x_{-i}) - c_i(\hat{x}_i, x_{-i}) = P(x_i,x_{-i}) - P(\hat{x}_i, x_{-i})\]
+		\item \emph{verallgemeinertes ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+			\[c_i(x) > c_i(x \mid \hat{x}_i) \implies P(x) > P(x \mid \hat{x}_i)\]
+		\item \emph{ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+			\[c_i(x) > c_i(x \mid \hat{x}_i) \iff P(x) > P(x \mid \hat{x}_i)\]
+		\item \emph{skaliertes Potential}, wenn es streng monotone Funktionen $f_i: \IR \to \IR$ gibt, die $0$ auf $0$ abbilden, sodass für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+			\[c_i(x) - c_i(x \mid \hat{x}_i) = f_i(P(x) - P(x \mid \hat{x}_i))\]
+		\item \emph{gewichtetes Potential}, wenn es einen Gewichtsvektor $(w_i)_{i\in I} \in \IR_{>0}^I$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+			\[c_i(x) - c_i(x \mid \hat{x}_i) = w_i\cdot(P(x) - P(x \mid \hat{x}_i))\]
+		\item \emph{exaktes Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+			\[c_i(x) - c_i(x \mid \hat{x}_i) = P(x) - P(x \mid \hat{x}_i)\]
 	\end{itemize}
 \end{defn}\todo{Kann man diese Definition irgendwie kompakter/übersichtlicher machen?}
 
@@ -111,7 +111,7 @@ Für Spiele mit unendlicher Spielermenge erweist es sich als hilfreiche Beobacht
 		Die Existenz eines solchen Pfades $\mu'$ zeigen wir nun mittels Induktion über $k \coloneqq min\left\{1 \leq l < n \setMid i(l) = i(0)\right\}$. Ein solches $k$ existiert immer, da Spieler $i(0)$ bereits im ersten Schritt seine Strategie wechselt und dies daher im Verlauf des Zykels noch mindestens ein weiteres Mal tun muss.
 		\begin{description}
 			\item[IA ($k=1$)] Dann gilt bereits $i(0)=i(1)$ und wir sind fertig mit $\mu' \coloneqq \mu$.
-			\item[IS ($k-1\to k$)] Wir ändern $\mu$ so ab, dass Spieler $i(0)$ bereits im $(k-1)$-ten Schritt der abweichende Spieler ist. Dann sind wir fertig nach Induktionsvoraussetzung. Dazu ersetzen wir in $\mu$ das Strategieprofil $x^k$ durch $(x^{k-1}_{-i(0)}, x^{k+1}_{i(0)})$, sodass also Spieler $i(0)$ bereits einen Schritt früher (im $(k-1)$-ten) seine Strategie wechselt und der Spieler, der dies zuvor in diesem Schritt getan hat, einen Schritt später.
+			\item[IS ($k-1\to k$)] Wir ändern $\mu$ so ab, dass Spieler $i(0)$ bereits im $(k-1)$-ten Schritt der abweichende Spieler ist. Dann sind wir fertig nach Induktionsvoraussetzung. Dazu ersetzen wir in $\mu$ das Strategieprofil $x^k$ durch $(x^{k-1} \mid x^{k+1}_{i(0)})$, sodass also Spieler $i(0)$ bereits einen Schritt früher (im $(k-1)$-ten) seine Strategie wechselt und der Spieler, der dies zuvor in diesem Schritt getan hat, einen Schritt später.
 			
 			Bei dieser Anpassung bleibt die Gesamtänderung des Pfades $\mu$ gleich, denn wir ersetzen lediglich ein Pfadstück der Länge $2$ durch ein anderes Pfadstück der Länge $2$. Und da sich diese beiden Pfade zu einem 4-Zykel zusammensetzen lassen, haben diese nach Voraussetzung die gleiche Gesamtänderung.
 			
@@ -165,8 +165,8 @@ Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folge
 
 	Ist umgekehrt $\Gamma$ ein Spiel ohne schwache Verbesserungszykel und $([X], \SVord)$ reell-geordnet mit Abbildung $f: [X] \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein ordinales Potential, denn es gilt:
 	\begin{enumerate}
-		\item Gilt $c_i(x) > c_i(\hat{x}_i, x_{-i})$, so ist $(x, (\hat{x}_i, x_{-i}))$ ein schwacher Verbesserungspfad. Da es in $\Gamma$ keine schwachen Verbesserungszykel gibt, kann es also keinen nicht-Verschlechterungspfad in die andere Richtung geben und es gilt: $[x] \succ [(\hat{x}_i, x_{-i})]$. Daraus wiederum folgt $P(x) = f([x]) > f([(\hat{x}_i, x_{-i})]) = P(\hat{x}_i, x_{-i})$.
-		\item Gilt $c_i(x) = c_i(\hat{x}_i, x_{-i})$, so sind sowohl $(x, (\hat{x}_i, x_{-i}))$ als auch $((\hat{x}_i, x_{-i}), x)$ nicht-Verschlechterungspfade, also $[x] = [(\hat{x}_i, x_{-i})]$ und damit $P(x) = f([x]) = f([(\hat{x}_i, x_{-i})]) = P(\hat{x}_i, x_{-i})$. \qedhere
+		\item Gilt $c_i(x) > c_i(x \mid \hat{x}_i)$, so ist $(x, (x \mid \hat{x}_i))$ ein schwacher Verbesserungspfad. Da es in $\Gamma$ keine schwachen Verbesserungszykel gibt, kann es also keinen nicht-Verschlechterungspfad in die andere Richtung geben und es gilt: $[x] \succ [(x \mid \hat{x}_i)]$. Daraus wiederum folgt $P(x) = f([x]) > f([(x \mid \hat{x}_i)]) = P(x \mid \hat{x}_i)$.
+		\item Gilt $c_i(x) = c_i(x \mid \hat{x}_i)$, so sind sowohl $(x, (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), x)$ nicht-Verschlechterungspfade, also $[x] = [(x \mid \hat{x}_i)]$ und damit $P(x) = f([x]) = f([(x \mid \hat{x}_i)]) = P(x \mid \hat{x}_i)$. \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -229,7 +229,7 @@ Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die
 	die Menge aller von $x$ aus durch Pfade der Länge $n$ erreichbaren Strategieprofile, abzählbar. Denn es gilt induktiv:
 	\begin{description}
 		\item[IA ($n=1$)] Es ist
-			\[Y_x^1 = \left\{y \in X \setMid \exists i \in I: y = (y_i, x_{-i})\right\} = \left\{(y_i, x_{-i}) \setMid i \in I, y_i \in Y_i \right\} = \bigcup_{i \in I} \left\{(y_i, x_{-i}) \setMid y_i \in Y_i \right\}\]
+			\[Y_x^1 = \left\{y \in X \setMid \exists i \in I: y = (x \mid y_i)\right\} = \left\{(x \mid y_i) \setMid i \in I, y_i \in Y_i \right\} = \bigcup_{i \in I} \left\{(x \mid y_i) \setMid y_i \in Y_i \right\}\]
 			eine abzählbare Vereinigung (da die Spielermenge abzählbar ist) von abzählbar großen Mengen (den spielerspezifischen Strategieräumen), also selbst abzählbar groß.
 		\item[IS ($<n \to n$)] Es ist
 			\[Y_x^n = \bigcup_{y \in Y_x^{n-1}} Y_y^1\]
@@ -256,8 +256,8 @@ Sei dazu $\Gamma$ ein Spiel mit abzählbarem Strategieraum $X := \{x^1, x^2, \do
 \end{bem}
 
 \begin{proof}
-	Diese Funktion ist wohldefiniert, da $\sum_{k=1}^{\infty} 2^{-k} = 1$ absolut konvergiert. Sie ist außerdem ein verallgemeinertes ordinales Potential, denn gilt $c_i(x) > c_i(\hat{x}_i, x_{-i})$ so ist $(x, (\hat{x}_i, x_{-i}))$ ein Verbesserungspfad. Außerdem gilt $x \notin Y_{>x}$, da es in $\Gamma$ keine Verbesserungszykel gibt. Damit folgt:
-		\[P(x) = 1 - \sum_{y \in Y_{>x}} h(y) > 1 - \sum_{y \in Y_{>x}} h(y) - h(x) = 1 - \sum_{y \in Y_{>(\hat{x}_i, x_{-i})}}h(y) = P(\hat{x}_i, x_{-i})\qedhere\]
+	Diese Funktion ist wohldefiniert, da $\sum_{k=1}^{\infty} 2^{-k} = 1$ absolut konvergiert. Sie ist außerdem ein verallgemeinertes ordinales Potential, denn gilt $c_i(x) > c_i(x \mid \hat{x}_i)$ so ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad. Außerdem gilt $x \notin Y_{>x}$, da es in $\Gamma$ keine Verbesserungszykel gibt. Damit folgt:
+		\[P(x) = 1 - \sum_{y \in Y_{>x}} h(y) > 1 - \sum_{y \in Y_{>x}} h(y) - h(x) = 1 - \sum_{y \in Y_{>(x \mid \hat{x}_i)}}h(y) = P(x \mid \hat{x}_i)\qedhere\]
 \end{proof}
 
 
