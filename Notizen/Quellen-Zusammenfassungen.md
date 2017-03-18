@@ -349,6 +349,13 @@ Weiter wird der Begriff _Optimalitätsprinzip_ definiert: Jedes solche ist gegeb
 
 
 --------------------------------------------------------------------------------------------------------------------------------
+## Pure Nash Equilibria in Player-Specific and Weighted Congestion Games. ##
+
+Matroid-Auslastungsspiele. Matroidauslastungsspiele mit spielerspezifischen Kostenfunktionen haben nur endliche Beste Antwort-Pfade.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Optimierung, Operations Research, Spieltheorie ##
 	by Karl Heinz Borgwardt
 	

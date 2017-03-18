@@ -4,7 +4,7 @@
 
 Mögliche Motivationen:
 \begin{itemize}
-	\item Jedes Potential definiert selbst wieder ein Spiel mit einer gemeinsamen Kostenfunktion für alle Spieler. Und in einem gewissen Sinne ist dieses Spiel \glqq äquivalent\grqq zum ursprünglichen Spiel (z.B. gleiche Gleichgewichtspunkte). Das Hin- und Herwechseln zwischen diesen beiden Versionen eines Spiels kann man durch Morphismen beschreiben und die Äquivalenz der beiden wird dann dadurch sichtbar, dass diese Morphismen \emph{Isomorphismen} sind.
+	\item Jedes Potential definiert selbst wieder ein Spiel mit einer gemeinsamen Kostenfunktion für alle Spieler. Und in einem gewissen Sinne ist dieses Spiel \glqq äquivalent\grqq{} zum ursprünglichen Spiel (z.B. gleiche Gleichgewichtspunkte). Das Hin- und Herwechseln zwischen diesen beiden Versionen eines Spiels kann man durch Morphismen beschreiben und die Äquivalenz der beiden wird dann dadurch sichtbar, dass diese Morphismen \emph{Isomorphismen} sind.
 	\item Die Äquivalenz zwischen exakten Potentialspielen und Auslastungsspielen wird durch Morphismen beschrieben.
 	\item Kategorientheoretische Sicht: Um eine Kategorie (hier: die der Spiele) zu verstehen, muss man ihre Morphismen kennen. Kennt man diese, so ergeben sich aus diesen auf natürliche Weise weitere Begriffe wie Isomorphismen von Spielen, Summen oder Produkte von Spielen.
 \end{itemize}
@@ -71,19 +71,19 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.
 \end{bsp}
 
-Dieses Beispiel formalisiert die Intuition, dass in einem Koordinationsspiel alle Spieler ein gemeinsames Ziel haben und daher zusammen \glqq wie ein Spieler\grqq spielen (d.h. das Koordinationsspiel kann durch ein 1-Personenspiel simuliert werden).\todo{Stimmt das so?}
+Dieses Beispiel formalisiert die Intuition, dass in einem Koordinationsspiel alle Spieler ein gemeinsames Ziel haben und daher zusammen \glqq wie ein Spieler\grqq{} spielen (d.h. das Koordinationsspiel kann durch ein 1-Personenspiel simuliert werden).\todo{Stimmt das so?}
+
+\begin{bsp}.
+	
+	\todo[inline]{Kann man auch Dummy-Spiele auf derartige Weise beschreiben?}
+\end{bsp}
 
 \begin{bsp}
-	Ein Spiel $\Gamma = (I, X, (c_i)_{i \in I})$ ist genau dann ein Dummyspiel, wenn es für jeden Spieler $\hat{i} \in I$ ein Spiel $D^{\hat{i}}$ und einen kostenerhaltenden Morphismus $(\sigma, \phi): \Gamma \to D^{\hat{i}}$ gibt, sodass $\hat{i} \notin \sigma(J)$.
-	
-	Ist nämlich $\Gamma$ ein Dummyspiel, so definert man $D^{\hat{i}} \coloneqq (I\setminus\{\hat{i}\}, Y, (d_j)_{j \in I\setminus\{\hat{i}\}})$ mit $Y_j \coloneqq X_j$ und $d_j(y) \coloneqq c_j(y, \hat{x}_i)$ für eine beliebige, aber feste Strategie $\hat{x}_{\hat{i}} \in X_{\hat{i}}$. Der Morphismus $(\sigma, \phi): \Gamma \to D^{\hat{i}}$:
-	\begin{align*}
-	&\sigma:	I\setminus\{\hat{i}\}	\to	 I:			&i		\mapsto	i  \\
-	&\phi_i:	X_i						\to	 Y_i:		&x_i	\mapsto	x_i, \text{ für } i \neq \hat{i}
-	\end{align*}
-	erfüllt dann offenbar $\hat{i} \notin \sigma(I\setminus\{\hat{i}\})$ und er ist kostenerhaltend, denn
-	
-	\todo[inline]{Das funktioniert nicht (wäre nur Kostenerhaltend für Spieler $\hat{i}$) Evtl. anderen Morphismentyp (und/oder andere Richtung!) Probieren. Order einfach weglassen.}
+	Gegeben zwei Spiele $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y, (d_j)_{j\in J})$, so können wir daraus neue Spiele konstruieren:
+	\begin{itemize}
+		\item Das Produkt bezüglich kostenerhaltenden Morphismen: $\Gamma \times \Delta \coloneqq (K \coloneqq I \dot{\cup} J, X\times Y, (e_k)_{k \in K})$. Dabei ist $e_k(x,y) \coloneqq c_k(x)$ für $k \in K$ und analog für $k \in J$. 
+		\item Das Koprodukt bezüglich kostenerhaltenden Morphismen $\Gamma + \Delta \coloneqq (K \coloneqq I \times J, \prod_{(i,j) \in K} X_i \dot{\cup} Y_j, (e_k)_{k \in K})$. Dabei ist .... \todo{Ist das wirklich ein Koprodukt?}
+	\end{itemize}
 \end{bsp}
 
 Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form von Morphismen wird in \cite{Polyequilibrium} wie folgt definiert\todo{dort allerdings nur für Endomorphismen definiert}:
@@ -114,16 +114,6 @@ Eine auf das Untersuchen von Nash- und Polygleichgewichten zugeschnittene Form v
 	
 	\todo[inline]{Auch auf Verallgemeinerung mit Garben hinweisen}
 \end{bem}
-
-\begin{defn}
-	Zwei im Sinne von \Cref{def:SpielIsomLap} isomorphe Spiele heißen \emph{sozial isomorph}, wenn zusätzlich die Funktion
-		\[\sum \psi_i: \prod_{i \in I}K_i \to \prod_{i \in I} K'_i \]
-	monoton ist. \todo{Das macht natürlich nur Sinn, wenn auf den beiden Produkträumen auch totale (?) Ordnungen existieren}
-\end{defn}
-
-\begin{bsp}
-	lineare Funktionen
-\end{bsp}	
 
 Eine ganze Familie von Morphismen erhält man zudem aus den in \Cref{sec:Potentiale} beschriebenen Potentialen: \citeauthor{ReprOfFiniteGamesAsNCG} definiert in \cite{ReprOfFiniteGamesAsNCG} einen Isomorphismusbegriff der dazu führt, dass jedes exakte Potentialspiel isomorph zu einem Koordinationsspiel mit der Potentialfunktion als gemeinsamer Kostenfunktion ist. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren:
 
