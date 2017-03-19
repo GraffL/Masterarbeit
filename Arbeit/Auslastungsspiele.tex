@@ -36,9 +36,13 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 		d_{\hat{i}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{i}} = \phi_{\hat{i}}(x_{\hat{i}})} g_r(l_r(\phi(x))) = \\
 		&=\sum_{r \in R_K: x_{\hat{i}} \in r_{\hat{i}}} g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{i}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1 \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}}}) = \\
 		&=g_{\left(\{x_i\}\right)_{i \in I}}(N) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}}}(1) = \\
-		&=P(x) + c_{\hat{i}}(x) - P(x) = c_{\hat{i}}(x) 									
+		&=P(x) + c_{\hat{i}}(x) - P(x) = c_{\hat{i}}(x) \qedhere									
 		\end{align*}
 \end{proof}
+
+\begin{bem}
+	Berücksichtigt man nur die Ressourcen aus $R_K$, so erhält man ein Koordinationsspiel, nimmt man nur die aus $R_D$ so erhält man ein Dummy-Spiel. Aus dieser Beobachtung ergibt sich der in \cite{KoordDummy} beschriebene alternative Beweis für die Rückrichtung: Man zerlegt das exakte Potentialspiel zunächst in ein Koordinations- und ein Dummyspiel (siehe \Cref{satz:CharExPotAlt}), konstruiert für jedes der beiden ein äquivalentes Auslastungsspiel (mit Ressourcenmengen $R_K$ bzw. $R_D$) und erhält schließlich die Summe der beiden Auslastungsspiele als zum Ausgangsspiel kostenerhaltend isomorphes Auslastungsspiel.
+\end{bem}
 
 Auslastungsspiele sind also nicht nur \emph{ein} Beispiel für Spiele mit exaktem Potential, sondern in gewissem Sinne (nämlich bis auf Isomorphie) sogar \emph{das} Beispiel für solche Spiele. Eine naheliegende Frage ist nun, ob es ähnliche Klassen von \glqq auslastungsartigen\grqq{} Spielen gibt, welche genau den Spielen mit allgemeineren Potentialen entsprechen. Im Folgenden werden wir versuchen eine zu gewichteten Potentialspielen passende Verallgemeinerung von Auslastungsspielen zu finden.
 
@@ -77,14 +81,19 @@ Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Aus
 \end{lemma}
 
 \begin{proof}
-	Der Existenz eines solchen Isomorphismus folgt direkt aus der auch in \cite{CharExGewPotinWCG} gemachten Beobachtung ...
+	Sei $M = (I, R, (S_i), (G_r)$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann ist $(\id, \id): \Gamma_w(M, w) \to \Gamma_l(M,w)$ ein gewichteter Isomorphismus.
 \end{proof}
 
 Hieraus ergeben sich dann direkt die in \cite{CharExGewPotinWCG} beobachteten Zusammenhänge zwischen gewichteten und lastgewichteten Auslastungsspielen:
 
-\begin{kor}.
-	
-	\todo[inline]{Beobachtungen}
+\begin{kor}
+	Sei $M = (I, R, (S_i), (G_r)$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann gilt:
+	\begin{itemize}
+		\item Die Nash-Gleichgewichte von $\Gamma_w(M, w)$ und $\Gamma_l(M,w)$ stimmen überein.
+		\item Eine Funktion $P: X \to \IR$ ist genau dann ein gewichtetes/ordinales/verallgemeinert ordinales/Beste Antwort/lokales Nash-Potential von $\Gamma_w(M, w)$, wenn es ein solches für $\Gamma_l(M,w)$ ist.
+		\item Eine Funktion $P: X \to \IR$ ist genau dann ein exaktes Potential von $\Gamma_w(M, w)$, wenn sie ein $w$-Potential von $\Gamma_l(M,w)$ ist.
+		\item Eine Funktion $P: X \to \IR$ ist genau dann ein exaktes Potential von $\Gamma_l(M, w)$, wenn sie ein $(1/w_i)$-Potential von $\Gamma_w(M,w)$ ist.		
+	\end{itemize}
 \end{kor}
 
 Insbesondere sehen wir damit aber auch, dass lastgewichtete Auslastungsspiele ebenfalls eine zu starke Verallgemeinerung von ungewichteten Auslastungsspielen sind, um eine Entsprechung der gewichteten Potentialspiele sein zu können.
@@ -92,7 +101,7 @@ Insbesondere sehen wir damit aber auch, dass lastgewichtete Auslastungsspiele eb
 
 \subsubsection{Kostengewichtete Auslastungsspiele}
 
-Wie sich herausstellt sind kostengewichtete Auslastungsspiele hingegen ein geeigneter Kandidat:
+Wie sich herausstellt sind kostengewichtete Auslastungsspiele hingegen eine geeignete Klasse:
 
 \begin{satz}
 	Jedes kostengewichtete Auslastungsspiel besitzt ein gewichtetes Potential und jedes Spiel mit einem gewichteten Potential ist äquivalent zu einem kostengewichteten Auslastungsspiel.
@@ -101,20 +110,22 @@ Wie sich herausstellt sind kostengewichtete Auslastungsspiele hingegen ein geeig
 Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen Satz für ungewichtete Auslastungsspiele und exakte Potentiale (\Cref{satz:MondererShapley}), auch der Beweis erfolgt völlig analog. 
 
 \begin{proof}
-	Sei $\Gamma$ ein kostengewichtetes Auslastungsspiel mit Gewichtsvektor $w := (w_i)_{i\in I}$. Dann ist die Rosenthal-Potentialfunktion (vgl. \cite{RosenthalPotential}) $P(x) := \sum_{r \in R}\sum_{k=1}^{l_r(x)}g_r(k)$ ein $w$-Potential für $\Gamma$, denn es gilt:
-	
-		\todo[inline]{Beweis!}	
+	Sei $\Gamma$ ein kostengewichtetes Auslastungsspiel mit Gewichtsvektor $w := (w_i)_{i\in I}$. Dann ist die Rosenthal-Potentialfunktion (vgl. \cite{RosenthalPotential}) $P(x) := \sum_{r \in R}\sum_{k=1}^{l_r(x)}g_r(k)$ ein $w$-Potential für $\Gamma$.
 		
-	Ist umgekehrt $\Gamma$ ein Spiel mit einem gewichteten Potential $P$ (mit Gewichtsvektor $w$), so definieren wir wie folgt ein kostengewichtetes Auslastungsspiel (wir folgen hier dem Beweis in \cite[Theorem 1]{MultiPotGames}):
-	
-		\todo[inline]{Definition kostengewichtetes Auslastungsspiel}
-	
-	Zum Beweis der Äquivalenz der beiden Spiele betrachte man folgenden kostenerhaltenden Isomorphismus:
-	
-		\todo[inline]{Definition Iso}
+	Ist umgekehrt $\Gamma$ ein Spiel mit einem gewichteten Potential $P$ (mit Gewichtsvektor $w$), so definieren wir das gleiche Auslastungsmodell folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$ wie im Beweis zu \Cref{satz:MondererShapley} mit dem einzigen Unterschied in den Ressourcenkosten:
+		\[g_r(k) \coloneqq 
+		\begin{cases}
+		P(x), 									&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
+		\frac{1}{w_i}c_{\hat{i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}} \in R_D 	\text{ und } k=1 \\
+		0,										&\text{sonst}
+		\end{cases}\]
+	Der Rest des Beweises erfolgt dann genauso wie zuvor.
 \end{proof}
 
-Zusammen mit \Cref{satz:CharExGewPotinWCG} wissen wir nun ...
+Zusammen mit \Cref{satz:CharExGewPotinWCG} wissen wir nun \todo{...}
+
+
+\subsection{Weitere Zusammenhänge}
 
 \todo[inline]{Direkte Konstruktion eines ungewichteten Auslastungsspiels zu gew. mit affin-linearen Kosten (wie ähnlich ist diese zu dem Beweis der Existenz eines exakten Potentials von Fotakis et al?)
 
@@ -148,8 +159,52 @@ Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
 \end{proof}
 
 \begin{bem}
-	Da immer nur an höchstens zwei Stellen Bedingungen an die Ressourcenkosten gestellt werden, lassen sich diese insbesondere immer als affin-lineare Funktionen umsetzen. Im Gegensatz dazu ist das bei dem Auslastungsspiel, welches man über den Umweg eines exakten Potentials und \Cref{satz:MondererShapley} erhalten würde, im Allgemeinen nicht der Fall.
+	Da immer nur an höchstens zwei Stellen Bedingungen an die Ressourcenkosten gestellt werden, lassen sich diese insbesondere immer als affin-lineare Funktionen realisieren. Im Gegensatz dazu ist das bei dem Auslastungsspiel, welches man über den Umweg eines exakten Potentials und \Cref{satz:MondererShapley} erhalten würde, im Allgemeinen nicht der Fall.
 \end{bem}
+
+\begin{satz}
+	Jedes skalierte Potentialspiel ist exakt isomorph zu einem skalierten Auslastungsspiel.
+\end{satz}
+
+\begin{proof}
+	Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem skalierten Potential $P$ sowie entsprechenden Skalierungsfunktionen $f_i$. Hierzu definieren analog zu dem Beweis von \Cref{satz:MondererShapley} folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$:
+	\begin{itemize}
+		\item $R \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i } \subseteq \prod_{i \in I}\Pc(X_i)$.
+		\item \[g_r(k) \coloneqq 
+		\begin{cases}
+		P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
+		0,						&\text{sonst}
+		\end{cases}\]
+		\todo[inline]{Wohldefiniertheit!}
+		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
+	\end{itemize}
+	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
+	\begin{align*}
+	d_{\hat{i}}(\phi(x)) &- d_{\hat{i}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{i}} = \phi_{\hat{i}}(x_{\hat{i}})} f_i \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{i}}(\hat{x}_{\hat{i}})} f_i \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
+	&=\sum_{r \in R_K: x_{\hat{i}} \in r_{\hat{i}}} f_i \circ g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) -
+		\sum_{r \in R_K: \hat{x}_{\hat{i}} \in r_{\hat{i}}} f_i \circ g_r(\underbrace{l_r(\phi(\hat{x}))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) = \\
+	&=f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) - f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) = \\
+	&=f_i \circ P(x) - f_i \circ P(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i)	\qedhere							
+	\end{align*}
+\end{proof}
+
+\begin{satz}
+	Jedes skalierte Singelton-Auslastungsspiel hat ein ordinales Potential.
+\end{satz}
+
+\begin{proof}
+	Die Rosenthal-Potentialfunktion ist ein ordinales Potential, denn es gilt (für $s_i = \{r\}, \hat{s}_i = \{\hat{r}\}$):
+	\begin{align*}
+		c_i(s) < c_i(s \mid \hat{s}_i) &\iff f_i\circ g_r(l_r(s)) < f_i\circ g_{\hat{r}}(l_{\hat{r}}(s)+1) \iff g_r(l_r(s)) < g_{\hat{r}}(l_{\hat{r}}(s)+1) \\
+										&\iff P(s) = \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k) < \sum_{r \in R}\sum_{k=1}^{l_r(s\mid \hat{s}_i)} g_r(k) = P(s\mid \hat{s}_i) \qedhere
+	\end{align*}
+\end{proof}
+
+\begin{satz}
+	Sei $\Gamma(M)$ ein Auslastungsspiel, wobei jeder Strategieraum Basis eines Matroids ist. Dann besitzt $\Gamma(M)$ ein Beste Antwort-Potential dessen Bild höchstens $\abs{I}^2\abs{R}^2$ verschiedene Werte umfasst.\todo{aus Opti IV-Skript. Stimmt diese Umformulierung so überhaupt?}
+\end{satz}
+
+\todo[inline]{Besser als das (sowieso vorhandene) exakte Potential, da es die Dauer einer Beste Antwort-Dynamik stärker beschränkt (polynomiell statt exponentiell)}
 
 \subsection{Überblick}
 

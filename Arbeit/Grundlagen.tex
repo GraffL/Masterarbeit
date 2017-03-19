@@ -28,14 +28,21 @@
 	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
 \end{defn}
 
-In \cite[Definition 2.2]{KoordDummy} definieren \citeauthor{KoordDummy} die folgenden beiden Spieltypen:
+In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele definiert. Analog dazu definieren wir hier zusätzlich skalierte Koordinationsspiele:
 \begin{defn}
 	Ein Spiel $\Gamma = (I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$ heißt
 	\begin{itemize}
 		\item \emph{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_j$ für alle Spieler $i,j \in I$.
+		\item \emph{skaliertes Koordinationsspiel}, wenn jeder Spieler eine streng monoton skalierte Variante einer gemeinsamen Kostenfunktion verwendet, d.h. wenn es eine Funktion $c: X \to \IR$ und streng monotone Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $c_i = f_i \circ c$ gilt.
 		\item \emph{Dummyspiel}, wenn die alleinige Abweichung eines einzelnen Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X, i \in I$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$.
 	\end{itemize}
 \end{defn}
+
+\begin{beob}
+	In einem (skalierten) Koordinationsspiel ist ein Strategieprofil bereits ein Nash-Gleichgewicht, wenn es nur für einen der Spieler optimal ist. Insbesondere haben damit endliche (skalierte) Koordinationsspiele immer mindestens ein Nash-Gleichgewicht, nämlich das (globale) Minimum der gemeinsamen Kostenfunktion.
+	
+	In einem Dummy-Spiel ist \emph{jedes} Strategieprofil ein Nash-Gleichgewicht, da ein einzelner Spieler durch einseitige Abweichung seine Kosten nie verändern und daher insbesondere nicht verringern kann.
+\end{beob}
 
 
 \subsection{Abweichungspfade}
@@ -104,6 +111,7 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen endlichen, maximalen Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
 \end{kor}
 
+
 \subsection{Auslastungsspiele}
 
 \begin{defn}\label{def:Auslastungsmodel}
@@ -118,7 +126,7 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 
 \begin{defn}\label{def:Auslastungsspiel}
 	Ein Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-	\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
+	\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
 	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die der Ressource ist, wenn alle $c_i$ und alle $L-r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ konvergieren).
 \end{defn}
 
@@ -154,16 +162,22 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 	\todo[inline]{gewichtetes Netzwerkauslastungsspiel}
 \end{bsp}
 
-\begin{defn}\label{def:skalierteAuslastungsspiel}
-	\todo{Ist diese Definition wirklich sinnvoll?}
-	Zusammen mit einer Skalierungsfunktionen $(f_i: K \to K_i)_{i\in I}$ und verallgemeinerten Lastfunktionen $(h_r: X \to \IR)_{r\in R}$ induziert ein Auslastungsmodell $M$ 
+Weitere Varianten von Auslastungsspielen:\todo{Quelle?}
+
+\begin{defn}\label{def:weitereAuslastungsspiel}
 	\begin{itemize}
-		\item ein \emph{kostenskaliertes Auslastungsspiel} $\Gamma_c(M, f_i) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(l_r(s))) \]
-		und die gleiche Lastfunktion wie im ungewichteten Fall.
-		\item ein \emph{lastskaliertes Auslastungsspiel} $\Gamma_l(M, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} g_r(h_r(s)) \]
-		\item ein \emph{verallgemeinertes gewichtetes Auslastungsspiel} $\Gamma(M, f_i, h_r) := (I, S, (K)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} f_i(g_r(h_r(s))).\]
-	\end{itemize}	
+		\item Zusammen mit einer streng monotonen Skalierungsfunktionen $(f_i: \IR \to \IR)_{i\in I}$ erhält man aus einem Auslastungsmodell ein \emph{skaliertes Auslastungsspiel} durch die Kostenfunktionen:
+			\[c_i: S \to \IR: s \mapsto \sum_{r \in R} f_i(g_r(l_r(s))) \]
+		\item \todo[inline]{Nicht-anonymes Auslastungsspiel?}
+		\item Ein \emph{Auslastungsmodell/-spiel mit spielerspezifischen Ressourcenkosten} erhält man, wenn es zu jeder Ressource $r \in R$ und jedem Spieler $i \in I$ eine eigene Funktion $g_r^i: \IR_{\geq 0} \to \IR$ gibt und die Kostenfunktionen der Spieler definiert sind als
+			\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r^i(l_r(s)) \]
+	\end{itemize}
+\end{defn}
+
+\begin{bem}
+	Jedes skalierte Auslastungsspiel ist insbesondere ein Auslastungsspiel mit spielerspezifischen Ressourcenkosten: Setze dazu $g_r^i \coloneqq f_i \circ g_r$.
+\end{bem}
+
+\begin{defn}
+	Ein Auslastungsmodell/-spiel heißt \emph{Singelton-Auslastungsmodell/-spiel}, wenn jede Strategie jedes Spielers aus genau einer Ressource besteht.
 \end{defn}

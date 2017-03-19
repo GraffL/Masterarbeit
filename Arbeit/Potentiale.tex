@@ -42,11 +42,19 @@ Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden ers
 
 \todo[inline]{Beziehungen beweisen?}
 
+\todo[inline]{Wann ist ein ordinales Potentialspiel bereits ein skaliertes? Zumindest für endliche Spiele sollte das stimmen?}
+
+\begin{bsp}
+	Jedes Koordinationsspiel besitzt ein exaktes Potential (nämlich die gemeinsame Kostenfunktion). Ebenso besitzt jedes Dummyspiel ein exaktes Potential (nämlich die konstante $0$-Funktion).
+	
+	Entsprechend besitzt jedes skalierte Koordinationsspiel ein skaliertes Potential.
+\end{bsp}
+
 \subsection{Anschauung}
 
 Verallgemeinerte Nash-Potentiale (und damit alle oben beschriebenen Potentiale) formalisieren die Idee ein Spiel durch irgendein anderes durch eine einzige Funktion beschriebenes Optimierungsproblem zu ersetzen, dessen Optima Nash-Gleichgewichte im ursprünglichen Spiel sind. Im Falle eines Nash-Potentials entsprechen diese Optima sogar allen Nash-Gleichgewichten. Findet man nun ein solches Optimierungsproblem, von dem man zeigen kann, dass es immer ein Optimum besitzt (etwa weil es es durch eine stetige Funktion beschrieben wird und der Strategieraum kompakt ist), so zeigt dies, dass das ursprüngliche Spiel mindestens ein Nash-Gleichgewicht besitzt. Außerdem kann man dieses durch Lösen des Optimierungsproblems bestimmen.
 
-Versteht man zu einem gegebenen Strategieprofil $x \in X$ dessen \emph{Nachbarschaft} als die Menge aller durch höchstens eine Abweichung erreichbarer Strategieprofile, d.h. die Menge $\{(x \mid \hat{x}_i) | i \in I, \hat{x}_i \in X_i\}$, so nennen wir $x$ ein \emph{lokales Minimum} einer Funktion $P: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist. Ein lokales Nash-Potential beschreibt damit ein Optimierungsproblem, dessen \emph{lokale} Minima den Nash-Gleichgewichten des Ausgangsspiels entsprechen.
+Versteht man zu einem gegebenen Strategieprofil $x \in X$ dessen \emph{Nachbarschaft} als die Menge aller durch höchstens eine Abweichung erreichbarer Strategieprofile, d.h. die Menge $\{(x \mid \hat{x}_i) | i \in I, \hat{x}_i \in X_i\}$, so nennen wir $x$ ein \emph{lokales Minimum} einer Funktion $P: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist.\todo{Evtl. diese Definition zusammen mit einer Erwähnung zum Zusammenhang mit lokaler Suche bereits in das Grundlagenkapitel verschieben?}{} Ein lokales Nash-Potential beschreibt damit ein Optimierungsproblem, dessen \emph{lokale} Minima den Nash-Gleichgewichten des Ausgangsspiels entsprechen.
 
 Die Nachbarschaft eines Strategieprofils $x$ besteht nun gerade aus den Profilen, die man mit $x$ vergleichen muss, um festzustellen, ob es sich bei $x$ um ein Nash-Gleichgewicht handelt. Hat man also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem lokalen Nash-Potential $P$, so induziert dieses ein Koordinationsspiel $K \coloneqq (I, X, (P))$ auf dem selben Strategieraum, dessen Nash-Gleichgewichte gerade mit denen des Spiels $\Gamma$ übereinstimmen.
 
@@ -125,7 +133,7 @@ Für Spiele mit unendlicher Spielermenge wird sich im folgenden Abschnitt die Be
 
 In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale notwendige und hinreichende Anforderungen an ein Spiel beschreiben, damit dieses ein entsprechendes Potential besitzt.
 
-\subsubsection{Exaktes und gewichtetes Potential}
+\subsubsection{Exakte Potentiale}
 
 \begin{satz}\label{satz:CharExPot}
 	Ein Spiel besitzt genau dann ein exaktes Potential, wenn alle 4-Zykel im Strategieraum eine Gesamtänderung von $0$ haben.
@@ -158,6 +166,23 @@ In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale no
 	Wählen wir nun für jede maximale Pfadzusammenhangskomponente ein einziges $x$ in dieser und definieren wie oben eine Funktion $P_x$, so lassen sich alle diese Funktionen zu einer Funktion $P$ auf ganz $X$ zusammensetzen. Nach Definition erfüllt diese auf jeder Pfadzusammenhangskomponente die Bedingung eines exakten Potentials. Also ist nach \Cref{beob:KompWeisePotentiale} $P$ ein exaktes Potential auf $X$.
 \end{proof}
 
+Eine alternative Charakterisierung für die Existenz eines exakten Potentials zeigt \citeauthor{KoordDummy} in \cite[Theorem 2.1]{KoordDummy}:
+
+\begin{satz}\label{satz:CharExPotAlt}
+	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein exaktes Potential, wenn es ein Koordinationsspiel $K = (I, X, (p))$ und ein Dummy-Spiel $D = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $K$ und $D$ sind, d.h. $c_i = p + d_i$.
+\end{satz}
+
+\begin{proof}
+	Ist $\Gamma$ ein Spiel mit einem exakten Potential $P$, so definiert dieses ein Koordinationsspiel $K \coloneqq (I, X, (P))$. Ferner ist $D \coloneqq (I, X, (P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategien/Strategieprofile $x \in X, \hat{x}_i \in X_i$:
+		\[(P-c_i)(x) - (P-c_i)(x \mid \hat{x}_i) = \left(P(x) - P(x \mid \hat{x}_i)\right) - \left(c_i(x) - c_i(x \mid \hat{x}_i)\right) = 0 \]
+	Also $(P-c_i)(x) = (P-c_i)(x \mid \hat{x}_i)$.
+	
+	Umgekehrt haben sowohl ein Koordinations- als auch ein Dummy-Spiel ein exaktes Potential. Die Summe der beiden Potentialfunktionen ist dann ein exaktes Potential für die Summe der beiden Spiele.
+\end{proof}
+
+
+\subsubsection{Gewichtete und skalierte Potentiale}
+
 \begin{satz}\label{satz:CharGewPot}
 	Ein Spiel besitzt genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)_{i \in I}$, wenn die $w$-gewichtete Gesamtänderung entlang jedes 4-Zykels $0$ ist, d.h. für jeden 4-Zykel $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ gilt:\todo{Gibt es eine bessere Charakterisierung von gew. Potentialen? Insb. ohne dass man schon den richtigen Gewichtsvektor angeben muss?}
 	\[\PfadAend_w(\gamma) = \sum_{i=0}^3 w_{i(k)}\cdot\left(c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k)\right) = 0\]
@@ -174,10 +199,26 @@ Diese Charakterisierung folgt direkt aus der folgenden Beobachtung aus \cite[Kap
 		\[c_i(x) - c_i(x \mid \hat{x}_i) = w_i\cdot(P(x) - P(x \mid \hat{x}_i)) \iff \frac{c_i(x)}{w_i} - \frac{c_i(x \mid \hat{x}_i)}{w_i} = P(x) - P(x \mid \hat{x}_i) \]
 \end{proof}
 
-\todo[inline]{Charakterisierung der Existenz eines skalierten Potentials?}
+Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} eine Charakterisierung durch eine Zerlegung des Spiels in ein Dummy- und ein skaliertes Koordinationsspiel:
+
+\begin{satz}\label{satz:CharSkalPot}
+	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein exaktes Potential, wenn es ein skaliertes Koordinationsspiel $K = (I, X, (p_i))$ und ein Dummy-Spiel $D = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $K$ und $D$ sind, d.h. $c_i = p_i + d_i$.
+\end{satz}
+
+\begin{proof}
+	Ist $\Gamma$ ein Spiel mit einem skalierten Potential $P$ und entsprechenden Skalierungsfunktionen $f_i$, so definiert dieses ein Koordinationsspiel $K \coloneqq (I, X, (f_i \circ P))$. Ferner ist $D \coloneqq (I, X, (f_i\circ P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategien/Strategieprofile $x \in X, \hat{x}_i \in X_i$:
+	\[(f_i\circ P-c_i)(x) - (f_i\circ P-c_i)(x \mid \hat{x}_i) = \left(f_i\circ P(x) - f_i\circ P(x \mid \hat{x}_i)\right) - \left(c_i(x) - c_i(x \mid \hat{x}_i)\right) = 0 \]
+	Also $(f_i\circ P-c_i)(x) = (f_i\circ P-c_i)(x \mid \hat{x}_i)$.
+	
+	Starten wir umgekehrt mit einem skalierten Koordinationsspiel $K = (I, X, (f_i \circ P))$ und einem Dummy-Spiel $D = (I, X, (d_i))$, so ist $P$ ein skaliertes Potential zu $\Gamma \coloneqq (I, X, (f_i\circ P + d_i))$, denn es gilt:
+		\begin{align*}
+			(f_i\circ P + d_i)(x) - (f_i\circ P + d_i)(x \mid \hat{x}_i) &= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i) + d_i(x) - d_i(x \mid \hat{x}_i) \\
+				&= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i)
+		\end{align*}
+\end{proof}
 
 
-\subsubsection{Ordinales Potential}
+\subsubsection{Ordinale Potentiale}
 
 \begin{defn}
 	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gib, also $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
@@ -221,7 +262,7 @@ Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folge
 \end{bem}
 
 
-\subsubsection{Verallgemeinertes ordinales Potential}
+\subsubsection{Verallgemeinerte ordinale Potentiale}
 
 Anlehnend an \Cref{satz:CharOrdPot} erhält man unter Verwendung der Relation
 	\[x \VerbRel y \dIff \text{ es gibt einen Verbesserungspfad der Länge $\geq 1$ von $y$ nach $x$}\]
@@ -310,7 +351,7 @@ Sei dazu $\Gamma$ ein Spiel mit abzählbarem Strategieraum $X := \{x^1, x^2, \do
 \end{proof}
 
 
-\subsubsection{Beste Antwort-Potential}
+\subsubsection{Beste Antwort-Potentiale}
 
 Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeauthor{BestRespPot} in \cite[Theorem 3.1]{BestRespPot} eine solche für Beste Antwort-Potentiale. Dazu definiert man die Äquivalenzrelation:
 	\[x \BArel y \dIff \text{ es gibt einen Beste Antwort-Pfad von $x$ nach $y$ und umgekehrt}\]
