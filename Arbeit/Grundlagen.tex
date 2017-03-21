@@ -139,7 +139,7 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 \end{bem}
 
 \begin{bsp}
-	Ein Beispiel für Auslastungsmodelle sind \emph{Netzwerkauslastungsmodelle}. Diese sind gegeben durch einen (nicht notwendigerweise endlichen) Graphen $G=(V,E)$, einer Kostenfunktion $c_e: \IR_{\geq 0} \to \IR$ für jede Kante $e \in E$ und für jeden Spieler $i \in I$ je ein ausgezeichneter Start- und Endknoten $s_i, t_i \in V$. Die Ressourcen sind dann die Kanten des Graphen, die Strategien von Spieler $i \in I$ entsprechen den endlichen $s_i,t_i$-Pfaden in $G$. 
+	Ein Beispiel für Auslastungsmodelle sind \emph{Netzwerkauslastungsmodelle}. Diese sind gegeben durch einen (nicht notwendigerweise endlichen) Multigraphen $G=(V,E)$, einer Kostenfunktion $c_e: \IR_{\geq 0} \to \IR$ für jede Kante $e \in E$ und für jeden Spieler $i \in I$ je ein ausgezeichneter Start- und Endknoten $s_i, t_i \in V$. Die Ressourcen sind dann die Kanten des Graphen, die Strategien von Spieler $i \in I$ entsprechen den endlichen $s_i,t_i$-Pfaden in $G$. 
 	
 	Zusätzlich ist es möglich bestimmte Kanten nur für einen Teil der Spieler zuzulassen. Dadurch wird dann der Strategieraum der anderen Spieler entsprechend eingeschränkt.
 \end{bsp}
@@ -180,4 +180,11 @@ Weitere Varianten von Auslastungsspielen:\todo{Quelle?}
 
 \begin{defn}
 	Ein Auslastungsmodell/-spiel heißt \emph{Singelton-Auslastungsmodell/-spiel}, wenn jede Strategie jedes Spielers aus genau einer Ressource besteht.
+\end{defn}
+
+\begin{defn}
+	Ein Auslastungsmodell/-spiel heißt \emph{nicht-anonym}, wenn die Kosten einer Ressource nicht nur von der Zahl bzw. dem Gesamtgewicht der sie nutzenden Spieler, sondern auch von deren Identität abhängt. Die Lastfunktionen sind dann also definiert als
+		\[l_r: S \to \Pc(I): s \mapsto \Set{i \in I | r \in s_i }\]
+	und die Ressourcenkostenfunktionen sind von der Form
+		\[g_r: \Pc(I) \to \IR. \]
 \end{defn}
