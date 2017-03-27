@@ -2,7 +2,7 @@
 
 Eine Schwierigkeit bei der Analyse von Spielen bildet der Umstand, dass jeder Spieler eine eigene Kostenfunktion und damit ein eigenes Optimierungsziel hat. Möchte man also beispielsweise Gleichgewichtspunkte finden, so muss man alle diese Funktionen gleichzeitig (lokal) optimieren. Diese Aufgabe wird wesentlich einfacher, wenn das Spiel eine sogenannte Potentialfunktion besitzt. Eine solche ist eine Funktion auf dem Strategieraum des Spieles, die ein alternatives Koordinationsspiel darauf definiert, welches gewisse Eigenschaften mit dem ursprünglichen Spiel teilt (etwa die Lage der Gleichgewichtspunkte).
 
-In diesem Kapitel werden wir einige Varianten von Potentialfunktionen kennenlernen und feststellen, welche Spiele diese jeweils besitzen. In \Cref{sec:Morphismen} werden wir dann die Beziehung zwischen Ausgangsspiel und dem von einer Potentialfunktion beschriebenen Koordinationsspiel durch Morphismen beschreiben und dadurch zeigen, welche Eigenschaften sich beim Wechsel zwischen den beiden Spielen erhalten.
+In diesem Kapitel werden wir einige Varianten von Potentialfunktionen kennenlernen und feststellen, welche Spiele diese jeweils besitzen. In \Cref{sec:Morphismen} werden wir dann die Beziehung zwischen Ausgangsspiel und dem von einer Potentialfunktion beschriebenen Koordinationsspiel durch Morphismen beschreiben und dadurch zeigen, welche Eigenschaften beim Wechsel zwischen den beiden Spielen erhalten bleiben.
 
 \subsection{Definitionen}
 
@@ -17,7 +17,7 @@ Zunächst definieren wir eine Auswahl verschiedener Typen von Potentialfunktione
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
 		\item \emph{lokales Nash-Potential}, wenn jedes lokale Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
 			\[\forall i \in I, \hat{x}_i \in X_i: P(x) \leq P(x \mid \hat{x}_i) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
-		\item \emph{Beste Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ gilt:
+		\item \emph{Beste-Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ gilt:
 			\[\arg\min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i) = \arg \min_{\hat{x}_i \in X_i} P(x \mid \hat{x}_i)\]
 		\item \emph{verallgemeinertes ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) > c_i(x \mid \hat{x}_i) \implies P(x) > P(x \mid \hat{x}_i)\]
@@ -52,13 +52,13 @@ Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden ers
 
 \subsection{Anschauung}
 
-Verallgemeinerte Nash-Potentiale (und damit alle oben beschriebenen Potentiale) formalisieren die Idee ein Spiel durch irgendein anderes durch eine einzige Funktion beschriebenes Optimierungsproblem zu ersetzen, dessen Optima Nash-Gleichgewichte im ursprünglichen Spiel sind. Im Falle eines Nash-Potentials entsprechen diese Optima sogar allen Nash-Gleichgewichten. Findet man nun ein solches Optimierungsproblem, von dem man zeigen kann, dass es immer ein Optimum besitzt (etwa weil es es durch eine stetige Funktion beschrieben wird und der Strategieraum kompakt ist), so zeigt dies, dass das ursprüngliche Spiel mindestens ein Nash-Gleichgewicht besitzt. Außerdem kann man dieses durch Lösen des Optimierungsproblems bestimmen.
+Verallgemeinerte Nash-Potentiale (und damit alle oben beschriebenen Potentiale) formalisieren die Idee ein Spiel durch irgendein anderes durch eine einzige Funktion beschriebenes Optimierungsproblem zu ersetzen, dessen Optima Nash-Gleichgewichte im ursprünglichen Spiel sind. Im Falle eines Nash-Potentials entsprechen diese Optima sogar allen Nash-Gleichgewichten. Findet man nun ein solches Optimierungsproblem, von dem man zeigen kann, dass es immer ein Optimum besitzt (etwa weil es durch eine stetige Funktion beschrieben wird und der Strategieraum kompakt ist), so zeigt dies, dass das ursprüngliche Spiel mindestens ein Nash-Gleichgewicht besitzt. Außerdem kann man dieses durch Lösen des Optimierungsproblems bestimmen.
 
 Versteht man zu einem gegebenen Strategieprofil $x \in X$ dessen \emph{Nachbarschaft} als die Menge aller durch höchstens eine Abweichung erreichbarer Strategieprofile, d.h. die Menge $\{(x \mid \hat{x}_i) | i \in I, \hat{x}_i \in X_i\}$, so nennen wir $x$ ein \emph{lokales Minimum} einer Funktion $P: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist.\todo{Evtl. diese Definition zusammen mit einer Erwähnung zum Zusammenhang mit lokaler Suche bereits in das Grundlagenkapitel verschieben?}{} Ein lokales Nash-Potential beschreibt damit ein Optimierungsproblem, dessen \emph{lokale} Minima den Nash-Gleichgewichten des Ausgangsspiels entsprechen.
 
 Die Nachbarschaft eines Strategieprofils $x$ besteht nun gerade aus den Profilen, die man mit $x$ vergleichen muss, um festzustellen, ob es sich bei $x$ um ein Nash-Gleichgewicht handelt. Hat man also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem lokalen Nash-Potential $P$, so induziert dieses ein Koordinationsspiel $K \coloneqq (I, X, (P))$ auf dem selben Strategieraum, dessen Nash-Gleichgewichte gerade mit denen des Spiels $\Gamma$ übereinstimmen.
 
-Weitere Spezialisierungen dieses Potentialbegriffs führen dann zu induzierten Koordinationsspielen, welche noch weitere Eigenschaften des Ausgansspiels übernehmen: So hat das durch ein Beste Antwort-Potential beschriebene Spiel etwa die gleichen Beste Antwort-Pfade und eignet sich daher beispielsweise zur Analyse von Beste Antwort-Dynamiken. Durch ein ordinales Potential erhält man ein Spiel, welches auch die gleichen Verbesserungs- und Nichtverschlechterungspfade enthält. Bei einem verallgemeinerten ordinalen Potential bleiben diese hingegen jeweils nur in eine Richtung erhalten: Ein Verbesserungspfad im Ausgangsspiel ist auch einer im Koordinationsspiel und ein Nichtverschlechterungspfad im Koordinationsspiel entspricht einem solchen im ursprünglichen Spiel.\todo{Stimmt das?}
+Weitere Spezialisierungen dieses Potentialbegriffs führen dann zu induzierten \todo{Silbentrennung?} Koordinationsspielen, welche noch weitere Eigenschaften des Ausgansspiels übernehmen: So hat das durch ein Beste-Antwort-Potential beschriebene Spiel etwa die gleichen Beste-Antwort-Pfade und eignet sich daher beispielsweise zur Analyse von Beste-Antwort-Dynamiken. Durch ein ordinales Potential erhält man ein Spiel, welches auch die gleichen Verbesserungs- und Nichtverschlechterungspfade enthält. Bei einem verallgemeinerten ordinalen Potential bleiben diese hingegen jeweils nur in eine Richtung erhalten: Ein Verbesserungspfad im Ausgangsspiel ist auch einer im Koordinationsspiel und ein Nichtverschlechterungspfad im Koordinationsspiel entspricht einem solchen im ursprünglichen Spiel.\todo{Stimmt das?}
 
 Für skalierte, gewichtete und exakte Potentiale gibt es eine noch anschaulichere Betrachtungsweise für den Fall (endlicher) 2-Personenspiele. Deren Strategieraum kann man als Gitternetz in der Ebene auffassen, wobei jede Strategie von Spieler 1 einer senkrechten und jede Strategie von Spieler 2 einer waagerechten Gitterlinie entspricht. Kreuzungspunkte von zwei Gerade entsprechen dann gerade vollständige Strategieprofilen. Kostenfunktionen (ebenso wie Potentiale) sind dann \glqq Reliefkarten\grqq{}, deren Höhe den jeweiligen Kosten entspricht. 
 
@@ -96,26 +96,26 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht.
 
 Zusammen mit \Cref{kor:ExVerbPfadExNG} folgt hieraus \Cref{beob:lokMinNG} für ordinale Potentiale.\todo{Streng genommen nicht wirklich, da das Korollar nur für Spiele gilt!?}
 
-Analog zu diesem Satz gilt für Beste Antwort-Pfade und Beste Antwort-Potentiale:
+Analog zu diesem Satz gilt für Beste-Antwort-Pfade und Beste-Antwort-Potentiale:
 
 \begin{prop}
-	Sei $\Gamma$ ein Spiel mit einem Beste Antwort-Potential $P$. Dann ist jeder Verbesserungspfad in $\Gamma$ auch ein Beste Antwortpfad bezüglich $P$ und umgekehrt.
+	Sei $\Gamma$ ein Spiel mit einem Beste-Antwort-Potential $P$. Dann ist jeder Verbesserungspfad in $\Gamma$ auch ein Beste-Antwort-Pfad bezüglich $P$ und umgekehrt.
 \end{prop}
 
 \Cref{tab:PotErhalten} fasst einige der von Potentialen erhaltenen Eigenschaften zusammen.
 
 \begin{table}[h]\centering
 	\begin{tabular}{l|ccccc}
-						& Nash-Gl. 			& FIP 					& Nichtverschl.pfad 			& Verb.pfad 		& Beste Antwort-Pfad \\\hline
+						& Nash-Gl. 			& FIP 					& Nichtverschl.pfad 			& Verb.pfad 		& Beste-Antwort-Pfad \\\hline
 		exakt			& $\Leftrightarrow$	& $\Leftrightarrow$ 	& $\Leftrightarrow$				& $\Leftrightarrow$	& $\Leftrightarrow$ \\
 		gewichtet		& $\Leftrightarrow$	& $\Leftrightarrow$ 	& $\Leftrightarrow$				& $\Leftrightarrow$	& $\Leftrightarrow$ \\		
 		skaliert		& $\Leftrightarrow$ & $\Leftrightarrow$ 	& $\Leftrightarrow$				& $\Leftrightarrow$	& $\Leftrightarrow$ \\
 		ordinal			& $\Leftrightarrow$	& $\Leftrightarrow$ 	& $\Leftrightarrow$				& $\Leftrightarrow$	& $\Leftrightarrow$ \\
-		veralg. ordinal	& $\Leftarrow$		& $\Rightarrow$		 	& $\Leftarrow$					& $\Rightarrow$		& $\Rightarrow$ 	\\
+		verallg. ordinal& $\Leftarrow$		& $\Rightarrow$		 	& $\Leftarrow$					& $\Rightarrow$		& $\Rightarrow$ 	\\
 		Beste Antwort	& $\Leftrightarrow$	& 					 	& 								& 					& $\Leftrightarrow$ \\
 		lokal Nash		& $\Leftrightarrow$	& 					 	& 								& 					& 					
 	\end{tabular}	
-	\caption{Was bleibt beim Übergang erhalten?\\\todo[inline]{Tabelle korrigieren, erweitern, erklären...}}\label{tab:PotErhalten}
+	\caption{Welche Eigenschaft bleibt beim Übergang von einem Spiel auf das von einem entsprechenden Potential induzierte Koordinationsspiel erhalten ($\Rightarrow$) und welche bei der umgekehrten Richtung ($\Leftarrow$)?\\\todo[inline]{Tabelle korrigieren, erweitern, erklären...}}\label{tab:PotErhalten}
 \end{table}
 
 Für Spiele mit unendlicher Spielermenge wird sich im folgenden Abschnitt die Beobachtung als hilfreich erweisen, dass wir die meisten Potentiale pfadzusammenhangskomponentenweise definieren können:
@@ -221,14 +221,14 @@ Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} e
 \subsubsection{Ordinale Potentiale}
 
 \begin{defn}
-	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gib, also $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
+	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gibt, also $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
 \end{defn}
 
 Wir definieren nun eine Äquivalenzrelation auf dem Strategieraum:\todo{evtl. schon im Grundlagenkapitel gemeinsam mit Pfadzusammenhangskomponenten?}
 	\[x \NVrel y \dIff \text{ es gibt einen nicht-Verschlechterungspfad von $x$ nach $y$ und umgekehrt}\]
 Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodNV \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine transitive Ordnung
 	\[[x] \SVord [y] \dIff \text{Es gibt einen schwachen Verbesserungspfad von $y$ nach $x$}\]
-Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich aus der Beobachtung, dass die Verknüpfung eines nicht-Verschlechterungspfades mit einem schwachen Verbesserungspfad wieder einen schwachen Verbesserungspfad ergibt.
+Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich aus der \todo{Silbentrennung?} Beobachtung, dass die Verknüpfung eines nicht-Verschlechterungspfades mit einem schwachen Verbesserungspfad wieder einen schwachen Verbesserungspfad ergibt.
 
 Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgende Charakterisierung der Existenz von ordinalen Potentialen:
 
@@ -281,7 +281,7 @@ eine Charakterisierung der Existenz eines verallgemeinerten ordinalen Potentials
 	\end{enumerate} 
 \end{proof}
 
-In dieser Form ist dies noch eine wenig hilfreiche Charakterisierung, denn um zu zeigen, dass der Strategieraum reell geordnet ist, muss man effektiv bereits die Potentialfunktion angeben. Allerdings erhält man daraus mit Hilfe der folgenden Propositionen einfachere Charakterisierungen für gewisse Teilklassen von Spielen:
+In dieser Form ist dies noch eine wenig hilfreiche Charakterisierung, denn um zu zeigen, dass der Strategieraum reell geordnet ist, muss man im Grunde bereits die Potentialfunktion angeben. Allerdings erhält man daraus mit Hilfe der folgenden Propositionen einfachere Charakterisierungen für gewisse Teilklassen von Spielen:
 
 \begin{prop}\label{prop:AbzReellGeordnet}
 	Jede abzählbare Menge mit einer strikten Partialordnung ist bereits reell geordnet.
@@ -351,51 +351,51 @@ Sei dazu $\Gamma$ ein Spiel mit abzählbarem Strategieraum $X := \{x^1, x^2, \do
 \end{proof}
 
 
-\subsubsection{Beste Antwort-Potentiale}
+\subsubsection{Beste-Antwort-Potentiale}
 
-Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeauthor{BestRespPot} in \cite[Theorem 3.1]{BestRespPot} eine solche für Beste Antwort-Potentiale. Dazu definiert man die Äquivalenzrelation:
-	\[x \BArel y \dIff \text{ es gibt einen Beste Antwort-Pfad von $x$ nach $y$ und umgekehrt}\]
+Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeauthor{BestRespPot} in \cite[Theorem 3.1]{BestRespPot} eine solche für Beste-Antwort-Potentiale. Dazu definiert man die Äquivalenzrelation:
+	\[x \BArel y \dIff \text{ es gibt einen Beste-Antwort-Pfad von $x$ nach $y$ und umgekehrt}\]
 und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine transitive Ordnung
-\[[x] \BAord [y] \dIff \text{Es gibt einen schwachen Beste Antwort-Verbesserungspfad von $y$ nach $x$}\]
+\[[x] \BAord [y] \dIff \text{Es gibt einen schwachen Beste-Antwort-Verbesserungspfad von $y$ nach $x$}\]
 
 \begin{satz}
-	Ein Spiel besitzt genau dann ein beste Antwort-Potential, wenn es keine schwachen Beste Antwort-Verbesserungszykel enthält und $(\XmodBA, \BAord)$ reell geordnet ist.
+	Ein Spiel besitzt genau dann ein Beste-Antwort-Potential, wenn es keine schwachen Beste-Antwort-Verbesserungszykel enthält und $(\XmodBA, \BAord)$ reell geordnet ist.
 \end{satz}
 
 \begin{proof}
-	Sei zunächst $P: X \to \IR$ ein beste Antwort-Potential eines Spiels $\Gamma$. Dann gilt:
+	Sei zunächst $P: X \to \IR$ ein Beste-Antwort-Potential eines Spiels $\Gamma$. Dann gilt:
 	\begin{enumerate}
-		\item $\Gamma$ enthält keine schwachen Beste Antwort-Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Beste Antwort-Verbesserungszykel in $\Gamma$, so gilt für alle $0 \leq k < n$:
+		\item $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Beste-Antwort-Verbesserungszykel in $\Gamma$, so gilt für alle $0 \leq k < n$:
 			\[c_{i(k)}(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^k \mid \hat{x}_i) \leq c_{i(k)}(x^k)\]
-		und, da $P$ ein beste Antwort-Potential ist, ebenso 
+		und, da $P$ ein Beste-Antwort-Potential ist, ebenso 
 			\[P(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} P(x^k \mid \hat{x}_i) \leq P(x^k).\]
 		Ferner gilt für ein solches $k$ sogar $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$, also auch $P(x^{k+1}) < P(x^k)$ (da $x^k_{i(k)}$ keine beste Antwort auf $x^k$ ist). Zusammen folgt daher
 			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k+1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0).\]
 		Dies ist jedoch ein Widerspruch. Also kann es keinen solchen Verbesserungszykel geben.
 		
-		\item $\BAord$ ist eine strikte Partialordnung auf $\XmodBA$. Denn die Relation ist immer transitiv und in der Abwesenheit von schwachen Beste Antwort-Verbesserungszykeln zudem irreflexiv. Gäbe es nämlich ein Strategieprofil mit $[x] \BAord [x]$, so gäbe es einen schwachen Beste Antwort-Verbesserungspfad von $x$ nach $x$, also einen schwachen Beste Antwort-Verbesserungszykel.
+		\item $\BAord$ ist eine strikte Partialordnung auf $\XmodBA$. Denn die Relation ist immer transitiv und in der Abwesenheit von schwachen Beste-Antwort-Verbesserungszykeln zudem irreflexiv. Gäbe es nämlich ein Strategieprofil mit $[x] \BAord [x]$, so gäbe es einen schwachen Beste-Antwort-Verbesserungspfad von $x$ nach $x$, also einen schwachen Beste-Antwort-Verbesserungszykel.
 		
-		\item $(\XmodBA, \BAord)$ ist reell geordnet. Definiere dazu die Abbildung $f: \XmodBA \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es also Beste Antwort-Pfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Beste Antwort-Zykel und da es keine schwachen Beste Antwort-Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
+		\item $(\XmodBA, \BAord)$ ist reell geordnet. Definiere dazu die Abbildung $f: \XmodBA \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es also Beste-Antwort-Pfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Beste-Antwort-Zykel und da es keine schwachen Beste-Antwort-Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
 		
-		Ferner ist diese Abbildung streng monoton, denn gilt $[x] \SVord [y]$, so gibt es einen schwachen Beste Antwort-Verbesserungspfad $\gamma$ von $y$ nach $x$. Damit folgt analog zum ersten Punkt: $P(x) < P(y)$
+		Ferner ist diese Abbildung streng monoton, denn gilt $[x] \SVord [y]$, so gibt es einen schwachen Beste-Antwort-Verbesserungspfad $\gamma$ von $y$ nach $x$. Damit folgt analog zum ersten Punkt: $P(x) < P(y)$
 	\end{enumerate}
 	
-	Ist umgekehrt $\Gamma$ ein Spiel ohne schwache Beste Antwort-Verbesserungszykel, so ist - wie bereits gezeigt - $\BAord$ eine strikte Partialordnung auf $\XmodBA$. Sei nun $(\XmodBA, \BAord)$ sogar reell-geordnet mit Abbildung $f: \XmodBA \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein beste Antwort-Potential, denn es gilt $\arg \min_{x'_i \in X_i}c_i(x \mid x'_i) = \arg \min_{x'_i \in X_i} P(x \mid x'_i)$:
+	Ist umgekehrt $\Gamma$ ein Spiel ohne schwache Beste-Antwort-Verbesserungszykel, so ist - wie bereits gezeigt - $\BAord$ eine strikte Partialordnung auf $\XmodBA$. Sei nun $(\XmodBA, \BAord)$ sogar reell-geordnet mit Abbildung $f: \XmodBA \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein beste Antwort-Potential, denn es gilt $\arg \min_{x'_i \in X_i}c_i(x \mid x'_i) = \arg \min_{x'_i \in X_i} P(x \mid x'_i)$:
 	\begin{description}
 		\item[\glqq$\bm{\subseteq}$\grqq:] Ist $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, so ist also $\hat{x}_i$ insbesondere auch eine beste Antwort auf alle Strategieprofile $(x \mid x'_i)$ für $x'_i \in X_i$.
 			\begin{description}
-				\item[1. Fall:] Gilt $c_i(x \mid \hat{x}_i) < c_i(x \mid x'_i)$, so ist $((x \mid x'_i), (x \mid \hat{x}_i))$ ein Beste Antwort-Verbesserungspfad, also $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$ und damit $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) < f ([(x \mid x'_i)]) = P(x \mid x'_i)$.
-				\item[2. Fall:] Gilt $c_i(x \mid \hat{x}_i) = c_i(x \mid x'_i)$, so sind sowohl $((x \mid x'_i), (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), (x \mid x'_i))$ Beste Antwort-Pfade und folglich $(x \mid x'_i) \BArel (x \mid \hat{x}_i)$. Somit folgt $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) = f([(x \mid x'_i)]) = P(x \mid x'_i)$.
+				\item[1. Fall:] Gilt $c_i(x \mid \hat{x}_i) < c_i(x \mid x'_i)$, so ist $((x \mid x'_i), (x \mid \hat{x}_i))$ ein Beste-Antwort-Verbesserungspfad, also $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$ und damit $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) < f ([(x \mid x'_i)]) = P(x \mid x'_i)$.
+				\item[2. Fall:] Gilt $c_i(x \mid \hat{x}_i) = c_i(x \mid x'_i)$, so sind sowohl $((x \mid x'_i), (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), (x \mid x'_i))$ Beste-Antwort-Pfade und folglich $(x \mid x'_i) \BArel (x \mid \hat{x}_i)$. Somit folgt $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) = f([(x \mid x'_i)]) = P(x \mid x'_i)$.
 			\end{description}
 			Insgesamt gilt also für alle $x'_i \in X_i$, dass $P(x \mid \hat{x}_i) \leq P(x \mid x'_i)$ und daher $\hat{x}_i \in \arg \min_{x'_i \in X_i} P(x \mid x'_i)$.
-		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x})$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gibt ein $x'_i \in X_i$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann gäbe es also einen Beste Antwort-Pfad von $(x \mid \hat{x}_i)$ nach $(x \mid x'_i)$\todo{Ich glaube nicht, dass das so sein muss!}, d.h. es wäre $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$. \dots
+		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x})$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gibt ein $x'_i \in X_i$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann gäbe es also einen Beste-Antwort-Pfad von $(x \mid \hat{x}_i)$ nach $(x \mid x'_i)$\todo{Ich glaube nicht, dass das so sein muss!}, d.h. es wäre $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$. \dots
 		
 		\todo[inline]{Funktioniert dieser Beweis an der Stelle überhaupt? }
 	\end{description}
 \end{proof}
 
 \begin{bsp}
-	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat offenbar ein exaktes und damit erst recht Beste Antwort-Potential. Da es keinerlei Beste Antworten besitzt, ist außerdem $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste Antwort-Potential für $\Gamma$.
+	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat offenbar ein exaktes und damit erst recht Beste-Antwort-Potential. Da es keinerlei Beste Antworten besitzt, ist außerdem $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
 \end{bsp}
 
 

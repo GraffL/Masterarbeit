@@ -57,9 +57,9 @@ Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 		\item \emph{Nichtverschlechterungspfad}, wenn sich der abweichende Spieler jeweils nicht verschlechtert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) \leq c_{i(k)}(x^k)$.
 		\item \emph{schwacher Verbesserungspfad}, wenn er ein Nichtverschlechterungspfad ist und sich an mindestens einer Stelle der abweichende Spieler echt verbessert. Das heißt es gibt eine Stelle $k$ mit $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
 		\item \emph{Verbesserungspfad}, wenn sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
-		\item \emph{Beste Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(k)}(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^n \mid \hat{x}_i)$.
-		\item \emph{schwacher Beste Antwort-Verbesserungspfad}, wenn er ein schwacher Verbesserungspfad und ein Beste Antwort-Pfad ist.
-		\item \emph{Beste Antwort-Verbesserungspfad}, wenn er ein Verbesserungspfad und ein Beste Antwort-Pfad ist.
+		\item \emph{Beste-Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(k)}(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^n \mid \hat{x}_i)$.
+		\item \emph{schwacher Beste-Antwort-Verbesserungspfad}, wenn er ein schwacher Verbesserungspfad und ein Beste-Antwort-Pfad ist.
+		\item \emph{Beste-Antwort-Verbesserungspfad}, wenn er ein Verbesserungspfad und ein Beste-Antwort-Pfad ist.
 	\end{itemize}
 	
 	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist
@@ -81,7 +81,7 @@ Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 		\item Zwei Pfade $\gamma$ und $\mu$ von $x$ nach $y$ haben genau dann die gleiche Gesamtänderung, wenn $\gamma\Pfadkomp\invPf{\mu}$ eine Gesamtänderung von $0$ hat. Es gilt also: 
 		\[\PfadAend(\gamma) = \PfadAend(\mu) \iff \PfadAend(\gamma\Pfadkomp\invPf{\mu})=0 \]
 		
-		\item Jeder Beste Antwort-Pfad ist automatisch ein Nichtverschlechterungspfad.
+		\item Jeder Beste-Antwort-Pfad ist automatisch ein Nichtverschlechterungspfad.
 	\end{itemize}
 \end{beob}
 
