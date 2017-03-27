@@ -96,24 +96,29 @@ In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträ
 \end{defn}
 
 \begin{bem}
-	Eine derartige Abbildungen $f_j$ für einen Spieler $j \in J$ gibt es genau dann, wenn für je zwei Strategieprofile $x, \hat{x} \in X$ gilt:
+	Gibt es eine derartige Abbildung $f_j$ für einen Spieler $j \in J$, so gilt für je zwei Strategieprofile $x, \hat{x} \in X$:
 		\begin{align}\label{eq:CharExMonMor}
 			c_{\sigma(j)}(x) \leq c_{\sigma(j)}(\hat{x}) \implies d_j(\phi(x)) \leq d_j(\phi(\hat{x}))
 		\end{align}
+	Ist umgekehrt diese Bedingung für je zwei Strategieprofile eines Spielers $j \in J$ erfüllt und zudem $d_j(\phi(X)) \subseteq \IR$ beschränkt oder $c_{\sigma(j)}(X) \subseteq \IR$ in beide Richtungen unbeschränkt, so gibt es eine solche Abbildung $f_j$.
 \end{bem}
 
 \begin{proof}
-	Existieren derartige Abbildungen $f_i$, so gilt für zwei Strategieprofile $x, \hat{x} \in X$ mit $c_{\sigma(j)}(x) \leq c_{\sigma(j)}(\hat{x})$:
+	Existiert eine Abbildung $f_j$, so gilt für zwei Strategieprofile $x, \hat{x} \in X$ mit $c_{\sigma(j)}(x) \leq c_{\sigma(j)}(\hat{x})$:
 		\[d_j(\phi(x)) = f_j\circ c_{\sigma(j)}(x) \leq f_j\circ c_{\sigma(j)}(\hat{x}) = d_j(\phi(\hat{x}))\]
 		
-	Gilt umgekehrt die Eigenschaft \ref{eq:CharExMonMor}, so können wir wie folgt monotone Abbildungen $f_j: \IR \to \IR$ definieren:
+	Ist $d_j(\phi(X)) \subseteq \IR$ beschränkt oder $c_{\sigma(j)}(X) \subseteq \IR$ in beide Richtungen unbeschränkt, so können wir folgende Abbildung $f_j: \IR \to \IR$ definieren:
 		\[f_j: \IR \to \IR: t \mapsto \begin{cases}
 			\sup \Set{d_j(\phi(x)) | x \in X},								&\not\exists x \in X: c_{\sigma(j)}(x) \geq t \\
 			\inf\, \Set{d_j(\phi(x)) | x \in X, c_{\sigma(j)}(x) \geq t}, 	&t \geq 0 \text{ und } \exists x \in X: c_{\sigma(j)}(x) \geq t\\
 			\sup \Set{d_j(\phi(x)) | x \in X, c_{\sigma(j)}(x) \leq t}, 	&t <    0 \text{ und } \exists x \in X: c_{\sigma(j)}(x) \leq t\\
 			\inf\,\, \Set{d_j(\phi(x)) | x \in X},							&\not\exists x \in X: c_{\sigma(j)}(x) \leq t 
 		\end{cases} \]
-	\todo[inline]{Eigenschaften nachweisen}
+	Gilt Eigenschaft \eqref{eq:CharExMonMor}, so ist diese Abbildung monoton und es gilt $f_j\circ c_{\sigma(j)} = d_j \circ \phi$, denn für ein festes Strategieprofil $\hat{x} \in X$ mit $c_{\sigma(j)}(\hat{x}) \geq 0$ gilt dann:
+		\[\forall x \in X: c_{\sigma(j)}(x) \geq c_{\sigma(j)}(\hat{x}) \overset{\eqref{eq:CharExMonMor}}{\implies} d_j(x) \geq d_j(\hat{x}) \]
+	Also nach Definition von $f_j$:
+		\[f_j \circ c_{\sigma(j)}(\hat{x}) = f_j (c_{\sigma(j)}(\hat{x})) = \inf\Set{d_j(\phi(x)) | x \in X, c_{\sigma(j)}(x) \geq c_{\sigma(j)}(\hat{x}) }= d_j(\phi(\hat{x})) = d_j\circ \phi(\hat{x})\]
+	Analog folgt dies für Strategieprofile $\hat{x} \in X$ mit $c_{\sigma(j)}(\hat{x}) < 0$.
 \end{proof}
 
 \begin{prop}
