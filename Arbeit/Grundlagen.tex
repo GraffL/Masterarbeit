@@ -50,14 +50,14 @@ In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele defi
 Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 
 \begin{defn}
-	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k+1}$ aus $x^k$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k+1} = \left(x^k \middle| x^{k+1}_{i(k)}\right)$.
+	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k}$ aus $x^{k-1}$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k} = \left(x^{k-1} \middle| x^{k}_{i(k)}\right)$.
 	
 	Ein solcher Pfad heißt
 	\begin{itemize}
-		\item \emph{Nichtverschlechterungspfad}, wenn sich der abweichende Spieler jeweils nicht verschlechtert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) \leq c_{i(k)}(x^k)$.
-		\item \emph{schwacher Verbesserungspfad}, wenn er ein Nichtverschlechterungspfad ist und sich an mindestens einer Stelle der abweichende Spieler echt verbessert. Das heißt es gibt eine Stelle $k$ mit $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
-		\item \emph{Verbesserungspfad}, wenn sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt an jeder Stelle $k$: $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$.
-		\item \emph{Beste-Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(k)}(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^n \mid \hat{x}_i)$.
+		\item \emph{Nichtverschlechterungspfad}, wenn sich der abweichende Spieler jeweils nicht verschlechtert. Das heißt es gilt in jedem Schritt: $c_{i(k)}(x^{k}) \leq c_{i(k)}(x^{k-1})$.
+		\item \emph{schwacher Verbesserungspfad}, wenn er ein Nichtverschlechterungspfad ist und sich an mindestens einer Stelle der abweichende Spieler echt verbessert. Das heißt es gibt einen Schritt $k$ mit $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$.
+		\item \emph{Verbesserungspfad}, wenn sich der abweichende Spieler jeweils echt verbessert. Das heißt es gilt in \emph{jedem} Schritt: $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$.
+		\item \emph{Beste-Antwort-Pfad}\todo{Voorneveld nennt es beste Antwort-kompatibel}, wenn der abweichende Spieler jeweils eine beste Alternativstrategie wählt, d.h. $c_{i(k)}(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_i)$.
 		\item \emph{schwacher Beste-Antwort-Verbesserungspfad}, wenn er ein schwacher Verbesserungspfad und ein Beste-Antwort-Pfad ist.
 		\item \emph{Beste-Antwort-Verbesserungspfad}, wenn er ein Verbesserungspfad und ein Beste-Antwort-Pfad ist.
 	\end{itemize}
@@ -65,7 +65,7 @@ Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist
 	\begin{itemize}
 		\item die \emph{Gesamtänderung} entlang des Pfades $\PfadAend(\gamma)$ definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
-		\[\PfadAend(\gamma) \coloneqq \sum_{k=0}^{n} \left(c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k)\right) \]
+		\[\PfadAend(\gamma) \coloneqq \sum_{k=1}^{n} \left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) \]
 		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n \mid \hat{x}_i) < c_{i}(x^n)$.\todo{Schöner formulieren}
 		\item $\gamma$ ein \emph{$n$-Zykel}, wenn $x^0 = x^n$ gilt.
 		\item $\invPf{\gamma} \coloneqq (x^n, x^{n-1}, \dots, x^0)$ der in die andere Richtung durchlaufende Pfad.
@@ -168,7 +168,6 @@ Weitere Varianten von Auslastungsspielen:\todo{Quelle?}
 	\begin{itemize}
 		\item Zusammen mit einer streng monotonen Skalierungsfunktionen $(f_i: \IR \to \IR)_{i\in I}$ erhält man aus einem Auslastungsmodell ein \emph{skaliertes Auslastungsspiel} durch die Kostenfunktionen:
 			\[c_i: S \to \IR: s \mapsto \sum_{r \in R} f_i(g_r(l_r(s))) \]
-		\item \todo[inline]{Nicht-anonymes Auslastungsspiel?}
 		\item Ein \emph{Auslastungsmodell/-spiel mit spielerspezifischen Ressourcenkosten} erhält man, wenn es zu jeder Ressource $r \in R$ und jedem Spieler $i \in I$ eine eigene Funktion $g_r^i: \IR_{\geq 0} \to \IR$ gibt und die Kostenfunktionen der Spieler definiert sind als
 			\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r^i(l_r(s)) \]
 	\end{itemize}

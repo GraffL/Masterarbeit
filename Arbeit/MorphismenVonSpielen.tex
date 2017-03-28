@@ -60,7 +60,7 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{j}}(y)$ für einen beliebigen, aber festen Spieler $\hat{j} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
 	\begin{align*}
 		\sigma:	&&J		\to	 \{\ast\}:	&&j	\mapsto	\ast  \\
-		\phi_i:	&&X_\ast	\to	 Y_j:	&&y	\mapsto	y_j
+		\phi_j:	&&X_\ast	\to	 Y_j:	&&y	\mapsto	y_j
 	\end{align*}	
 	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $y \in X = Y$ und jeden Spieler $j \in J$ gilt:
 	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{j}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
@@ -125,9 +125,21 @@ In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträ
 	Ist ein Spiel monoton isomorph zu einem Koordinationsspiel, so besitzt es ein skaliertes Potential.
 \end{prop}
 
-\begin{proof}.
+\begin{proof}
+	Sei also $(\sigma, \phi): \Gamma =(I, X, (c_i)) \to K = (J, Y, (d))$ ein solcher monotoner Isomorphismus. Dann gibt es folglich monotone Abbildungen $f_j$ und $g_i$, sodass alle Diagramme der folgenden Form kommutieren:
 	
-	\todo[inline]{Beweis... (stimmt die Aussage überhaupt? Evtl. nur ordinales Potential?)}
+	\begin{center}
+			\begin{tikzcd}
+			X \arrow[r, "\phi"] \arrow[d, "c_i"] \arrow[rr, bend left=60, "\id"]	& Y \arrow[r, "\phi^{-1}"] \arrow[d, "d(i)"] 	& X \arrow[d, "c_i"] \\
+			\IR \arrow[r, "f_{\sigma^{-1}(i)}"'] \arrow[rr, bend right=60, "\id"']	& \IR \arrow[r, "g_i"']										& \IR
+		\end{tikzcd}
+	\end{center}
+
+	Dann ist $P: X \to \IR: x \mapsto d \circ \phi(x)$ ein skaliertes Potential mit Skalierungsfunktionen $g_i$, denn es gilt allgemein
+		\[g_i \circ d \circ \phi = c_i \circ \phi^{-1} \circ \phi = c_i \circ \id = c_i \]
+	und damit im Besonderen
+		\[g_i \circ d \circ \phi(x) - g_i \circ d \circ \phi(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i) .\]
+	Ferner sind die $g_i$ nach Voraussetzung monoton und wegen $f_{\sigma^{-1}(i)} \circ g_i = \id$ injektiv, also insgesamt streng monoton.
 \end{proof}
 
 \begin{kor}
@@ -136,10 +148,12 @@ In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträ
 
 \begin{proof}.
 	
-	\todo[inline]{Mit \Cref{bsp:Koordinationsspiel}?}
+	\todo[inline]{Mit \Cref{bsp:Koordinationsspiel}? Evtl. stimmt das auch einfach nicht! Evtl. einfach weglassen...}
 \end{proof}
 
-Dies ist also bereits ein Beispiel dafür, wie man die Existenz eines Potentials durch die Existenz eines passenden Isomorphismus zu einem Koordinationsspiel ausdrücken kann. Allerdings ist die Verträglichkeitsbedinung an monotone Morphismen noch zu stark um auf diesem Weg auch eine notwendige Bedingung für die Existenz eines skalierten\todo{ordinalen?}{} zu erhalten. Dies liegt daran, dass hier eine globale Montonie gefordert wird, während die meisten Potentiale lediglich lokale Monotonie benötigen.
+Dies ist also bereits ein Beispiel dafür, wie man die Existenz eines Potentials durch die Existenz eines passenden Isomorphismus zu einem Koordinationsspiel ausdrücken kann. Allerdings ist die Verträglichkeitsbedinung an monotone Morphismen noch zu stark um auf diesem Weg auch eine notwendige Bedingung für die Existenz eines skalierten zu erhalten. Dies liegt daran, dass hier eine globale Montonie gefordert wird, während die meisten Potentiale lediglich lokale Monotonie benötigen.
+
+\todo[inline]{Beispiel für die Nicht-Notwendigkeit finden!}
 
 Wir schränken nun also die Verträglichkeitsbedingung auf Nachbarschaften ein und kommen so zum Begriff eines ordinalen Morphismus. Einen entsprechenden (Iso-)Morphismusbegriff für exakte Potentiale definiert \citeauthor{ReprOfFiniteGamesAsNCG} in \cite{ReprOfFiniteGamesAsNCG}. Und analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren:
 
@@ -153,7 +167,7 @@ Wir schränken nun also die Verträglichkeitsbedingung auf Nachbarschaften ein u
 		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x))) - f_j(d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
-		\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x_{-\sigma(j)} \in X_{-\sigma(j)}$ gilt:
 		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x)) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi_{-\sigma(j)}(x \mid y_j)\]
 	\end{itemize}	
@@ -181,80 +195,97 @@ Es ist nun leicht zu sehen, dass diese Isomorphismusbegriffe tatsächlich dazu d
 	Es gelten folgende Beziehungen zwischen den verschiedenen Morphismenbegriffen:
 	\begin{center}
 		\begin{tikzpicture}
-			\node[] (ke) {kostenerhaltend};
-			\node[right of=ke, node distance=7em] (ex) {exakt};
-			\node[right of=ex, node distance=7em] (gew) {gewichtet};
-			\node[right of=gew, node distance=7em] (sk) {skaliert};
-			\node[right of=sk, node distance=7em] (ord) {ordinal};
-			
-			\node[above of=gew, node distance=2em] (mon) {monoton};
-	
-			\node[below of=ord, node distance=2em] (BA) {Beste Antwort};
-						
-			\draw[-implies, double equal sign distance] (ke) -- (ex);
-			\draw[-implies, double equal sign distance] (ex) -- (gew);
-			\draw[-implies, double equal sign distance] (gew) -- (sk);
-			\draw[-implies, double equal sign distance] (sk) -- (ord);
-			\draw[-implies, double equal sign distance] (ke) -- (mon.west);
-			\draw[-implies, double equal sign distance] (mon.east) -- (sk);
-			\draw[-implies, double equal sign distance] (sk) -- (BA.west);
+		\node[] (ke) {kostenerhaltend};
+		\node[right of=ke, node distance=7em] (ex) {exakt};
+		\node[right of=ex, node distance=7em] (gew) {gewichtet};
+		\node[right of=gew, node distance=7em] (sk) {skaliert};
+		\node[right of=sk, node distance=7em] (ord) {ordinal};
+		
+		\node[above of=gew, node distance=2em] (mon) {monoton};
+		
+		\node[below of=ord, node distance=2em] (BA) {Beste Antwort};
+		
+		\draw[-implies, double equal sign distance] (ke) -- (ex);
+		\draw[-implies, double equal sign distance] (ex) -- (gew);
+		\draw[-implies, double equal sign distance] (gew) -- (sk);
+		\draw[-implies, double equal sign distance] (sk) -- (ord);
+		\draw[-implies, double equal sign distance] (ke) -- (mon.west);
+		\draw[-implies, double equal sign distance] (sk) -- (BA.west);
 		\end{tikzpicture}
 	\end{center}
-\end{beob}
-
-\begin{lemma}
-	Ein Spiel $\Delta$ besitzt genau dann ein exaktes/gewichtetes/ordinales/verallgemeinertes ordinales Potential, wenn es einen exakten/gewichteten/biordinalen/ordinalen Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
-\end{lemma}
-
-\begin{proof}
-	Sei zunächst $\Delta$ ein Spiel mit einem \sPot{} $P$. 
-	\todo[inline]{Beweis einfügen}
-\end{proof}
-
-
+\end{beob}\todo{Wie sieht es mit Isomorphismen aus? Speziell auf Zusammenhang von skaliert und monoton eingehen!}
 
 
 \subsection{Beweise der Potentialsätze}
 
-\todo[inline]{Ordinale Morphismen reflektieren Verbesserungspfade:}
+\todo[inline]{Ordinale Morphismen erhalten Verbesserungen und reflektieren Nicht-Verschlechterung:}
 
-\begin{prop}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus und $(x^0, x^1, \dots)$ eine Folge in $X$. Ist $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Delta$, so auch $(x^0, x^1, \dots)$ in $\Gamma$.\todo{Abgeschlossenheit in die andere Richtung?} 
+\begin{prop}\label{prop:NVReflVerbErh}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit surjektiver Spielerabbildung $\sigma$ und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\phi(\gamma)$ ein Nicht-Verschlechterungspfad, so auch $\gamma$. Ist $\gamma$ sogar ein Verbesserungspfad, so auch $\phi(\gamma)$.
 \end{prop}
 
 \begin{proof}
-	Da $\sigma$ injektiv ist, bleibt die Eigenschaft unilateralen Abweichung erhalten. Die Ordinalität des Morphismus stellt ferner sicher, dass jeder Verbesserungsschritt ein Verbesserungsschritt bleibt.
+	Sei zunächst $\phi(\gamma)$ ein Nicht-Verschlechterungspfad. Angenommen $\gamma$ wäre kein Nicht-Verschlechterungspfad, dann gäbe es also ein $k$, sodass sich der im $k$-ten Schritt abweichende Spieler echt verschlechtert, d.h. $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$. Da $\sigma: J \to I$ surjektiv ist, gibt es nun einen Spieler $j \in J$ mit $\sigma(j) = i(k)$ und wegen der Ordinalität von $\phi$ gilt für diesen, dass er sich im $k$-ten Schritt von $\phi(\gamma)$ echt verschlechtert, d.h. $d_j(\phi(x^k) > d_j(\phi(x^{k-1}))$. 
 	
-	Nehmen wir nun an $\phi(x^0), \dots, \phi(x^n)$ wäre ein abgeschlossener Verbesserungspfad in $\Delta$, aber $x^0, \dots, x^n$ nicht abgeschlossen in $\Gamma$. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches diesen Pfad in $\Gamma$ verlängert. Aber wie wir gerade gezeigt haben wäre dann auch $\phi(x^0), \dots, \phi(x^n), \phi(x^{n+1})$ ein Verbesserungspfad in $\Delta$, insbesondere also eine Verlängerung des ursprünglichen Pfades - im Widerspruch zu dessen vorausgesetzter Abgeschlossenheit.
+	Insbesondere wissen wir damit, dass es auch in $\phi(\gamma)$ einen Spieler $j(k)$ geben muss, der im $k$-ten Schritt seine Strategie echt ändert. Damit gilt
+		\[\phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^k\right) = \left(\phi(x^k)\right)_{\sigma(j(k))} \neq \left(\phi(x^{k-1})\right)_{\sigma(j(k))} = \phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^{k-1}\right)\]
+	Daraus folgt $x_{\sigma(j(k))}^k \neq x_{\sigma(j(k))}^{k-1}$ und, da es in einem Pfad pro Schritt höchstens einen abweichenden Spieler geben kann, auch $i(k) = \sigma(j(k))$. Aus der Ordinalität von $\phi$ folgt dann aber aus $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$, dass sich aus $j(k)$ echt verschlechtert, d.h. $d_{j(k)}(\phi(x^k)) > d_{j(k)}(\phi(x^{k-1}))$ - im Widerspruch dazu, dass $\phi(\gamma)$ ein Nicht-Verschlechterungspfad ist.
+
+	Ist nun $\gamma$ ein Verbesserungspfad, gilt in jedem Schritt $c_{i(k)}(x^{k}) < c_{i(k)}(x^{k-1})$ und daher - mit dem gleichen Argument wie eben - auch $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$. Also ist auch $\phi(\gamma)$ ein Verbesserungspfad.
+\end{proof}
+
+Im Allgemeinen bilden (ordinale) Morphismen Pfade nicht wieder auf Pfade ab. Ist nämlich $(\sigma, \phi): \Gamma \to \Delta$ ein solcher Morphismus und gibt es zwei Spieler $j$ und $j'$ mit $\sigma(j) = \sigma(j') \eqqcolon i$, dann kann eine einseitige Abweichung von Spieler $i$ in $\Gamma$ zu einer gleichzeitigen Abweichung der \emph{beiden} Spieler $j$ und $j'$ in $\Delta$ führen. Dies kann allerdings nicht passieren, wenn die Spielerabbildung $\sigma$ injektiv ist. 
+
+\begin{beob}\label{beob:PfadeAufPfade}
+	Morphismen $(\sigma, \phi)$ mit injektivem $\sigma$ bilden Pfade auf Pfade ab.
+\end{beob}
+
+Dies erlaubt uns folgendes Korollar:
+
+\begin{kor}\label{kor:ReflAbg}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit bijektiver Spielerabbildung $\sigma$ und $\gamma = (x^0, \dots, x^n)$ ein Verbesserungspfad in $X$. Ist dann $\phi(\gamma)$ abgeschlossen in $\Delta$, so ist auch $\gamma$ in $\Gamma$ abgeschlossen.
+\end{kor}
+	
+\begin{proof}	
+	Nehmen wir im Widerspruch zur Behauptung an, $\gamma$ wäre nicht abgeschlossen. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches $\gamma$ zu einem Verbesserungspfad $\gamma' \coloneqq (x^0, \dots, x^n, x^{n+1})$ in $\Gamma$ verlängert. Nach \Cref{beob:PfadeAufPfade} ist dann auch $\phi(\gamma')$ ein Pfad in $\Delta$ und mit \Cref{prop:NVReflVerbErh} sogar ein Verbesserungspfad, also insbesondere eine Verlängerung des Pfades $\phi(\gamma)$ - ein Widerspruch zu dessen Abgeschlossenheit.
 \end{proof}
 
 \begin{kor}\label{kor:ReflektNG}
-	Ordinale Morphismen mit injektiver Spielerabbildung reflektieren Nash-Gleichgewichte. Das heißt, ist $x \in X$ ein Strategieprofil in $\Gamma$ und $(\sigma, \phi)$ ein ordinaler Morphismus in ein Spiel $\Delta$, sodass $\phi(x)$ ein Nash-Gleichgewicht in diesem ist, dann war bereits $x$ ein Nash-Gleichgewicht von $\Gamma$.
+	Ordinale Morphismen mit bijektiver Spielerabbildung reflektieren Nash-Gleichgewichte. Das heißt, ist $x \in X$ ein Strategieprofil in $\Gamma$ und $(\sigma, \phi)$ ein ordinaler Morphismus in ein Spiel $\Delta$, sodass $\phi(x)$ ein Nash-Gleichgewicht in diesem ist, dann war bereits $x$ ein Nash-Gleichgewicht von $\Gamma$.
 \end{kor}
 
 \begin{proof}
-	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{prop:ordMorphVerbPf}  $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
+	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{kor:ReflAbg} $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
 \end{proof}
 
-\begin{prop}\label{prop:NGerhalten}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ eine biordinale Retraktion (d.h. ein biordinaler Morphismus, welcher ein Rechtsinverses besitzt). Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+Aus diesem Korollar folgt insbesondere, dass Nash-Gleichgewichte in von einem verallgemeinerten ordinalen Potential induzierten Koordinationsspiel auch Nash-Gleichgewichte im Ausgangsspiel sind.\todo{Näher ausführen - auf entsprechende Sätze im Potential-Kapitel verweisen}
+
+\begin{bsp}
+	Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{prop:NGerhalten}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
+\end{bsp}
+
+Dies wiederum zeigt, dass ordinale Potentiale lokale Nash-Potentiale sind.
+
+
+\subsection{Weitere Sätze mit Morphismen}
+
+\todo[inline]{Weitere unsortierte Sätze...:}
+
+
+\begin{prop}\label{prop:NGerhalten}\todo{Satz muss deutlich angepasst werden. Ist der Satz überhaupt in dieser Allgemeinheit zu retten?}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ eine ordinale Retraktion (d.h. ein ordinaler Morphismus, welcher ein Rechtsinverses besitzt). Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
 \end{prop}
 
 \begin{proof}
-	Sei $(\tau, \psi): \Delta \to \Gamma$ ein Rechtsinverses von $(\sigma, \phi)$, d.h. es gelte $(\sigma, \phi) \circ (\tau, \psi) = (\tau\circ\sigma, \phi\circ\psi) = (\id_J, id_Y)$. Damit ist $\sigma$ offenbar injektiv und daher mit \Cref{kor:ReflektNG} die \glqq wenn\grqq-Richtung gezeigt.
+	Sei $(\tau, \psi): \Delta \to \Gamma$ ein Rechtsinverses von $(\sigma, \phi)$, d.h. es gelte $(\sigma, \phi) \circ (\tau, \psi) = (\tau\circ\sigma, \phi\circ\psi) = (\id_J, id_Y)$. Damit ist $\sigma$ offenbar injektiv\todo{Benötigen aber bijektiv!}{} und daher mit \Cref{kor:ReflektNG} die \glqq wenn\grqq-Richtung gezeigt.
 	
 	Zu \glqq dann\grqq: Sei also $x \in X$ ein Nash-Gleichgewicht und $y_j \in Y_j$. Wegen der Surjektivität von $\phi_j$ gibt es dann ein $\hat{x}_{\sigma(j)} \in X_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)} = y_j)$. Da $x$ ein Nash-Gleichgewicht ist, gilt nun 
 	\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})\]
-	und daher wegen Biordinalität von $\phi$ auch 
+	und daher wegen Biordinalität\todo{Das stimmt so nicht!}{} von $\phi$ auch 
 	\[d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \overset{\ast}{=} d_j(\phi(x) \mid \phi_j(\hat{x}_{\sigma(j)})) = d_j(\phi(x) \mid y_j)\]
 	wobei in $\ast$ nochmal die Injektivität von $\sigma$ eingeht.
 \end{proof}
 
-\todo[inline]{In der Proposition explizit Surjektivität/Injektivität fordern - folgt die Retrakteigenschaft dann? In dem Fall also Bemerkung hinzufügen}
-
-\begin{bsp}
-	\todo{Bi?}Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{prop:NGerhalten}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
-\end{bsp}
 
 \begin{bsp}
 	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern. \todo{Formalisiert oBdA-Bemerkung aus Grundlagen}
@@ -262,66 +293,10 @@ Es ist nun leicht zu sehen, dass diese Isomorphismusbegriffe tatsächlich dazu d
 	\todo[inline]{Beweis: Morphismus angeben und Eigenschaften zeigen}
 \end{bsp}
 
-\begin{prop}\label{prop:ordMorphVerbPf}
-	Sei $\phi: \Gamma \to \Gamma'$ ein ordinaler Morphismus und $x^0, x^1, \dots$ ein Verbesserungspfad in $\Gamma$. Dann ist $\phi(x^0), \phi(x^1), \dots$ ein Verbesserungspfad in $\Gamma'$. Ist der Pfad endlich und in $\Gamma'$ abgeschlossen, so auch in $\Gamma$.
-\end{prop}
-
-\begin{proof}
-	Da Morphismen spielerweise definiert sind, erhalten sie die Eigenschaft der unilateralen Abweichung. Die Ordinalität des Morphismus stellt ferner sicher, dass jeder Verbesserungsschritt ein Verbesserungsschritt bleibt.
-	
-	Nehmen wir nun an $\phi(x^0), \dots, \phi(x^n)$ wäre ein abgeschlossener Verbesserungspfad in $\Gamma'$, aber $x^0, \dots, x^n$ nicht abgeschlossen in $\Gamma$. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches diesen Pfad in $\Gamma$ verlängert. Aber wie wir gerade gezeigt haben wäre dann auch $\phi(x^0), \dots, \phi(x^n), \phi(x^{n+1})$ ein Verbesserungspfad in $\Gamma'$, insbesondere also eine Verlängerung des ursprünglichen Pfades - im Widerspruch zu dessen vorausgesetzter Abgeschlossenheit.
-\end{proof}
-
-\begin{kor}
-	Ordinale Morphismen reflektieren Nash-Gleichgewichte. Das heißt, ist $x \in X$ ein Strategieprofil in $\Gamma$ und $\phi$ ein ordinaler Morphismus in ein Spiel $\Gamma'$, sodass $\phi(x)$ ein Nash-Gleichgewicht in diesem ist, dann war bereits $x$ ein Nash-Gleichgewicht von $\Gamma$.
-\end{kor}
-
-\begin{proof}
-	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Gamma'$ abgeschlossen ist. Daher ist mit \Cref{prop:ordMorphVerbPf}  $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
-\end{proof}
-
-\begin{kor}
-	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann ist $x \in X$ genau dann ein Nash-Gleichgewicht von $\Gamma$, wenn $\phi(x) \in X'$ ein Nash-Gleichgewicht von $\Gamma'$ ist.
-\end{kor}
-
-Ordinal-isomorphe Spiele haben also die gleichen Nash-Gleichgewichte. Selbiges gilt auch für Verbesserungpfade, das heißt insbesondere, dass die FIP eines Spiels unter ordinaler Isomorphie erhalten bleibt.
 
 \begin{kor}
 	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann hat $\Gamma$ genau dann die FIP, wenn $\Gamma'$ diese besitzt.
 \end{kor}
-
-
-\begin{lemma}
-	Seien $\Gamma$ und $\Gamma'$ zwei sozial isomorphe Spiele. Dann ist $x \in X$ genau dann ein soziales Optimum von $\Gamma$, wenn $\phi(x) \in X'$ ein soziales Optimum von $\Gamma'$ ist.
-\end{lemma}
-
-\begin{proof}
-	.
-	
-	\todo[inline]{Folgt direkt mit Definitionen}
-\end{proof}
-
-\begin{satz}
-	Besitzt ein Spiel $\Gamma$ ein ordinales Potential, so ist es ordinal-isomorph zu einem Auslastungsspiel.
-\end{satz}
-
-\begin{proof}
-	Analog zum Beweis der Äquivalenz von Spielen mit exaktem Potential und Auslastungsspielen in \cite{MonShap}, Beweis orientiert sich an \cite{MultiPotGames}.
-\end{proof}
-
-\begin{beob}
-	Besitzt ein Spiel ein verallgemeinertes ordinales Potential, so gibt es einen ordinalen Morphismus in/von \todo{Was von beidem?} ein Auslastungsspiel.
-\end{beob}
-
-\begin{proof}
-	.
-	\todo[inline]{Proofmining in oberem Beweis}
-\end{proof}
-
-\begin{beob}
-	Nach \cite{MonShap} Lemma 2.5 hat jedes Spiel mit FIP ein verallgemeinertes Potential, also \todo[inline]{in/von...}
-\end{beob}
-
 
 Eine Verallgemeinerung von \Cref{beob:ZshExGewPot} lautet
 
@@ -332,3 +307,19 @@ Eine Verallgemeinerung von \Cref{beob:ZshExGewPot} lautet
 \begin{kor}
 	Zwei Spiele $\Gamma$ und $\Delta$ sind genau dann gewichtet isomorph, wenn ... \todo{usw.}
 \end{kor}
+
+\todo[inline]{Ist der folgende Satz hilfreich? Wenn ja, wo unterbringen (eig. kein Potentialsatz!)}
+
+\begin{prop}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein monotoner Morphismus und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\gamma$ ein Nicht-Verschlechterungspfad, so auch $\phi(\gamma)$. Ist $\phi(\gamma)$ sogar ein Verbesserungspfad, so auch $\gamma$.
+\end{prop}
+
+\begin{proof}
+	Zunächst beobachten wir, dass $\sigma$ immer den in $\phi(\gamma)$ im $k$-ten Schritt abweichenden Spieler (sofern es einen solchen gibt) auf den im gleichen Schritt abweichenden Spieler in $\gamma$ abbildet. Ist nämlich $j(k)$ der entsprechende Spieler aus $\Delta$, so gilt:
+	\[\phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^k\right) = \left(\phi(x^k)\right)_{\sigma(j(k))} \neq \left(\phi(x^{k-1})\right)_{\sigma(j(k))} = \phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^{k-1}\right)\]
+	Daraus folgt $x_{\sigma(j(k))}^k \neq x_{\sigma(j(k))}^{k-1}$ und, da es in einem Pfad pro Schritt höchstens einen abweichenden Spieler geben kann, auch $i(k) = \sigma(j(k))$.
+	
+	Ist nun $\gamma$ ein Nicht-Verschlechterungspfad und es gibt im $k$-ten Schritt einen (echt) abweichenden Spieler $j(k)$, so ist also $\sigma(j(k)) = i(k)$ und daher $c_{\sigma(j(k))}(x^k) \leq c_{\sigma(j(k))}(x^{k-1})$. Mit der Monotonie von $\phi$ folgt daraus direkt auch $d_{j(k)}(\phi(x^k)) \leq d_{j(k)}(\phi(x^{k-1}))$.
+	
+	Ist $\phi(\gamma)$ ein Verbesserungspfad, gilt in jedem Schritt $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$ und daher - erneut wegen der Monotonie von $\phi$ - auch $c_{\sigma(j(k))}(x^{k+1}) < c_{\sigma(j(k))}(x^{k})$.
+\end{proof}

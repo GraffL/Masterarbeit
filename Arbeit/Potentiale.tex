@@ -143,19 +143,19 @@ In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale no
 	Wir folgen dem Beweis aus \cite[Anhang A]{MonShap}. Dort wird der Satz zwar nur für $N$-Personenspiele gezeigt, mit \Cref{beob:KompWeisePotentiale} überträgt sich dieser Beweis aber direkt auch auf allgemeine Spiele.
 	
 	Sei zunächst $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ ein beliebiger 4-Zykel in einem Spiel mit Potential $P$. Dann gilt für die Gesamtänderung:
-		\[\PfadAend(\gamma) = \sum_{i=0}^3 \left(c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k)\right) = \sum_{k=0}^{3} \left(P(x^{k+1}) - P(x^k)\right) = P(x^4) - P(x^0) = 0^{}\]
+		\[\PfadAend(\gamma) = \sum_{i=1}^4 \left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = \sum_{k=1}^{4} \left(P(x^k) - P(x^{k-1})\right) = P(x^4) - P(x^0) = 0^{}\]
 		
 	Ist umgekehrt $\Gamma$ ein Spiel, in dem für alle 4-Zykel $\gamma$ gilt $\PfadAend(\gamma) = 0$, $x$ ein beliebiges, aber festes Strategieprofil in $\Gamma$ und $Y_x$ dessen Pfadzusammenhangskomponente, dann definiere wie folgt eine Funktion $P_x$ auf $Y_x$:
 		\[P: Y_x \to \IR: y \mapsto \PfadAend(\gamma), \,\gamma \text{ beliebiger Pfad von } x \text{ nach } y \]
 	Damit diese Funktion tatsächlich wohldefiniert ist, muss für je zwei Pfade $\gamma$ und $\gamma'$ von $\hat{x}$ nach $x$ gelten, dass die jeweiligen Gesamtänderungen gleich sind, d.h. $\PfadAend(\gamma) = \PfadAend(\gamma')$. Dies ist äquivalent dazu, dass der Zykel, den man durch Verknüpfen der beiden Pfade $\gamma$ und $\overset{\leftarrow}{\gamma'}$ erhält eine Gesamtänderung von $0$ hat. Dazu zeigen wir nun mittels Induktion über deren Länge, dass für alle Zykel $\mu$ gilt $\PfadAend(\mu) = 0$:
 	\begin{description}
 		\item[IA ($\bm{\abs{\mu}=4}$)\footnote{Zykel der Längen $0$, $2$ und $3$ haben automatisch immer Gesamtänderung $0$, da in ihnen alle Abweichungen vom gleichen Spieler vorgenommen werden müssen.}] D.h. $\mu$ ist ein 4-Zykel und damit $\PfadAend(\mu) = 0$ nach Voraussetzung.
-		\item[IS ($\bm{\abs{\mu}\eqqcolon n}$)] Vorausgesetzt es gibt einen Pfad $\mu' = (x'^0, \dots, x'^n)$ gleicher Länge und Gesamtänderung wie $\mu$, sodass in den ersten beiden Schritten der gleiche Spieler seine Strategie wechselt, d.h. $i(0)=i(1)$. Dann erhält man durch Weglassen des ersten Schrittes einen \emph{kürzeren} Pfad $\mu'' \coloneqq (x'^0, x'^2, \dots, x'^n)$ mit gleicher Gesamtänderung, welche dann nach Induktion bereits $0$ ist. Indiesem Fall haben wir dann wie gewünscht $\PfadAend(\mu) = \PfadAend(\mu') = \PfadAend(\mu'') = 0$.
+		\item[IS ($\bm{\abs{\mu}\eqqcolon n}$)] Vorausgesetzt es gibt einen Pfad $\mu' = (x'^0, \dots, x'^n)$ gleicher Länge und Gesamtänderung wie $\mu$, sodass in den ersten beiden Schritten der gleiche Spieler seine Strategie wechselt, d.h. $i(1)=i(2)$. Dann erhält man durch Weglassen des ersten Schrittes einen \emph{kürzeren} Pfad $\mu'' \coloneqq (x'^0, x'^2, \dots, x'^n)$ mit gleicher Gesamtänderung, welche dann nach Induktion bereits $0$ ist. In diesem Fall haben wir dann wie gewünscht $\PfadAend(\mu) = \PfadAend(\mu') = \PfadAend(\mu'') = 0$.
 		
-		Die Existenz eines solchen Pfades $\mu'$ zeigen wir nun mittels Induktion über $k \coloneqq \min\left\{1 \leq l < n \setMid i(l) = i(0)\right\}$. Ein solches $k$ existiert immer, da Spieler $i(0)$ bereits im ersten Schritt seine Strategie wechselt und dies daher im Verlauf des Zykels noch mindestens ein weiteres Mal tun muss.
+		Die Existenz eines solchen Pfades $\mu'$ zeigen wir nun mittels Induktion über $k \coloneqq \min\left\{1 < l \leq n \setMid i(l) = i(1)\right\}$. Ein solches $k$ existiert immer, da Spieler $i(1)$ bereits im ersten Schritt seine Strategie wechselt und dies daher im Verlauf des Zykels noch mindestens ein weiteres Mal tun muss, damit der Zykel geschlossen werden kann.
 		\begin{description}
-			\item[IA ($\bm{k=1}$)] Dann gilt bereits $i(0)=i(1)$ und wir sind fertig mit $\mu' \coloneqq \mu$.
-			\item[IS ($\bm{k-1\to k}$)] Wir ändern $\mu$ so ab, dass Spieler $i(0)$ bereits im $(k-1)$-ten Schritt der abweichende Spieler ist. Dann sind wir fertig nach Induktionsvoraussetzung. Dazu ersetzen wir in $\mu$ das Strategieprofil $x^k$ durch $(x^{k-1} \mid x^{k+1}_{i(0)})$, sodass also Spieler $i(0)$ bereits einen Schritt früher (im $(k-1)$-ten) seine Strategie wechselt und der Spieler, der dies zuvor in diesem Schritt getan hat, einen Schritt später.
+			\item[IA ($\bm{k=2}$)] Dann gilt bereits $i(1)=i(2)$ und wir sind fertig mit $\mu' \coloneqq \mu$.
+			\item[IS ($\bm{k-1\to k}$)] Wir ändern $\mu$ so ab, dass Spieler $i(1)$ bereits im $(k-1)$-ten Schritt der abweichende Spieler ist. Dann sind wir fertig nach Induktionsvoraussetzung. Dazu ersetzen wir in $\mu$ das Strategieprofil $x^k$ durch $(x^{k-1} \mid x^{k+1}_{i(1)})$, sodass also Spieler $i(1)$ bereits einen Schritt früher (im $(k-1)$-ten) seine Strategie wechselt und der Spieler, der dies zuvor in diesem Schritt getan hat, einen Schritt später.
 			
 			Bei dieser Anpassung bleibt die Gesamtänderung des Pfades $\mu$ gleich, denn wir ersetzen lediglich ein Pfadstück der Länge $2$ durch ein anderes Pfadstück der Länge $2$. Und da sich diese beiden Pfade zu einem 4-Zykel zusammensetzen lassen, haben diese nach Voraussetzung die gleiche Gesamtänderung.
 			
@@ -185,12 +185,12 @@ Eine alternative Charakterisierung für die Existenz eines exakten Potentials ze
 
 \begin{satz}\label{satz:CharGewPot}
 	Ein Spiel besitzt genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)_{i \in I}$, wenn die $w$-gewichtete Gesamtänderung entlang jedes 4-Zykels $0$ ist, d.h. für jeden 4-Zykel $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ gilt:\todo{Gibt es eine bessere Charakterisierung von gew. Potentialen? Insb. ohne dass man schon den richtigen Gewichtsvektor angeben muss?}
-	\[\PfadAend_w(\gamma) = \sum_{i=0}^3 w_{i(k)}\cdot\left(c_{i(k)}(x^{k+1}) - c_{i(k)}(x^k)\right) = 0\]
+	\[\PfadAend_w(\gamma) = \sum_{i=1}^4 w_{i(k)}\cdot\left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = 0\]
 \end{satz}
 
 Diese Charakterisierung folgt direkt aus der folgenden Beobachtung aus \cite[Kapitel 3.2]{CharExGewPotinWCG}
 
-\begin{beob}
+\begin{beob}\label{beob:ZshExGewPot}
 	Zu einem Spiel $\Gamma = (I, X, (c_i))$ ist eine Funktion $P: X \to \IR$ genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)$, wenn $P$ ein exaktes Potential zum Spiel $\Gamma_w \coloneqq (I, X, (c_i/w_i))$ ist.
 \end{beob}
 
@@ -202,7 +202,7 @@ Diese Charakterisierung folgt direkt aus der folgenden Beobachtung aus \cite[Kap
 Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} eine Charakterisierung durch eine Zerlegung des Spiels in ein Dummy- und ein skaliertes Koordinationsspiel:
 
 \begin{satz}\label{satz:CharSkalPot}
-	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein exaktes Potential, wenn es ein skaliertes Koordinationsspiel $K = (I, X, (p_i))$ und ein Dummy-Spiel $D = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $K$ und $D$ sind, d.h. $c_i = p_i + d_i$.
+	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein skaliertes Potential, wenn es ein skaliertes Koordinationsspiel $K = (I, X, (p_i))$ und ein Dummy-Spiel $D = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $K$ und $D$ sind, d.h. $c_i = p_i + d_i$.
 \end{satz}
 
 \begin{proof}
@@ -239,8 +239,8 @@ Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folge
 \begin{proof}
 	Sei zunächst $P: X \to \IR$ ein ordinales Potential eines Spiels $\Gamma$. Dann gilt:
 	\begin{enumerate}
-		\item $\Gamma$ enthält keine schwachen Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Verbesserungszykel in $\Gamma$, so gilt für alle $0 \leq k < n$: $c_{i(k)}(x^{k+1}) \leq c_{i(k)}(x^k)$ und für ein solches $k$ sogar $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$. Da ferner $P$ ein ordinales Potential ist, folgt daraus:
-			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k+1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0)\]
+		\item $\Gamma$ enthält keine schwachen Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Verbesserungszykel in $\Gamma$, so gilt für alle $0 < k \leq n$: $c_{i(k)}(x^k) \leq c_{i(k)}(x^{k-1})$ und für ein solches $k$ sogar $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$. Da ferner $P$ ein ordinales Potential ist, folgt daraus:
+			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k-1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0)\]
 		Dies ist jedoch ein Widerspruch. Also kann es keinen solchen Verbesserungszykel geben.
 		
 		\item $\SVord$ ist eine strikte Partialordnung auf $\XmodNV$. Denn die Relation ist immer transitiv und in der Abwesenheit von schwachen Verbesserungszykeln zudem irreflexiv. Gäbe es nämlich ein Strategieprofil mit $[x] \SVord [x]$, so gäbe es einen schwachen Verbesserungspfad von $x$ nach $x$, also einen schwachen Verbesserungszykel.
@@ -276,7 +276,7 @@ eine Charakterisierung der Existenz eines verallgemeinerten ordinalen Potentials
 	
 	Haben wir hingegen ein Spiel $\Gamma$ mit einem verallgemeinerten ordinalen Potential $P$, so ist $(X, \VerbRel)$ reell geordnet, denn
 	\begin{enumerate}
-		\item $\VerbRel$ ist eine strikte Partialordnung auf $X$: Sie ist transitiv, da die Verknüpfung zweier Verbesserungspfade wieder ein Verbesserungspfad ist, und irreflexiv, da es in $\Gamma$ keine Verbesserungszykel gibt. Angenommen nämlich $\Gamma$ enthielte einen solchen Verbesserungszykel $\gamma = (x^0, \dots, x^n)$, d.h. für alle $0 \leq k < n$ gilt $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$. Da $P$ ein verallgemeinertes ordinales Potential ist, folgt daraus $P(x^0) > P(x^1) > \dots > P(x^n) = P(x^0)$, ein Widerspruch. Also kann es keinen Verbesserungszykel geben und damit nie $x \VerbRel x$ gelten.
+		\item $\VerbRel$ ist eine strikte Partialordnung auf $X$: Sie ist transitiv, da die Verknüpfung zweier Verbesserungspfade wieder ein Verbesserungspfad ist, und irreflexiv, da es in $\Gamma$ keine Verbesserungszykel gibt. Angenommen nämlich $\Gamma$ enthielte einen solchen Verbesserungszykel $\gamma = (x^0, \dots, x^n)$, d.h. für alle $0 < k \leq n$ gilt $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$. Da $P$ ein verallgemeinertes ordinales Potential ist, folgt daraus $P(x^0) > P(x^1) > \dots > P(x^n) = P(x^0)$, ein Widerspruch. Also kann es keinen Verbesserungszykel geben und damit nie $x \VerbRel x$ gelten.
 		\item $(X, \VerbRel)$ ist reell geordnet durch die Funktion $P: X \to \IR$. Gilt nämlich $x \VerbRel y$, so gibt es also einen Verbesserungspfad von $y$ nach $x$. Da $P$ ein verallgemeinertes ordinales Potential ist, nimmt es entlang dieses Pfades in jedem Schritt ab, und folglich gilt $P(y) > P(x)$. Damit ist $P$ streng monoton auf $(X, \VerbRel)$. \qedhere
 	\end{enumerate} 
 \end{proof}
@@ -365,12 +365,12 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 \begin{proof}
 	Sei zunächst $P: X \to \IR$ ein Beste-Antwort-Potential eines Spiels $\Gamma$. Dann gilt:
 	\begin{enumerate}
-		\item $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Beste-Antwort-Verbesserungszykel in $\Gamma$, so gilt für alle $0 \leq k < n$:
-			\[c_{i(k)}(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^k \mid \hat{x}_i) \leq c_{i(k)}(x^k)\]
+		\item $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel. Denn angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Beste-Antwort-Verbesserungszykel in $\Gamma$, so gilt für alle $0 < k \leq n$:
+			\[c_{i(k)}(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_i) \leq c_{i(k)}(x^{k-1})\]
 		und, da $P$ ein Beste-Antwort-Potential ist, ebenso 
-			\[P(x^{k+1}) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} P(x^k \mid \hat{x}_i) \leq P(x^k).\]
-		Ferner gilt für ein solches $k$ sogar $c_{i(k)}(x^{k+1}) < c_{i(k)}(x^k)$, also auch $P(x^{k+1}) < P(x^k)$ (da $x^k_{i(k)}$ keine beste Antwort auf $x^k$ ist). Zusammen folgt daher
-			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k+1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0).\]
+			\[P(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} P(x^{k-1} \mid \hat{x}_i) \leq P(x^{k-1}).\]
+		Ferner gilt für ein solches $k$ sogar $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$, also auch $P(x^k) < P(x^{k-1})$ (da $x^{k-1}_{i(k)}$ keine beste Antwort auf $x^{k-1}$ ist). Zusammen folgt daher
+			\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^k) < P(x^{k-1}) \leq \dots \leq P(x^n) = P(x^0).\]
 		Dies ist jedoch ein Widerspruch. Also kann es keinen solchen Verbesserungszykel geben.
 		
 		\item $\BAord$ ist eine strikte Partialordnung auf $\XmodBA$. Denn die Relation ist immer transitiv und in der Abwesenheit von schwachen Beste-Antwort-Verbesserungszykeln zudem irreflexiv. Gäbe es nämlich ein Strategieprofil mit $[x] \BAord [x]$, so gäbe es einen schwachen Beste-Antwort-Verbesserungspfad von $x$ nach $x$, also einen schwachen Beste-Antwort-Verbesserungszykel.
@@ -395,7 +395,7 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 \end{proof}
 
 \begin{bsp}
-	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat offenbar ein exaktes und damit erst recht Beste-Antwort-Potential. Da es keinerlei Beste Antworten besitzt, ist außerdem $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
+	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat zwar offenbar ein exaktes und damit erst recht Beste-Antwort-Potential, es steht aber trotzdem im Widerspruch zu obigem Beweis. Da es keinerlei Beste Antworten besitzt, ist nämlich $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
 \end{bsp}
 
 
