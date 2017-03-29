@@ -40,7 +40,7 @@ Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden ers
 	\caption{Beziehungen zwischen den einzelnen Potentialbegriffen}\label{diag:Potentiale}
 \end{figure}
 
-\todo[inline]{Beziehungen beweisen?}
+\todo[inline]{Beziehungen beweisen? $\rightarrow$ Kapitel 3}
 
 \todo[inline]{Wann ist ein ordinales Potentialspiel bereits ein skaliertes? Zumindest für endliche Spiele sollte das stimmen?}
 
@@ -388,7 +388,7 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 				\item[2. Fall:] Gilt $c_i(x \mid \hat{x}_i) = c_i(x \mid x'_i)$, so sind sowohl $((x \mid x'_i), (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), (x \mid x'_i))$ Beste-Antwort-Pfade und folglich $(x \mid x'_i) \BArel (x \mid \hat{x}_i)$. Somit folgt $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) = f([(x \mid x'_i)]) = P(x \mid x'_i)$.
 			\end{description}
 			Insgesamt gilt also für alle $x'_i \in X_i$, dass $P(x \mid \hat{x}_i) \leq P(x \mid x'_i)$ und daher $\hat{x}_i \in \arg \min_{x'_i \in X_i} P(x \mid x'_i)$.
-		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x})$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gibt ein $x'_i \in X_i$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann gäbe es also einen Beste-Antwort-Pfad von $(x \mid \hat{x}_i)$ nach $(x \mid x'_i)$\todo{Ich glaube nicht, dass das so sein muss!}, d.h. es wäre $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$. \dots
+		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x})$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gibt ein $x'_i \in X_i$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann gäbe es also einen Beste-Antwort-Pfad von $(x \mid \hat{x}_i)$ nach $(x \mid x'_i)$\todo{Ich glaube nicht, dass das so sein muss! Es würde funktionieren, wenn man voraussetzt, dass $x'_i$ nicht nur eine bessere, sondern eine beste Antwort ist. Allerdings muss eine solche ja nicht existieren...}, d.h. es wäre $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$. \dots
 		
 		\todo[inline]{Funktioniert dieser Beweis an der Stelle überhaupt? }
 	\end{description}

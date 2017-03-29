@@ -2,7 +2,7 @@
 
 \todo[inline]{Welche Endlichkeitsvoraussetzungen benötigt man hier jeweils?}
 
-In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungsspiele als Klasse von Spielen ein, welche immer ein exaktes Potential (und damit ein Nash-Gleichgewicht) besitzen. Später zeigten \citeauthor{MonShap} in \cite[Theorem 3.2]{MonShap}, dass diese Klasse bis auf (kostenerhaltende) Isomorphie bereits \emph{alle} Spiele mit exaktem Potential umfasst. Zusammengefasst gilt also:
+In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungsspiele als Klasse von endlichen Spielen ein, welche immer ein exaktes Potential (und damit ein Nash-Gleichgewicht) besitzen. Später zeigten \citeauthor{MonShap} in \cite[Theorem 3.2]{MonShap}, dass diese Klasse bis auf (kostenerhaltende) Isomorphie bereits \emph{alle} endlichen Spiele mit exaktem Potential umfasst. Zusammengefasst und etwas verallgemeinert gilt also:
 
 \begin{satz}\label{satz:MondererShapley}
 	Jedes $N$-Personen-Auslastungsspiel besitzt ein exaktes Potential und jedes exakte $N$-Personen-Potentialspiel ist äquivalent zu einem Auslastungsspiel.
@@ -21,11 +21,11 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 		
 	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$:
 	\begin{itemize}
-		\item $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{i} \in I: Y_{\hat{i}} = X_{\hat{i}}, \forall i \neq \hat{i}: \abs{X_i \setminus Y_i} = 1 }$.
+		\item $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\i} \in I: Y_{\hat{\i}} = X_{\hat{\i}}, \forall i \neq \hat{\i}: \abs{X_i \setminus Y_i} = 1 }$.
 		\item \[g_r(k) \coloneqq 
 					\begin{cases}
 						P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
-						c_{\hat{i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}} \in R_D 	\text{ und } k=1 \\
+						c_{\hat{\i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}} \in R_D 	\text{ und } k=1 \\
 						0,						&\text{sonst}
 					\end{cases}\]
 				\todo[inline]{Wohldefiniertheit!}
@@ -33,10 +33,10 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 	\end{itemize}
 	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma(M)$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
 	\begin{align*}
-		d_{\hat{i}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{i}} = \phi_{\hat{i}}(x_{\hat{i}})} g_r(l_r(\phi(x))) = \\
-		&=\sum_{r \in R_K: x_{\hat{i}} \in r_{\hat{i}}} g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{i}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1 \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}}}) = \\
-		&=g_{\left(\{x_i\}\right)_{i \in I}}(N) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}}}(1) = \\
-		&=P(x) + c_{\hat{i}}(x) - P(x) = c_{\hat{i}}(x) \qedhere									
+		d_{\hat{\i}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\i}} = \phi_{\hat{\i}}(x_{\hat{\i}})} g_r(l_r(\phi(x))) = \\
+		&=\sum_{r \in R_K: x_{\hat{\i}} \in r_{\hat{\i}}} g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\i}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1 \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}}}) = \\
+		&=g_{\left(\{x_i\}\right)_{i \in I}}(N) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}}}(1) = \\
+		&=P(x) + c_{\hat{\i}}(x) - P(x) = c_{\hat{\i}}(x) \qedhere									
 		\end{align*}
 \end{proof}
 
@@ -50,10 +50,10 @@ Auslastungsspiele sind also nicht nur \emph{ein} Beispiel für Spiele mit exakte
 
 \subsubsection{Gewichtete Auslastungsspiele}
 
-Für gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG} in \cite[Theorem 3.9]{CharExGewPotinWCG}, dass die einzigen beiden Klassen stetiger Funktionen, die (als Kostenfunktionen verwendet) ausschließlich Spiele mit gewichtetem Potential erzeugen, affin lineare Funktionen bzw. exponentielle Funktionen (mit gemeinsamem Exponenten) sind:
+Für gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG} in \cite[Theorem 3.9]{CharExGewPotinWCG}, dass die einzigen beiden Klassen stetiger Funktionen, die (als Kostenfunktionen verwendet) ausschließlich endliche Spiele mit gewichtetem Potential erzeugen, affin lineare Funktionen bzw. exponentielle Funktionen (mit gemeinsamem Exponenten) sind:
 
 \begin{satz}\label{satz:CharExGewPotinWCG}
-	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$
+	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes endliche gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$
 	\begin{itemize}
 		\item entweder ausschließlich affin lineare Funktionen enthält\todo{Fälle: Exaktes Potential/gewichtetes Potential unterscheiden}
 		\item oder ausschließlich Funktionen der Form $c(l) = a_c\cdot b^l + d_c$ enthält.
@@ -67,7 +67,7 @@ Da nun für endliche Spiele alle der in \Cref{sec:Potentiale} definierten Potent
 Zusammen zeigen diese beiden Sätze bereits deutlich, dass der Schritt vom ungewichteten Fall zum gewichteten auf Seite der Auslastungsspiele erheblich größer ist als auf Seite der Potentiale. Tatsächlich zeigt \citeauthor{ReprOfFiniteGamesAsNCG} in \cite{ReprOfFiniteGamesAsNCG}, dass dieser Verallgemeinerungsschritt für Auslastungsspiele bereits der größtmögliche ist, denn es gilt:
 
 \begin{satz}\label{satz:JedesSpielGewAusl}
-	Jedes Spiel ist äquivalent zu einem gewichteten Auslastungsspiel \todo{(sogar Netzwerkauslastungsspiel mit ...)}.
+	Jedes endliche Spiel ist äquivalent zu einem gewichteten Auslastungsspiel \todo{(sogar Netzwerkauslastungsspiel mit ...)}.
 \end{satz}
 
 Die Menge der gewichteten Auslastungsspiele umfasst also (bis auf kostenerhaltende Isomorphie) bereits \emph{alle} (endlichen) Spiele in strategischer Form. Möchte man daher eine wirklich analoge Verallgemeinerung von Auslastungsspielen passend zu gewichteten Potentialspielen finden, muss man also andere Varianten betrachten Gewichte ins Spiel zu bringen. In \Cref{def:gewAuslastungsspiel} hatten wir bereits zwei solche gesehen, welche wir nun näher untersuchen wollen:
@@ -116,7 +116,7 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 		\[g_r(k) \coloneqq 
 		\begin{cases}
 		P(x), 									&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
-		\frac{1}{w_{\hat{i}}}c_{\hat{i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{i}} \times X_{\hat{i}} \in R_D 	\text{ und } k=1 \\
+		\frac{1}{w_{\hat{\i}}}c_{\hat{\i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}} \in R_D 	\text{ und } k=1 \\
 		0,										&\text{sonst}
 		\end{cases}\]
 	Der Rest des Beweises erfolgt dann genauso wie zuvor.
@@ -180,9 +180,9 @@ Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
 	\end{itemize}
 	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
 	\begin{align*}
-	d_{\hat{i}}(\phi(x)) &- d_{\hat{i}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{i}} = \phi_{\hat{i}}(x_{\hat{i}})} f_i \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{i}}(\hat{x}_{\hat{i}})} f_i \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
-	&=\sum_{r \in R_K: x_{\hat{i}} \in r_{\hat{i}}} f_i \circ g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) -
-		\sum_{r \in R_K: \hat{x}_{\hat{i}} \in r_{\hat{i}}} f_i \circ g_r(\underbrace{l_r(\phi(\hat{x}))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) = \\
+	d_{\hat{\i}}(\phi(x)) &- d_{\hat{\i}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\i}} = \phi_{\hat{\i}}(x_{\hat{\i}})} f_i \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\i}}(\hat{x}_{\hat{\i}})} f_i \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
+	&=\sum_{r \in R_K: x_{\hat{\i}} \in r_{\hat{\i}}} f_i \circ g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) -
+		\sum_{r \in R_K: \hat{x}_{\hat{\i}} \in r_{\hat{\i}}} f_i \circ g_r(\underbrace{l_r(\phi(\hat{x}))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) = \\
 	&=f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) - f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) = \\
 	&=f_i \circ P(x) - f_i \circ P(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i)	\qedhere							
 	\end{align*}
@@ -201,7 +201,7 @@ Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
 \end{proof}
 
 \begin{satz}
-	Sei $\Gamma(M)$ ein Auslastungsspiel, wobei jeder Strategieraum Basis eines Matroids ist. Dann besitzt $\Gamma(M)$ ein Beste-Antwort-Potential dessen Bild höchstens $\abs{I}^2\abs{R}^2$ verschiedene Werte umfasst.\todo{aus Opti IV-Skript. Kann man das überhaupt so umformulieren?}
+	Sei $\Gamma(M)$ ein Auslastungsspiel, wobei jeder Strategieraum Basis eines Matroids ist. Dann besitzt $\Gamma(M)$ ein Beste-Antwort-Potential dessen Bild höchstens $\abs{I}^2\abs{R}^2$ verschiedene Werte umfasst.\todo{Kann man aus Satz 3.10 aus dem Opti IV-Skript eine Aussage dieser oder ähnlicher Form extrahieren? Evtl. noch passende Morphismen zwischenschalten...}
 \end{satz}
 
 \todo[inline]{Besser als das (sowieso vorhandene) exakte Potential, da es die Dauer einer Beste-Antwort-Dynamik stärker beschränkt (polynomiell statt exponentiell)}

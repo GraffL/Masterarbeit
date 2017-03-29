@@ -57,17 +57,17 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 \begin{bsp}\label{bsp:Koordinationsspiel}
 	Ein Spiel $\Delta = (J, Y, (d_j)_{j \in J})$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
 	
-	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{j}}(y)$ für einen beliebigen, aber festen Spieler $\hat{j} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
+	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{\j}}(y)$ für einen beliebigen, aber festen Spieler $\hat{\j} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
 	\begin{align*}
 		\sigma:	&&J		\to	 \{\ast\}:	&&j	\mapsto	\ast  \\
 		\phi_j:	&&X_\ast	\to	 Y_j:	&&y	\mapsto	y_j
 	\end{align*}	
 	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $y \in X = Y$ und jeden Spieler $j \in J$ gilt:
-	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{j}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
+	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{\j}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
 	Zudem ist offenbar die Strategieprofilabbildung $\phi$ surjektiv.
 	
-	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, X, (c_\ast))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $y \in Y$ ein Strategieprofil $x \in X$ mit $\phi(x) = y$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $j, \hat{j} \in J$: 
-		\[d_{\hat{j}}(y) = d_{\hat{j}}(\phi(x)) = c_{\sigma(\hat{j})}(x) = c_\ast(x) = c_{\sigma(j)}(x) = d_j(\phi(x)) = d_j(y)\]
+	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, X, (c_\ast))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $y \in Y$ ein Strategieprofil $x \in X$ mit $\phi(x) = y$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $j, \hat{\j} \in J$: 
+		\[d_{\hat{\j}}(y) = d_{\hat{\j}}(\phi(x)) = c_{\sigma(\hat{\j})}(x) = c_\ast(x) = c_{\sigma(j)}(x) = d_j(\phi(x)) = d_j(y)\]
 	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.
 \end{bsp}
 
@@ -225,7 +225,7 @@ Es ist nun leicht zu sehen, dass diese Isomorphismusbegriffe tatsächlich dazu d
 \end{prop}
 
 \begin{proof}
-	Sei zunächst $\phi(\gamma)$ ein Nicht-Verschlechterungspfad. Angenommen $\gamma$ wäre kein Nicht-Verschlechterungspfad, dann gäbe es also ein $k$, sodass sich der im $k$-ten Schritt abweichende Spieler echt verschlechtert, d.h. $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$. Da $\sigma: J \to I$ surjektiv ist, gibt es nun einen Spieler $j \in J$ mit $\sigma(j) = i(k)$ und wegen der Ordinalität von $\phi$ gilt für diesen, dass er sich im $k$-ten Schritt von $\phi(\gamma)$ echt verschlechtert, d.h. $d_j(\phi(x^k) > d_j(\phi(x^{k-1}))$. 
+	Sei zunächst $\phi(\gamma)$ ein Nicht-Verschlechterungspfad. Angenommen $\gamma$ wäre kein Nicht-Verschlechterungspfad, dann gäbe es also ein $k$, sodass sich der im $k$-ten Schritt abweichende Spieler echt verschlechtert, d.h. $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$. Da $\sigma: J \to I$ surjektiv ist, gibt es nun einen Spieler $j \in J$ mit $\sigma(j) = i(k)$ und wegen der Ordinalität von $\phi$ gilt für diesen, dass er sich im $k$-ten Schritt von $\phi(\gamma)$ echt verschlechtert, d.h. $d_j(\phi(x^k)) > d_j(\phi(x^{k-1}))$. 
 	
 	Insbesondere wissen wir damit, dass es auch in $\phi(\gamma)$ einen Spieler $j(k)$ geben muss, der im $k$-ten Schritt seine Strategie echt ändert. Damit gilt
 		\[\phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^k\right) = \left(\phi(x^k)\right)_{\sigma(j(k))} \neq \left(\phi(x^{k-1})\right)_{\sigma(j(k))} = \phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^{k-1}\right)\]
@@ -258,6 +258,8 @@ Dies erlaubt uns folgendes Korollar:
 	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{kor:ReflAbg} $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
 \end{proof}
 
+\todo[inline]{Zu obigen Sätzen jeweils Beispiele für Notwendigkeit der Voraussetzungen finden}
+
 Aus diesem Korollar folgt insbesondere, dass Nash-Gleichgewichte in von einem verallgemeinerten ordinalen Potential induzierten Koordinationsspiel auch Nash-Gleichgewichte im Ausgangsspiel sind.\todo{Näher ausführen - auf entsprechende Sätze im Potential-Kapitel verweisen}
 
 \begin{bsp}
@@ -272,27 +274,41 @@ Dies wiederum zeigt, dass ordinale Potentiale lokale Nash-Potentiale sind.
 \todo[inline]{Weitere unsortierte Sätze...:}
 
 
-\begin{prop}\label{prop:NGerhalten}\todo{Satz muss deutlich angepasst werden. Ist der Satz überhaupt in dieser Allgemeinheit zu retten?}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ eine ordinale Retraktion (d.h. ein ordinaler Morphismus, welcher ein Rechtsinverses besitzt). Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+\begin{prop}\label{prop:DummySpielerWeglassen}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein biordinaler\todo{Begriff definieren!}{} Morphismus mit injektiver Spielerabbildung und surjektiven Strateegieabbildungen. Seien ferner alle Spieler in $I\setminus \sigma(J)$ Dummy-Spieler\todo{Begriff definieren! Evtl. zusammen mit Dummy-Spielen}. Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
 \end{prop}
 
+\todo[inline]{Kann man das noch schöner ausdrücken (mit Retrakten o.ä.)?}
+
 \begin{proof}
-	Sei $(\tau, \psi): \Delta \to \Gamma$ ein Rechtsinverses von $(\sigma, \phi)$, d.h. es gelte $(\sigma, \phi) \circ (\tau, \psi) = (\tau\circ\sigma, \phi\circ\psi) = (\id_J, id_Y)$. Damit ist $\sigma$ offenbar injektiv\todo{Benötigen aber bijektiv!}{} und daher mit \Cref{kor:ReflektNG} die \glqq wenn\grqq-Richtung gezeigt.
+	Sei zunächst $x \in X$ ein Nash-Gleichgewicht in $\Gamma$ und $y_j \in Y_j$. Da $\phi_j$ surjektiv ist, gibt es dann ein $\hat{x}_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)}) = y_j$. Wegen der Injektivität von $\sigma$ gilt ferner $\phi(x \mid \hat{x}_{\sigma(j)}) = \left(\phi(x) \mid y_j\right)$.
 	
-	Zu \glqq dann\grqq: Sei also $x \in X$ ein Nash-Gleichgewicht und $y_j \in Y_j$. Wegen der Surjektivität von $\phi_j$ gibt es dann ein $\hat{x}_{\sigma(j)} \in X_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)} = y_j)$. Da $x$ ein Nash-Gleichgewicht ist, gilt nun 
-	\[c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})\]
-	und daher wegen Biordinalität\todo{Das stimmt so nicht!}{} von $\phi$ auch 
-	\[d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \overset{\ast}{=} d_j(\phi(x) \mid \phi_j(\hat{x}_{\sigma(j)})) = d_j(\phi(x) \mid y_j)\]
-	wobei in $\ast$ nochmal die Injektivität von $\sigma$ eingeht.
+	Da $x$ ein Nash-Gleichgewicht ist, gilt nun $c_{\sigma(j)}(x) \leq c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})$ und folglich wegen der Biordinalität von $\phi$ auch $d_j(\phi(x)) \leq d_j(\phi(x \mid \hat{x}_{\sigma(j)})) = d_j(\phi(x) \mid y_j)$. Also ist auch $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$.
+	
+	Ist umgekehrt $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ und $\hat{x}_i$ eine alternative Strategie von Spieler $i \in I$. 
+	\begin{description}
+		\item[1. Fall:] Liegt $i$ in $I\setminus \sigma(J)$, so ist $i$ nach Voraussetzung ein Dummy-Spieler und folglich gilt: $c_i(x) = c_i(x \mid \hat{x}_i)$.
+		\item[2. Fall:] Liegt $i$ hingegen in $\sigma(J)$, so gibt es also einen Spieler $j \in J$ mit $\sigma(j) = i$. Aus der Injektivität von $\sigma$ und dem Wissen, dass $\phi(x)$ ein Nash-Gleichgewicht ist, folgt nun $d_j(\phi(x \mid \hat{x}_i)) = d_j(\phi(x) \mid \phi_j(\hat{x}_{\sigma(j)})) \geq d_j(\phi(x))$. Über die Biordinalität von $\phi$ erhalten wir schließlich $c_i(x \mid \hat{x}_i) = c_{\sigma(j)}(x \mid \hat{x}_i) \geq c_{\sigma(j)}(x) = c_i(x)$. 
+	\end{description}
+	Insgesamt ist also auch $x$ ein Nash-Gleichgewicht.
 \end{proof}
 
+Mit dieser Proposition können wir nun die in \Cref{beob:endlicheSpiele} gemachte Beobachtung formalisieren (und beweisen), dass Spieler mit nur einer einzigen Strategie beim Untersuchen von Nash-Gleichgewichten immer ignoriert werden können:
 
-\begin{bsp}
-	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern. \todo{Formalisiert oBdA-Bemerkung aus Grundlagen}
+\begin{bsp}\label{bsp:EinStratSpielerWeglassen}
+	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern.
 	
-	\todo[inline]{Beweis: Morphismus angeben und Eigenschaften zeigen}
+	Sei dazu $\Gamma$ ein beliebiges Spiel und $I' \subseteq I$ eine solche Teilmenge von Spielern, dass alle Spieler $i$ in $I \setminus I'$ genau eine Strategie $\ast_i$ besitzen. Dann betrachten wir die Einschränkung von $\Gamma$ auf die Spieler in $I'$, nämlich $\Gamma' \coloneqq (I', \prod_{i \in I'}X_i, (c'_i)_{i \in I'})$, wobei die Kostenfunktionen wie folgt definiert sind:
+		\[c'_{\hat{\i}}(x') \coloneqq c_{\hat{\i}}(x), \text{ wobei $x \in X$ definiert ist durch } x_i = \begin{cases}x'_i, &i \in I'\\ \ast_i, &\text{sonst}\end{cases}\]
+	und den folgenden Morphismus $(\sigma, \phi): \Gamma \to \Gamma'$ zwischen den beiden Spielen:
+	\begin{align*}
+		\sigma:	&&I\setminus I'	\to	 I:	&&i	\mapsto	i  \\
+		\phi_i:	&&X_i	\to	 X_i:		&&x_i	\mapsto	x_i
+	\end{align*}	
+	Dieser ist offenbar kostenerhaltend, also insbesondere biordinal, und $I\setminus \sigma(I') = I \setminus I'$ enthält nur Dummy-Spieler. Damit folgt die Behauptung aus \Cref{prop:DummySpielerWeglassen}.
 \end{bsp}
 
+\todo[inline]{Kein Zusammenhang zum Vorhergebenden:}
 
 \begin{kor}
 	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann hat $\Gamma$ genau dann die FIP, wenn $\Gamma'$ diese besitzt.

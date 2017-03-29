@@ -14,8 +14,8 @@
 	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
 \end{defn}
 
-\begin{beob}
-	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn höchsten endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. \todo{Kann man diese Erkenntnis irgendwie mit Morphismen formalisieren (evtl. über Retrakte?)}
+\begin{beob}\label{beob:endlicheSpiele}
+	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn höchsten endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. Wir werden dies später in \Cref{sec:Morphismen} formal zeigen (siehe \Cref{bsp:EinStratSpielerWeglassen}).
 \end{beob}
 
 \begin{notation}
@@ -127,11 +127,11 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 \begin{defn}\label{def:Auslastungsspiel}
 	Ein Auslastungsmodell $M$ induziert ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (c_i)_{i \in I})$ durch die Kostenfunktion:
 	\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
-	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die der Ressource ist, wenn alle $c_i$ und alle $L-r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ konvergieren).
+	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die der Ressource ist, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ konvergieren).
 \end{defn}
 
 \begin{bem}
-	Eine Lastfunktion $l_r$ ist automatisch wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\left\{i \in I \middle| \exists s_i \in S_i: r \in s\right\}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Keine dieser Bedingungen ist aber notwendig.
+	Eine Lastfunktion $l_r$ ist genau dann\todo{Wirklich \glqq genau dann wenn\grqq ? Dann evtl. in Definition aufnehmen.}{} wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\Set{i \in I | \exists s_i \in S_i: r \in s}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Diese Bedingung ist aber nicht notwendig.
 	
 	Insbesondere induzieren Auslastungsmodelle mit endlicher Ressourcen- und Spielerzahl immer ein Auslastungsspiel.
 	
