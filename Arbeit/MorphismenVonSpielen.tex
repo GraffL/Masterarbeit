@@ -19,7 +19,7 @@ Zu zwei gegebenen Spielen $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y,
 	\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien.
 \end{itemize}
 
-Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie}. Hierbei orientieren wir uns vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung für Spiele mit diskreter Spielermenge aus Kapitel 5. 
+Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie.}. Hierbei orientieren wir uns vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung für Spiele mit diskreter Spielermenge aus Kapitel 5. 
 
 In diesem Kontext ergibt es sich etwas natürlicher, dass die Abbildung zwischen den Spielermengen in die entgegengesetzte Richtung zu der zwischen den Strategieräumen verläuft. Eine andere, auch im hier vorliegenden Kontext sinnvolle Begründung hierfür liefert aber die folgende Bemerkung:
 
@@ -57,17 +57,17 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 \begin{bsp}\label{bsp:Koordinationsspiel}
 	Ein Spiel $\Delta = (J, Y, (d_j)_{j \in J})$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
 	
-	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{\j}}(y)$ für einen beliebigen, aber festen Spieler $\hat{\j} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
+	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{\jmath}}(y)$ für einen beliebigen, aber festen Spieler $\hat{\jmath} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
 	\begin{align*}
 		\sigma:	&&J		\to	 \{\ast\}:	&&j	\mapsto	\ast  \\
 		\phi_j:	&&X_\ast	\to	 Y_j:	&&y	\mapsto	y_j
 	\end{align*}	
 	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $y \in X = Y$ und jeden Spieler $j \in J$ gilt:
-	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{\j}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
+	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{\jmath}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
 	Zudem ist offenbar die Strategieprofilabbildung $\phi$ surjektiv.
 	
-	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, X, (c_\ast))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $y \in Y$ ein Strategieprofil $x \in X$ mit $\phi(x) = y$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $j, \hat{\j} \in J$: 
-		\[d_{\hat{\j}}(y) = d_{\hat{\j}}(\phi(x)) = c_{\sigma(\hat{\j})}(x) = c_\ast(x) = c_{\sigma(j)}(x) = d_j(\phi(x)) = d_j(y)\]
+	Sind umgekehrt ein 1-Personenspiel $K = (\{\ast\}, X, (c_\ast))$ sowie ein kostenerhaltender Morphismus  $(\sigma, \phi): K \to \Delta$ mit surjektiven Strategieabbildungen gegeben, dann ist $\Delta$ bereits ein Koordinationsspiel. Denn aufgrund der Surjektivität von $\phi$ gibt es zu jedem Strategieprofil $y \in Y$ ein Strategieprofil $x \in X$ mit $\phi(x) = y$. Da $(\sigma, \phi)$ außerdem kostenerhaltend ist, folgt dann für je zwei Spieler $j, \hat{\jmath} \in J$: 
+		\[d_{\hat{\jmath}}(y) = d_{\hat{\jmath}}(\phi(x)) = c_{\sigma(\hat{\jmath})}(x) = c_\ast(x) = c_{\sigma(j)}(x) = d_j(\phi(x)) = d_j(y)\]
 	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.
 \end{bsp}
 
@@ -299,7 +299,7 @@ Mit dieser Proposition können wir nun die in \Cref{beob:endlicheSpiele} gemacht
 	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern.
 	
 	Sei dazu $\Gamma$ ein beliebiges Spiel und $I' \subseteq I$ eine solche Teilmenge von Spielern, dass alle Spieler $i$ in $I \setminus I'$ genau eine Strategie $\ast_i$ besitzen. Dann betrachten wir die Einschränkung von $\Gamma$ auf die Spieler in $I'$, nämlich $\Gamma' \coloneqq (I', \prod_{i \in I'}X_i, (c'_i)_{i \in I'})$, wobei die Kostenfunktionen wie folgt definiert sind:
-		\[c'_{\hat{\i}}(x') \coloneqq c_{\hat{\i}}(x), \text{ wobei $x \in X$ definiert ist durch } x_i = \begin{cases}x'_i, &i \in I'\\ \ast_i, &\text{sonst}\end{cases}\]
+		\[c'_{\hat{\imath}}(x') \coloneqq c_{\hat{\imath}}(x), \text{ wobei $x \in X$ definiert ist durch } x_i = \begin{cases}x'_i, &i \in I'\\ \ast_i, &\text{sonst}\end{cases}\]
 	und den folgenden Morphismus $(\sigma, \phi): \Gamma \to \Gamma'$ zwischen den beiden Spielen:
 	\begin{align*}
 		\sigma:	&&I\setminus I'	\to	 I:	&&i	\mapsto	i  \\

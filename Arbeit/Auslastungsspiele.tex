@@ -21,11 +21,11 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 		
 	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$:
 	\begin{itemize}
-		\item $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\i} \in I: Y_{\hat{\i}} = X_{\hat{\i}}, \forall i \neq \hat{\i}: \abs{X_i \setminus Y_i} = 1 }$.
+		\item $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$.
 		\item \[g_r(k) \coloneqq 
 					\begin{cases}
 						P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
-						c_{\hat{\i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}} \in R_D 	\text{ und } k=1 \\
+						c_{\hat{\imath}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}} \in R_D 	\text{ und } k=1 \\
 						0,						&\text{sonst}
 					\end{cases}\]
 				\todo[inline]{Wohldefiniertheit!}
@@ -33,10 +33,10 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 	\end{itemize}
 	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma(M)$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
 	\begin{align*}
-		d_{\hat{\i}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\i}} = \phi_{\hat{\i}}(x_{\hat{\i}})} g_r(l_r(\phi(x))) = \\
-		&=\sum_{r \in R_K: x_{\hat{\i}} \in r_{\hat{\i}}} g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\i}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1 \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}}}) = \\
-		&=g_{\left(\{x_i\}\right)_{i \in I}}(N) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}}}(1) = \\
-		&=P(x) + c_{\hat{\i}}(x) - P(x) = c_{\hat{\i}}(x) \qedhere									
+		d_{\hat{\imath}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} g_r(l_r(\phi(x))) = \\
+		&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\imath}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1 \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}) = \\
+		&=g_{\left(\{x_i\}\right)_{i \in I}}(N) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}(1) = \\
+		&=P(x) + c_{\hat{\imath}}(x) - P(x) = c_{\hat{\imath}}(x) \qedhere									
 		\end{align*}
 \end{proof}
 
@@ -116,7 +116,7 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 		\[g_r(k) \coloneqq 
 		\begin{cases}
 		P(x), 									&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
-		\frac{1}{w_{\hat{\i}}}c_{\hat{\i}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\i}} \times X_{\hat{\i}} \in R_D 	\text{ und } k=1 \\
+		\frac{1}{w_{\hat{\imath}}}c_{\hat{\imath}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}} \in R_D 	\text{ und } k=1 \\
 		0,										&\text{sonst}
 		\end{cases}\]
 	Der Rest des Beweises erfolgt dann genauso wie zuvor.
@@ -180,9 +180,9 @@ Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
 	\end{itemize}
 	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
 	\begin{align*}
-	d_{\hat{\i}}(\phi(x)) &- d_{\hat{\i}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\i}} = \phi_{\hat{\i}}(x_{\hat{\i}})} f_i \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\i}}(\hat{x}_{\hat{\i}})} f_i \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
-	&=\sum_{r \in R_K: x_{\hat{\i}} \in r_{\hat{\i}}} f_i \circ g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) -
-		\sum_{r \in R_K: \hat{x}_{\hat{\i}} \in r_{\hat{\i}}} f_i \circ g_r(\underbrace{l_r(\phi(\hat{x}))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) = \\
+	d_{\hat{\imath}}(\phi(x)) &- d_{\hat{\imath}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} f_i \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\imath}}(\hat{x}_{\hat{\imath}})} f_i \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
+	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} f_i \circ g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) -
+		\sum_{r \in R_K: \hat{x}_{\hat{\imath}} \in r_{\hat{\imath}}} f_i \circ g_r(\underbrace{l_r(\phi(\hat{x}))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) = \\
 	&=f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) - f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) = \\
 	&=f_i \circ P(x) - f_i \circ P(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i)	\qedhere							
 	\end{align*}
@@ -201,25 +201,83 @@ Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
 \end{proof}
 
 \begin{satz}
-	Sei $\Gamma(M)$ ein Auslastungsspiel, wobei jeder Strategieraum Basis eines Matroids ist. Dann besitzt $\Gamma(M)$ ein Beste-Antwort-Potential dessen Bild höchstens $\abs{I}^2\abs{R}^2$ verschiedene Werte umfasst.\todo{Kann man aus Satz 3.10 aus dem Opti IV-Skript eine Aussage dieser oder ähnlicher Form extrahieren? Evtl. noch passende Morphismen zwischenschalten...}
-\end{satz}
-
-\todo[inline]{Besser als das (sowieso vorhandene) exakte Potential, da es die Dauer einer Beste-Antwort-Dynamik stärker beschränkt (polynomiell statt exponentiell)}
-
-\begin{satz}
 	Jedes nicht-anonyme Auslastungsspiel mit abzählbarer Spielermenge ist äquivalent zu einem lastgewichteten Auslastungsspiel und jedes nicht-anonyme gewichtete Auslastungsspiel mit abzählbarer Spielermenge ist gewichtet isomorph zu einem (anonymen) gewichteten Auslastungsspiel. Dabei verwenden jeweils beide Spiele die gleiche Ressourcenmenge.
 \end{satz}
 
 \begin{proof}
 	Sei die Spielermenge $I \subseteq \IN$, dann definiere einen Gewichtsvektor $v \coloneqq (1/3^n)_{n \in I}$. Dann entspricht jede (endliche) Teilmenge $J \subseteq I$ einer eindeutigen Zahl $v(J) \coloneqq \sum_{n \in J} 1/3^n$ und wir definieren damit neue (anonyme) Ressourcenkosten $h_r$:
-		\[h_r: \IR_{\geq 0} \to \IR: k \mapsto \begin{cases}
-			g_r(l_r(J)), 	&k = v(J) \\
-			0,				&\text{sonst}
-		\end{cases} \]
+	\[h_r: \IR_{\geq 0} \to \IR: k \mapsto \begin{cases}
+	g_r(l_r(J)), 	&k = v(J) \\
+	0,				&\text{sonst}
+	\end{cases} \]
 \end{proof}
 
 \todo[inline]{Im Unterschied zu \Cref{satz:JedesSpielGewAusl} bleibt hier die Ressourcenmenge gleich groß}
 
+
+\subsubsection{Schnelle Beste-Antwort-Dynamik in Auslastungsspielen}
+
+Da endliche Auslastungsspiele nach \Cref{satz:MondererShapley} ein exaktes und damit insbesondere ein Beste-Antwort-Potential besitzt, wissen wir bereits, dass in solchen Spielen jede Beste-Antwort-Dynamik nach endlicher Zeit ein Nash-Gleichgewicht erreicht. Allerdings kann diese Suche im Allgemeinen sehr lange dauern\todo{[citation needed] - wie lang genau? Exponentiell in ???}. Für die Teilklasse der Matroidspiele kann man allerdings zeigen, dass diese Konvergenz immer bereits in polynomieller Zeit erfolgt.
+
+Ein leichte Modifikation des Beweises hierzu in \cite{OptiIVSkript}[Satz 3.10] erlaubt sogar die folgender noch etwas stärkere Aussage:
+
+\begin{satz}\label{satz:BAPotentialFuerMatroidspiele}
+	Sei $M = (I, R, (S_i), (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{I}\cdot\abs{R}$ annehmen.\todo{Was ist mit gewichteten Matroidspielen}
+\end{satz}
+
+\begin{proof}
+	Wir definieren zunächst das Auslastungsmodell $N \coloneqq (I, R, (S_i), (h_r))$, wobei die Ressourcenkosten $h_r$ wie folgt definiert sind:
+		\[h_{\hat{r}}(\hat{k}) \coloneqq \#\Set{(r, k) \in R\times \{1, \dots, \abs{I}\} | c_r(k) \leq c_{\hat{r}}(\hat{k})} \]
+	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, (S_i), (d_i))$ hat nun offenbar die gewünschten Eigenschaften. 
+	
+	Noch zu zeigen ist, dass $\Gamma(N)$ tatsächlich Beste-Antwort-isomorph zu $\Gamma(M)$ ist. Dazu betrachten wir den Identitätsmorphismus zwischen den beiden Spielen (der offensichtlich bijektiv ist) und zeigen, dass die besten Antworten in $\Gamma(N)$ genau den besten Antworten in $\Gamma(M)$ entsprechen. Dazu benötigen wir die folgende Proposition:	\noqed
+\end{proof}
+	
+\begin{prop}\label{prop:BAPotentialFuerMatroidspieleHilfsP}
+	Sei $s \in S$ ein beliebiges Strategieprofil und $s^\ast_i \in S_i$ eine beste Antwort von Spieler $i$ auf $s$ in $\Gamma(M)$. Dann gilt
+	\begin{itemize}
+		\item $c_i(s \mid s^\ast_i) < c_i(s) \implies d_i(s \mid s^\ast_i) < d_i(s)$ und
+		\item $c_i(s \mid s^\ast_i) = c_i(s) \implies d_i(s \mid s^\ast_i) = d_i(s)$.
+	\end{itemize}
+\end{prop}
+
+\begin{proof}
+	Der Beweis folgt dem in \cite{OptiIVSkript}[Lemma 3.3].	Es sind sowohl $s^\ast_i$ als auch $s_i$ Basen im Matroid von Spieler $i$. Daher gibt es nach dem Basismatchingsatz\todo{Satz angeben! vgl. \cite{OptiIVSkript}[Lemma 3.2]}{} eine Partitionierung der symmetrischen Differenz in eine Menge von Tupeln der Form $(r,t)$ mit $r \in s_i\setminus s^\ast_i$ und $t \in s^\ast_i \setminus s_i$, sodass $s_i^{+t-r} \coloneqq s^\ast_i\setminus\set{t}\cup\set{r}$ ebenfalls eine Basis ist (d.h. eine zulässige Ressourcenmenge von Spieler $i$).
+	
+	Da nun $s^\ast_i$ eine beste Antwort auf $s$ ist, muss die Antwort $s_i^{+t-r}$ zu mindestens ebenso hohen Kosten für Spieler $i$ führen, es muss also gelten:
+		\[0 \leq c_i(s \mid s_i^{+t-r}) - c_i(s \mid s^\ast_i) = g_t(l_t(s \mid s^\ast_i)+1) - g_r(l_r(s \mid s^\ast_i))\]
+	und damit (für jedes solche Tupel aus der Partitionierung)
+	\begin{align}\label{eq:UnglRessourcenwechsel}
+		g_r(l_r(s \mid s^\ast_i)) \leq g_t(l_t(s \mid s^\ast_i)+1).
+	\end{align}
+	Insbesondere werden somit auch die alternativen Ressourcenkosten bei jedem solchen Ressourcenwechsel höchstens kleiner.
+	
+	Gilt nun zusätzlich $c_i(s \mid s^\ast_i) < c_i(s)$, so muss die Ungleichung \eqref{eq:UnglRessourcenwechsel} für wenigstens ein solches Tupel $(r,t)$ sogar strikt sein. Und sinken mindestens für diesen Ressourcenwechsel auch die alternativen Kosten echt ab. Also gilt insgesamt $d_i(s \mid s^\ast_i) < d_i(s)$.
+	
+	Gilt hingegen $c_i(s \mid s^\ast_i) = c_i(s)$, so muss auch in jeder Ungleichung der Form \eqref{eq:UnglRessourcenwechsel} Gleichheit gelten, womit auch alle alternativen Ressourcenkosten gleich bleiben. Folglich gilt in diesem Fall $d_i(s \mid s^\ast_i) = d_i(s)$.
+\end{proof}
+
+\begin{proof}[Beweis von \Cref*{satz:BAPotentialFuerMatroidspiele} (Forts.)]
+	Sei zunächst $s \in S$ ein beliebiges Strategieprofil, $s^\ast_i$ eine Beste Antwort von Spieler $i$ auf $s$ im Spiel $\Gamma(M)$ (also bezüglich $c_i$) und $s'_i$ eine Beste Antwort im Spiel $\Gamma(N)$ (also bezüglich der alternativen Kosten $d_i$). Wir werden nun zeigen, dass $c_i(s \mid s^\ast_i) = c_i(s \mid s'_i)$ gilt. Mit \Cref{prop:BAPotentialFuerMatroidspieleHilfsP} erhalten wir dann auch $d_i(s \mid s^\ast_i) = d_i(s)$ und folglich ist sowohl $s'_i$ eine Beste Antwort in $\Gamma(M)$ als auch $s^\ast_i$ eine Beste Antwort in $\Gamma(N)$. Das zeigt, dass die Identitätsabbildung zwischen den beiden Spielen beste Antworten in beide Richtungen erhält und daher ein Beste-Antwort-Morphismus ist. 
+	
+	Wir untersuchen dazu, welcher der drei theoretisch möglichen Fälle tatsächlich eintreten kann:
+	\begin{description}
+		\item[1. Fall:] $c_i(s \mid s^\ast_i) > c_i(s \mid s'_i)$. Dann wäre $(s \mid s'_i)$ eine bessere Antwort auf $s$ als $s^\ast_i$ (bzgl. $c_i$) - ein Widerspruch dazu, dass $s^\ast_i$ eine \emph{beste} Antwort auf $s$ ist. Dieser Fall kann also nicht eintreten.
+		\item[2. Fall:] $c_i(s \mid s^\ast_i) < c_i(s \mid s'_i)$. Nach \Cref{prop:BAPotentialFuerMatroidspieleHilfsP} gilt dann auch $c_i(s \mid s^\ast_i) < c_i(s \mid s'_i)$, was analog zum ersten Fall ein Widerspruch dazu ist, dass $s'_i$ eine Beste Antwort auf $s$ bezüglich $d_i$ ist.
+		\item[3. Fall:] $c_i(s \mid s^\ast_i) = c_i(s \mid s'_i)$ ist also die einzige verbleibende Möglichkeit.
+	\end{description}
+	Das beschließt den Beweis von \Cref*{satz:BAPotentialFuerMatroidspiele}.
+\end{proof}
+
+\begin{kor}\todo{Evtl. Korollar vor den Beweis des Satzes stellen um Bezug zur Motivation zu behalten.}
+	Sei $\Gamma(M)$ ein Matroidspiel. Dann erreicht jede Beste-Antwort-Dynamik in höchstens $\abs{I}^2\abs{R}^2$ ein Nash-Gleichgewicht.
+\end{kor}
+
+\begin{proof}
+	Die Rosenthalpotentialfunktion $P: S \to \IR: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} h_r(k)$ ist (wie in \Cref{satz:MondererShapley} gezeigt) ein exaktes Potential für das Auslastungsspiel $\Gamma(N)$, insbesondere also auch ein Beste-Antwort-Potential. Ferner sieht man leicht, dass diese Potentialfunktion höchstens $\abs{R}\cdot\abs{I}\cdot \abs{I}\abs{R}$ viele verschiedene Werte annehmen kann.
+	
+	Zusammen mit \Cref{satz:BAPotentialFuerMatroidspiele} wissen wir zudem, dass $P$ auch ein Beste-Antwort-Potential für $\Gamma(M)$ ist. Mit \Cref{prop:BAPotBAPad} ist dann jeder Beste-Antwort-Verbesserungspfad in $\Gamma(M)$ auch ein solcher im von $P$ induzierten Koordinationsspiel. In diesem kann aber kein solcher Pfad länger als $\abs{I}^2\abs{R}^2$, was somit auch für alle Beste-Antwort-Verbesserungspfade in $\Gamma(M)$ gelten muss.
+\end{proof}
 
 
 \subsection{Überblick}
