@@ -82,7 +82,7 @@ Wir wollen hier noch einige Eigenschaften der verschiedenen Potentiale zusammenf
 	Ist $\Gamma$ ein Spiel mit einem lokalen Nash-Potential $P$. Dann ist jedes lokale Minimum von $P$ ein Nash-Gleichgewicht von $\Gamma$ und umgekehrt.\todo{Eigentlich ist das für dieses Potential gar kein Satz, sondern einfach die Definition}
 \end{beob}
 
-Diese Beobachtung zeigt also, dass man Nash-Gleichgewichte allein durch Betrachten einer Potentialfunktion finden kann. Daraus folgt direkt die Existenz von Nash-Gleichgewichten in einer Vielzahl von Potentialspielen:
+Diese Beobachtung zeigt also, dass man Nash-Gleichgewichte allein durch Betrachten einer Potentialfunktion finden kann. Daraus folgt direkt die Existenz von Nash-Gleichgewichten in einer Vielzahl von Potentialspielen, nämlich all diejenigen deren Potentialfunktion mindestens ein globales (und damit erst recht lokales) Minimum haben. Also beispielsweise:
 
 \begin{kor}
 	Sei $\Gamma$ ein Spiel mit einem kompakten Strategieraum und einer stetigen lokalen Nash-Potentialfunktion. Dann hat $\Gamma$ wenigstens ein Nash-Gleichgewicht.
@@ -90,19 +90,19 @@ Diese Beobachtung zeigt also, dass man Nash-Gleichgewichte allein durch Betracht
 
 Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht. 
 
-\begin{prop}\label{prop:ordPotVerbpfad}
+\begin{satz}\label{prop:ordPotVerbpfad}
 	Sei $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Dann ist jeder Verbesserungspfad in $\Gamma$ auch ein Verbesserungspfad bezüglich $P$. Ist $P$ sogar ein ordinales Potential, so gilt auch die umgekehrte Richtung.
-\end{prop}
+\end{satz}
 
-Zusammen mit \Cref{kor:ExVerbPfadExNG} folgt hieraus \Cref{beob:lokMinNG} für ordinale Potentiale.\todo{Streng genommen nicht wirklich, da das Korollar nur für Spiele gilt!?}
+Zusammen mit \Cref{kor:ExVerbPfadExNG} werden wir hieraus später folgern, dass ordinale Potentiale lokale Nash-Potentiale sind. Ferner ergibt sich daraus, dass ein lokales Minimum eines verallgemeinerten ordinalen Potentials ein Nash-Gleichgewicht des eigentlichen Spiels ist. Die Umkehrung gilt in diesem Fall aber nicht mehr notwendigerweise.\todo{Beispiel?}
 
 Analog zu diesem Satz gilt für Beste-Antwort-Pfade und Beste-Antwort-Potentiale:
 
-\begin{prop}\label{prop:BAPotBAPad}
+\begin{satz}\label{prop:BAPotBAPad}
 	Sei $\Gamma$ ein Spiel mit einem Beste-Antwort-Potential $P$. Dann ist jeder Beste-Antwort-(Verbesserungs-)Pfad in $\Gamma$ auch ein Beste-Antwort-(Verbesserungs-)Pfad bezüglich $P$ und umgekehrt.
-\end{prop}
+\end{satz}
 
-\Cref{tab:PotErhalten} fasst einige der von Potentialen erhaltenen Eigenschaften zusammen.
+Und auch hieraus erhalten wir mit \Cref{kor:ExVerbPfadExNG}, dass Beste-Antwort-Potentiale lokale Nash-Potentiale sind. \Cref{tab:PotErhalten} fasst einige der von Potentialen erhaltenen Eigenschaften zusammen.
 
 \begin{table}[h]\centering
 	\begin{tabular}{l|ccccc}
@@ -206,14 +206,14 @@ Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} e
 \end{satz}
 
 \begin{proof}
-	Ist $\Gamma$ ein Spiel mit einem skalierten Potential $P$ und entsprechenden Skalierungsfunktionen $f_i$, so definiert dieses ein Koordinationsspiel $K \coloneqq (I, X, (f_i \circ P))$. Ferner ist $D \coloneqq (I, X, (f_i\circ P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategien/Strategieprofile $x \in X, \hat{x}_i \in X_i$:
+	Ist $\Gamma$ ein Spiel mit einem skalierten Potential $P$ und entsprechenden Skalierungsfunktionen $f_i$, so definiert dieses ein skaliertes Koordinationsspiel $K \coloneqq (I, X, (f_i \circ P))$. Ferner ist $D \coloneqq (I, X, (f_i\circ P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategien/Strategieprofile $x \in X, \hat{x}_i \in X_i$:
 	\[(f_i\circ P-c_i)(x) - (f_i\circ P-c_i)(x \mid \hat{x}_i) = \left(f_i\circ P(x) - f_i\circ P(x \mid \hat{x}_i)\right) - \left(c_i(x) - c_i(x \mid \hat{x}_i)\right) = 0 \]
 	Also $(f_i\circ P-c_i)(x) = (f_i\circ P-c_i)(x \mid \hat{x}_i)$.
 	
 	Starten wir umgekehrt mit einem skalierten Koordinationsspiel $K = (I, X, (f_i \circ P))$ und einem Dummy-Spiel $D = (I, X, (d_i))$, so ist $P$ ein skaliertes Potential zu $\Gamma \coloneqq (I, X, (f_i\circ P + d_i))$, denn es gilt:
 		\begin{align*}
 			(f_i\circ P + d_i)(x) - (f_i\circ P + d_i)(x \mid \hat{x}_i) &= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i) + d_i(x) - d_i(x \mid \hat{x}_i) \\
-				&= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i)
+				&= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i) \qedhere
 		\end{align*}
 \end{proof}
 

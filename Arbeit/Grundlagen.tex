@@ -107,7 +107,7 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
 \end{beob}
 
-\begin{kor}\label{kor:ExVerbPfadExNG}\todo{Sollte eine Beobachtung wirklich ein Korrolar haben?}
+\begin{kor}\label{kor:ExVerbPfadExNG}\todo{Sollte eine Beobachtung wirklich ein Korrolar haben? Auch für Beste-Antwort-Pfade formulieren?}
 	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen endlichen, maximalen Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
 \end{kor}
 
@@ -178,16 +178,47 @@ Weitere Varianten von Auslastungsspielen:\todo{Quelle?}
 \end{bem}
 
 \begin{defn}
-	Ein Auslastungsmodell/-spiel heißt \emph{Singelton-Auslastungsmodell/-spiel}, wenn jede Strategie jedes Spielers aus genau einer Ressource besteht.
-\end{defn}
-
-\begin{defn}
 	Ein Auslastungsmodell/-spiel heißt \emph{nicht-anonym}, wenn die Kosten einer Ressource nicht nur von der Zahl bzw. dem Gesamtgewicht der sie nutzenden Spieler, sondern auch von deren Identität abhängt. Die Lastfunktionen sind dann also definiert als
 		\[l_r: S \to \Pc(I): s \mapsto \Set{i \in I | r \in s_i }\]
 	und die Ressourcenkostenfunktionen sind von der Form
 		\[g_r: \Pc(I) \to \IR. \]
 \end{defn}
 
-\begin{defn}\todo{Erst Matroid und Basis definieren?}
+Spezielle Klassen von Auslastungsspielen erhalten wir, wenn die Mengen der zulässigen Teilmengen der einzelnen Spieler zusätzliche Struktur besitzen. Der einfachste Fall hierfür ist, dass jeder Spieler immer nur genau eine Ressource auf einmal wählen kann:
+
+\begin{defn}
+	Ein Auslastungsmodell/-spiel heißt \emph{Singelton-Auslastungsmodell/-spiel}, wenn jede Strategie jedes Spielers aus genau einer Ressource besteht.
+\end{defn}
+
+Eine andere Möglichkeit ist, dass die zulässigen Teilmengen eines Spielers Basen eines Matroids auf der Ressourcenmenge bilden:
+
+\begin{defn}
 	Ein ungewichtetes Auslastungsmodell/-spiel heißt \emph{Matroidmodell/-spiel}, wenn es für jeden Spieler $i \in I$ einen Matroid $M_i$ auf der Ressourcenmenge gibt, sodass $S_i$ gerade die Basen dieses Matroids sind.
 \end{defn}
+
+\begin{defn}
+	Ein Teilmengensystem $M \subseteq \PSet(R)$ auf einer endlichen Menge $R$ heißt Matroid, wenn es die folgenden drei Axiome erfüllt:\todo{[citation needed(?)] Matroid}
+	\begin{enumerate}
+		\item $\emptyset \in M$ (oder äquivalent dazu: $M \neq \emptyset$)
+		\item $M$ ist abgeschlossen unter Inklusion, d.h. $\forall S \in M, T \subseteq M: T \subseteq S \implies T \in M$.
+		\item $\forall S, T \in M: \abs{T} < \abs{S} \implies \exists r \in S \setminus T: T \cup \set{r} \in M$.
+	\end{enumerate}
+	Die Mengen in $M$ bezeichnen wir dann als \emph{unabhängige Mengen}, die bezüglich Inklusion maximalen Mengen unter diesen nennen wir \emph{Basen des Matroids}.
+\end{defn}
+
+Eine wichtige Eigenschaft, welche alle Matroide erfüllen, ist der starke Basisaustauschsatz (vgl. \cite{OptiIVSkript}[Satz 3.7]):
+
+\begin{satz}
+	Seien $M$ ein Matroid, $B_1, B_2$ zwei Basen von $M$ und $r \in B_1 \setminus B_2$ beliebig. Dann gibt es ein Element $q \in B_2 \setminus B_1$, sodass das vertauschen dieser beiden Elemente wieder zwei Basen ergibt, d.h. sowohl $B_1 \setminus \set{r} \cup \set{q}$ als auch $B_2 \setminus \set{q} \cup \set{r}$ sind ebenfalls Basen von $M$.
+\end{satz}
+
+Mittels Induktion ergibt sich daraus die Basen-Matching-Eigenschaft (vgl. \cite{OptiIVSkript}[Lemma 3.2]):
+
+\begin{kor}\label{kor:BasenMatchingEig}
+	Seien $M$ ein Matroid und $B_1, B_2$ zwei Basen von $M$. Dann gibt es eine Partitionierung der symmetrischen Differenz $B_1 \symDiff B_2 \coloneqq B_1 \setminus B_2 \cup B_2 \setminus B_1$ in eine Menge von Tupeln der Form $(q,r)$ mit $q \in B_1\setminus B_2$ und $r \in B_2 \setminus B_1$, sodass $B_1 \setminus \set{q} \cup \set{r}$ ebenfalls eine Basis von $M$ ist. Es gibt also eine Menge von Tupeln $A \subseteq (B_1 \setminus B_2) \times (B_2 \setminus B_1)$, sodass gilt:
+	\begin{itemize}
+		\item $\forall q \in B_1 \setminus B_2 \exists! r \in B_2 \setminus B_1: (q,r) \in A$
+		\item $\forall r \in B_2 \setminus B_1 \exists! q \in B_1 \setminus B_2: (q,r) \in A$
+		\item $\forall (q,r) \in A: B_1 \setminus \set{q} \cup \set{r}$ ist eine Basis von $M$
+	\end{itemize}
+\end{kor}

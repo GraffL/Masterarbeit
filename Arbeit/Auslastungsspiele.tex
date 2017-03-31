@@ -124,12 +124,11 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 
 Zusammen mit \Cref{satz:CharExGewPotinWCG} wissen wir nun \todo{...}
 
+\todo[inline]{Jedes kostengewichtete Auslastungsspiel ist gewichtet isomorph zu einem ungewichteten?! Kann später bei BA-Potential verwendet werden.}
 
 \subsection{Weitere Zusammenhänge}
 
-\todo[inline]{Direkte Konstruktion eines ungewichteten Auslastungsspiels zu gew. mit affin-linearen Kosten (wie ähnlich ist diese zu dem Beweis der Existenz eines exakten Potentials von Fotakis et al?)
-
-Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
+\todo[inline]{Direkte Konstruktion eines ungewichteten Auslastungsspiels zu gew. mit affin-linearen Kosten (wie ähnlich ist diese zu dem Beweis der Existenz eines exakten Potentials von Fotakis et al?) Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
 
 \begin{satz}
 	Sei $\Gamma(M,w)$ ein gewichtetes Auslastungsspiel, in dem alle Kostenfunktionen affin linear sind. Dann gibt es ein dazu äquivalentes (ungewichtetes) Auslastungsspiel $\Gamma(N)$. 
@@ -222,7 +221,7 @@ Da endliche Auslastungsspiele nach \Cref{satz:MondererShapley} ein exaktes und d
 Ein leichte Modifikation des Beweises hierzu in \cite{OptiIVSkript}[Satz 3.10] erlaubt sogar die folgender noch etwas stärkere Aussage:
 
 \begin{satz}\label{satz:BAPotentialFuerMatroidspiele}
-	Sei $M = (I, R, (S_i), (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{I}\cdot\abs{R}$ annehmen.\todo{Was ist mit gewichteten Matroidspielen}
+	Sei $M = (I, R, (S_i), (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{I}\cdot\abs{R}$ annehmen.\todo{Was ist mit gewichteten Matroidspielen? Zumindest Kostengewichtete könnten funktionieren?}
 \end{satz}
 
 \begin{proof}
@@ -242,7 +241,7 @@ Ein leichte Modifikation des Beweises hierzu in \cite{OptiIVSkript}[Satz 3.10] e
 \end{prop}
 
 \begin{proof}
-	Der Beweis folgt dem in \cite{OptiIVSkript}[Lemma 3.3].	Es sind sowohl $s^\ast_i$ als auch $s_i$ Basen im Matroid von Spieler $i$. Daher gibt es nach dem Basismatchingsatz\todo{Satz angeben! vgl. \cite{OptiIVSkript}[Lemma 3.2]}{} eine Partitionierung der symmetrischen Differenz in eine Menge von Tupeln der Form $(r,t)$ mit $r \in s_i\setminus s^\ast_i$ und $t \in s^\ast_i \setminus s_i$, sodass $s_i^{+t-r} \coloneqq s^\ast_i\setminus\set{t}\cup\set{r}$ ebenfalls eine Basis ist (d.h. eine zulässige Ressourcenmenge von Spieler $i$).
+	Der Beweis folgt dem in \cite{OptiIVSkript}[Lemma 3.3].	Es sind sowohl $s^\ast_i$ als auch $s_i$ Basen im Matroid von Spieler $i$. Daher gibt es der Basen-Matching-Eigenschaft (\Cref{kor:BasenMatchingEig}) zu Folge eine Partitionierung der symmetrischen Differenz $s^\ast_i \symDiff s_i$ in eine Menge von Tupeln der Form $(r,t)$ mit $r \in s_i\setminus s^\ast_i$ und $t \in s^\ast_i \setminus s_i$, sodass $s_i^{+t-r} \coloneqq s^\ast_i\setminus\set{t}\cup\set{r}$ ebenfalls eine Basis ist (d.h. eine zulässige Ressourcenmenge von Spieler $i$).
 	
 	Da nun $s^\ast_i$ eine beste Antwort auf $s$ ist, muss die Antwort $s_i^{+t-r}$ zu mindestens ebenso hohen Kosten für Spieler $i$ führen, es muss also gelten:
 		\[0 \leq c_i(s \mid s_i^{+t-r}) - c_i(s \mid s^\ast_i) = g_t(l_t(s \mid s^\ast_i)+1) - g_r(l_r(s \mid s^\ast_i))\]
