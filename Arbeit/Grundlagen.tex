@@ -78,7 +78,7 @@ Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 	\begin{itemize}
 		\item Ein endlicher Nichtverschlechterungspfad $\gamma$ ist genau dann ein schwacher Verbesserungspfad, wenn $\invPf{\gamma}$ kein Nichtverschlechterungspfad ist. 
 		
-		\item Zwei Pfade $\gamma$ und $\mu$ von $x$ nach $y$ haben genau dann die gleiche Gesamtänderung, wenn $\gamma\Pfadkomp\invPf{\mu}$ eine Gesamtänderung von $0$ hat. Es gilt also: 
+		\item Zwei Pfade $\gamma$ und $\mu$ von $x$ nach $y$ haben genau dann die gleiche Gesamtänderung, wenn $\gamma\Pfadkomp\invPf{\mu}$ eine Gesamtänderung von $0$ hat. Es gilt also für zwei solche Pfade: 
 		\[\PfadAend(\gamma) = \PfadAend(\mu) \iff \PfadAend(\gamma\Pfadkomp\invPf{\mu})=0 \]
 		
 		\item Jeder Beste-Antwort-Pfad ist automatisch ein Nichtverschlechterungspfad.
@@ -99,16 +99,16 @@ Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 	Ein Spiel $\Gamma$ hat die \emph{finite improvement property (FIP)}, wenn jeder Verbesserungspfad endlich ist.
 \end{defn}
 
-Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Finden von Nash-Gleichgewichten immer terminiert: Dazu startet man mit einem beliebigen Strategieprofil und führt, solange dieses noch kein Nash-Gleichgewicht ist, einen der dann zur Auswahl stehenden Verbesserungsschritte durch. Im Laufe dieses Verfahrens beschreitet man gerade einen Verbesserungspfad und das Verfahren terminiert genau dann immer, wenn alle Verbesserungspfade endlich sind.
+Eine anschauliche Bedeutung der FIP ist die, dass der natürliche Algorithmus zum Finden von Nash-Gleichgewichten immer terminiert: Dazu startet man mit einem beliebigen Strategieprofil und führt, solange dieses noch kein Nash-Gleichgewicht ist, einen der dann zur Auswahl stehenden Verbesserungsschritte durch. Im Laufe dieses Verfahrens beschreitet man gerade einen Verbesserungspfad und das Verfahren terminiert genau dann immer, wenn alle Verbesserungspfade endlich sind.
 
 \begin{beob}\label{beob:VerbPfadeundNGe}
 	Das Ende eines abgeschlossenen Verbesserungspfades ist immer ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
 		
-	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
+	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades (sogar Beste-Antwort-Verbesserungspfades) - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
 \end{beob}
 
-\begin{kor}\label{kor:ExVerbPfadExNG}\todo{Sollte eine Beobachtung wirklich ein Korrolar haben? Auch für Beste-Antwort-Pfade formulieren?}
-	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen endlichen, maximalen Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
+\begin{kor}\label{kor:ExVerbPfadExNG}
+	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen endlichen, maximalen (Beste-Antwort-)Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
 \end{kor}
 
 
@@ -135,7 +135,7 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 	
 	Insbesondere induzieren Auslastungsmodelle mit endlicher Ressourcen- und Spielerzahl immer ein Auslastungsspiel.
 	
-	Ist die Ressourcenmenge $R$ endlich, so ist das induzierte Auslastungsspiel ein endliches Spiel (d.h. dessen Strategieraum ist endlich). Ist umgekehrt der Strategieraum endlich, so können wir ohne Einschränkung davon ausgehen, dass auch $R$ endlich ist. Denn in diesem Fall tauchen nur endlich viele der Ressourcen in wenigstens einer Strategie wenigstens eines der Spieler auf - und alle anderen Ressourcen können für die Betrachtung des Spiels ignoriert werden.
+	Ist die Ressourcenmenge $R$ endlich, so ist das induzierte Auslastungsspiel ein endliches Spiel (d.h. dessen Strategieraum ist endlich). Ist umgekehrt der Strategieraum endlich, so können wir ohne Einschränkung davon ausgehen, dass auch $R$ endlich ist. Denn in diesem Fall tauchen nur endlich viele der Ressourcen in einer Strategie wenigstens eines der Spieler auf - und alle anderen Ressourcen können für die Betrachtung des Spiels ignoriert werden.
 \end{bem}
 
 \begin{bsp}
@@ -144,15 +144,17 @@ Eine anschauliche Bedeutung der FIP ist, dass der natürliche Algorithmus zum Fi
 	Zusätzlich ist es möglich bestimmte Kanten nur für einen Teil der Spieler zuzulassen. Dadurch wird dann der Strategieraum der anderen Spieler entsprechend eingeschränkt.
 \end{bsp}
 
+Verallgemeinerungen von Auslastungsspielen erhalten wir durch das Einführen von Spielergewichten bzw. dem Abändern der Form, in der die Kosten berechnet werden:
+
 \begin{defn}\label{def:gewAuslastungsspiel}
-	Zusammen mit einem Gewichtsvektor $(w_i)_{i\in I}$ induziert ein Auslastungsmodell $M$ 
+	Zusammen mit einem positiven Gewichtsvektor $(w_i)_{i\in I} \in \IR_{> 0}^I$ induziert ein Auslastungsmodell $M$ (wiederum unter der Voraussetzung, dass alle beteiligten Funktionen wohldefiniert sind)
 	\begin{itemize}
 		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
+		\[c_i: S \to \IR: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
 		und die gleiche Lastfunktion wie im ungewichteten Fall.
 		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
 		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion:
-		\[c_i: S \to K: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
+		\[c_i: S \to \IR: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
 		und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
 	\end{itemize}	
 \end{defn}
@@ -184,7 +186,7 @@ Weitere Varianten von Auslastungsspielen:\todo{Quelle?}
 		\[g_r: \Pc(I) \to \IR. \]
 \end{defn}
 
-Spezielle Klassen von Auslastungsspielen erhalten wir, wenn die Mengen der zulässigen Teilmengen der einzelnen Spieler zusätzliche Struktur besitzen. Der einfachste Fall hierfür ist, dass jeder Spieler immer nur genau eine Ressource auf einmal wählen kann:
+Speziellere Klassen von Auslastungsspielen erhalten wir hingegen, wenn die Mengen der zulässigen Teilmengen der einzelnen Spieler zusätzliche Struktur besitzen. Der einfachste Fall hierfür ist, dass jeder Spieler immer nur genau eine Ressource auf einmal wählen kann:
 
 \begin{defn}
 	Ein Auslastungsmodell/-spiel heißt \emph{Singelton-Auslastungsmodell/-spiel}, wenn jede Strategie jedes Spielers aus genau einer Ressource besteht.
