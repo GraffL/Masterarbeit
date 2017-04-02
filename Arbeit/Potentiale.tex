@@ -66,7 +66,7 @@ Für skalierte, gewichtete und exakte Potentiale gibt es eine noch anschaulicher
 	\includegraphics[width=.3\textwidth]{../Bilder/exaktesPotentialSp1.pdf}
 	\includegraphics[width=.3\textwidth]{../Bilder/exaktesPotentialSp2.pdf}
 	\includegraphics[width=.3\textwidth]{../Bilder/exaktesPotential.pdf}
-	\caption{Ein 2-Personenspiel mit exaktem Potential (grau): Spieler 1: rot, Spieler 2: blau}
+	\caption{Ein 2-Personenspiel mit exaktem Potential (grau): Spieler 1: rot, Spieler 2: blau \\\todo[inline]{Besseres Bild!}}
 \end{figure}
 
 Ein exaktes Potential entspricht in diesem Bild einer gemeinsamen Reliefkarte für beide Spieler, die - im Falle eines exakten Potentials - \glqq scheibenweise\grqq{} bis auf eine additive Konstante mit der eigentlichen Kostenfunktion übereinstimmt. Anders formuliert: Wird die Strategie eines Spieler festgehalten, so kann der andere Spieler seine Kostenveränderungen bei der Wahl der verschiedenen ihm zur Verfügung stehenden Strategien auch anhand der Potentialfunktion ablesen. 
@@ -243,6 +243,7 @@ Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folge
 
 \begin{satz}\label{satz:CharOrdPot}
 	Ein Spiel besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungszykel enthält und $(\XmodNV, \SVord)$ reell geordnet ist.
+		\todo{Formulierung mit \Cref{satz:CharVerallOrdPot} in Einklang bringen}
 \end{satz}
 
 \begin{proof}
@@ -278,6 +279,7 @@ Anlehnend an \Cref{satz:CharOrdPot} erhält man unter Verwendung der Relation
 eine Charakterisierung der Existenz eines verallgemeinerten ordinalen Potentials:
 \begin{satz}\label{satz:CharVerallOrdPot}
 	Ein Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn $(X, \VerbRel)$ reell geordnet ist.
+	\todo{Formulierung mit \Cref{satz:CharOrdPot} in Einklang bringen}
 \end{satz}
 
 \begin{proof}
@@ -367,8 +369,8 @@ Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeautho
 und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine transitive Ordnung
 \[[x] \BAord [y] \dIff \text{Es gibt einen schwachen Beste-Antwort-Verbesserungspfad von $y$ nach $x$}\]
 
-\begin{satz}
-	Ein Spiel besitzt genau dann ein Beste-Antwort-Potential, wenn es keine schwachen Beste-Antwort-Verbesserungszykel enthält und $(\XmodBA, \BAord)$ reell geordnet ist.
+\begin{satz}\label{satz:CharExBAPot}
+	Ein Spiel, in dem jeder Spieler zu jedem Strategieprofil wenigstens eine beste Antwort zur Verfügung hat, besitzt genau dann ein Beste-Antwort-Potential, wenn es keine schwachen Beste-Antwort-Verbesserungszykel enthält und $(\XmodBA, \BAord)$ reell geordnet ist.
 \end{satz}
 
 \begin{proof}
@@ -397,11 +399,13 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 				\item[2. Fall:] Gilt $c_i(x \mid \hat{x}_i) = c_i(x \mid x'_i)$, so sind sowohl $((x \mid x'_i), (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), (x \mid x'_i))$ Beste-Antwort-Pfade und folglich $(x \mid x'_i) \BArel (x \mid \hat{x}_i)$. Somit folgt $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) = f([(x \mid x'_i)]) = P(x \mid x'_i)$.
 			\end{description}
 			Insgesamt gilt also für alle $x'_i \in X_i$, dass $P(x \mid \hat{x}_i) \leq P(x \mid x'_i)$ und daher $\hat{x}_i \in \arg \min_{x'_i \in X_i} P(x \mid x'_i)$.
-		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x})$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gibt ein $x'_i \in X_i$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann gäbe es also einen Beste-Antwort-Pfad von $(x \mid \hat{x}_i)$ nach $(x \mid x'_i)$\todo{Ich glaube nicht, dass das so sein muss! Es würde funktionieren, wenn man voraussetzt, dass $x'_i$ nicht nur eine bessere, sondern eine beste Antwort ist. Allerdings muss eine solche ja nicht existieren...}, d.h. es wäre $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$. \dots
-		
-		\todo[inline]{Funktioniert dieser Beweis an der Stelle überhaupt? }
+		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gäbe es also eine beste Antwort $x'_i \in X_i$ auf $x$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Entsprechend wäre $((x \mid \hat{x}_i), (x \mid x'_i))$ ein (schwacher) Beste-Antwort-Verbesserungspfad und daher $[(x \mid x'_i)] \BAord [(x \mid \hat{x}_i)]$. Somit wäre nach Definition von $P$ auch $P(x \mid x'_i) = f([x \mid x'_i]) < f([x \mid \hat{x}_i]) = P(x \mid \hat{x}_i)$, im Widerspruch zu $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Also gibt es kein solches $x'_i$ und es gilt $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i)$. \qedhere
 	\end{description}
 \end{proof}
+
+In \cite{BestRespPot} wird \Cref{satz:CharExBAPot} für allgemeine Spiele (also ohne die Zusatzvoraussetzung der Existenz bester Antworten) formuliert. Es ist allerdings nicht klar wie der Beweis von $\arg \min_{x'_i \in X_i}c_i(x \mid x'_i) \supseteq \arg \min_{x'_i \in X_i} P(x \mid x'_i)$ in der Rückrichtung ohne diese Voraussetzung gelten kann. Denn wenn $x'_i$ an dieser Stelle nur eine bessere, aber nicht notwendigerweise beste Antwort sein muss, so ist $((x \mid \hat{x}_i), (x \mid x'_i))$ im Allgemeinen kein Beste-Antwort-Pfad und daher auch nicht zwangsläufig $[(x \mid x'_i)] \BAord [(x \mid \hat{x}_i)]$.
+
+Das folgende Beispiel enthält genau einen solchen Fall und ist damit zwar kein Gegenbeispiel zu dem in \cite{BestRespPot} gezeigten Satz, aber zu dem dort geführten Beweis hierzu:
 
 \begin{bsp}
 	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat zwar offenbar ein exaktes und damit erst recht Beste-Antwort-Potential, es steht aber trotzdem im Widerspruch zu obigem Beweis. Da es keinerlei Beste Antworten besitzt, ist nämlich $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
@@ -415,7 +419,7 @@ Die Existenz eines verallgemeinerten Nash-Potentials (und gleichzeitig auch der 
 \begin{beob}
 	Wie bereits in \Cref{beob:endlicheSpiele} festgestellt ist der Strategieprofilraum $X \coloneqq \prod_{i \in I}X_i$ eines Spiels genau dann endlich, wenn alle Strategiemengen $X_i$ endlich sind und nur endlich viele davon mehr als eine Strategie enthalten. Umgekehrt muss ein Spiel mit unendlich großem Strategieprofilraum mindestens eine unendlich große Strategiemenge oder aber unendlich viele Spieler mit zwei oder mehr Strategien haben.
 	
-	In beiden Fällen enthält automatisch jede Pfadzusammenhangskomponente einen Pfad unendlicher Länge ohne Wiederholungen: Entweder ein Spieler unendlich oft seine Strategie wechselt oder unendlich viele verschiedene Spieler nacheinander je einmal ihre Strategie ändern. Insbesondere sind in diesem Fall auch alle Pfadzusammenhangskomponenten unendlich groß.
+	In beiden Fällen enthält automatisch jede Pfadzusammenhangskomponente einen Pfad unendlicher Länge ohne Wiederholungen: Entweder indem ein Spieler unendlich oft seine Strategie wechselt oder unendlich viele verschiedene Spieler nacheinander je einmal ihre Strategie ändern. Insbesondere sind in diesem Fall auch alle Pfadzusammenhangskomponenten unendlich groß.
 \end{beob}
 
 Denn auf jeder Pfadzusammenhangskomponente, welche mindestens ein Nash-Gleichgewicht enthält, können wir folgendes lokale Nash-Potential und Nash-Potential definieren:
@@ -431,7 +435,37 @@ Diese Funktion besitzt keine (lokalen) Minima und erfüllt daher trivialerweise 
 
 Nicht einmal ein verallgemeinertes Nash-Potential besitzt ein Spiel hingegen dann, wenn es eine endliche Pfadzusammenhangskomponente ohne Nash-Gleichgewichte enthält\footnote{Tatsächlich besitzt ein Spiel genau dann eine (und in diesem Fall auch nur eine) endliche Pfadzusammenhangskomponente, wenn es selbst schon endlich ist. Denn um einen unendlichen Strategieprofilraum besitzen zu können, muss es mindestens einen Spieler mit unendlichem Strategieraum oder unendlich viele Spieler mit mehr als einer Strategie geben. Beides führt automatisch dazu, dass alle Pfadzusammenhangskomponenten unendlich groß sind.}. Denn gäbe es ein solches, so würde es auch ein (globales) Minimum annehmen und dieses müsste folglich einem Nash-Gleichgewicht in der Zusammenhangskomponente entsprechen. Insgesamt erhalten wir damit die folgende Charakterisierung:
 
-\begin{satz}\label{kor:CharExNashPot}
+\begin{satz}\label{satz:CharExNashPot}
 	Ein Spiel besitzt genau dann ein Nash-Potential/verallgemeinertes/lokales Nash-Potential, wenn alle endlichen Pfadzusammenhangskomponenten mindestens ein Nash-Gleichgewicht besitzen.
 \end{satz}
 
+
+\subsubsection{Zusammenfassung}
+
+Eine Zusammenfassung aller in diesem Abschnitt beschriebenen Charakterisierungen findet sich in \Cref{tab:PotCharakterisierung}H
+
+\begin{sidewaystable}\centering\renewcommand*{\arraystretch}{1.2}
+	\begin{tabularx}{\textwidth}{ccXr}
+		\multicolumn{4}{l}{Ein Spiel $\Gamma$ hat ein\dots} \\\hline\hline
+		exaktes Potential 				& $\iff$	& f.a. 4-Zykel $\gamma$ ist $\PfadAend(\gamma)=0$	
+		& (\Cref{satz:CharExPot}) 	\\
+										& $\iff$	& die Kostenfunktionen von $\Gamma$ lassen sich als Summe der Kostenfunktionen eines Dummyspiels und eines
+		Koordinationsspiels darstellen.
+		& (\Cref{satz:CharExPotAlt})\\\hline
+		gewichtetes Potential			& $\iff$	& es gibt einen positiven Gewichtsvektor $w$ sodass f.a. 4-Zykel $\gamma$ gilt $\PfadAend_w(\gamma)=0$	
+		& (\Cref{satz:CharGewPot})	\\\hline
+		skaliertes Potential			& $\iff$	& die Kostenfunktionen von $\Gamma$ lassen sich als Summe der Kostenfunktionen eines Dummyspiels und eines skalierten Koordinationsspiels darstellen.
+		& (\Cref{satz:CharSkalPot})	\\\hline
+		ordinales Potential				& $\iff$	& $\Gamma$ enthält keine schwachen Verbesserungszykel und $(\XmodNV, \SVord)$ ist reell geordnet
+		& (\Cref{satz:CharOrdPot})	\\\hline
+		verallg. ord. Potential			& $\iff$	& $(X, \VerbRel)$ ist reell geordnet
+		& (\Cref{satz:CharVerallOrdPot})\\\hline
+		Beste-Antwort-Potential			& $\impliedby$	& es existieren immer beste Antworten, $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel und $(\XmodBA, \BAord)$ ist reell geordnet
+		& (\Cref{satz:CharExBAPot})	\\
+										& $\implies$	& $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel und $(\XmodBA, \BAord)$ ist reell geordnet
+		& (\Cref{satz:CharExBAPot})		\\\hline
+		(lok/verallg.) Nash-Potential	& $\iff$	& jede endliche Pfadzusammenhangskomponente besitzt mindestens ein Nash-Gleichgewicht
+		& (\Cref{satz:CharExNashPot})
+	\end{tabularx}	
+	\caption{Übersicht der Charakterisierungen von Potentialen\\\todo[inline]{Tabelle korrigieren, erweitern, erklären...}}\label{tab:PotCharakterisierung}
+\end{sidewaystable}
