@@ -237,7 +237,7 @@ Wir definieren nun eine Äquivalenzrelation auf dem Strategieraum:\todo{evtl. sc
 	\[x \NVrel y \dIff \text{ es gibt einen nicht-Verschlechterungspfad von $x$ nach $y$ und umgekehrt}\]
 Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodNV \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine transitive Ordnung
 	\[[x] \SVord [y] \dIff \text{Es gibt einen schwachen Verbesserungspfad von $y$ nach $x$}\]
-Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich aus der \todo{Silbentrennung?} Beobachtung, dass die Verknüpfung eines nicht-Verschlechterungspfades mit einem schwachen Verbesserungspfad wieder einen schwachen Verbesserungspfad ergibt.
+Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich aus der Beobachtung, dass die Verknüpfung eines nicht-Verschlechterungspfades mit einem schwachen Verbesserungspfad wieder einen schwachen Verbesserungspfad ergibt.
 
 Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgende Charakterisierung der Existenz von ordinalen Potentialen:
 
@@ -410,20 +410,26 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 
 \subsubsection{Nash-Potentiale}
 
-\todo{Einleitungssatz überarbeiten!}Die Existenz eines verallgemeinerten Nash-Potentials schließlich lässt sich für endliche Spiele trivialerweise dadurch charakterisieren, dass das entsprechende Spiel ein Nash-Gleichgewicht besitzt. Hat nämlich ein Spiel $\Gamma$ mindestens ein Nash-Gleichgewicht, so ist die Funktion
+Die Existenz eines verallgemeinerten Nash-Potentials (und gleichzeitig auch der anderen beiden Nash-Potentiale) schließlich lässt sich für endliche Spiele trivialerweise dadurch charakterisieren, dass das entsprechende Spiel ein Nash-Gleichgewicht besitzt. Und unendliche Spiele besitzen immer alle NashPotentiale.
 
-Auf jeder Pfadzusammenhangskomponente, welche mindestens ein Nash-Gleichgewicht enthält, können wir folgendes lokale Nash-Potential und Nash-Potential definieren:
+\begin{beob}
+	Wie bereits in \Cref{beob:endlicheSpiele} festgestellt ist der Strategieprofilraum $X \coloneqq \prod_{i \in I}X_i$ eines Spiels genau dann endlich, wenn alle Strategiemengen $X_i$ endlich sind und nur endlich viele davon mehr als eine Strategie enthalten. Umgekehrt muss ein Spiel mit unendlich großem Strategieprofilraum mindestens eine unendlich große Strategiemenge oder aber unendlich viele Spieler mit zwei oder mehr Strategien haben.
+	
+	In beiden Fällen enthält automatisch jede Pfadzusammenhangskomponente einen Pfad unendlicher Länge ohne Wiederholungen: Entweder ein Spieler unendlich oft seine Strategie wechselt oder unendlich viele verschiedene Spieler nacheinander je einmal ihre Strategie ändern. Insbesondere sind in diesem Fall auch alle Pfadzusammenhangskomponenten unendlich groß.
+\end{beob}
+
+Denn auf jeder Pfadzusammenhangskomponente, welche mindestens ein Nash-Gleichgewicht enthält, können wir folgendes lokale Nash-Potential und Nash-Potential definieren:
 	\[P: X \to \IR: x \mapsto \min\Set{\abs{\gamma} | \gamma \text{ (endlicher) Pfad von } x \text{ zu einem Nash-Gleichgewicht}} \]
 Denn die Nash-Gleichgewichte sind nun genau die Strategieprofile mit $P(x) = 0$ und für alle anderen Strategieprofile fällt das Potential entlang jedes kürzesten Pfades zum nächsten Nash-Gleichgewicht in jedem Schritt strikt ab (befindet sich als nicht in einem (lokalen) Minimum).
 
-Für unendliche Pfadzusammenhangskomponenten \emph{ohne} Nash-Gleichgewicht können wir ferner wie folgt ein lokales Nash-Potential und Nash-Pontial finden. Wir wählen einen festen, unendlichen Pfad $\hat{\gamma} = (x^0, x^1, \dots)$ in dieser Zusammenhangskomponente, welcher kein Strategieprofil mehrfach enthält\todo{Warum gibt es einen solchen unendlichen Pfad?}. Dann definieren wir:
+Für unendliche Pfadzusammenhangskomponenten \emph{ohne} Nash-Gleichgewicht können wir ferner wie folgt ein lokales Nash-Potential und Nash-Potential finden. Wir wählen einen festen, unendlichen Pfad $\hat{\gamma} = (x^0, x^1, \dots)$ in dieser Zusammenhangskomponente, welcher kein Strategieprofil mehrfach enthält. Dann definieren wir:
 	\[P: X \to \IR: x \mapsto \begin{cases}
 		1/k, \hspace{12.5em} x = x^{k-1} \text{ auf dem Pfad } \hat{\gamma} \\
 		\min\Set{\abs{\gamma} | \gamma \text{ Pfad von $x$ zu einem Profil auf $\hat{\gamma}$}}, \qquad\text{sonst}
 	\end{cases}\]
 Diese Funktion besitzt keine (lokalen) Minima und erfüllt daher trivialerweise alle Bedingungen an die verschiedenen Nash-Potentiale.
 
-Nicht einmal ein verallgemeinertes Nash-Potential kann es hingegen geben, wenn es eine endliche Pfadzusammenhangskomponente ohne Nash-Gleichgewichte gibt\todo{Kann das überhaupt passieren, wenn der gesamte Strategieraum unendlich ist? Vermutlich nicht.} Denn gäbe es ein solches, so würde es auch ein (globales) Minimum annehmen und dieses müsste folglich einem Nash-Gleichgewicht in der Zusammenhangskomponente entsprechen. Insgesamt erhalten wir damit die folgende Charakterisierung:
+Nicht einmal ein verallgemeinertes Nash-Potential besitzt ein Spiel hingegen dann, wenn es eine endliche Pfadzusammenhangskomponente ohne Nash-Gleichgewichte enthält\footnote{Tatsächlich besitzt ein Spiel genau dann eine (und in diesem Fall auch nur eine) endliche Pfadzusammenhangskomponente, wenn es selbst schon endlich ist. Denn um einen unendlichen Strategieprofilraum besitzen zu können, muss es mindestens einen Spieler mit unendlichem Strategieraum oder unendlich viele Spieler mit mehr als einer Strategie geben. Beides führt automatisch dazu, dass alle Pfadzusammenhangskomponenten unendlich groß sind.}. Denn gäbe es ein solches, so würde es auch ein (globales) Minimum annehmen und dieses müsste folglich einem Nash-Gleichgewicht in der Zusammenhangskomponente entsprechen. Insgesamt erhalten wir damit die folgende Charakterisierung:
 
 \begin{satz}\label{kor:CharExNashPot}
 	Ein Spiel besitzt genau dann ein Nash-Potential/verallgemeinertes/lokales Nash-Potential, wenn alle endlichen Pfadzusammenhangskomponenten mindestens ein Nash-Gleichgewicht besitzen.

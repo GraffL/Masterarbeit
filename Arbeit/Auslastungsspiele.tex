@@ -2,7 +2,7 @@
 
 \todo[inline]{Welche Endlichkeitsvoraussetzungen benötigt man hier jeweils?}
 
-In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungsspiele als Klasse von endlichen Spielen ein, welche immer ein exaktes Potential (und damit ein Nash-Gleichgewicht) besitzen. Später zeigten \citeauthor{MonShap} in \cite[Theorem 3.2]{MonShap}, dass diese Klasse bis auf (kostenerhaltende) Isomorphie bereits \emph{alle} endlichen Spiele mit exaktem Potential umfasst. Zusammengefasst und etwas verallgemeinert gilt also:
+\todo{Mit Einleitung von Kapitel 1.3 vergleichen.}In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungsspiele als Klasse von endlichen Spielen ein, welche immer ein exaktes Potential (und damit ein Nash-Gleichgewicht) besitzen. Später zeigten \citeauthor{MonShap} in \cite[Theorem 3.2]{MonShap}, dass diese Klasse bis auf (kostenerhaltende) Isomorphie bereits \emph{alle} endlichen Spiele mit exaktem Potential umfasst. Zusammengefasst und etwas verallgemeinert gilt also:
 
 \begin{satz}\label{satz:MondererShapley}
 	Jedes $N$-Personen-Auslastungsspiel besitzt ein exaktes Potential und jedes exakte $N$-Personen-Potentialspiel ist äquivalent zu einem Auslastungsspiel.
@@ -77,11 +77,12 @@ Die Menge der gewichteten Auslastungsspiele umfasst also (bis auf kostenerhalten
 Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Auslastungsspiele. \citeauthor{CharExGewPotinWCG} beobachten in \cite{CharExGewPotinWCG}, dass lastgewichtete Auslastungsspiele (die dort als normalisierte Auslastungsspiele bezeichnet werden) zwar nicht äquivalent, aber doch unter verschiedenen Aspekten sehr ähnlich zu allgemeinen gewichteten Auslastungsspielen sind. Dieser Zusammenhang lässt sich nun leicht durch einen passenden Isomorphiebegriff formalisieren - es gilt nämlich:
 
 \begin{lemma}
-	Jedes lastgewichtete Auslastungsspiel ist gewichtet isomorph zu einem gewichteten Auslastungsspiel und umgekehrt. Die beiden Spiele basieren dabei jeweils auf dem gleichen Auslastungsmodell.
+	Jedes lastgewichtete Auslastungsspiel ist gewichtet isomorph zu einem gewichteten Auslastungsspiel und umgekehrt. Die beiden Spiele basieren dabei jeweils auf dem gleichen Auslastungsmodell und der Gewichtsvektor des Morphismus von gewichteten zum lastgewichteten Auslastungsspiel ist der Gewichtsvektor des Auslastungsmodells.
 \end{lemma}
 
 \begin{proof}
-	Sei $M = (I, R, (S_i), (G_r)$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann ist $(\id, \id): \Gamma(M, w) \to \Gamma_l(M,w)$ ein gewichteter Isomorphismus.
+	Sei $M = (I, R, (S_i), (G_r))$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann ist $(\id, \id): \Gamma(M, w) \to \Gamma_l(M,w)$ offenbar ein Isomorphismus und ferner gewichtet, denn sind $c_i$ die Kostenfunktionen von $\Gamma(M, w)$ und $d_i$ die von $\Gamma_l(M,w)$, so gilt sogar für jedes Strategieprofil $s$:
+		\[c_i(s) = \sum_{r \in R} w_i\cdot g_r(l_r(s)) = w_i \cdot \sum_{r \in R} g_r(l_r(s)) = w_i \cdot d_i(s) \qedhere\]
 \end{proof}
 
 Hieraus ergeben sich dann direkt die in \cite{CharExGewPotinWCG} beobachteten Zusammenhänge zwischen gewichteten und lastgewichteten Auslastungsspielen:
