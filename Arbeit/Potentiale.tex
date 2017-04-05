@@ -29,7 +29,6 @@ Zunächst definieren wir eine Auswahl verschiedener Typen von Potentialfunktione
 			\[c_i(x) - c_i(x \mid \hat{x}_i) = w_i\cdot(P(x) - P(x \mid \hat{x}_i))\]
 		\item \emph{exaktes Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) - c_i(x \mid \hat{x}_i) = P(x) - P(x \mid \hat{x}_i)\]
-		\item \todo[inline]{Potentiale aus \cite{BestRespEq}?}
 	\end{itemize}
 \end{defn}
 
@@ -39,10 +38,6 @@ Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden ers
 	\includegraphics[width=.4\textwidth]{../Bilder/EulerDiagPotentiale.pdf}
 	\caption{Beziehungen zwischen den einzelnen Potentialbegriffen}\label{diag:Potentiale}
 \end{figure}
-
-\todo[inline]{Darauf hinweisen, dass sich die Zusammenhänge auch leicht direkt zeigen ließen, wir sie aber in Kapitel 3 zeigen werden.}
-
-\todo[inline]{Wann ist ein ordinales Potentialspiel bereits ein skaliertes? Zumindest für endliche Spiele sollte das stimmen?}
 
 \begin{bsp}
 	Jedes Koordinationsspiel besitzt ein exaktes Potential (nämlich die gemeinsame Kostenfunktion). Ebenso besitzt jedes Dummyspiel ein exaktes Potential (nämlich die konstante $0$-Funktion).
@@ -82,10 +77,7 @@ Wir wollen hier noch einige Eigenschaften der verschiedenen Potentiale zusammenf
 	Es gelten die in \Cref{diag:Potentiale} dargestellten Zusammenhänge zwischen den verschiedenen Potentialen.
 \end{satz}
 
-\begin{proof}.
-	
-	\todo[inline]{Evtl. die einfachen direkt hier, zumindest die schwierigeren aber erst in Kapitel 3 - hier aber darauf verweisen!}
-\end{proof}
+Die Zusammenhänge lassen sich alle leicht direkt beweisen. Wir werden diese Beweise hier allerdings nicht führen, da sich die Aussagen auch aus den allgemeineren Sätzen über die entsprechenden Morphismen ergeben werden, die wir in \Cref{sec:Morphismen} definieren werden. (Die Beweise finden sich dann in \Cref{sec:Morphismen:Potentialsaetze}). In \cite[Beispiele 4.1, 4.2 und 4.3]{BestRespPot} liefert \citeauthor{BestRespPot} auch Beispiele für die Echtheit der Inklusionsbeziehungen zwischen allen dort definierten Potentiale.\todo{Beispiele für die Echtheit der Inklusion der anderen Beziehungen angeben?}
 
 \begin{beob}\label{beob:lokMinNG}
 	Ist $\Gamma$ ein Spiel mit einem lokalen Nash-Potential $P$. Dann ist jedes lokale Minimum von $P$ ein Nash-Gleichgewicht von $\Gamma$ und umgekehrt.
@@ -103,15 +95,13 @@ Insbesondere also haben endliche Potentialspiele immer ein Nashgleichgewicht.
 	Sei $\Gamma$ ein Spiel mit einem verallgemeinerten ordinalen Potential $P$. Dann ist jeder Verbesserungspfad in $\Gamma$ auch ein Verbesserungspfad bezüglich $P$. Ist $P$ sogar ein ordinales Potential, so gilt auch die umgekehrte Richtung.
 \end{satz}
 
-Zusammen mit \Cref{kor:ExVerbPfadExNG} werden wir hieraus später folgern, dass ordinale Potentiale lokale Nash-Potentiale sind. Ferner ergibt sich daraus, dass ein lokales Minimum eines verallgemeinerten ordinalen Potentials ein Nash-Gleichgewicht des eigentlichen Spiels ist. Die Umkehrung gilt in diesem Fall aber nicht mehr notwendigerweise.\todo{Beispiel?}
-
 Analog zu diesem Satz gilt für Beste-Antwort-Pfade und Beste-Antwort-Potentiale:
 
-\begin{satz}\label{prop:BAPotBAPad}
+\begin{satz}\label{prop:BAPotBAPfad}
 	Sei $\Gamma$ ein Spiel mit einem Beste-Antwort-Potential $P$. Dann ist jeder Beste-Antwort-(Verbesserungs-)Pfad in $\Gamma$ auch ein Beste-Antwort-(Verbesserungs-)Pfad bezüglich $P$ und umgekehrt.
 \end{satz}
 
-Und auch hieraus erhalten wir mit \Cref{kor:ExVerbPfadExNG}, dass Beste-Antwort-Potentiale lokale Nash-Potentiale sind. \Cref{tab:PotErhalten} fasst einige der von Potentialen erhaltenen Eigenschaften zusammen.
+\Cref{tab:PotErhalten} fasst einige der von Potentialen erhaltenen Eigenschaften zusammen.
 
 \begin{table}[h]\centering
 	\begin{tabular}{l|ccccc}
@@ -130,7 +120,7 @@ Und auch hieraus erhalten wir mit \Cref{kor:ExVerbPfadExNG}, dass Beste-Antwort-
 Für Spiele mit unendlicher Spielermenge wird sich im folgenden Abschnitt die Beobachtung als hilfreich erweisen, dass wir die meisten Potentiale pfadzusammenhangskomponentenweise definieren können:
 
 \begin{beob}\label{beob:KompWeisePotentiale}
-	Sei $\Gamma$ ein beliebiges Spiel und $P: X \to \IR$ eine Funktion. Erfüllt $P$ dann die Bedingung eines exakten/gewichteten/skalierten/ordinalen/verallgemeinerten ordinalen/Beste Antwort/lokalen Nash-Potentials für jede (maximale) Pfadzusammenhangskomponente, so ist $P$ ein entsprechendes Potential für ganz $\Gamma$.
+	Sei $\Gamma$ ein beliebiges Spiel und $P: X \to \IR$ eine Funktion. Erfüllt $P$ dann die Bedingung eines exakten/gewichteten/skalierten/ordinalen/verallgemeinerten ordinalen/Beste-Antwort/lokalen Nash-Potentials für jede (maximale) Pfadzusammenhangskomponente, so ist $P$ ein entsprechendes Potential für ganz $\Gamma$.
 \end{beob}
 
 \begin{proof}
@@ -200,7 +190,7 @@ Eine alternative Charakterisierung für die Existenz eines exakten Potentials ze
 Diese Charakterisierung folgt direkt aus der folgenden Beobachtung aus \cite[Kapitel 3.2]{CharExGewPotinWCG}
 
 \begin{beob}\label{beob:ZshExGewPot}
-	Zu einem Spiel $\Gamma = (I, X, (c_i))$ ist eine Funktion $P: X \to \IR$ genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)$, wenn $P$ ein exaktes Potential zum Spiel $\Gamma_w \coloneqq (I, X, (c_i/w_i))$ ist.
+	Zu einem Spiel $\Gamma = (I, X, (c_i))$ ist eine Funktion $P: X \to \IR$ genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)$, wenn $P$ ein exaktes Potential zum Spiel $\Gamma_{1/w} \coloneqq (I, X, (c_i/w_i))$ ist.
 \end{beob}
 
 \begin{proof}
@@ -320,7 +310,7 @@ Ein Beweis dazu findet sich in \cite[Lemma 2.2]{CharExOrdPot}. Noch allgemeiner 
 
 Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die größere Klasse der Spiele mit abzählbar großen Pfadzusammenhangskomponenten. Insbesondere gilt damit:
 
-\begin{kor}
+\begin{kor}\label{kor:CharExVerOrdPotabzIundXi}
 	Ein Spiel mit abzählbar vielen Spielern und abzählbar großen spielerspezifischen Strategieräumen besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungskreise enthält.
 \end{kor}
 
@@ -341,7 +331,7 @@ Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die
 
 Beschränkt man sich hingegen auf die kleinere Klasse von endlichen Spielen, so erhält man die (auf anderem Wege) erstmals von \citeauthor{MonShap} in \cite[Lemma 2.5]{MonShap} gezeigte Charakterisierung der Existenz von verallgemeinerten ordinalen Potentialen:
 
-\begin{kor}
+\begin{kor}\label{kor:CharExVerOrdFIP}
 	Ein endliches Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es die FIP besitzt.
 \end{kor}
 
@@ -444,7 +434,7 @@ Nicht einmal ein verallgemeinertes Nash-Potential besitzt ein Spiel hingegen dan
 
 Eine Zusammenfassung aller in diesem Abschnitt beschriebenen Charakterisierungen findet sich in \Cref{tab:PotCharakterisierung}
 
-\begin{sidewaystable}\centering\renewcommand*{\arraystretch}{1.2}
+\begin{sidewaystable}\centering\renewcommand*{\arraystretch}{1.2}\Crefname{beob}{Beob.}{Beob.}\Crefname{kor}{Kor.}{Kor.}
 	\begin{tabularx}{\textwidth}{ccXr}
 		\multicolumn{4}{l}{Ein Spiel $\Gamma$ hat ein\dots} \\\hline\hline
 		exaktes Potential 				& $\iff$	& f.a. 4-Zykel $\gamma$ ist $\PfadAend(\gamma)=0$	
@@ -452,14 +442,20 @@ Eine Zusammenfassung aller in diesem Abschnitt beschriebenen Charakterisierungen
 										& $\iff$	& die Kostenfunktionen von $\Gamma$ lassen sich als Summe der Kostenfunktionen eines Dummyspiels und eines
 		Koordinationsspiels darstellen.
 		& (\Cref{satz:CharExPotAlt})\\\hline
-		gewichtetes Potential			& $\iff$	& es gibt einen positiven Gewichtsvektor $w$ sodass f.a. 4-Zykel $\gamma$ gilt $\PfadAend_w(\gamma)=0$	
-		& (\Cref{satz:CharGewPot})	\\\hline
+		gewichtetes Potential			& $\iff$	& es gibt einen positiven Gewichtsvektor $w$, sodass f.a. 4-Zykel $\gamma$ gilt $\PfadAend_w(\gamma)=0$	
+		& (\Cref{satz:CharGewPot})	\\
+										& $\iff$	& es gibt einen positiven Gewichtsvektor $w$, sodass $\Gamma_{1/w}$ ein exaktes Potential besitzt.	
+		& (\Cref{beob:ZshExGewPot})	\\\hline
 		skaliertes Potential			& $\iff$	& die Kostenfunktionen von $\Gamma$ lassen sich als Summe der Kostenfunktionen eines Dummyspiels und eines skalierten Koordinationsspiels darstellen.
 		& (\Cref{satz:CharSkalPot})	\\\hline
 		ordinales Potential				& $\iff$	& $\Gamma$ enthält keine schwachen Verbesserungszykel und $(\XmodNV, \SVord)$ ist reell geordnet
 		& (\Cref{satz:CharOrdPot})	\\\hline
 		verallg. ord. Potential			& $\iff$	& $(X, \VerbRel)$ ist reell geordnet
-		& (\Cref{satz:CharVerallOrdPot})\\\hline
+		& (\Cref{satz:CharVerallOrdPot})\\
+		-f. $I$ und $X_i$ abzählbar:	& $\iff$	& $\Gamma$ enthält keine Verbesserungszykel
+		& (\Cref{kor:CharExVerOrdPotabzIundXi})\\
+		-f. $\Gamma$ endlich:			& $\iff$	& $\Gamma$ hat FIP
+		& (\Cref{kor:CharExVerOrdFIP})\\\hline
 		Beste-Antwort-Potential			& $\impliedby$	& es existieren immer beste Antworten, $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel und $(\XmodBA, \BAord)$ ist reell geordnet
 		& (\Cref{satz:CharExBAPot})	\\
 										& $\implies$	& $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel und $(\XmodBA, \BAord)$ ist reell geordnet

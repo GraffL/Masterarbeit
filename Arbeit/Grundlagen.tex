@@ -28,14 +28,16 @@
 	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
 \end{defn}
 
-In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele definiert. Analog dazu definieren wir hier zusätzlich skalierte Koordinationsspiele:
+In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele definiert. Daran anlehnend definieren wir hier zusätzlich skalierte Koordinationsspiele und Dummy-Spieler:
 \begin{defn}
 	Ein Spiel $\Gamma = (I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$ heißt
 	\begin{itemize}
 		\item \emph{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_j$ für alle Spieler $i,j \in I$.
 		\item \emph{skaliertes Koordinationsspiel}, wenn jeder Spieler eine streng monoton skalierte Variante einer gemeinsamen Kostenfunktion verwendet, d.h. wenn es eine Funktion $c: X \to \IR$ und streng monotone Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $c_i = f_i \circ c$ gilt.
-		\item \emph{Dummyspiel}, wenn die alleinige Abweichung eines einzelnen Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X, i \in I$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$.
 	\end{itemize}
+	Ein Spieler $i \in I$ heißt \emph{Dummy-Spieler}, wenn die alleinige Abweichung dieses Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X, i \in I$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$.
+	
+	Das ganze Spiel $\Gamma$ heißt \emph{Dummy-Spiel}, wenn alle Spieler des Spiels Dummy-Spieler sind.
 \end{defn}
 
 \begin{beob}
@@ -49,7 +51,7 @@ In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele defi
 
 Aus \cite{MonShap}/\cite{BestRespPot}\todo{Motivation/Anschauung}
 
-\begin{defn}
+\begin{defn}\todo{Schritt/Verbesserungsschritt/... definieren?}
 	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn jeder Schritt aus der Abweichung eines einzelnen Spielers besteht. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k}$ aus $x^{k-1}$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k} = \left(x^{k-1} \middle| x^{k}_{i(k)}\right)$.
 	
 	Ein solcher Pfad heißt
@@ -111,6 +113,10 @@ Eine anschauliche Bedeutung der FIP ist die, dass der natürliche Algorithmus zu
 	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen endlichen, maximalen (Beste-Antwort-)Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
 \end{kor}
 
+\begin{beob}\label{beob:BASchritteNG}
+	Eine Strategieprofil $x \in X$ ist genau dann ein Nash-Gleichgewicht, wenn $(x,x)$ für jeden Spieler ein Beste-Antwort-Schritt ist.\todo{Genauer ausführen/beweisen?}
+\end{beob}
+
 
 \subsection{Auslastungsspiele}
 
@@ -160,11 +166,6 @@ Verallgemeinerungen von Auslastungsspielen erhalten wir durch das Einführen von
 		und die Lastfunktion $l_r: S \to \IN: s \mapsto \sum\{w_i \mid r \in s_i\}$.
 	\end{itemize}	
 \end{defn}
-
-\begin{bsp}.
-	
-	\todo[inline]{gewichtetes Netzwerkauslastungsspiel}
-\end{bsp}
 
 Weitere Varianten von Auslastungsspielen:\todo{Quelle?}
 

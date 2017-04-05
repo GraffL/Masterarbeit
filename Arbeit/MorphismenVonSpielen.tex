@@ -79,11 +79,6 @@ Dieses Beispiel formalisiert die Intuition, dass in einem Koordinationsspiel all
 	\todo[inline]{Kann man auch Dummy-Spiele auf derartige Weise beschreiben?}
 \end{bsp}
 
-\begin{bsp}
-	Gegeben zwei Spiele $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y, (d_j)_{j\in J})$, so können wir daraus ein neues Spiel konstruieren: Das Produkt bezüglich kostenerhaltenden Morphismen: $\Gamma \times \Delta \coloneqq (K \coloneqq I \dot{\cup} J, X\times Y, (e_k)_{k \in K})$. Dabei ist $e_k(x,y) \coloneqq c_k(x)$ für $k \in K$ und analog für $k \in J$. \todo{Gibt es irgendeine anschauliche Konstruktion von Spielen, die sich als Produkt beschreiben lässt? Falls nicht, eher weglassen.}
-\end{bsp}
-
-
 In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträglichkeitsbedingung:
 
 \begin{defn}
@@ -187,7 +182,7 @@ Wir schränken nun also die Verträglichkeitsbedingung auf Nachbarschaften ein u
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x \in X$ gilt:
-		\[\phi(\arg \min_{x_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x \mid x_{\sigma(j)})) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi(x) \mid y_j)\]
+		\[\phi_j(\arg \min_{x'_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x' \mid x_{\sigma(j)})) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi(x) \mid y_j)\]
 	\end{itemize}	
 \end{defn}
 
@@ -269,9 +264,9 @@ Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationss
 \end{proof}
 
 
-\subsection{Beweise der Potentialsätze}
+\subsection{Beweise der Potentialsätze}\label{sec:Morphismen:Potentialsaetze}
 
-Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Isomorphismen) eng mit den entsprechenden Potentialen zusammen. In diesem Kapitel werden wir dies ausnutzen um mit Hilfe entsprechender Eigenschaften der Morphismen einige Sätze aus \Cref{sec:Potentiale} zu zeigen.
+Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Isomorphismen) eng mit den entsprechenden Potentialen zusammen. In diesem Kapitel werden wir dies ausnutzen um mit Hilfe entsprechender Eigenschaften der Morphismen die Aussagen aus \Cref{sec:Potentiale} zu zeigen (insbesondere \Cref{satz:ZusammenaengePotentiale}).
 
 \begin{prop}
 	Es gelten folgende Beziehungen zwischen den verschiedenen Morphismenbegriffen:
@@ -313,7 +308,7 @@ Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Iso
 		\draw[-implies, double equal sign distance] (ord) -- (BA);
 		\end{tikzpicture}
 	\end{center}
-\end{prop}\todo{Wie sieht es mit Isomorphismen aus? Speziell auf Zusammenhang von skaliert und monoton eingehen!}
+\end{prop}
 
 \begin{proof}
 	Die meisten der Folgerungen ergeben sich direkt aus den Definitionen. Für die Morphismen ist:
@@ -341,7 +336,7 @@ Wie wir bereits in \Cref{beob:VerbPfadeundNGe} gesehen haben, hängen Nash-Gleic
 	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit surjektiver Spielerabbildung $\sigma$ und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\phi(\gamma)$ ein Nicht-Verschlechterungspfad, so auch $\gamma$. Ist $\gamma$ sogar ein Verbesserungspfad, so auch $\phi(\gamma)$.
 \end{prop}
 
-Ordinale Morphismen mit surjektiver Spielerabbildung erhalten also Verbesserungspfade und reflektieren Nicht-Verschlechterungspfade.
+Ordinale Morphismen mit surjektiver Spielerabbildung erhalten also Verbesserungspfade und reflektieren Nicht-Verschlechterungspfade. Daraus folgt insbesondere \Cref{prop:ordPotVerbpfad}.
 
 \begin{proof}
 	Sei zunächst $\phi(\gamma)$ ein Nicht-Verschlechterungspfad. Angenommen $\gamma$ wäre kein Nicht-Verschlechterungspfad, dann gäbe es also ein $k$, sodass sich der im $k$-ten Schritt abweichende Spieler echt verschlechtert, d.h. $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$. Da $\sigma: J \to I$ surjektiv ist, gibt es nun einen Spieler $j \in J$ mit $\sigma(j) = i(k)$ und wegen der Ordinalität von $\phi$ gilt für diesen, dass er sich im $k$-ten Schritt von $\phi(\gamma)$ echt verschlechtert, d.h. $d_j(\phi(x^k)) > d_j(\phi(x^{k-1}))$. 
@@ -385,18 +380,54 @@ Aus diesem Korollar folgt insbesondere, dass Nash-Gleichgewichte in von einem ve
 	Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{kor:ReflektNG}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
 \end{bsp}
 
-Dies zeigt also nochmal, dass ordinale Potentiale lokale Nash-Potentiale sind.
+Dies zeigt also nochmal, dass ordinale Potentiale lokale Nash-Potentiale sind. Es verbleibt die entsprechende Aussage für Beste-Antwort-Potentiale. Dazu betrachten stellen wir zunächst fest, dass Beste-Antwort-Morphismen mit bijektiver Spielerabbildung Beste-Antwort-Schritte (und damit auch -Pfade und Nash-Gleichgewichte) erhalten.
 
-\todo[inline]{Jetzt noch für Beste-Antwort-Potentiale}
+\begin{prop}\label{prop:BAMorphErhBASchritte}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein Beste-Antwort-Morphismus mit bijektiver Spielerabbildung $\sigma$ und $(x^0, x^1)$ ein Beste-Antwort-Schritt von Spieler $\sigma(i)$ in $\Gamma$, so auch $\phi((x^0, x^1))$ von Spieler $i$ in $\Delta$.
+\end{prop}
+
+\begin{proof}
+	Da $\sigma$ bijektiv ist, können wir ohne Einschränkung annehmen, dass $\sigma$ die Identität ist. Ferner wissen wir damit, dass aus $x^1 = (x^0 \mid x^1_i)$ auch $\phi(x^1) = \phi((x^0 \mid x^1_i)) = (\phi((x^0) \mid \phi_i(x^1_i)$ folgt. Da dieser Schritt sogar ein Bester-Antwort-Schritt ist, gilt $x^1_i \in \arg\max_{x_i \in X_i} c_i(x^0 \mid x_i)$ und daher mit der definierenden Eigenschaft von Beste-Antwort-Morphismen auch $\phi_i(x^1_i) \in \arg\max_{y_i \in Y_i} d_i(\phi(x^0) \mid y_i)$. Also ist $\phi((x^0, x^1))$ ebenfalls ein Beste-Antwort-Schritt (von Spieler $i$).
+\end{proof}
+
+\begin{kor}
+	Beste-Antwort-Morphismus mit bijektiver Spielerabbildung bewahren Besten-Antwort-Pfade und Nash-Gleichgewichte.
+\end{kor}
+
+\begin{proof}
+	Der erste Teil der Aussage ergibt sich direkt aus der vorangegangenen \Cref{prop:BAMorphErhBASchritte}. Sei also $x$ ein Nash-Gleichgewicht von $\Gamma$, dann ist $(x,x)$ ein Beste-Antwort-Schritt für alle Spieler $i \in I$. Damit ist $(\phi(x), \phi(x))$ ebenfalls ein Beste-Antwort-Schritt für jeden Spieler und daher insbesondere ein Nash-Gleichgewicht (vgl. \Cref{beob:BASchritteNG}).
+\end{proof}
+
+Beste-Antwort-isomorphe Spiele haben damit sogar die gleichen Nash-Gleichgewichte, womit Beste-Antwort-Potentiale lokale Nash-Potentiale sind. Außerdem folgt hieraus \Cref{prop:BAPotBAPfad}, sodass wir nun den Beweis von \Cref{satz:ZusammenaengePotentiale} vervollständigt haben.
+
 
 \subsection{Weitere Sätze mit Morphismen}
 
-\todo[inline]{Weitere unsortierte Sätze...:}
+\todo[inline]{Fehlt: Einleitung (Weitere unsortierte Sätze...)}
 
+Für monotone Morphismen gibt es einen zu \Cref{prop:NVReflVerbErh} analogen Satz über Nicht-Verschlechterungs- und Verbesserungspfade.
 
-\begin{prop}\label{prop:DummySpielerWeglassen}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein biordinaler\todo{Begriff definieren!}{} Morphismus mit injektiver Spielerabbildung und surjektiven Strateegieabbildungen. Seien ferner alle Spieler in $I\setminus \sigma(J)$ Dummy-Spieler\todo{Begriff definieren! Evtl. zusammen mit Dummy-Spielen}. Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+\begin{prop}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein monotoner Morphismus und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\gamma$ ein Nicht-Verschlechterungspfad, so auch $\phi(\gamma)$. Ist $\phi(\gamma)$ sogar ein Verbesserungspfad, so auch $\gamma$.
 \end{prop}
+
+Das heißt monotone Morphismen erhalten Nicht-Verschlechterungspfade und reflektieren Verbesserungspfade - also genau umgekehrt zu ordinalen Morphismen.
+
+\begin{proof}
+	Zunächst beobachten wir, dass $\sigma$ immer den in $\phi(\gamma)$ im $k$-ten Schritt abweichenden Spieler (sofern es einen solchen gibt) auf den im gleichen Schritt abweichenden Spieler in $\gamma$ abbildet. Ist nämlich $j(k)$ der entsprechende Spieler aus $\Delta$, so gilt:
+	\[\phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^k\right) = \left(\phi(x^k)\right)_{\sigma(j(k))} \neq \left(\phi(x^{k-1})\right)_{\sigma(j(k))} = \phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^{k-1}\right)\]
+	Daraus folgt $x_{\sigma(j(k))}^k \neq x_{\sigma(j(k))}^{k-1}$ und, da es in einem Pfad pro Schritt höchstens einen abweichenden Spieler geben kann, auch $i(k) = \sigma(j(k))$.
+	
+	Ist nun $\gamma$ ein Nicht-Verschlechterungspfad und es gibt im $k$-ten Schritt einen (echt) abweichenden Spieler $j(k)$, so ist also $\sigma(j(k)) = i(k)$ und daher $c_{\sigma(j(k))}(x^k) \leq c_{\sigma(j(k))}(x^{k-1})$. Mit der Monotonie von $\phi$ folgt daraus direkt auch $d_{j(k)}(\phi(x^k)) \leq d_{j(k)}(\phi(x^{k-1}))$.
+	
+	Ist $\phi(\gamma)$ ein Verbesserungspfad, gilt in jedem Schritt $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$ und daher - erneut wegen der Monotonie von $\phi$ - auch $c_{\sigma(j(k))}(x^{k+1}) < c_{\sigma(j(k))}(x^{k})$.
+\end{proof}
+
+Der folgende Satz zeigt, wann man Spieler weglassen kann, ohne dadurch die Nash-Gleichgewichte des Spiels zu beeinflussen.
+
+\begin{satz}\label{prop:DummySpielerWeglassen}
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein biordinaler\todo{Begriff definieren!}{} Morphismus mit injektiver Spielerabbildung und surjektiven Strateegieabbildungen. Seien ferner alle Spieler in $I\setminus \sigma(J)$ Dummy-Spieler\todo{Begriff definieren! Evtl. zusammen mit Dummy-Spielen}. Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+\end{satz}
 
 \todo[inline]{Kann man das noch schöner ausdrücken (mit Retrakten o.ä.)?}
 
@@ -413,7 +444,7 @@ Dies zeigt also nochmal, dass ordinale Potentiale lokale Nash-Potentiale sind.
 	Insgesamt ist also auch $x$ ein Nash-Gleichgewicht.
 \end{proof}
 
-Mit dieser Proposition können wir nun die in \Cref{beob:endlicheSpiele} gemachte Beobachtung formalisieren (und beweisen), dass Spieler mit nur einer einzigen Strategie beim Untersuchen von Nash-Gleichgewichten immer ignoriert werden können:
+Mit diesem Satz können wir nun die in \Cref{beob:endlicheSpiele} gemachte Beobachtung formalisieren (und beweisen), dass Spieler mit nur einer einzigen Strategie beim Untersuchen von Nash-Gleichgewichten immer ignoriert werden können:
 
 \begin{bsp}\label{bsp:EinStratSpielerWeglassen}
 	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern.
@@ -425,37 +456,19 @@ Mit dieser Proposition können wir nun die in \Cref{beob:endlicheSpiele} gemacht
 		\sigma:	&&I\setminus I'	\to	 I:	&&i	\mapsto	i  \\
 		\phi_i:	&&X_i	\to	 X_i:		&&x_i	\mapsto	x_i
 	\end{align*}	
-	Dieser ist offenbar kostenerhaltend, also insbesondere biordinal, und $I\setminus \sigma(I') = I \setminus I'$ enthält nur Dummy-Spieler. Damit folgt die Behauptung aus \Cref{prop:DummySpielerWeglassen}.
+	Dieser ist offenbar kostenerhaltend, also insbesondere biordinal, die Spielerabbildung ist injektiv, die Strategieabbildungen sind surjektiv und $I\setminus \sigma(I') = I \setminus I'$ enthält nur Dummy-Spieler. Damit folgt die Behauptung aus \Cref{prop:DummySpielerWeglassen}.
 \end{bsp}
 
-\todo[inline]{Kein Zusammenhang zum Vorhergebenden:}
+Schließlich wollen wir noch eine Verallgemeinerung von \Cref{beob:ZshExGewPot} beweisen:
 
-\begin{kor}
-	Seien $\Gamma$ und $\Gamma'$ zwei ordinal-isomorphe Spiele. Dann hat $\Gamma$ genau dann die FIP, wenn $\Gamma'$ diese besitzt.
-\end{kor}
-
-Eine Verallgemeinerung von \Cref{beob:ZshExGewPot} lautet
-
-\begin{prop}
-	Seien $\Gamma$ und $\Delta$ zwei Spiele. Dann gibt es genau dann einen gewichteten Morphismus $\Gamma \to \Delta$, wenn es Gewichte $(w_i)_{i\in I}$ und einen exakten Morphismus $\Gamma \to w_i \cdot \Delta$ gibt.
-\end{prop}
-
-\begin{kor}
-	Zwei Spiele $\Gamma$ und $\Delta$ sind genau dann gewichtet isomorph, wenn ... \todo{usw.}
-\end{kor}
-
-\todo[inline]{Ist der folgende Satz hilfreich? Wenn ja, wo unterbringen (eig. kein Potentialsatz!)}
-
-\begin{prop}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein monotoner Morphismus und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\gamma$ ein Nicht-Verschlechterungspfad, so auch $\phi(\gamma)$. Ist $\phi(\gamma)$ sogar ein Verbesserungspfad, so auch $\gamma$.
-\end{prop}
+\begin{lemma}
+	Seien $\Gamma = (I, X, (c_i))$ und $\Delta = (J, Y, (d_j))$ zwei Spiele. Dann gibt es genau dann einen gewichteten Morphismus $\Gamma \to \Delta$, wenn es positive Gewichte $(w_j)_{j\in J}$ und einen exakten Morphismus $\Gamma \to \Delta_w \coloneqq (J, Y, (w_j\cdot d_j))$ gibt.
+\end{lemma}
 
 \begin{proof}
-	Zunächst beobachten wir, dass $\sigma$ immer den in $\phi(\gamma)$ im $k$-ten Schritt abweichenden Spieler (sofern es einen solchen gibt) auf den im gleichen Schritt abweichenden Spieler in $\gamma$ abbildet. Ist nämlich $j(k)$ der entsprechende Spieler aus $\Delta$, so gilt:
-	\[\phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^k\right) = \left(\phi(x^k)\right)_{\sigma(j(k))} \neq \left(\phi(x^{k-1})\right)_{\sigma(j(k))} = \phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^{k-1}\right)\]
-	Daraus folgt $x_{\sigma(j(k))}^k \neq x_{\sigma(j(k))}^{k-1}$ und, da es in einem Pfad pro Schritt höchstens einen abweichenden Spieler geben kann, auch $i(k) = \sigma(j(k))$.
-	
-	Ist nun $\gamma$ ein Nicht-Verschlechterungspfad und es gibt im $k$-ten Schritt einen (echt) abweichenden Spieler $j(k)$, so ist also $\sigma(j(k)) = i(k)$ und daher $c_{\sigma(j(k))}(x^k) \leq c_{\sigma(j(k))}(x^{k-1})$. Mit der Monotonie von $\phi$ folgt daraus direkt auch $d_{j(k)}(\phi(x^k)) \leq d_{j(k)}(\phi(x^{k-1}))$.
-	
-	Ist $\phi(\gamma)$ ein Verbesserungspfad, gilt in jedem Schritt $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$ und daher - erneut wegen der Monotonie von $\phi$ - auch $c_{\sigma(j(k))}(x^{k+1}) < c_{\sigma(j(k))}(x^{k})$.
+	Ein Morphismus $(\sigma, \phi): \Gamma \to \Delta$ ist genau dann ein exakter Morphismus zwischen $\Gamma$ und $\Delta_w$, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j \cdot d_j(\phi(x)) - w_j \cdot d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+	Und dies ist offenbar äquivalent zu
+		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j \cdot \left(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\right),\]
+	also dazu, dass $(\sigma, \phi)$ ein gewichteter Morphismus zwischen $\Gamma$ und $\Delta$ ist.
 \end{proof}
