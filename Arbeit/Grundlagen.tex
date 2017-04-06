@@ -23,7 +23,7 @@
 \end{notation}
 
 \begin{defn}
-	Ein Strategieprofil $x \in X$ ist ein \emph{Nash-Gleichgewicht}, wenn für jeden Spieler $i \in I$ und jede seiner Strategien $\hat{x}_i$ gilt:
+	Ein Strategieprofil $x \in X$ ist ein \emph{(reines) Nash-Gleichgewicht}, wenn für jeden Spieler $i \in I$ und jede seiner Strategien $\hat{x}_i$ gilt:
 		\[c_i(x \mid \hat{x}_i) \geq c_i(x)\]
 	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
 \end{defn}
@@ -138,8 +138,8 @@ Eine Klasse von Spielen, welche (im endlichen Fall) immer ein Nash-Gleichgewicht
 	wobei $l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}$ die der Ressource ist, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ konvergieren).
 \end{defn}
 
-\begin{bem}
-	Eine Lastfunktion $l_r$ ist genau dann\todo{Wirklich \glqq genau dann wenn\grqq ? Dann evtl. in Definition aufnehmen.}{} wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\Set{i \in I | \exists s_i \in S_i: r \in s}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Diese Bedingung ist aber nicht notwendig.
+\begin{bem}\label{bem:AuslSpielWohldefiniertheit}
+	Eine Lastfunktion $l_r$ ist genau dann wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\Set{i \in I | \exists s_i \in S_i: r \in s}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Diese Bedingung ist aber nicht notwendig.
 	
 	Insbesondere induzieren Auslastungsmodelle mit endlicher Ressourcen- und Spielerzahl immer ein Auslastungsspiel.
 	
@@ -202,7 +202,7 @@ Eine andere Möglichkeit ist, dass die zulässigen Teilmengen eines Spielers Bas
 \end{defn}
 
 \begin{defn}
-	Ein Teilmengensystem $M \subseteq \PSet(R)$ auf einer endlichen Menge $R$ heißt Matroid, wenn es die folgenden drei Axiome erfüllt:\todo{[citation needed(?)] Matroid}
+	Ein Teilmengensystem $M \subseteq \PSet(R)$ auf einer endlichen Menge $R$ heißt Matroid, wenn es die folgenden drei Axiome erfüllt (vgl. \cite[Abschnitt 39.1]{CombOptMatroide})
 	\begin{enumerate}
 		\item $\emptyset \in M$ (oder äquivalent dazu: $M \neq \emptyset$)
 		\item $M$ ist abgeschlossen unter Inklusion, d.h. $\forall S \in M, T \subseteq M: T \subseteq S \implies T \in M$.
@@ -211,13 +211,13 @@ Eine andere Möglichkeit ist, dass die zulässigen Teilmengen eines Spielers Bas
 	Die Mengen in $M$ bezeichnen wir dann als \emph{unabhängige Mengen}, die bezüglich Inklusion maximalen Mengen unter diesen nennen wir \emph{Basen des Matroids}.
 \end{defn}
 
-Eine wichtige Eigenschaft, welche alle Matroide erfüllen, ist der starke Basisaustauschsatz (vgl. \cite[Satz 3.7]{OptiIVSkript}):
+Eine wichtige Eigenschaft, welche alle Matroide erfüllen, ist der starke Basisaustauschsatz (vgl. \cite[Theorem 29.12]{CombOptMatroide}):
 
 \begin{satz}
-	Seien $M$ ein Matroid, $B_1, B_2$ zwei Basen von $M$ und $r \in B_1 \setminus B_2$ beliebig. Dann gibt es ein Element $q \in B_2 \setminus B_1$, sodass das vertauschen dieser beiden Elemente wieder zwei Basen ergibt, d.h. sowohl $B_1 \setminus \set{r} \cup \set{q}$ als auch $B_2 \setminus \set{q} \cup \set{r}$ sind ebenfalls Basen von $M$.
+	Seien $M$ ein Matroid, $B_1, B_2$ zwei Basen von $M$ und $r \in B_1 \setminus B_2$ beliebig. Dann gibt es ein Element $q \in B_2 \setminus B_1$, sodass das Vertauschen dieser beiden Elemente wieder zwei Basen ergibt, d.h. sowohl $B_1 \setminus \set{r} \cup \set{q}$ als auch $B_2 \setminus \set{q} \cup \set{r}$ sind ebenfalls Basen von $M$.
 \end{satz}
 
-Mittels Induktion ergibt sich daraus die Basen-Matching-Eigenschaft (vgl. \cite{OptiIVSkript}[Lemma 3.2]):
+Mittels Induktion ergibt sich daraus die Basen-Matching-Eigenschaft (\cite[Korollar 39.12a]{CombOptMatroide}):
 
 \begin{kor}\label{kor:BasenMatchingEig}
 	Seien $M$ ein Matroid und $B_1, B_2$ zwei Basen von $M$. Dann gibt es eine Partitionierung der symmetrischen Differenz $B_1 \symDiff B_2 \coloneqq B_1 \setminus B_2 \cup B_2 \setminus B_1$ in eine Menge von Tupeln der Form $(q,r)$ mit $q \in B_1\setminus B_2$ und $r \in B_2 \setminus B_1$, sodass $B_1 \setminus \set{q} \cup \set{r}$ ebenfalls eine Basis von $M$ ist. Es gibt also eine Menge von Tupeln $A \subseteq (B_1 \setminus B_2) \times (B_2 \setminus B_1)$, sodass gilt:
