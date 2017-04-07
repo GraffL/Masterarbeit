@@ -29,7 +29,7 @@ drawGame <- function(c1, c2, xdims, P=NULL) {
   }
   # draw second player
   for(j in 1:xdims[1]) {
-    drawSlice(rep(j,xdims[2]),seq(1,xdims[1]),c2[j,], alpha.col(col=rgb(0.1,0.1,0.8), alpha=0.7))
+    drawSlice(rep(j,xdims[2]),seq(1,xdims[1]),c2[j,], alpha.col(col=rgb(0.1,0.1,0.8), alpha=0.7)) 
   }
   # draw potential
   if(!is.null(P)) {
