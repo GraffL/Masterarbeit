@@ -145,9 +145,19 @@ Der Begriff eines monotonen Isomorphismus liefert uns nun das erste Beispiel ein
 
 \begin{proof}
 	Wir konstruieren ein zu $\Gamma$ monoton isomorphes Spiel $\Delta$ und einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von $K$ nach $\Delta$. Mit \Cref{bsp:Koordinationsspiel} ist $\Delta$ dann ein Koordinationsspiel und nach \Cref{prop:MonIsoKoordDannskPot} besitzt $\Gamma$ folglich ein skaliertes Potential.
-	
-	\todo[inline]{Diagramm zur Veranschaulichung des Beweises. Wie beschriftet man die Pfeile vernünftig?}	
-	
+	\begin{figure}[h]\centering
+		\begin{tikzpicture}
+		\node[] 									(K) 	{$K$};
+		\node[right of=K, node distance=9em] 		(topM) 	{};
+		\node[right of=topM, node distance=9em] 	(Gamma) {$\Gamma$};
+		\node[below of=topM, node distance=4em] 	(Delta) {$\Delta$};
+		
+		\draw[->] (K) --node[above] {\tiny $(\sigma, \phi)$ monoton} node[below] {\tiny mit $\phi$ surjektiv} (Gamma);
+		\draw[->, dashed] (K) --node[above, sloped] {\tiny kostenerhaltend mit} node[below, sloped] {\tiny surj. Strat.profilabb.} (Delta);
+		\draw[->, dashed] (Delta) --node[above, sloped] {\tiny monotoner} node[below, sloped] {\tiny Isomorphismus} (Gamma);
+		\end{tikzpicture}
+		\caption{Die in diesem Beweis verwendeten Spiele und Morphismen.}
+	\end{figure}		
 	Seien also $\Gamma = (I, X, (c_i))$  und $K = (\set{\ast}, Z_\ast, (e_\ast))$ die gegebenen Spiele und $f_i: \IR \to \IR$ die (bijektiven) Kostenabbildungen zu $(\sigma, \phi)$. Dann definieren wir $\Delta \coloneqq (I, X, (f_i^{-1}\circ c_i)_{i \in I})$. Nun hat $(\sigma, \phi): K \to \Delta$ nach Voraussetzung eine surjektive Strategieprofilabbildung und ist ferner kostenerhaltend, denn für jedes $z \in Z_\ast$ gilt:
 		\[f_i^{-1}\circ c_i \circ \phi(z) = f_i^{-1} \circ f_i \circ e_\ast(z) = e_\ast(z) = e_{\sigma(i)}(z) \]
 	Weiter sind $(\id, \id): \Delta \to \Gamma$ und die Umkehrabbildung $(\id, \id): \Gamma \to \Delta$ monoton, denn
@@ -180,10 +190,9 @@ Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und 
 		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j\cdot\left(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\right)\]
 		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x))) - f_j(d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
-		\item \emph{biordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:\todo{In die nachfolgenden Sätze einpflegen? Oder ausgelagert als Bemerkung definieren, da es nur ein einziges Mal verwendet wird?}
-		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
+		Gilt die Implikation auch in die umgekehrte Richtung, so bezeichnen wir den Morphismus als \emph{biordinal}.
 		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x \in X$ gilt:
 		\[\phi_j(\arg \min_{x'_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x' \mid x_{\sigma(j)})) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi(x) \mid y_j)\]
 	\end{itemize}	
@@ -191,8 +200,16 @@ Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und 
 \end{defn}
 
 \begin{bem}
-	Ist ein Morphismus exakt/gewichtet/skalierend/biordinal und ein Isomorphismus so ist er automatisch ein exakter/gewichteter/skalierender/biordinaler Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).\todo{Stimmt das so?}
+	Ist ein Morphismus exakt/gewichtet/skalierend und ein Isomorphismus so ist er automatisch ein exakter/gewichteter/skalierender Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).
 \end{bem}
+
+\begin{bsp}
+	Betrachte die Spiele 
+		\[\Gamma \coloneqq (\set{\ast}, \set{t, b}, (c_\ast)) \text{ mit } c_\ast(t) \coloneqq 0, c_\ast(b) \coloneqq 0\]
+	und 
+		\[\Delta \coloneqq (\set{\ast}, \set{t, b}, (d_\ast)) \text{ mit } d_\ast(t) \coloneqq 0, d_\ast(b) \coloneqq 1.\]
+	Dann ist $(\id, \id): \Gamma \to \Delta$ ein ordinaler, aber kein Beste-Antwort-Morphismus, während $(\id, \id): \Delta \to \Gamma$  ein Beste-Antwort-, aber kein ordinaler Morphismus ist.
+\end{bsp}
 
 Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender Morphismen wieder einen kostenerhaltenden Morphismus ergibt und die zweier monotoner wieder einen monotonen, ist dies bei exakten/gewichteten/\dots{} Morphismen im Allgemeinen nicht der Fall: 
 
@@ -200,13 +217,13 @@ Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender 
 	Betrachte die folgenden drei 1- bzw. 2-Personenspiele:
 	\begin{itemize}
 		\item $\Gamma \coloneqq (\set{1}, \set{t, b}, c_1)$, wobei die Kostenfunktion $c_1$ wie folgt definiert ist: 
-			\[c(t) = 0, c(b) = 1\]
+			\[c_1(t) = 0, c_1(b) = 1\]
 		\item $\Delta \coloneqq (\set{1, 2}, \set{t, b} \times \set{l, r}, (d_1, d_2))$ mit Kostenfunktionen definiert durch folgende Auszahlungsmatrix (mit Einträgen $(d_1(\_), d_2(\_))$:
 		\begin{center}
 				\begin{tabular}{c||c|c}
 					& l 		& r 		\\\hline\hline
-				t	& $(0,0)$	& $(0,1)$	\\\hline
-				b	& $(1,0)$	& $(1,1)$ 
+				t	& $(0,0)$	& $(1,0)$	\\\hline
+				b	& $(0,1)$	& $(1,1)$ 
 			\end{tabular}
 		\end{center}
 		\item $\Epsilon \coloneqq (\set{1, 2}, \set{t, b} \times \set{l, r}, (e_1, e_2))$ mit Kostenfunktionen definiert durch folgende Auszahlungsmatrix (mit Einträgen $(e_1(\_), e_2(\_))$:
@@ -218,16 +235,16 @@ Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender 
 			\end{tabular}
 		\end{center}
 	\end{itemize}
-	Dann sind sowohl die Abbildung $(\sigma, \phi): \Gamma \to \Delta$ mit $\sigma(1) = \sigma(2) = 1$ und $\phi_1(t) = t, \phi_1(b) = b, \phi_2(t) = l, \phi_2(b) = r$ als auch die Abbildung $(\tau, \psi): \Delta \to \Epsilon$ mit $\tau = \id$ und $\psi_i = \id$ exakt, wie man durch einfaches Nachprüfen\todo{Nachprüfen!} der jeweiligen Bedingungen sieht. Gleichzeitig ist aber die Verknüpfung der beiden Abbildungen $(\tau, \psi)\circ(\sigma, \phi) = (\sigma\circ\tau, \psi\circ\phi)$ nicht einmal ordinal, denn es gilt
-		\[c_{\sigma\circ\tau(1)}(t) = c_1(t) = 0 < 1 = c_1(b) = c_{\sigma\circ\tau(1)}(t) = c_1(t),\]
+	Dann sind sowohl die Abbildung $(\sigma, \phi): \Gamma \to \Delta$ mit $\sigma(1) = \sigma(2) = 1$ und $\phi_1(t) = t, \phi_1(b) = b, \phi_2(t) = l, \phi_2(b) = r$ als auch die Abbildung $(\tau, \psi): \Delta \to \Epsilon$ mit $\tau = \id$ und $\psi_i = \id$ exakt, wie man durch einfaches Nachprüfen der jeweiligen Bedingungen sieht. Gleichzeitig ist aber die Verknüpfung der beiden Abbildungen $(\tau, \psi)\circ(\sigma, \phi) = (\sigma\circ\tau, \psi\circ\phi)$ nicht einmal ordinal, denn es gilt
+		\[c_{\sigma\circ\tau(1)}(t) = c_1(t) = 0 < 1 = c_1(b) = c_{\sigma\circ\tau(1)}(b) = c_{\sigma\circ\tau(1)}(t \mid b),\]
 	aber gleichzeitig
-		\[e_1(\psi\circ\phi(t)) = e_1(t,l) = 1 > 0 = e_1(b,r) = e_1(\psi\circ\phi(b)).\]
+		\[e_1(\psi\circ\phi(t)) = e_1(t,l) = 1 > 0 = e_1(b,r) = e_1(\psi\circ\phi(b)) = e_1(\psi\circ\phi(t \mid b)).\]
 \end{bsp}
 
 Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorientheorie, wenn man sich nur auf exakte/gewichtete/\dots{} Morphismen beschränkt (was für kostenerhaltende/monotone Morphismen der Fall ist). Man kann allerdings sicherstellen, dass die Komposition zweier exakter/gewichteter/\dots{} Morphismen wieder die jeweilige Eigenschaft hat, wenn man sich auf Morphismen mit injektiver Spielerabbildung beschränkt:
 
 \begin{lemma}\label{lemma:KompositionVonMorphismen}
-	Die Verknüpfung zweier exakter/gewichteter/skalierter/ordinaler/verallgemeinert ordinaler/Bester-Antwort-Morphismen mit injektiven Spielerabbildungen ist wieder ein solcher Morphismus.
+	Die Verknüpfung zweier exakter/gewichteter/skalierter\todo{für skalierte ist das nicht klar - evtl. sogar falsch? Ggfls alle Sätze, die skalierte Morphismen verwenden, prüfen!}/ordinaler/verallgemeinert ordinaler/Bester-Antwort-Morphismen mit injektiven Spielerabbildungen ist wieder ein solcher Morphismus.
 \end{lemma}
 
 \begin{proof}
@@ -446,7 +463,7 @@ Der folgende Satz zeigt, wann man Spieler weglassen kann, ohne dadurch die Nash-
 	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein biordinaler Morphismus mit injektiver Spielerabbildung und surjektiven Strateegieabbildungen. Seien ferner alle Spieler in $I\setminus \sigma(J)$ Dummy-Spieler. Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
 \end{satz}
 
-\todo[inline]{Kann man das noch schöner ausdrücken (mit Retrakten o.ä.)?}
+% \todo[inline]{Kann man das noch schöner ausdrücken (mit Retrakten o.ä.)?}
 
 \begin{proof}
 	Sei zunächst $x \in X$ ein Nash-Gleichgewicht in $\Gamma$ und $y_j \in Y_j$. Da $\phi_j$ surjektiv ist, gibt es dann ein $\hat{x}_{\sigma(j)}$ mit $\phi_j(\hat{x}_{\sigma(j)}) = y_j$. Wegen der Injektivität von $\sigma$ gilt ferner $\phi(x \mid \hat{x}_{\sigma(j)}) = \left(\phi(x) \mid y_j\right)$.
@@ -463,9 +480,11 @@ Der folgende Satz zeigt, wann man Spieler weglassen kann, ohne dadurch die Nash-
 
 Mit diesem Satz können wir nun die in \Cref{beob:endlicheSpiele} gemachte Beobachtung formalisieren (und beweisen), dass Spieler mit nur einer einzigen Strategie beim Untersuchen von Nash-Gleichgewichten immer ignoriert werden können:
 
-\begin{bsp}\label{bsp:EinStratSpielerWeglassen}
+\begin{kor}\label{kor:EinStratSpielerWeglassen}
 	Spieler mit nur einer einzigen Strategie können immer entfernt werden ohne die Nash-Gleichgewichte zu verändern.
-	
+\end{kor}
+
+\begin{proof}
 	Sei dazu $\Gamma$ ein beliebiges Spiel und $I' \subseteq I$ eine solche Teilmenge von Spielern, dass alle Spieler $i$ in $I \setminus I'$ genau eine Strategie $\ast_i$ besitzen. Dann betrachten wir die Einschränkung von $\Gamma$ auf die Spieler in $I'$, nämlich $\Gamma' \coloneqq (I', \prod_{i \in I'}X_i, (c'_i)_{i \in I'})$, wobei die Kostenfunktionen wie folgt definiert sind:
 		\[c'_{\hat{\imath}}(x') \coloneqq c_{\hat{\imath}}(x), \text{ wobei $x \in X$ definiert ist durch } x_i = \begin{cases}x'_i, &i \in I'\\ \ast_i, &\text{sonst}\end{cases}\]
 	und den folgenden Morphismus $(\sigma, \phi): \Gamma \to \Gamma'$ zwischen den beiden Spielen:
@@ -473,8 +492,8 @@ Mit diesem Satz können wir nun die in \Cref{beob:endlicheSpiele} gemachte Beoba
 		\sigma:	&&I\setminus I'	\to	 I:	&&i	\mapsto	i  \\
 		\phi_i:	&&X_i	\to	 X_i:		&&x_i	\mapsto	x_i
 	\end{align*}	
-	Dieser ist offenbar kostenerhaltend, also insbesondere biordinal, die Spielerabbildung ist injektiv, die Strategieabbildungen sind surjektiv und $I\setminus \sigma(I') = I \setminus I'$ enthält nur Dummy-Spieler. Damit folgt die Behauptung aus \Cref{prop:DummySpielerWeglassen}.
-\end{bsp}
+	Dieser ist offenbar kostenerhaltend, also insbesondere biordinal, die Spielerabbildung ist injektiv, die Strategieabbildungen sind surjektiv und $I\setminus \sigma(I') = I \setminus I'$ enthält nur Dummy-Spieler. Damit folgt die Behauptung mit \Cref{prop:DummySpielerWeglassen}.
+\end{proof}
 
 Schließlich wollen wir noch eine Verallgemeinerung von \Cref{beob:ZshExGewPot} beweisen:
 
