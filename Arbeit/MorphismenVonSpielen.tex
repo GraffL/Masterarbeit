@@ -1,51 +1,49 @@
 \section[Morphismen]{Morphismen und Isomorphismen von Spielen}\label{sec:Morphismen}
 
-Wie wir im vorherigen Kapitel gesehen haben definieren Potentiale ein Koordinationsspiel, welches in einer \glqq gewissen Beziehung\grqq{} zu dem Ausgangsspiel steht (etwa die gleichen Nash-Gleichgewichte besitzt). Diese Beziehung wollen wir 
+Wie wir im vorherigen Kapitel gesehen haben definieren Potentiale ein Koordinationsspiel, welches in einer \glqq gewissen Beziehung\grqq{} zu dem Ausgangsspiel steht (etwa die gleichen Nash-Gleichgewichte besitzt). Diese Beziehung wollen wir nun mit Hilfe eines Morphismus bzw. eines Isomorphismus zwischen den beiden Spielen präziser beschreiben. Die Eigenschaften, die Ausgangs- und Koordinationsspiel gemeinsam haben, sind dann genau die, die von den jeweiligen (Iso-)Morphismen bewahrt werden. Umgekehrt ist es auch möglich zuerst eine bestimmte Art von Isomorphimus zu definieren und daraus dann einen neuen Potentialbegriff zu erhalten wie das beispielsweise in \cite[Definitionen 5/6]{BestRespEq} getan wird.
 
-\todo[inline]{Motivation: Warum betrachtet man überhaupt Morphismen von Spielen. Wie induzieren diese Isomorphismen?}
-
-Mögliche Motivationen:
-\begin{itemize}
-	\item Jedes Potential definiert selbst wieder ein Spiel mit einer gemeinsamen Kostenfunktion für alle Spieler (also ein Koordinationsspiel). Und in einem gewissen Sinne ist dieses Spiel \glqq äquivalent\grqq{} zum ursprünglichen Spiel (z.B. gleiche Gleichgewichtspunkte). Das Hin- und Herwechseln zwischen diesen beiden Versionen eines Spiels kann man durch Morphismen beschreiben und die Äquivalenz der beiden wird dann dadurch sichtbar, dass diese Morphismen \emph{Isomorphismen} sind.
-	\item Umgekehrt kann man Isomorphismen benutzen um neue Potentiale zu finden und zu definieren wie dies beispielsweise in \cite[Definitionen 5/6]{BestRespEq} gemacht wird.
-	\item Die Äquivalenz zwischen exakten Potentialspielen und Auslastungsspielen wird durch Morphismen beschrieben.
-	\item Kategorientheoretische Sicht: Um eine Kategorie (hier: die der Spiele) zu verstehen, muss man ihre Morphismen kennen. Kennt man diese, so ergeben sich aus diesen auf natürliche Weise weitere Begriffe wie Isomorphismen von Spielen, Summen oder Produkte von Spielen.
-\end{itemize}
-
-\todo[inline]{Diese Punkte (insbesondere den letzten) näher ausführen?}
+Darüber hinaus helfen Morphismen dabei auch andere Beziehungen zwischen verschiedenen Spielen zu verstehen. Beispielsweise wird die von \citeauthor{MonShap} gefundene Äquivalenz von Auslastungsspielen und Spielen mit exaktem Potential durch einen passenden Isomorphiebegriff beschrieben und in \Cref{sec:Auslastungsspiele} werden wir noch weitere Beispiele für derartige Verbindungen kennenlernen. Schließlich ist es aus kategorientheoretischer Sicht auch allgemein wichtig die Morphismen der Kategorie, in der man arbeitet, zu verstehen, da diese die Struktur dieser Kategorie festlegen und etwa dazu verwendet werden abstrakte Konstruktionen durchzuführen. Diesen Ansatz werden wir hier allerdings nicht fortführen und verweisen dazu auf \cite{LapGameCat}.
 
 \subsection{Definitionen}
 
-Zu zwei gegebenen Spielen $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y, (d_j)_{j\in J})$ kann man wie folgt eine Abbildung $(\sigma, \phi): \Gamma \to \Delta$ zwischen diesen beiden definieren:
-\begin{itemize}
-	\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen und
-	\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien.
-\end{itemize}
+\begin{defn}\label{defn:MorphismusVonSpielen}
+	Zu zwei gegebenen Spielen $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y, (d_j)_{j\in J})$ kann man wie folgt einen \emph{Morphismus} $(\sigma, \phi): \Gamma \to \Delta$ zwischen diesen beiden definieren:
+	\begin{itemize}
+		\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen, die \emph{Spielerabbildung}, und
+		\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien, die \emph{Strategieabbildungen}.
+	\end{itemize}
+	Ist $(\tau, \psi): \Delta \to \Epsilon$ ein weiterer Morphismus, so ist die Verknüpfung der beiden Morphismen $(\sigma, \phi) \circ (\tau, \psi): \Gamma \to \Epsilon = (K, Z, (e_k)_{k \in K})$ gegeben durch
+	\begin{itemize}
+		\item die Spielerabbildung $\sigma\circ\tau: K \to I$ und
+		\item die Strategieabbildungen $\psi_k \circ \phi_{\tau(k)}: X_{\sigma(\tau(k))} \to Z_k$.
+	\end{itemize}
+	$(\sigma, \phi)$ heißt \emph{Isomorphismus von Spielen}, wenn er einen inversen Morphismus besitzt, d.h. einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ mit $(\sigma, \phi) \circ (\tau, \psi) = (\id, \id)$ und $(\tau, \psi) \circ (\sigma, \phi) = (\id, \id)$, wobei $(\id, \id)$, der Identitätsmorphismus auf dem jeweiligen Spiel, durch die Identität als Spielerabbildung und Identitäten für alle Strategieabbildungen gegeben ist.
+\end{defn}
 
-Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie.}. Hierbei orientieren wir uns vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung für Spiele für diskrete Spielermengen aus Kapitel 5. 
+Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie.}. Wir orientieren uns dabei vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung für Spiele für diskrete Spielermengen aus Kapitel 5. 
 
-In diesem Kontext ergibt es sich etwas natürlicher, dass die Abbildung zwischen den Spielermengen in die entgegengesetzte Richtung zu denen zwischen den Strategieräumen verläuft. Eine andere, auch im hier vorliegenden Kontext sinnvolle Begründung hierfür liefert aber die folgende Bemerkung:
+In dortigen Kontext ergibt es sich etwas natürlicher, dass die Abbildung zwischen den Spielermengen in die entgegengesetzte Richtung zu denen zwischen den Strategieräumen verläuft. Eine andere, auch im hier vorliegenden Kontext sinnvolle Begründung hierfür liefert aber die folgende Bemerkung:
 
 \begin{bem}
 	Alle Strategieabbildungen $\phi_j$ zusammen induzieren eine \emph{Strategieprofilabbildung}
 	\[\phi: X \to Y: x=(x_i)_{i\in I} \mapsto \phi(x) := \left(\phi_j(x_{\sigma(j)})\right)_{j \in J} \]
 \end{bem}
 
-Würde die Abbildung $\sigma$ zwischen den Spielermengen in die andere, \glqq natürlichere\grqq{} Richtung verlaufen (also von $I$ nach $J$), so müssten wir zusätzlich fordern, dass diese bijektiv ist, damit in der obigen Form Strategieprofile auf Strategieprofile abgebildet werden (vgl. etwa \cite{CatGameTheory}). Denn nur dann wäre $\phi(x) \coloneqq \left(\phi_i(x_i)\right)$ wieder ein vollständiges Strategieprofil in $Y$.
+Würde die Abbildung $\sigma$ zwischen den Spielermengen in die andere, \glqq natürlichere\grqq{} Richtung verlaufen (also von $I$ nach $J$), so müssten wir zusätzlich fordern, dass diese bijektiv ist, damit in der obigen Form Strategieprofile auf Strategieprofile abgebildet werden (vgl. etwa \cite{CatGameTheory}). Denn nur dann wäre $\phi(x) \coloneqq \left(\phi_i(x_i)\right)$ wieder ein vollständiges und wohldefiniertes Strategieprofil in $Y$.
 
-\begin{bem}\todo{Genauer beschreiben...}
-	Möchte man trotzdem Spieler- und Strategieabbildungen in die gleiche Richtung haben, so kann man einem alternativen Ansatz zur Definition von Morphismen von Spielen folgen, welcher von \citeauthor{Foundations} in \cite{Foundations} verwendet wird. Darin werden einzelne Strategien nicht zwangsläufig wieder auf einzelne Strategien abgebildet, sondern können gleich auf ganze Teilmengen des Bildstrategieraums abgebildet werden. Von diesem Morphismentyp werden dann verschiedene \glqq approximativ kostenerhaltende\grqq{} Varianten betrachtet und die sich dadurch ergebende Kategorie studiert.
+\begin{bem}
+	Möchte man Spieler- und Strategieabbildungen in die gleiche Richtung haben und trotzdem Morphismen zwischen Spielen mit unterschiedlich großen Spielermengen erlauben, so kann man einem alternativen Ansatz zur Definition von Morphismen von Spielen folgen, welcher von \citeauthor{Foundations} in \cite[Kapitel 1, Abschnitt 1.14]{Foundations} verwendet wird: Hierbei wird als Spielerabbildung eine mengenwertige Abbildung verwendet, die also einen einzelnen Spieler nicht zwangsläufig wieder auf einen einzelnen Spieler abgebildet, sondern gleich auf eine ganze Teilmengen der Bildspielermenge. Von diesem Morphismentyp werden dann verschiedene \glqq approximativ kostenerhaltende\grqq{} Varianten betrachtet und die sich dadurch ergebende Kategorie untersucht.
 \end{bem}
 
 \begin{notation}
-	In den meisten Fällen wird die Abbildung zwischen den Spielermengen bijektiv sein. In diesen Fällen werden wir zur Vereinfachung der Notation ohne Einschränkung davon ausgehen, dass die Spielermengen beider an der Abbildung beteiligten Spiele bereits gleich und geeignet permutiert sind, sodass $\sigma$ die Identitätsabbildung ist. Damit kann diese in der Notation weggelassen werden und die Abbildung zwischen den Spielen besteht nur noch aus den Abbildungen $\phi_i: X_i \to Y_i$ zwischen den Strategieräumen.
+	In den meisten Fällen wird die Abbildung zwischen den Spielermengen allerdings doch bijektiv sein. In diesen Fällen werden wir zur Vereinfachung der Notation ohne Einschränkung davon ausgehen, dass die Spielermengen beider an der Abbildung beteiligten Spiele bereits gleich und geeignet permutiert sind, sodass $\sigma$ die Identitätsabbildung ist. Damit kann diese in der Notation weggelassen werden und die Abbildung zwischen den Spielen besteht nur noch aus den Abbildungen $\phi_i: X_i \to Y_i$ zwischen den Strategieräumen.
 \end{notation}
 
-Abbildungen der obigen Form nehmen noch keinerlei Rücksicht auf die Kostenfunktionen der jeweiligen Spiele. Da diese aber in der Regel die interessierenden Eigenschaften eines Spiels (wie beispielsweise Gleichgewichte) festlegen, werden derartige Abbildungen im Allgemeinen noch wenig Aussagen über die beteiligten Spiele ermöglichen. So besagt der durch diese Art Abbildungen induzierte Isomorphiebegriff bspw. nur, dass zwei Spiele Spieler- und Strategiemengen gleicher Kardinalität besitzen.
+Morphismen der in \Cref{defn:MorphismusVonSpielen} beschriebenen Form nehmen noch keinerlei Rücksicht auf die Kostenfunktionen der jeweiligen Spiele. Da gerade diese aber in der Regel die interessierenden Eigenschaften eines Spiels (wie beispielsweise Gleichgewichte) festlegen, werden derartige Abbildungen im Allgemeinen noch wenig Aussagen über die beteiligten Spiele ermöglichen. So besagt der durch diese Art Abbildungen induzierte Isomorphiebegriff bspw. nur, dass zwei Spiele Spieler- und Strategiemengen gleicher Kardinalität besitzen.
 
-Echte Morphismen zwischen Spielen sollten folglich noch mehr der Struktur eines Spiels erhalten, insbesondere in irgendeiner Form \glqq verträglich\grqq{} mit den Kostenfunktionen sein. Je nach dem, welche Eigenschaften die Morphismen (und insbesondere die dadurch induzierten Isomorphismen) erhalten sollen, erhält man so unterschiedlich starke Verträglichkeitsbedingungen. Einige Möglichkeiten dafür werden wir nun kennenlernen.
+Sinnvollerweise sollten Morphismen zwischen Spielen folglich noch mehr der Struktur eines Spiels erhalten, insbesondere in irgendeiner Form \glqq verträglich\grqq{} mit den Kostenfunktionen sein. Je nach dem, welche Eigenschaften die Morphismen (und insbesondere die dadurch induzierten Isomorphismen) erhalten sollen, erhält man so unterschiedlich starke Verträglichkeitsbedingungen. Einige Möglichkeiten dafür werden wir nun kennenlernen.
 
-Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} sein müssen, wie sie in \cite{ReprOfFiniteGamesAsNCG} gestellt wird:
+Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} sein müssen, wie sie etwa in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} gestellt wird:
 
 \begin{defn}
 	Ein Morphismus $(\sigma, \phi_j)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt \emph{kostenerhaltend}, wenn für alle Strategieprofile $x \in X$ und jeden Spieler $j \in J$ gilt:
@@ -54,7 +52,7 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 \end{defn}
 
 \begin{bem}
-	Zwei Spiele sind also genau dann äquivalent, wenn sie sich ausschließlich durch Umbenennung der Strategien ineinander überführen lassen. In \cite{MonShap} (S. 133) wird dies als Isomorphie von Spielen bezeichnet.
+	Zwei Spiele sind also genau dann äquivalent, wenn sie sich ausschließlich durch Umbenennung der Strategien ineinander überführen lassen. In \cite[S. 133]{MonShap} wird dies als Isomorphie von Spielen bezeichnet.
 \end{bem}
 
 \begin{bsp}\label{bsp:Koordinationsspiel}
@@ -74,14 +72,14 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 	Also ist $\Gamma$ tatsächlich ein Koordinationsspiel.
 \end{bsp}
 
-Dieses Beispiel formalisiert die Intuition, dass in einem Koordinationsspiel alle Spieler ein gemeinsames Ziel haben und daher zusammen \glqq wie ein Spieler\grqq{} spielen (d.h. das Koordinationsspiel kann durch ein 1-Personenspiel simuliert werden).\todo{Stimmt das so?}
+Dieses Beispiel formalisiert die Intuition, dass in einem Koordinationsspiel alle Spieler ein gemeinsames Ziel haben und daher zusammen \glqq wie ein Spieler\grqq{} spielen (d.h. das Koordinationsspiel kann durch ein 1-Personenspiel simuliert werden).
 
-\begin{bsp}.
-	
-	\todo[inline]{Kann man auch Dummy-Spiele auf derartige Weise beschreiben?}
-\end{bsp}
+%\begin{bsp}.
+%	
+%	\todo[inline]{Kann man auch Dummy-Spiele auf derartige Weise beschreiben?}
+%\end{bsp}
 
-In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträglichkeitsbedingung:
+In \cite{LapGameCat} stellt \citeauthor[Definition 4.1]{LapGameCat} folgende schwächere Verträglichkeitsbedingung:
 
 \begin{defn}
 	Ein Morphismus $(\sigma, \phi_j)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ zusammen mit monotonen \emph{Kostenabbildung} $f_j: \IR \to \IR$ für jeden Spieler $j \in J$ heißt \emph{monoton}, wenn für jeden Spieler das folgende Diagramm kommutiert:	
@@ -91,6 +89,7 @@ In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträ
 			\IR \arrow[r, "f_j"]							& \IR
 		\end{tikzcd}
 	\end{center}
+	Ein solcher Morphismus heißt \emph{monotoner Isomorphimus}, wenn er ein Isomorphismus ist und auch die Verknüpfung der Kostenabbildungen die Identität gibt.
 \end{defn}
 
 \begin{bem}
@@ -119,24 +118,24 @@ In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträ
 	Analog folgt dies für Strategieprofile $\hat{x} \in X$ mit $c_{\sigma(j)}(\hat{x}) < 0$.
 \end{proof}
 
+Der Begriff eines monotonen Isomorphismus liefert uns nun das erste Beispiel eines Zusammenhangs zwischen Morphismen und Potentialen:
+
 \begin{prop}\label{prop:MonIsoKoordDannskPot}
 	Ist ein Spiel monoton isomorph zu einem Koordinationsspiel, so besitzt es ein skaliertes Potential.
 \end{prop}
 
 \begin{proof}
-	Sei also $(\sigma, \phi): \Gamma =(I, X, (c_i)) \to K = (J, Y, (d))$ ein solcher monotoner Isomorphismus. Dann gibt es folglich monotone Abbildungen $f_j$ und $g_i$, sodass alle Diagramme der folgenden Form kommutieren:
-	
+	Sei $(\sigma, \phi): \Gamma =(I, X, (c_i)) \to K = (\set{\ast}, Y, (d_\ast))$ ein solcher monotoner Isomorphismus. Dann gibt es folglich monotone Abbildungen $f_j$ und $g_i$, sodass alle Diagramme der folgenden Form kommutieren:
 	\begin{center}
 			\begin{tikzcd}
-			X \arrow[r, "\phi"] \arrow[d, "c_i"] \arrow[rr, bend left=60, "\id"]	& Y \arrow[r, "\phi^{-1}"] \arrow[d, "d(i)"] 	& X \arrow[d, "c_i"] \\
+			X \arrow[r, "\phi"] \arrow[d, "c_i"] \arrow[rr, bend left=60, "\id"]	& Y \arrow[r, "\phi^{-1}"] \arrow[d, "d_\ast"] 	& X \arrow[d, "c_i"] \\
 			\IR \arrow[r, "f_{\sigma^{-1}(i)}"'] \arrow[rr, bend right=60, "\id"']	& \IR \arrow[r, "g_i"']										& \IR
 		\end{tikzcd}
 	\end{center}
-
-	Dann ist $P: X \to \IR: x \mapsto d \circ \phi(x)$ ein skaliertes Potential mit Skalierungsfunktionen $g_i$, denn es gilt allgemein
-		\[g_i \circ d \circ \phi = c_i \circ \phi^{-1} \circ \phi = c_i \circ \id = c_i \]
+	Es ist $P: X \to \IR: x \mapsto d_\ast \circ \phi(x)$ ein skaliertes Potential mit Skalierungsfunktionen $g_i$, denn es gilt allgemein
+		\[g_i \circ d_\ast \circ \phi = c_i \circ \phi^{-1} \circ \phi = c_i \circ \id = c_i \]
 	und damit im Besonderen
-		\[g_i \circ d \circ \phi(x) - g_i \circ d \circ \phi(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i) .\]
+		\[g_i \circ d_\ast \circ \phi(x) - g_i \circ d_\ast \circ \phi(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i) .\]
 	Ferner sind die $g_i$ nach Voraussetzung monoton und wegen $f_{\sigma^{-1}(i)} \circ g_i = \id$ injektiv, also insgesamt streng monoton.
 \end{proof}
 
@@ -163,14 +162,14 @@ In \cite{LapGameCat} stellt \citeauthor{LapGameCat} folgende schwächere Verträ
 			\IR 								& \IR \arrow[l, "f_i^{-1}"]
 		\end{tikzcd}
 	\end{center}		
-	kommutieren offenbar. Also sind $\Delta$ und $\Gamma$ tatsächlich monoton isomorph.\todo{Ist dieser Satz wirklich sinnvoll? Insbesondere mit diesem Beweis?}
+	kommutieren offenbar. Also sind $\Delta$ und $\Gamma$ tatsächlich monoton isomorph.
 \end{proof}
 
-Dies ist also bereits ein Beispiel dafür, wie man die Existenz eines Potentials durch die Existenz eines passenden Isomorphismus zu einem Koordinationsspiel ausdrücken kann. Allerdings ist die Verträglichkeitsbedinung an monotone Morphismen noch zu stark um auf diesem Weg auch eine notwendige Bedingung für die Existenz eines skalierten zu erhalten. Dies liegt daran, dass hier eine globale Montonie gefordert wird, während die meisten Potentiale lediglich lokale Monotonie benötigen.
+Dies ist also ein Beispiel dafür, wie man eine hinreichende Bedingung für die Existenz eines Potentials durch die Existenz eines passenden Isomorphismus zu einem Koordinationsspiel ausdrücken kann. Allerdings ist die Verträglichkeitsbedinung an monotone Morphismen noch zu stark um auf diesem Weg auch eine notwendige Bedingung für die Existenz eines skalierten Potentials zu erhalten. Dies liegt daran, dass hier eine globale Montonie gefordert wird, während die meisten Potentiale lediglich lokale Monotonie benötigen.
 
 \todo[inline]{Beispiel für die Nicht-Notwendigkeit finden!}
 
-Wir schränken nun also die Verträglichkeitsbedingung auf Nachbarschaften ein und kommen so zum Begriff eines ordinalen Morphismus. Einen entsprechenden (Iso-)Morphismusbegriff für exakte Potentiale definiert \citeauthor{ReprOfFiniteGamesAsNCG} in \cite{ReprOfFiniteGamesAsNCG}. Und analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren:
+Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren - wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe dann als \glqq ähnlich\grqq.}.
 
 \begin{defn}\label{def:PotentialMorphismen}
 	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt
@@ -181,19 +180,27 @@ Wir schränken nun also die Verträglichkeitsbedingung auf Nachbarschaften ein u
 		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = w_j\cdot\left(d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\right)\]
 		\item \emph{skalierend}, wenn es streng monotone Funktionen $f_j$ gibt, sodass für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = f_j(d_j(\phi(x))) - f_j(d_j(\phi(x \mid \hat{x}_{\sigma(j)})))\]
+		\item \emph{biordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:\todo{In die nachfolgenden Sätze einpflegen? Oder ausgelagert als Bemerkung definieren, da es nur ein einziges Mal verwendet wird?}
+		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{ordinal}, wenn für alle Strategieprofile $x \in X$, Spieler $j \in J$ und Strategien $\hat{x}_{\sigma(j)}$ gilt:
 		\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \implies d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))\]
 		\item \emph{beste Antwort-erhaltend}, wenn für alle Spieler $j \in J$ und Strategieprofile $x \in X$ gilt:
 		\[\phi_j(\arg \min_{x'_{\sigma(j)} \in X_{\sigma(j)}}c_{\sigma(j)}(x' \mid x_{\sigma(j)})) \subseteq \arg \min_{y_j \in Y_j} d_j(\phi(x) \mid y_j)\]
 	\end{itemize}	
+	Ein exakter/gewichteter/\dots{} Morphismus heißt \emph{exakter/gewichteter/\dots{} Isomorphismus}, wenn er ein Isomorphismus ist und der inverse Morphismus ebenfalls exakt/gewichtet/\dots{} ist.
 \end{defn}
 
-Während die Verknüpfung zweier kostenerhaltender Morphismen wieder einen kostenerhaltenden Morphismus gibt und die zweier monotoner wieder einen monotonen, ist dies bei exakten/gewichteten/\dots im Allgemeinen nicht der Fall.  
+\begin{bem}
+	Ist ein Morphismus exakt/gewichtet/skalierend/biordinal und ein Isomorphismus so ist er automatisch ein exakter/gewichteter/skalierender/biordinaler Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).\todo{Stimmt das so?}
+\end{bem}
+
+Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender Morphismen wieder einen kostenerhaltenden Morphismus ergibt und die zweier monotoner wieder einen monotonen, ist dies bei exakten/gewichteten/\dots{} Morphismen im Allgemeinen nicht der Fall: 
 
 \begin{bsp}\label{bsp:GegenbspKompositionVMorphismen}
 	Betrachte die folgenden drei 1- bzw. 2-Personenspiele:
 	\begin{itemize}
-		\item $\Gamma \coloneqq (\set{1}, \set{t, b}, c_1)$, wobei die Kostenfunktion $c_1$ wie folgt definiert ist: $c(t) = 0, c(b) = 1$.
+		\item $\Gamma \coloneqq (\set{1}, \set{t, b}, c_1)$, wobei die Kostenfunktion $c_1$ wie folgt definiert ist: 
+			\[c(t) = 0, c(b) = 1\]
 		\item $\Delta \coloneqq (\set{1, 2}, \set{t, b} \times \set{l, r}, (d_1, d_2))$ mit Kostenfunktionen definiert durch folgende Auszahlungsmatrix (mit Einträgen $(d_1(\_), d_2(\_))$:
 		\begin{center}
 				\begin{tabular}{c||c|c}
@@ -202,7 +209,7 @@ Während die Verknüpfung zweier kostenerhaltender Morphismen wieder einen koste
 				b	& $(1,0)$	& $(1,1)$ 
 			\end{tabular}
 		\end{center}
-		\item $E \coloneqq (\set{1, 2}, \set{t, b} \times \set{l, r}, (e_1, e_2))$ mit Kostenfunktionen definiert durch folgende Auszahlungsmatrix (mit Einträgen $(e_1(\_), e_2(\_))$:
+		\item $\Epsilon \coloneqq (\set{1, 2}, \set{t, b} \times \set{l, r}, (e_1, e_2))$ mit Kostenfunktionen definiert durch folgende Auszahlungsmatrix (mit Einträgen $(e_1(\_), e_2(\_))$:
 		\begin{center}
 			\begin{tabular}{c||c|c}
 				& l 		& r 		\\\hline\hline
@@ -211,39 +218,47 @@ Während die Verknüpfung zweier kostenerhaltender Morphismen wieder einen koste
 			\end{tabular}
 		\end{center}
 	\end{itemize}
-	Dann sind sowohl die Abbildung $(\sigma, \phi): \Gamma \to \Delta$ mit $\sigma(1) = \sigma(2) = 1$ und $\phi_1(t) = t, \phi_1(b) = b, \phi_2(t) = l, \phi_2(b) = r$ als auch die Abbildung $(\tau, \psi): \Delta \to E$ mit $\tau = \id$ und $\psi_i = \id$ exakt, wie man durch einfaches Nachprüfen\todo{Nachprüfen!!!}{} der jeweiligen Bedingungen sieht. Gleichzeitig ist aber die Verknüpfung der beiden Abbildungen $(\tau, \psi)\circ(\sigma, \phi) = (\sigma\circ\tau, \psi\circ\phi)$ nicht einmal ordinal, denn es gilt
+	Dann sind sowohl die Abbildung $(\sigma, \phi): \Gamma \to \Delta$ mit $\sigma(1) = \sigma(2) = 1$ und $\phi_1(t) = t, \phi_1(b) = b, \phi_2(t) = l, \phi_2(b) = r$ als auch die Abbildung $(\tau, \psi): \Delta \to \Epsilon$ mit $\tau = \id$ und $\psi_i = \id$ exakt, wie man durch einfaches Nachprüfen\todo{Nachprüfen!} der jeweiligen Bedingungen sieht. Gleichzeitig ist aber die Verknüpfung der beiden Abbildungen $(\tau, \psi)\circ(\sigma, \phi) = (\sigma\circ\tau, \psi\circ\phi)$ nicht einmal ordinal, denn es gilt
 		\[c_{\sigma\circ\tau(1)}(t) = c_1(t) = 0 < 1 = c_1(b) = c_{\sigma\circ\tau(1)}(t) = c_1(t),\]
 	aber gleichzeitig
 		\[e_1(\psi\circ\phi(t)) = e_1(t,l) = 1 > 0 = e_1(b,r) = e_1(\psi\circ\phi(b)).\]
 \end{bsp}
 
-Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorientheorie, wenn man sich nur auf exakte/gewichtete/\dots{} Morphismen beschränkt (was für kostenerhaltende/monotone Morphismen der Fall ist und für monotone Morphismen in \cite{LapGameCat} auch weiter untersucht wird\todo{bessere Formulierung}). Man kann allerdings sicherstellen, dass die Komposition zweier exakter/gewichteter/\dots{} Morphismen wieder diese Eigenschaft hat, wenn man sich noch weiter auf Morphismen mit injektiver Spielerabbildung einschränkt:
+Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorientheorie, wenn man sich nur auf exakte/gewichtete/\dots{} Morphismen beschränkt (was für kostenerhaltende/monotone Morphismen der Fall ist). Man kann allerdings sicherstellen, dass die Komposition zweier exakter/gewichteter/\dots{} Morphismen wieder die jeweilige Eigenschaft hat, wenn man sich auf Morphismen mit injektiver Spielerabbildung beschränkt:
 
 \begin{lemma}\label{lemma:KompositionVonMorphismen}
 	Die Verknüpfung zweier exakter/gewichteter/skalierter/ordinaler/verallgemeinert ordinaler/Bester-Antwort-Morphismen mit injektiven Spielerabbildungen ist wieder ein solcher Morphismus.
 \end{lemma}
 
 \begin{proof}
-	Die Aussage des Lemmas ergibt sich aus folgender Beobachtung: Für einen Morphismus $(\sigma, \phi): \Gamma \to \Delta$ mit injektiver Spielerabbildung gilt für jeden Spieler $j$, jedes Strategieprofil $x$ und jede Strategie $\hat{x}_{\sigma(j)}$ von Spieler $\sigma(j)$\todo{Begründung, dass Injektivität ausreicht?}  
-		\[\phi(x \mid \hat{x}_{\sigma(j)}) = (\phi(x) \mid \phi_{j}(\hat{x}_{\sigma(j)})).\]
+	Die Aussage des Lemmas ergibt sich aus folgender Beobachtung: Für einen Morphismus $(\sigma, \phi): \Gamma \to \Delta$ mit injektiver Spielerabbildung gilt für jeden Spieler $j$, jedes Strategieprofil $x$ und jede Strategie $\hat{x}_{\sigma(j)}$ von Spieler $\sigma(j)$
+		\begin{align}\label{eq:StrategiewechselFuerInjektiveSpielerabbildung}
+			\phi(x \mid \hat{x}_{\sigma(j)}) = (\phi(x) \mid \phi_{j}(\hat{x}_{\sigma(j)})).
+		\end{align}
+	Die Injektivität der Spielerabbildung stellt nämlich gerade sicher, dass die Strategie von Spieler $\sigma(j)$ ausschließlich die Strategie von Spieler $j$ und keinem anderen beeinflusst.
+	
 	Wir zeigen das Lemma nun für exakte Morphismen - der Beweis für die anderen Morphismenarten geht dann völlig analog. Seien also zwei exakte Morphismen mit injektiver Spielerabbildung gegeben:
 		\begin{center}\begin{tikzcd}
 			  \Gamma = (I, X, (c_i)) \arrow[r, "{(\sigma, \phi)}"] \arrow[rr, bend right=15, "{(\sigma\circ\tau, \psi\circ\phi)}"'] 
 			  & \Delta = (J, Y, (d_j)) \arrow[r, "{(\tau, \psi)}"] 
 			  & E 	 = (K, Z, (e_k))
 		\end{tikzcd}\end{center}
-	Dann ist auch die Verknüpfung der beiden Morphismen exakt, denn es gilt:\todo{Schöner formatieren/Gleichheitszeichen begründen/Prüfen}
+	Dann ist auch die Verknüpfung der beiden Morphismen exakt, denn es gilt:
 		\begin{align*}
-			e_k(\psi\circ\phi(x)) &- e_k(\psi\circ\phi(x \mid \hat{x}_{\sigma\circ\tau(k)})) &&= \\
-				&= e_k(\psi(\phi(x))) &&- e_k(\psi(\phi(x) \mid \phi_{\tau(k)}(\hat{x}_{\sigma(\tau(k))}))) = \\
-				&= d_{\tau(k)}(\phi(x)) &&- d_{\tau(k)}(\phi(x) \mid \phi_{\tau(k)}(\hat{x}_{\sigma(\tau(k))})) = \\
-				&= d_{\tau(k)}(\phi(x)) &&- d_{\tau(k)}(\phi(x \mid \hat{x}_{\sigma(\tau(k))})) = \\
-				&= c_{\sigma(\tau(k))}(x) &&- c_{\sigma(\tau(k))}(x \mid \hat{x}_{\sigma(\tau(k))})
+			e_k(\psi\circ\phi(x)) &- e_k(\psi\circ\phi(x \mid \hat{x}_{\sigma\circ\tau(k)})) = \\
+				&\,\overset{\eqref{eq:StrategiewechselFuerInjektiveSpielerabbildung}}{=}\,\,\,
+					e_k(\psi(\phi(x))) - e_k(\psi(\phi(x) \mid \phi_{\tau(k)}(\hat{x}_{\sigma(\tau(k))}))) = \\
+				&\!\underset{\text{exakt}}{\overset{(\tau, \psi)}{=}}\,
+					d_{\tau(k)}(\phi(x)) - d_{\tau(k)}(\phi(x) \mid \phi_{\tau(k)}(\hat{x}_{\sigma(\tau(k))})) = \\
+				&\,\overset{\eqref{eq:StrategiewechselFuerInjektiveSpielerabbildung}}{=}\,\,\, 
+					d_{\tau(k)}(\phi(x)) - d_{\tau(k)}(\phi(x \mid \hat{x}_{\sigma(\tau(k))})) = \\
+				&\!\underset{\text{exakt}}{\overset{(\sigma, \phi)}{=}}\, 
+					c_{\sigma(\tau(k))}(x) - c_{\sigma(\tau(k))}(x \mid \hat{x}_{\sigma(\tau(k))})
 				\qedhere
 		\end{align*}
 \end{proof}
 
-Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationsspielen verwendete Morphismus gerade keine injektive Spielerabbildung verwendet, können die Morphismenbegriffe aus \Cref{def:PotentialMorphismen} nicht dazu verwendet werden um eine zu \Cref{kor:skalPotWennMon1PerMorph} analoge Bedingung für die Existenz der verschiedenen Potentiale zu finden. Dafür können wir nun aber eine stärkere Form von \Cref{prop:MonIsoKoordDannskPot} zur Charakterisierung von Potentialen:
+Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationsspielen verwendete Morphismus gerade keine injektive Spielerabbildung verwendet, können die Morphismenbegriffe aus \Cref{def:PotentialMorphismen} nicht dazu verwendet werden um eine zu \Cref{kor:skalPotWennMon1PerMorph} analoge Bedingung für die Existenz der verschiedenen Potentiale zu finden. Dafür erhalten wir aber eine stärkere Form von \Cref{prop:MonIsoKoordDannskPot} zur Charakterisierung von Potentialen:
 
 \begin{prop}\label{prop:CharPotentialeDurchIsos}
 	Ein Spiel $\Gamma$ besitzt genau dann ein exaktes/gewichtetes/skaliertes/ordinales/Beste-Antwort-Potential, wenn es exakt/gewichtet/ordinal/Beste-Antwort-isomorph zu einem Koordinationsspiel ist. Es besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es einen ordinalen Morphismus mit bijektiven Spieler- und Strategieabbildungen von $\Gamma$ in ein Koordinationsspiel gibt.
@@ -268,7 +283,7 @@ Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationss
 
 \subsection{Beweise der Potentialsätze}\label{sec:Morphismen:Potentialsaetze}
 
-Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Isomorphismen) eng mit den entsprechenden Potentialen zusammen. In diesem Kapitel werden wir dies ausnutzen um mit Hilfe entsprechender Eigenschaften der Morphismen die Aussagen aus \Cref{sec:Potentiale} zu zeigen (insbesondere \Cref{satz:ZusammenaengePotentiale}).
+Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Isomorphismen) eng mit den entsprechenden Potentialen zusammen. In diesem Kapitel werden wir dies ausnutzen um mit Hilfe der analogen Eigenschaften der Morphismen die Aussagen aus \Cref{sec:Potentiale} zu zeigen (insbesondere \Cref{satz:ZusammenaengePotentiale}).
 
 \begin{prop}
 	Es gelten folgende Beziehungen zwischen den verschiedenen Morphismenbegriffen:
@@ -321,7 +336,7 @@ Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Iso
 		\item[gew $\bm{\Rightarrow}$ skaliert:] $f_j: \IR \to \IR: t \mapsto w_j \cdot t$ sind streng monotone Skalierungsfunktionen.
 		\item[skaliert $\bm{\Rightarrow}$ ordinal:] Gilt $c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)})$ so auch $f_j \circ d_j(\phi(x)) < f_j \circ d_j(\phi(x \mid \hat{x}_{\sigma(j)}))$ und (wegen strenger Monotonie von $f_j$) $d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)}))$.
 	\end{description}
-	Die zusätzlichen Zusammenhänge von Isomorphismen gelten:
+	Die zusätzlichen Zusammenhänge von Isomorphismen sind:
 	\begin{description}
 		\item[monoton $\bm{\Rightarrow}$ skaliert:] mit dem gleichen Beweis wie \Cref{prop:MonIsoKoordDannskPot} (wir haben dabei nirgends verwendet, dass eines der beteiligten Spiele ein Koordinationsspiel ist)
 		\item[skaliert $\bm{\Rightarrow}$ BA:] Ist $(\sigma, \phi)$ ein skalierter Isomorphismus, so gilt 
@@ -330,7 +345,7 @@ Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Iso
 	\end{description}	
 \end{proof}
 
-Mit \Cref{prop:CharPotentialeDurchIsos} erhalten wir aus der vorherigen Proposition einen Großteil der in \Cref{diag:Potentiale} dargestellten Beziehungen zwischen den verschiedenen Potentialbegriffen. Es bleibt noch zu zeigen, dass Beste-Antwort-Potentiale lokale Nash-Potentiale und verallgemeinert ordinale verallgemeinert Nash sind. Dies werden wir erneut aus allgemeineren Sätzen über ordinale bzw. Beste-Antwort-Morphismen folgern.
+Mit \Cref{prop:CharPotentialeDurchIsos} erhalten wir aus der vorherigen Proposition einen Großteil der in \Cref{diag:Potentiale} dargestellten Beziehungen zwischen den verschiedenen Potentialbegriffen. Es bleibt noch zu zeigen, dass Beste-Antwort-Potentiale lokale Nash und verallgemeinert ordinale Potentiale verallgemeinert Nash sind. Dies werden wir erneut aus allgemeineren Sätzen über ordinale bzw. Beste-Antwort-Morphismen folgern.
 
 Wie wir bereits in \Cref{beob:VerbPfadeundNGe} gesehen haben, hängen Nash-Gleichgewichte eng mit (abgeschlossenen) Verbesserungspfaden zusammen. Wir zeigen daher zunächst wie diese sich mit ordinalen Morphismen vertragen.
 
@@ -338,7 +353,7 @@ Wie wir bereits in \Cref{beob:VerbPfadeundNGe} gesehen haben, hängen Nash-Gleic
 	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein ordinaler Morphismus mit surjektiver Spielerabbildung $\sigma$ und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\phi(\gamma)$ ein Nicht-Verschlechterungspfad, so auch $\gamma$. Ist $\gamma$ sogar ein Verbesserungspfad, so auch $\phi(\gamma)$.
 \end{prop}
 
-Ordinale Morphismen mit surjektiver Spielerabbildung erhalten also Verbesserungspfade und reflektieren Nicht-Verschlechterungspfade. Daraus folgt insbesondere \Cref{prop:ordPotVerbpfad}.
+Ordinale Morphismen mit surjektiver Spielerabbildung erhalten also Verbesserungspfade und reflektieren Nicht-Verschlechterungspfade. Daraus folgt dann insbesondere \Cref{prop:ordPotVerbpfad}, der dies für (verallgemeinerte) ordinale Potentiale behauptet.
 
 \begin{proof}
 	Sei zunächst $\phi(\gamma)$ ein Nicht-Verschlechterungspfad. Angenommen $\gamma$ wäre kein Nicht-Verschlechterungspfad, dann gäbe es also ein $k$, sodass sich der im $k$-ten Schritt abweichende Spieler echt verschlechtert, d.h. $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$. Da $\sigma: J \to I$ surjektiv ist, gibt es nun einen Spieler $j \in J$ mit $\sigma(j) = i(k)$ und wegen der Ordinalität von $\phi$ gilt für diesen, dass er sich im $k$-ten Schritt von $\phi(\gamma)$ echt verschlechtert, d.h. $d_j(\phi(x^k)) > d_j(\phi(x^{k-1}))$. 
@@ -350,7 +365,7 @@ Ordinale Morphismen mit surjektiver Spielerabbildung erhalten also Verbesserungs
 	Ist nun $\gamma$ ein Verbesserungspfad, gilt in jedem Schritt $c_{i(k)}(x^{k}) < c_{i(k)}(x^{k-1})$ und daher - mit dem gleichen Argument wie eben - auch $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$. Also ist auch $\phi(\gamma)$ ein Verbesserungspfad.
 \end{proof}
 
-Im Allgemeinen bilden (ordinale) Morphismen Pfade nicht wieder auf Pfade ab. Ist nämlich $(\sigma, \phi): \Gamma \to \Delta$ ein solcher Morphismus und gibt es zwei Spieler $j$ und $j'$ mit $\sigma(j) = \sigma(j') \eqqcolon i$, dann kann eine einseitige Abweichung von Spieler $i$ in $\Gamma$ zu einer gleichzeitigen Abweichung der \emph{beiden} Spieler $j$ und $j'$ in $\Delta$ führen. Dies kann allerdings nicht passieren, wenn die Spielerabbildung $\sigma$ injektiv ist.\todo{Ist das das gleiche Problem wie in \Cref{bsp:GegenbspKompositionVMorphismen}?}
+Im Allgemeinen bilden (ordinale) Morphismen Pfade nicht wieder auf Pfade ab. Ist nämlich $(\sigma, \phi): \Gamma \to \Delta$ ein solcher Morphismus und gibt es zwei Spieler $j$ und $j'$ mit $\sigma(j) = \sigma(j') \eqqcolon i$, dann kann eine einseitige Abweichung von Spieler $i$ in $\Gamma$ zu einer gleichzeitigen Abweichung der \emph{beiden} Spieler $j$ und $j'$ in $\Delta$ führen. Wie wir bereits im Beweis von \Cref{lemma:KompositionVonMorphismen} gesehen haben, kann dies allerdings nicht passieren, wenn die Spielerabbildung $\sigma$ injektiv ist.
 
 \begin{beob}\label{beob:PfadeAufPfade}
 	Morphismen $(\sigma, \phi)$ mit injektivem $\sigma$ bilden Pfade auf Pfade ab.
@@ -405,7 +420,7 @@ Beste-Antwort-isomorphe Spiele haben damit sogar die gleichen Nash-Gleichgewicht
 
 \subsection{Weitere Sätze mit Morphismen}
 
-\todo[inline]{Fehlt: Einleitung (Weitere unsortierte Sätze...)}
+Zum Abschluss dieses Kapitels wollen wir nun noch einige weitere Beobachtungen über bzw. mit Morphismen festhalten:
 
 Für monotone Morphismen gibt es einen zu \Cref{prop:NVReflVerbErh} analogen Satz über Nicht-Verschlechterungs- und Verbesserungspfade.
 
@@ -428,7 +443,7 @@ Das heißt monotone Morphismen erhalten Nicht-Verschlechterungspfade und reflekt
 Der folgende Satz zeigt, wann man Spieler weglassen kann, ohne dadurch die Nash-Gleichgewichte des Spiels zu beeinflussen.
 
 \begin{satz}\label{prop:DummySpielerWeglassen}
-	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein biordinaler\todo{Begriff definieren!}{} Morphismus mit injektiver Spielerabbildung und surjektiven Strateegieabbildungen. Seien ferner alle Spieler in $I\setminus \sigma(J)$ Dummy-Spieler\todo{Begriff definieren! Evtl. zusammen mit Dummy-Spielen}. Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
+	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein biordinaler Morphismus mit injektiver Spielerabbildung und surjektiven Strateegieabbildungen. Seien ferner alle Spieler in $I\setminus \sigma(J)$ Dummy-Spieler. Dann ist ein Strategieprofil $x \in X$ genau dann ein Nash-Gleichgewicht in $\Gamma$, wenn $\phi(x)$ ein Nash-Gleichgewicht in $\Delta$ ist.
 \end{satz}
 
 \todo[inline]{Kann man das noch schöner ausdrücken (mit Retrakten o.ä.)?}

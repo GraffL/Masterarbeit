@@ -57,7 +57,7 @@ Für endliche gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG}
 	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes endliche gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$
 	\begin{itemize}
 		\item entweder ausschließlich affin lineare Funktionen, also Funktionen der Form $c(l) = a_c \cdot l + d_c$, enthält
-		\item oder ausschließlich Funktionen der Form $c(l) = a_c\cdot b^l + d_c$ enthält (mit $b > 0$).
+		\item oder ausschließlich Funktionen der Form $c(l) = a_c\cdot b^l + d_c$ enthält (mit gemeinsamem $b > 0$).
 	\end{itemize}
 	Alle mit Kostenfunktionen aus $C$ erzeugten gewichteten Auslastungsspiele besitzen genau dann sogar ein exaktes Potential, wenn $C$ ausschließlich affin lineare Funktionen enthält (vgl. \cite[Theorem 3.7]{CharExGewPotinWCG}).
 \end{satz}
@@ -71,14 +71,14 @@ Da nun für endliche Spiele alle der in \Cref{sec:Potentiale} definierten Potent
 Zusammen zeigen diese beiden Sätze bereits deutlich, dass der Schritt vom ungewichteten Fall zum gewichteten auf Seite der Auslastungsspiele erheblich größer ist als auf Seite der Potentiale. Tatsächlich zeigt \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Theorem 1]{ReprOfFiniteGamesAsNCG}, dass dieser Verallgemeinerungsschritt für Auslastungsspiele bereits der größtmögliche ist, denn es gilt:
 
 \begin{satz}\label{satz:JedesSpielGewAusl}
-	Jedes endliche Spiel ist äquivalent zu einem gewichteten Auslastungsspiel.\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} zeigt sogar, dass jedes endliche Spiel äquivalent zu einem gewichteten Netzwerkauslastungsspiel mit einheitlichem Start- und Zielpunkt und privaten Kanten ist.}
+	Jedes endliche Spiel ist äquivalent zu einem gewichteten Auslastungsspiel.\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} zeigt sogar, dass jedes endliche Spiel äquivalent zu einem gewichteten Netzwerkauslastungsspiel mit privaten Kanten und einheitlichem Start- und Zielknoten ist.}
 \end{satz}
 
 Die Menge der gewichteten Auslastungsspiele umfasst also (bis auf kostenerhaltende Isomorphie) bereits \emph{alle} endlichen Spiele in strategischer Form. Möchte man daher eine wirklich analoge Verallgemeinerung von Auslastungsspielen passend zu gewichteten Potentialspielen finden, muss man also andere Varianten betrachten Gewichte ins Spiel zu bringen. In \Cref{def:gewAuslastungsspiel} hatten wir bereits zwei solche gesehen, welche wir nun näher untersuchen wollen:
 
 \subsubsection{Lastgewichtete Auslastungsspiele}
 
-Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Auslastungsspiele. \citeauthor{CharExGewPotinWCG} beobachten in \cite{CharExGewPotinWCG}, dass lastgewichtete Auslastungsspiele (die dort als normalisierte Auslastungsspiele bezeichnet werden) zwar nicht äquivalent, aber doch unter verschiedenen Aspekten sehr ähnlich zu allgemeinen gewichteten Auslastungsspielen sind. Diesen Zusammenhang können wir nun leicht durch einen passenden Isomorphiebegriff formalisieren - es gilt nämlich:
+Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Auslastungsspiele. \citeauthor{CharExGewPotinWCG} beobachten in \cite[S. 53]{CharExGewPotinWCG}, dass lastgewichtete Auslastungsspiele (die dort als normalisierte Auslastungsspiele bezeichnet werden) zwar nicht äquivalent, aber doch unter verschiedenen Aspekten sehr ähnlich zu allgemeinen gewichteten Auslastungsspielen sind. Diesen Zusammenhang können wir nun leicht durch einen passenden Isomorphiebegriff formalisieren - es gilt nämlich:
 
 \begin{lemma}\label{lemma:lastgewAuslIsomGewAusl}
 	Jedes lastgewichtete Auslastungsspiel ist gewichtet isomorph zu einem gewichteten Auslastungsspiel und umgekehrt. Die beiden Spiele basieren dabei jeweils auf dem gleichen Auslastungsmodell und der Gewichtsvektor des Morphismus von gewichteten zum lastgewichteten Auslastungsspiel ist der Gewichtsvektor des Auslastungsmodells.
@@ -101,6 +101,16 @@ Hieraus ergeben sich dann direkt die in \cite{CharExGewPotinWCG} beobachteten Zu
 	\end{itemize}
 \end{kor}
 
+Außerdem übersetzt sich damit \Cref{satz:CharExGewPotinWCG} zu 
+\begin{kor}\label{kor:CharExGewPotinLWCG}
+	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes endliche lastgewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$
+	\begin{itemize}
+		\item entweder ausschließlich affin lineare Funktionen, also Funktionen der Form $c(l) = a_c \cdot l + d_c$, enthält
+		\item oder ausschließlich Funktionen der Form $c(l) = a_c\cdot b^l + d_c$ enthält (mit gemeinsamem $b > 0$).
+	\end{itemize}
+	\todo[inline]{Kann man \citeauthor{LastGewCGgewPot} verwenden um den Satz zu stärken?}
+\end{kor}
+
 Insbesondere sehen wir damit aber auch, dass lastgewichtete Auslastungsspiele ebenfalls eine zu starke Verallgemeinerung von ungewichteten Auslastungsspielen sind, um eine Entsprechung der gewichteten Potentialspiele sein zu können.
 
 
@@ -108,7 +118,7 @@ Insbesondere sehen wir damit aber auch, dass lastgewichtete Auslastungsspiele eb
 
 Wie sich herausstellt sind kostengewichtete Auslastungsspiele hingegen eine geeignete Klasse:
 
-\begin{satz}
+\begin{satz}\label{satz:MondererShapleyKostengew}
 	Jedes kostengewichtete $N$-Personen-Auslastungsspiel besitzt ein gewichtetes Potential und jedes $N$-Personen-Spiel mit einem gewichteten Potential ist äquivalent zu einem kostengewichteten Auslastungsspiel.
 \end{satz}
 
@@ -136,14 +146,14 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 \end{proof}
 
 
-\subsection{Schnelle Beste-Antwort-Dynamik in Auslastungsspielen}
+\subsection{Schnelle Beste-Antwort-Dynamik in Matroidspielen}
 
-Da endliche Auslastungsspiele nach \Cref{satz:MondererShapley} ein exaktes und damit insbesondere ein Beste-Antwort-Potential besitzt, wissen wir bereits, dass in solchen Spielen jede Beste-Antwort-Dynamik nach endlicher Zeit ein Nash-Gleichgewicht erreicht. Allerdings kann diese Suche im Allgemeinen sehr lange dauern. \citeauthor{BAPfadLaengeInAusl} stellen in \cite[Theorem 3.1]{BAPfadLaengeInAusl} ein Auslastungsspiel vor, welches einen Beste-Antwort-Verbesserungspfad der Länge $2^{\abs{I}}$ besitzt.
+Da endliche Auslastungsspiele nach \Cref{satz:MondererShapley} ein exaktes und damit insbesondere ein Beste-Antwort-Potential besitzt, wissen wir bereits, dass in solchen Spielen jede Beste-Antwort-Dynamik nach endlicher Zeit ein Nash-Gleichgewicht erreicht. Allerdings kann diese Suche im Allgemeinen sehr lange dauern. Zum Beispiel stellen \citeauthor{BAPfadLaengeInAusl} in \cite[Theorem 3.1]{BAPfadLaengeInAusl} ein $N$-Personen-Auslastungsspiel vor, welches einen Beste-Antwort-Verbesserungspfad der Länge $2^N$ besitzt.
 
 Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konvergenz immer bereits in polynomieller Zeit erfolgt. Ein leichte Modifikation des Beweises hierzu in \cite[Theorem 2.5]{BAPfadLaengeInAusl} erlaubt sogar die folgender noch etwas stärkere Aussage:
 
 \begin{satz}\label{satz:BAPotentialFuerMatroidspiele}
-	Sei $M = (I, R, (S_i), (g_r))$ ein Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen.
+	Sei $M = (I, R, (S_i), (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen.
 \end{satz}
 
 \begin{proof}
@@ -191,7 +201,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \end{proof}
 
 \begin{kor}\label{kor:BA-DynamikInMatroidSpielen}
-	Sei $\Gamma(M)$ ein Matroidspiel. Dann erreicht jede Beste-Antwort-Dynamik in höchstens $\abs{I}^2\abs{R}^2$ Schritten ein Nash-Gleichgewicht.
+	Sei $\Gamma(M)$ ein endliches Matroidspiel. Dann erreicht jede Beste-Antwort-Dynamik in höchstens $\abs{I}^2\abs{R}^2$ Schritten ein Nash-Gleichgewicht.
 \end{kor}
 
 \begin{proof}
@@ -201,7 +211,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \end{proof}
 
 \begin{kor}
-	Sei $\Gamma_c(M,w)$ ein kostengewichtetes Matroidspiel. Dann erreicht jede Beste-Antwort-Dynamik in höchstens $\abs{I}^2\abs{R}^2$ Schritten ein Nash-Gleichgewicht.
+	Sei $\Gamma_c(M,w)$ ein endliches kostengewichtetes Matroidspiel. Dann erreicht jede Beste-Antwort-Dynamik in höchstens $\abs{I}^2\abs{R}^2$ Schritten ein Nash-Gleichgewicht.
 \end{kor}
 
 \begin{proof}
@@ -216,7 +226,8 @@ Auf lastgewichtete bzw. gewichtete Matroidspiele lässt sich diese Aussage hinge
 
 \subsection{Weitere Zusammenhänge}
 
-\todo[inline]{Direkte Konstruktion eines ungewichteten Auslastungsspiels zu gew. mit affin-linearen Kosten (wie ähnlich ist diese zu dem Beweis der Existenz eines exakten Potentials von Fotakis et al?) Kann man irgendwas zu Spielen mit expontentiellen Kosten sagen?}
+
+Aus \Cref{satz:CharExGewPotinWCG} wissen wir bereits, dass jedes endliche gewichtete Auslastungsspiel ein exaktes Potential hat und daher nach \Cref{satz:MondererShapley} äquivalent zu einem (ungewichteten) Auslastungsspiel ist. Der folgende Satz enthält im Wesentlichen die gleiche Aussage, allerdings auch für nicht-endliche Spiele und das äquivalente Auslastungsspiel ist etwas \glqq einfacher\grqq.
 
 \begin{satz}
 	Sei $\Gamma(M,w)$ ein gewichtetes Auslastungsspiel, in dem alle Kostenfunktionen affin linear sind. Dann gibt es ein dazu äquivalentes (ungewichtetes) Auslastungsspiel $\Gamma(N)$. 
@@ -226,14 +237,16 @@ Auf lastgewichtete bzw. gewichtete Matroidspiele lässt sich diese Aussage hinge
 	Seien also die Kostenfunktionen aus $M$ von der Form $g_r(k) = a_r k + b_r$.
 	
 	Definiere eine Ressourcenmenge $Q \coloneqq \Set{(r, \{i, i'\}) | r \in R, i,i' \in I}$ mit Kostenfunktionen $h_{(r, \{i,i'\})}$ darauf so, dass gilt:
-	\[h_{(r, \{i,i'\})} (k) = \begin{cases}
-	0, 					& k=1, i \neq i' \\
-	a_r w_i w_{i'}, 	& k=2, i \neq i' \\
-	a_r w_i^2 + b_r w_i	& k=1, i = i'
-	\end{cases} \]
-	Schließlich ist der Strategieraum von Spieler $i \in I$ gegeben durch $T_i \coloneqq \Set{\Set{(r, \{i, i'\}) | r \in s_i, i' \in I} | s_i \in S_i }$. Dadurch erhalten wir das Auslastungsmodell $N \coloneqq (I, Q, (T_i)_{i \in I}, (h_q)_{q \in Q})$. 
+		\[h_{(r, \{i,i'\})} (k) = \begin{cases}
+									0, 					& k=1, i \neq i' \\
+									a_r w_i w_{i'}, 	& k=2, i \neq i' \\
+									a_r w_i^2 + b_r w_i	& k=1, i = i'
+								\end{cases} \]
+	Schließlich ist der Strategieraum von Spieler $i \in I$ gegeben durch 
+		\[T_i \coloneqq \Set{\Set{(r, \{i, i'\}) | r \in s_i, i' \in I} | s_i \in S_i }.\]
+	Dadurch erhalten wir das Auslastungsmodell $N \coloneqq (I, Q, (T_i)_{i \in I}, (h_q)_{q \in Q})$. Die Lastenfunktionen des davon erzeugten Auslastungsspiel sind offensichtlich wohldefiniert, da keine Ressource von mehr als zwei Spielern genutzt werden kann. Die Wohldefiniertheit der Kostenfunktionen ergibt sich aus der Äquivalenz von $\Gamma(N)$ zu $\Gamma(M)$.
 	
-	Wir zeigen nun noch die Äquivalenz von $\Gamma(M,w)$ und $\Gamma(N)$\todo{Wohldefiniertheit von $\Gamma(N)$}. Dazu betrachten wir den folgenden Morphismus $(\id, \phi): \Gamma(M,w) \to \Gamma(N)$ zwischen den beiden Spielen:
+	Um diese Äquivalenz zu zeigen, betrachten wir den folgenden Morphismus $(\id, \phi): \Gamma(M,w) \to \Gamma(N)$ zwischen den beiden Spielen:
 	\[\phi_i: S_i \to T_i: s_i \mapsto \Set{(r, \{i, i'\}) | r \in s_i, i' \in I}\]
 	Dieser Morphismus ist offensichtlich auf allen Mengen bijektiv und zudem kostenerhaltend, denn es gilt:
 	\begin{align*}
@@ -245,24 +258,26 @@ Auf lastgewichtete bzw. gewichtete Matroidspiele lässt sich diese Aussage hinge
 	\end{align*}
 \end{proof}
 
-\begin{bem}
-	Da immer nur an höchstens zwei Stellen Bedingungen an die Ressourcenkosten gestellt werden, lassen sich diese insbesondere immer als affin-lineare Funktionen realisieren. Im Gegensatz dazu ist das bei dem Auslastungsspiel, welches man über den Umweg eines exakten Potentials und \Cref{satz:MondererShapley} erhalten würde, im Allgemeinen nicht der Fall.
-\end{bem}
+\begin{beob}
+	Da immer nur an höchstens zwei Stellen Bedingungen an die Ressourcenkosten gestellt werden, lassen sich diese insbesondere immer als affin-lineare Funktionen realisieren. Im Gegensatz dazu ist das bei dem Auslastungsspiel, welches man über den Umweg eines exakten Potentials und \Cref{satz:MondererShapley} erhalten würde, im Allgemeinen nicht der Fall.\todo{Größe der Ressourcenmengen vergleichen!}
+\end{beob}
+
+Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potentialspielen in \Cref{satz:MondererShapleyKostengew} bereits auf kostengewichtete Auslastungs- und gewichtete Potentialspiele übertragen haben, werden wir nun untersuchen inwieweit sich dies auch für skalierte Auslastungs- und Potentialspiele fortsetzen lässt. Die eine Richtung gilt dabei weiterhin mit nur einem leicht schwächeren Isomorphiebegriff:
 
 \begin{satz}
-	Jedes skalierte Potentialspiel ist exakt isomorph zu einem skalierten Auslastungsspiel.
+	Jedes skalierte $N$-Personen-Potentialspiel ist exakt isomorph zu einem skalierten Auslastungsspiel.
 \end{satz}
 
 \begin{proof}
 	Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem skalierten Potential $P$ sowie entsprechenden Skalierungsfunktionen $f_i$. Hierzu definieren analog zu dem Beweis von \Cref{satz:MondererShapley} folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$:
 	\begin{itemize}
 		\item $R \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i } \subseteq \prod_{i \in I}\PSet(X_i)$.
-		\item \[g_r(k) \coloneqq 
-		\begin{cases}
-		P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
-		0,						&\text{sonst}
-		\end{cases}\]
-		\todo[inline]{Wohldefiniertheit!}
+		\item Für die Ressourcenkosten definieren wir:
+			\[g_r(k) \coloneqq 
+				\begin{cases}
+					P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
+					0,						&\text{sonst}
+				\end{cases}\]
 		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
 	\end{itemize}
 	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
@@ -275,38 +290,43 @@ Auf lastgewichtete bzw. gewichtete Matroidspiele lässt sich diese Aussage hinge
 	\end{align*}
 \end{proof}
 
+Die Rückrichtung hingegen können wir zumindest unter zur Hilfenahme der Rosenthal-Potentialfunktion nur in einer deutlich abgeschwächten Form zeigen:\todo{Gegenbeispiel für stärkere Aussage?}
+
 \begin{satz}
-	Jedes skalierte Singelton-Auslastungsspiel hat ein ordinales Potential.
+	Jedes skalierte $N$-Personen-Singelton-Auslastungsspiel hat ein ordinales Potential.
 \end{satz}
 
 \begin{proof}
-	Die Rosenthal-Potentialfunktion\todo{Wohldefiniert?}{} ist ein ordinales Potential, denn es gilt (für $s_i = \{r\}, \hat{s}_i = \{\hat{r}\}$):
+	Die Rosenthal-Potentialfunktion ist ein ordinales Potential, denn es gilt (für $s_i = \{r\}, \hat{s}_i = \{\hat{r}\}$):
 	\begin{align*}
 	c_i(s) < c_i(s \mid \hat{s}_i) &\iff f_i\circ g_r(l_r(s)) < f_i\circ g_{\hat{r}}(l_{\hat{r}}(s)+1) \iff g_r(l_r(s)) < g_{\hat{r}}(l_{\hat{r}}(s)+1) \\
 	&\iff P(s) = \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k) < \sum_{r \in R}\sum_{k=1}^{l_r(s\mid \hat{s}_i)} g_r(k) = P(s\mid \hat{s}_i) \qedhere
 	\end{align*}
 \end{proof}
 
+Schließlich wollen wir noch die allgemeinste Form der in dieser Arbeit definierten Auslastungsspiele betrachten: Gewichtete Auslastungsspiele mit nicht-anonymen Ressourcenkosten. Da endliche Spiele \Cref{satz:JedesSpielGewAusl} zufolge immer äquivalent zu einem gewichteten Auslastungsspiel sind, lassen sich insbesondere nicht-anonyme gewichtete Auslastungsspiele immer auch als solche darstellen. Dabei wird allerdings die Ressourcenmenge im Allgemeinen erheblich größer. 
+
+Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender) so ist ein entsprechender Wechsel zu gewichteten Auslastungsspielen ohne Vergrößerung der Ressourcenmenge und selbst bei abzählbar unendlichen Spielermengen möglich:
+
 \begin{satz}
 	Jedes nicht-anonyme Auslastungsspiel mit abzählbarer Spielermenge ist äquivalent zu einem lastgewichteten Auslastungsspiel und jedes nicht-anonyme gewichtete Auslastungsspiel mit abzählbarer Spielermenge ist gewichtet isomorph zu einem (anonymen) gewichteten Auslastungsspiel. Dabei verwenden jeweils beide Spiele die gleiche Ressourcenmenge.
 \end{satz}
 
 \begin{proof}
-	Sei die Spielermenge $I \subseteq \IN$, dann definiere einen Gewichtsvektor $v \coloneqq (1/3^n)_{n \in I}$. Dann entspricht jede (endliche) Teilmenge $J \subseteq I$ einer eindeutigen Zahl $v(J) \coloneqq \sum_{n \in J} 1/3^n$ und wir definieren damit neue (anonyme) Ressourcenkosten $h_r$:
+	Sei die Spielermenge $I \subseteq \IN$, dann definiere einen Gewichtsvektor $v \coloneqq (1/3^n)_{n \in I}$. Nun entspricht jede (endliche) Teilmenge $J \subseteq I$ einer eindeutigen Zahl $v(J) \coloneqq \sum_{n \in J} 1/3^n$ und wir definieren damit neue (anonyme) Ressourcenkosten $h_r$:
 	\[h_r: \IR_{\geq 0} \to \IR: k \mapsto \begin{cases}
 	g_r(l_r(J)), 	&k = v(J) \\
 	0,				&\text{sonst}
 	\end{cases} \]
+	\todo[inline]{Beweis ausformulieren!}
 \end{proof}
-
-\todo[inline]{Im Unterschied zu \Cref{satz:JedesSpielGewAusl} bleibt hier die Ressourcenmenge gleich groß}
 
 
 \subsection{Überblick}
 
 \begin{figure}[h]\centering
 	\includegraphics[width=.7\textwidth]{../Bilder/EulerDiagramm.pdf}
-	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen für endliche Spiele}
+	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen für endliche Spiele \\\todo[inline]{Zeichnung aktualisieren oder weglassen?}}
 \end{figure}
 
 
