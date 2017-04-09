@@ -261,10 +261,10 @@ Aus \Cref{satz:CharExGewPotinWCG} wissen wir bereits, dass jedes endliche gewich
 	Außerdem wird die Ressourcengröße dabei auf die Größe des Strategieraums des Ausgangsspiels vergrößert (welcher theoretisch $\PSet(R)^I$ sein kann). Bei dem hier konstruierten Auslastungsspiel ist die neue Ressourcenmenge hingegen lediglich $R \times I^2$.
 \end{beob}
 
-Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potentialspielen in \Cref{satz:MondererShapleyKostengew} bereits auf kostengewichtete Auslastungs- und gewichtete Potentialspiele übertragen haben, werden wir nun untersuchen inwieweit sich dies auch für skalierte Auslastungs- und Potentialspiele fortsetzen lässt. Die eine Richtung gilt dabei weiterhin mit nur einem leicht schwächeren Isomorphiebegriff:
+Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potentialspielen in \Cref{satz:MondererShapleyKostengew} bereits auf kostengewichtete Auslastungs- und gewichtete Potentialspiele übertragen haben, werden wir nun untersuchen inwieweit sich dies auch für skalierte Auslastungs- und Potentialspiele fortsetzen lässt. Die eine Richtung gilt dabei weiterhin mit nur einem leicht schwächeren Isomorphiebegriff und einer Zusatzbedingung an die verwendeten Skalierungsfunktionen:
 
 \begin{satz}
-	Jedes skalierte $N$-Personen-Potentialspiel ist exakt isomorph zu einem skalierten Auslastungsspiel.
+	Jedes skalierte $N$-Personen-Potentialspiel, dessen Skalierungsfunktionen $0$ auf $0$ abbilden\todo{Kann man das oBdA bis auf exakte Isomorphie annehmen?}, ist exakt isomorph zu einem skalierten Auslastungsspiel.
 \end{satz}
 
 \begin{proof}
@@ -279,13 +279,13 @@ Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potential
 				\end{cases}\]
 		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
 	\end{itemize}
-	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt\todo{Das würde nur gelten, wenn $f_i$ 0 auf 0 abbildet.}:
+	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
 	\begin{align*}
-	d_{\hat{\imath}}(\phi(x)) &- d_{\hat{\imath}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} f_i \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\imath}}(\hat{x}_{\hat{\imath}})} f_i \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
-	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} f_i \circ g_r(\underbrace{l_r(\phi(x))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) -
-	\sum_{r \in R_K: \hat{x}_{\hat{\imath}} \in r_{\hat{\imath}}} f_i \circ g_r(\underbrace{l_r(\phi(\hat{x}))}_{= N \iff r = \left(\{x_i\}\right)_{i \in I}}) = \\
-	&=f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) - f_i \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) = \\
-	&=f_i \circ P(x) - f_i \circ P(x \mid \hat{x}_i) = c_i(x) - c_i(x \mid \hat{x}_i)	\qedhere							
+	d_{\hat{\imath}}(\phi(x)) &- d_{\hat{\imath}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} f_{\hat{\imath}} \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\imath}}(\hat{x}_{\hat{\imath}})} f_{\hat{\imath}} \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
+	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} f_{\hat{\imath}} \circ g_r(\underbrace{l_r(\phi(x))}_{\neq 0 \iff r = \left(\{x_i\}\right)_{i \in I}}) -
+	\sum_{r \in R_K: \hat{x}_{\hat{\imath}} \in r_{\hat{\imath}}} f_{\hat{\imath}} \circ g_r(\underbrace{l_r(\phi(x \mid \hat{x}_i))}_{\neq 0 \iff r = \left(\{x_i\}\right)\mid\{\hat{x}_i\}}) = \\
+	&=f_{\hat{\imath}} \circ g_{\left(\{x_i\}\right)_{i \in I}}(N) - f_{\hat{\imath}} \circ g_{\left(\{x_i\}\right)\mid\{\hat{x}_i\}}(N) = \\
+	&=f_{\hat{\imath}} \circ P(x) - f_{\hat{\imath}} \circ P(x \mid \hat{x}_i) = c_{\hat{\imath}}(x) - c_{\hat{\imath}}(x \mid \hat{x}_i)	\qedhere							
 	\end{align*}
 \end{proof}
 

@@ -200,7 +200,7 @@ Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und 
 \end{defn}
 
 \begin{bem}
-	Ist ein Morphismus exakt/gewichtet/skalierend und ein Isomorphismus so ist er automatisch ein exakter/gewichteter/skalierender Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).
+	Ist ein Morphismus exakt/gewichtet und ein Isomorphismus so ist er automatisch ein exakter/gewichteter Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei skalierenden\todo{Ist das so? Dann im Satz zur Charakterisierung von Potentialen durch Morphismen Iso streichen.}, ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).
 \end{bem}
 
 \begin{bsp}
@@ -241,10 +241,10 @@ Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender 
 		\[e_1(\psi\circ\phi(t)) = e_1(t,l) = 1 > 0 = e_1(b,r) = e_1(\psi\circ\phi(b)) = e_1(\psi\circ\phi(t \mid b)).\]
 \end{bsp}
 
-Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorientheorie, wenn man sich nur auf exakte/gewichtete/\dots{} Morphismen beschränkt (was für kostenerhaltende/monotone Morphismen der Fall ist). Man kann allerdings sicherstellen, dass die Komposition zweier exakter/gewichteter/\dots{} Morphismen wieder die jeweilige Eigenschaft hat, wenn man sich auf Morphismen mit injektiver Spielerabbildung beschränkt:
+Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorientheorie, wenn man sich nur auf exakte/gewichtete/\dots{} Morphismen beschränkt (was für kostenerhaltende/monotone Morphismen der Fall ist). Man kann allerdings sicherstellen, dass die Komposition zweier exakter/gewichteter/ordinaler/Beste-Antwort-Morphismen wieder die jeweilige Eigenschaft hat, wenn man sich auf Morphismen mit injektiver Spielerabbildung beschränkt:
 
 \begin{lemma}\label{lemma:KompositionVonMorphismen}
-	Die Verknüpfung zweier exakter/gewichteter/skalierter\todo{für skalierte ist das nicht klar - evtl. sogar falsch? Ggfls alle Sätze, die skalierte Morphismen verwenden, prüfen!}/ordinaler/verallgemeinert ordinaler/Bester-Antwort-Morphismen mit injektiven Spielerabbildungen ist wieder ein solcher Morphismus.
+	Die Verknüpfung zweier exakter/gewichteter/ordinaler/Bester-Antwort-Morphismen mit injektiven Spielerabbildungen ist wieder ein solcher Morphismus.
 \end{lemma}
 
 \begin{proof}
@@ -275,10 +275,38 @@ Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorie
 		\end{align*}
 \end{proof}
 
+Lediglich bei skalierten Morphismen ist die Komposition zweier solcher auch in diesem Fall und sogar für bijektive Spieler- und Strategieabbildungen im Allgemeinen nicht wieder skaliert, wie das folgende Beispiel zeigt:
+
+\begin{bsp}\label{bsp:GegenbspKompositionSkMorphismen}
+	Betrachte die folgenden drei 2-Personenspiele:
+	\begin{center}
+		$\Gamma:$ \quad
+		\begin{tabular}{c||c|c}
+			& l 		& r 		\\\hline\hline
+		t	& $(0,0)$	& $(0,0)$	\\\hline
+		b	& $(1,0)$	& $(2,0)$ 
+		\end{tabular}\hspace{3em}
+		$\Delta:$ \quad
+		\begin{tabular}{c||c|c}
+			& l 		& r 		\\\hline\hline
+		t	& $(0,0)$	& $(2,0)$	\\\hline
+		b	& $(1,2)$	& $(4,2)$ 
+		\end{tabular}\hspace{3em}
+		$\Epsilon:$ \quad
+		\begin{tabular}{c||c|c}
+			& l 		& r 		\\\hline\hline
+		t	& $(0,0)$	& $(0,0)$	\\\hline
+		b	& $(1,1)$	& $(1,1)$ 
+		\end{tabular}
+	\end{center}
+	Dann ist die Abbildung $(\id, \id): \Gamma \to \Delta$ ein skalierter Morphismus mit Skalierungsfunktionen $f_1 \coloneqq \id$ und $f_2 \coloneqq \id$.\todo{Weiter - evtl. gehen die Morphismen gerade in die falsche Richtung?}
+\end{bsp}
+
+
 Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationsspielen verwendete Morphismus gerade keine injektive Spielerabbildung verwendet, können die Morphismenbegriffe aus \Cref{def:PotentialMorphismen} nicht dazu verwendet werden um eine zu \Cref{kor:skalPotWennMon1PerMorph} analoge Bedingung für die Existenz der verschiedenen Potentiale zu finden. Dafür erhalten wir aber eine stärkere Form von \Cref{prop:MonIsoKoordDannskPot} zur Charakterisierung von Potentialen:
 
 \begin{prop}\label{prop:CharPotentialeDurchIsos}
-	Ein Spiel $\Gamma$ besitzt genau dann ein exaktes/gewichtetes/skaliertes/ordinales/Beste-Antwort-Potential, wenn es exakt/gewichtet/ordinal/Beste-Antwort-isomorph zu einem Koordinationsspiel ist. Es besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es einen ordinalen Morphismus mit bijektiven Spieler- und Strategieabbildungen von $\Gamma$ in ein Koordinationsspiel gibt.
+	Ein Spiel $\Gamma$ besitzt genau dann ein exaktes/gewichtetes/skaliertes/ordinales/Beste-Antwort-Potential, wenn es exakt/gewichtet/ordinal/Beste-Antwort-isomorph zu einem Koordinationsspiel ist. Es besitzt genau dann ein skaliertes/verallgemeinertes ordinales Potential, wenn es einen skalierten/ordinalen Morphismus mit bijektiven Spieler- und Strategieabbildungen von $\Gamma$ in ein Koordinationsspiel gibt.
 \end{prop}
 
 \begin{proof}
