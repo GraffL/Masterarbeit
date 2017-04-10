@@ -179,7 +179,7 @@ Dies ist also ein Beispiel dafür, wie man eine hinreichende Bedingung für die 
 
 \todo[inline]{Beispiel für die Nicht-Notwendigkeit finden!}
 
-Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren - wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe dann als \glqq ähnlich\grqq.}.
+Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren - wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe Spiele dann als \glqq ähnlich\grqq.}.
 
 \begin{defn}\label{def:PotentialMorphismen}
 	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt
@@ -204,12 +204,37 @@ Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und 
 \end{bem}
 
 \begin{bsp}
-	Betrachte die Spiele 
+	Für den Fall ordinaler bzw. Beste-Antwort-Morphismen betrachten wir die Spiele 
 		\[\Gamma \coloneqq (\set{\ast}, \set{t, b}, (c_\ast)) \text{ mit } c_\ast(t) \coloneqq 0, c_\ast(b) \coloneqq 0\]
 	und 
 		\[\Delta \coloneqq (\set{\ast}, \set{t, b}, (d_\ast)) \text{ mit } d_\ast(t) \coloneqq 0, d_\ast(b) \coloneqq 1.\]
 	Dann ist $(\id, \id): \Gamma \to \Delta$ ein ordinaler, aber kein Beste-Antwort-Morphismus, während $(\id, \id): \Delta \to \Gamma$  ein Beste-Antwort-, aber kein ordinaler Morphismus ist.
 \end{bsp}
+
+\begin{bsp}\label{bsp:GegenbspSkalUndIsoIstSkalIso}
+	Für skalierte Morphismen betrachten wir die folgenden beiden 2-Personenspiele:
+	\begin{center}
+		$\Gamma:$ \quad
+		\begin{tabular}{c||c|c}
+			& l 		& r 		\\\hline\hline
+			t	& $(0,0)$	& $(0,0)$	\\\hline
+			b	& $(1,1)$	& $(1,1)$ 
+		\end{tabular}\hspace{5em}
+		$\Delta:$ \quad
+		\begin{tabular}{c||c|c}
+			& l 		& r 		\\\hline\hline
+			t	& $(0,0)$	& $(2,0)$	\\\hline
+			b	& $(1,2)$	& $(4,2)$ 
+		\end{tabular}
+	\end{center}
+	Dann ist die Abbildung $(\id, \id): \Gamma \to \Delta$ ein skalierter Morphismus mit Skalierungsfunktionen 
+		\[f_1(0) = 0,\hspace{1em} f_1(1) = 1,\hspace{1em} f_1(2) = 2,\hspace{1em} f_1(4)=3 \qquad\text{ und }\qquad f_2 \coloneqq \id.\]
+	Der Morphismus in die umgekehrte $(\id, \id): \Delta \to \Gamma$ ist hingegen kein skalierter Morphismus.
+\end{bsp}
+
+\begin{beob}\label{beob:InverseVonSkalMorphSindOrd}
+	Das Inverse eines Isomorphismus, welcher zudem ein skalierter Morphismus ist, ist also nicht zwangsläufig selbst wieder skaliert. Zumindest ist das Inverse aber noch ordinal, also ein ordinaler Isomorphismus.\todo{Beweis?}
+\end{beob}
 
 Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender Morphismen wieder einen kostenerhaltenden Morphismus ergibt und die zweier monotoner wieder einen monotonen, ist dies bei exakten/gewichteten/\dots{} Morphismen im Allgemeinen nicht der Fall: 
 
@@ -283,8 +308,8 @@ Lediglich bei skalierten Morphismen ist die Komposition zweier solcher auch in d
 		$\Gamma:$ \quad
 		\begin{tabular}{c||c|c}
 			& l 		& r 		\\\hline\hline
-		t	& $(0,0)$	& $(0,0)$	\\\hline
-		b	& $(1,0)$	& $(2,0)$ 
+			t	& $(0,0)$	& $(0,0)$	\\\hline
+			b	& $(1,1)$	& $(1,1)$ 
 		\end{tabular}\hspace{3em}
 		$\Delta:$ \quad
 		\begin{tabular}{c||c|c}
@@ -295,30 +320,32 @@ Lediglich bei skalierten Morphismen ist die Komposition zweier solcher auch in d
 		$\Epsilon:$ \quad
 		\begin{tabular}{c||c|c}
 			& l 		& r 		\\\hline\hline
-		t	& $(0,0)$	& $(0,0)$	\\\hline
-		b	& $(1,1)$	& $(1,1)$ 
+			t	& $(0,0)$	& $(0,0)$	\\\hline
+			b	& $(1,0)$	& $(2,0)$ 
 		\end{tabular}
 	\end{center}
-	Dann ist die Abbildung $(\id, \id): \Gamma \to \Delta$ ein skalierter Morphismus mit Skalierungsfunktionen $f_1 \coloneqq \id$ und $f_2 \coloneqq \id$.\todo{Weiter - evtl. gehen die Morphismen gerade in die falsche Richtung?}
+	Dass $(\id, \id): \Gamma \to \Delta$ ein skalierter Morphismus ist, haben wir bereits in \Cref{bsp:GegenbspKompositionSkMorphismen} gesehen und $(\id, \id): \Delta \to \Epsilon$ ist ein skalierter Morphismus mit Skalierungsfunktionen $f'_1 \coloneqq \id$ und $f'_2 \coloneqq \id$. 
+	
+	Die Verknüpfung der beiden Morphismen (also $(\id, \id): \Gamma \to \Epsilon$) ist zwar noch ein ordinaler, aber kein skalierter Morphismus mehr, denn eine Skalierungsfunktion für Spieler 1 müsste dazu $1$ und $2$ auf den gleichen Wert abbilden - ein Widerspruch dazu, dass Skalierungsfunktionen \emph{streng} monoton sein müssen.
 \end{bsp}
 
 
 Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationsspielen verwendete Morphismus gerade keine injektive Spielerabbildung verwendet, können die Morphismenbegriffe aus \Cref{def:PotentialMorphismen} nicht dazu verwendet werden um eine zu \Cref{kor:skalPotWennMon1PerMorph} analoge Bedingung für die Existenz der verschiedenen Potentiale zu finden. Dafür erhalten wir aber eine stärkere Form von \Cref{prop:MonIsoKoordDannskPot} zur Charakterisierung von Potentialen:
 
 \begin{prop}\label{prop:CharPotentialeDurchIsos}
-	Ein Spiel $\Gamma$ besitzt genau dann ein exaktes/gewichtetes/skaliertes/ordinales/Beste-Antwort-Potential, wenn es exakt/gewichtet/ordinal/Beste-Antwort-isomorph zu einem Koordinationsspiel ist. Es besitzt genau dann ein skaliertes/verallgemeinertes ordinales Potential, wenn es einen skalierten/ordinalen Morphismus mit bijektiven Spieler- und Strategieabbildungen von $\Gamma$ in ein Koordinationsspiel gibt.
+	Ein Spiel $\Gamma$ besitzt genau dann ein exaktes/gewichtetes/ordinales/Beste-Antwort-Potential, wenn es exakt/gewichtet/ordinal/Beste-Antwort-isomorph zu einem Koordinationsspiel ist. Es besitzt genau dann ein skaliertes/verallgemeinertes ordinales Potential, wenn es einen skalierten/ordinalen Morphismus mit bijektiven Spieler- und Strategieabbildungen von $\Gamma$ in ein Koordinationsspiel gibt.
 \end{prop}
 
 \begin{proof}
-	Besitzt ein Spiel $\Gamma= (I, X, (c_i))$ ein exaktes/gewichtetes/skaliertes/ordinales/Beste-Antwort-Potential $P$, so definieren wir das Koordinationsspiel $K = (I, X, (P))$. Dieses ist offenbar isomorph zu $\Gamma$ mittels des Identitätsmorphismus, wobei sich die entsprechende Eigenschaft des Morphismus aus der des Potentials ergibt.
+	Besitzt ein Spiel $\Gamma= (I, X, (c_i))$ ein exaktes/gewichtetes/ordinales/Beste-Antwort-Potential $P$, so definieren wir das Koordinationsspiel $K = (I, X, (P))$. Dieses ist offenbar isomorph zu $\Gamma$ mittels des Identitätsmorphismus, wobei sich die entsprechende Eigenschaft des Morphismus aus der des Potentials ergibt.
 	
-	Ist umgekehrt $(\sigma, \phi): \Gamma \to K$ ein exakter/gewichteter/skalierter/ordinaler/Beste-Antwort-Isomorphismus von $\Gamma$ in ein Koordinationsspiel mit einheitlicher Kostenfunktion $p$, dann ist $P \coloneqq p \circ \phi$ ein entsprechendes Potential auf $\Gamma$.
+	Ist umgekehrt $(\sigma, \phi): \Gamma \to K$ ein exakter/gewichteter/ordinaler/Beste-Antwort-Isomorphismus von $\Gamma$ in ein Koordinationsspiel mit einheitlicher Kostenfunktion $p$, dann ist $P \coloneqq p \circ \phi$ ein entsprechendes Potential auf $\Gamma$.
 	
-	Analog beweist man die Aussage für verallgemeinerte ordinale Potentiale.
+	Analog beweist man die Aussage für skalierte bzw. verallgemeinerte ordinale Potentiale.
 \end{proof}
 
 \begin{kor}\label{kor:PotentialeDurchIsosUebertragen}
-	Ist ein Spiel $\Gamma$ exakt/gewichtet/skaliert/ordinal/Beste-Antwort-isomorph zu einem Spiel $\Delta$ mit exaktem/gewichtetem/skaliertem/ordinalen/Beste-Antwort-Potential, so hat auch $\Gamma$ selbst ein entsprechendes Potential.
+	Ist ein Spiel $\Gamma$ exakt/gewichtet/ordinal/Beste-Antwort-isomorph zu einem Spiel $\Delta$ mit exaktem/gewichtetem/ordinalen/Beste-Antwort-Potential, so hat auch $\Gamma$ selbst ein entsprechendes Potential.
 \end{kor}
 
 \begin{proof}
@@ -385,12 +412,15 @@ Wie wir gesehen haben hängen die verschiedenen Morphismen (und insbesondere Iso
 	\begin{description}
 		\item[monoton $\bm{\Rightarrow}$ skaliert:] mit dem gleichen Beweis wie \Cref{prop:MonIsoKoordDannskPot} (wir haben dabei nirgends verwendet, dass eines der beteiligten Spiele ein Koordinationsspiel ist)
 		\item[skaliert $\bm{\Rightarrow}$ BA:] Ist $(\sigma, \phi)$ ein skalierter Isomorphismus, so gilt 
-			\[c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) \iff f_j \circ d_j(\phi(x)) < f_j \circ d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)})).\]
+			\begin{align*}
+				c_{\sigma(j)}(x) < c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) &\iff f_j \circ d_j(\phi(x)) < f_j \circ d_j(\phi(x \mid \hat{x}_{\sigma(j)})) \iff \\
+																			 &\iff d_j(\phi(x)) < d_j(\phi(x \mid \hat{x}_{\sigma(j)})).
+			\end{align*}
 		Da sowohl $\phi_j$ als auch $\sigma$ bijektiv sind, folgt damit bereits, dass $(\sigma, \phi)$ auch ein Beste-Antwort-Isomorphismus ist. \qedhere
 	\end{description}	
 \end{proof}
 
-Mit \Cref{prop:CharPotentialeDurchIsos} erhalten wir aus der vorherigen Proposition einen Großteil der in \Cref{diag:Potentiale} dargestellten Beziehungen zwischen den verschiedenen Potentialbegriffen. Es bleibt noch zu zeigen, dass Beste-Antwort-Potentiale lokale Nash und verallgemeinert ordinale Potentiale verallgemeinert Nash sind. Dies werden wir erneut aus allgemeineren Sätzen über ordinale bzw. Beste-Antwort-Morphismen folgern.
+Mit \Cref{prop:CharPotentialeDurchIsos} erhalten wir aus der vorherigen Proposition einen Großteil der in \Cref{diag:Potentiale} dargestellten Beziehungen zwischen den verschiedenen Potentialbegriffen. Um zu zeigen, dass skalierte Potentiale auch ordinale sind, verwenden wir hierbei zusätzlich noch \Cref{beob:InverseVonSkalMorphSindOrd}. Es bleibt noch zu zeigen, dass Beste-Antwort-Potentiale lokale Nash und verallgemeinert ordinale Potentiale verallgemeinert Nash sind. Dies werden wir erneut aus allgemeineren Sätzen über ordinale bzw. Beste-Antwort-Morphismen folgern.
 
 Wie wir bereits in \Cref{beob:VerbPfadeundNGe} gesehen haben, hängen Nash-Gleichgewichte eng mit (abgeschlossenen) Verbesserungspfaden zusammen. Wir zeigen daher zunächst wie diese sich mit ordinalen Morphismen vertragen.
 
