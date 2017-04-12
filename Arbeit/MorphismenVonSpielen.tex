@@ -177,9 +177,27 @@ Der Begriff eines monotonen Isomorphismus liefert uns nun das erste Beispiel ein
 
 Dies ist also ein Beispiel dafür, wie man eine hinreichende Bedingung für die Existenz eines Potentials durch die Existenz eines passenden Isomorphismus zu einem Koordinationsspiel ausdrücken kann. Allerdings ist die Verträglichkeitsbedinung an monotone Morphismen noch zu stark um auf diesem Weg auch eine notwendige Bedingung für die Existenz eines skalierten Potentials zu erhalten. Dies liegt daran, dass hier eine globale Montonie gefordert wird, während die meisten Potentiale lediglich lokale Monotonie benötigen.
 
-\todo[inline]{Beispiel für die Nicht-Notwendigkeit finden!}
+\begin{bsp}
+	Das folgende Spiel $\Gamma$ besitzt ein exaktes (und damit erst recht skaliertes) Potential $P$.
+	\begin{center}
+		$\Gamma:$ \quad
+		\begin{tabular}{c||c|c}
+				& l 		& r 		\\\hline\hline
+			t	& $(1,0)$	& $(0,1)$	
+		\end{tabular}\hspace{5em}
+		$P:$ \quad
+		\begin{tabular}{c||c|c}
+				& l 		& r 		\\\hline\hline
+			t	& $0$		& $1$		
+		\end{tabular}
+	\end{center}
+	Gleichzeitig kann $\Gamma$ aber nicht monoton isomorph zu einem Koordinationsspiel sein. Denn, wie wir bereits gesehen haben, müssten die Kostenabbildungen $f_i$ eines solchen Isomorphismus sogar streng monoton sein. Dadurch erhielten wir die beiden einander widersprechenden Anforderungen an die gemeinsame Kostenfunktion $d$ des hypothetischen Koordinationsspiels:
+		\[c_1(t,l) > c_1(t,r) \implies f_1(c_1(t,l)) > f_1(c_1(t,r)) \implies d(\phi(t,l)) > d(\phi(t,r)) \]
+	und 
+		\[c_2(t,l) < c_2(t,r) \implies f_2(c_2(t,l)) < f_2(c_2(t,r)) \implies d(\phi(t,l)) < d(\phi(t,r)) \]
+\end{bsp}
 
-Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren - wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe Spiele dann als \glqq ähnlich\grqq.}.
+Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein, ersetzen Monotonie durch strenge Monotonie und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren - wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe Spiele dann als \glqq ähnlich\grqq.}.
 
 \begin{defn}\label{def:PotentialMorphismen}
 	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt
@@ -200,7 +218,7 @@ Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und 
 \end{defn}
 
 \begin{bem}
-	Ist ein Morphismus exakt/gewichtet und ein Isomorphismus so ist er automatisch ein exakter/gewichteter Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei skalierenden\todo{Ist das so? Dann im Satz zur Charakterisierung von Potentialen durch Morphismen Iso streichen.}, ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).
+	Ist ein Morphismus exakt/gewichtet und ein Isomorphismus so ist er automatisch ein exakter/gewichteter Isomorphismus (analog etwa zu Gruppenhomomorphismen). Bei skalierenden, ordinalen oder Beste-Antwort-Morphismen muss zusätzlich geprüft werden, ob auch der inverse Morphismus ordinal bzw. Beste-Antwort ist (analog beispielsweise zu stetigen Abbildungen).
 \end{bem}
 
 \begin{bsp}
@@ -233,7 +251,7 @@ Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein und 
 \end{bsp}
 
 \begin{beob}\label{beob:InverseVonSkalMorphSindOrd}
-	Das Inverse eines Isomorphismus, welcher zudem ein skalierter Morphismus ist, ist also nicht zwangsläufig selbst wieder skaliert. Zumindest ist das Inverse aber noch ordinal, also ein ordinaler Isomorphismus.\todo{Beweis?}
+	Das Inverse eines Isomorphismus, welcher zudem ein skalierter Morphismus ist, ist also nicht zwangsläufig selbst wieder skaliert. Zumindest ist das Inverse aber noch ordinal und somit ein ordinaler Isomorphismus (das ergibt sich direkt aus der strengen Monotonie der Skalierungsfunktionen).
 \end{beob}
 
 Während, wie man leicht zeigen kann, die Verknüpfung zweier kostenerhaltender Morphismen wieder einen kostenerhaltenden Morphismus ergibt und die zweier monotoner wieder einen monotonen, ist dies bei exakten/gewichteten/\dots{} Morphismen im Allgemeinen nicht der Fall: 
@@ -472,7 +490,7 @@ Aus diesem Korollar folgt insbesondere, dass Nash-Gleichgewichte in von einem ve
 	Ordinale Isomorphismen haben insbesondere injektive Spieler- und Strategieabbildungen. Damit erfüllen sie die Voraussetzungen von \Cref{kor:ReflektNG}, d.h. ordinal isomorphe Spiele haben die gleichen Nash-Gleichgewichte.
 \end{bsp}
 
-Dies zeigt also nochmal, dass ordinale Potentiale lokale Nash-Potentiale sind. Es verbleibt die entsprechende Aussage für Beste-Antwort-Potentiale. Dazu betrachten stellen wir zunächst fest, dass Beste-Antwort-Morphismen mit bijektiver Spielerabbildung Beste-Antwort-Schritte (und damit auch -Pfade und Nash-Gleichgewichte) erhalten.
+Dies zeigt also nochmal, dass ordinale Potentiale lokale Nash-Potentiale sind. Es verbleibt die entsprechende Aussage für Beste-Antwort-Potentiale. Dazu stellen wir zunächst fest, dass Beste-Antwort-Morphismen mit bijektiver Spielerabbildung Beste-Antwort-Schritte (und damit auch -Pfade und Nash-Gleichgewichte) erhalten.
 
 \begin{prop}\label{prop:BAMorphErhBASchritte}
 	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein Beste-Antwort-Morphismus mit bijektiver Spielerabbildung $\sigma$ und $(x^0, x^1)$ ein Beste-Antwort-Schritt von Spieler $\sigma(i)$ in $\Gamma$, so auch $\phi((x^0, x^1))$ von Spieler $i$ in $\Delta$.

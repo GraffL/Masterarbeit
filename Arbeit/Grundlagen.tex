@@ -14,6 +14,12 @@
 	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
 \end{defn}
 
+\begin{notation}
+	Ein endliches $2$-Personenspiel lässt sich leicht als Matrix darstellen. Deren Zeilen werden durch die Strategien von Spieler $1$ indiziert, ihre Spalten durch die Strategien von Spieler $2$. Jedem Tupel $(x_1, x_2)$ aus je einer Strategie der beiden Spieler (also einem Strategieprofil) entspricht dann genau ein Eintrag der Matrix, welcher das Tupel $(c_1(x_1, x_2), c_2(x_1, x_2))$ ist.
+\end{notation}
+
+\todo[inline]{Beispiel für diese Notation? Gefangenendilemma/Schere-Stein-Papier/irgendein Spiel, das im weiteren Verlauf interessant sein kann?}
+
 \begin{beob}\label{beob:endlicheSpiele}
 	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn alle bis auf endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. Wir werden dies später in \Cref{sec:Morphismen} formal zeigen (siehe \Cref{kor:EinStratSpielerWeglassen}).
 \end{beob}
@@ -46,7 +52,6 @@ In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele defi
 	In einem Dummy-Spiel ist \emph{jedes} Strategieprofil ein Nash-Gleichgewicht, da ein einzelner Spieler durch einseitige Abweichung seine Kosten nie verändern und daher insbesondere nicht verringern kann.
 \end{beob}
 
-\todo[inline]{Matrixschreibweise für 2-Personenspiele erklären}
 
 \subsection{Abweichungspfade}
 
@@ -60,8 +65,8 @@ Durch dieses Verfahren erhält man eine Folge von Strategieprofilen, die jeweils
 	Ein solcher Schritt heißt
 	\begin{itemize}
 		\item \emph{Nichtverschlechterungsschritt}, wenn sich der abweichende Spieler nicht verschlechtert, d.h. $c_i(x^0) \geq c_i(x^1)$.
-		\item \emph{Verbesserungsschritt}, wenn sich der abweichende Spieler echt verbessert, d.h. $c_i(x^0) > c_i(x^1)$.
-		\item \emph{Beste-Antwort-Schritt}, wenn sich der abweichende Spieler sich bestmöglich verbessert, d.h. $\min_{\hat{x}_i \in X_i} c_i(x^0 \mid \hat{x}_i) = c_i(x^1)$.		
+		\item \emph{Verbesserungsschritt}, wenn sich der abweichende Spieler echt verbessert, wenn also $c_i(x^0) > c_i(x^1)$ gilt.
+		\item \emph{Beste-Antwort-Schritt}, wenn der abweichende Spieler eine für ihn bestmögliche Antwort wählt, d.h. $\min_{\hat{x}_i \in X_i} c_i(x^0 \mid \hat{x}_i) = c_i(x^1)$.		
 	\end{itemize}
 \end{defn}
 
