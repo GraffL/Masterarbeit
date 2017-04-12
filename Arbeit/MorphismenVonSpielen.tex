@@ -482,7 +482,35 @@ Dies erlaubt uns folgendes Korollar:
 	Es ist $x$ ein trivialer Verbesserungspfad in $\Gamma$, dessen Bild $\phi(x)$ in $\Delta$ abgeschlossen ist. Daher ist mit \Cref{kor:ReflAbg} $x$ in $\Gamma$ abgeschlossen und folglich (vgl. \Cref{beob:VerbPfadeundNGe}) $x$ ein Nash-Gleichgewicht in $\Gamma$.
 \end{proof}
 
-\todo[inline]{Zu obigen Sätzen jeweils Beispiele für Notwendigkeit der Voraussetzungen finden}
+Zur Notwendigkeit der Bijektivität der Spielerabbildung betrachten wir das folgende Beispiel:
+
+\begin{bsp}
+	Wir definieren die folgenden drei Spiele:\todo{Korrektheit des Beispiels prüfen!}
+	\begin{center}
+		$\Gamma:$ \quad
+		\begin{tabular}{c||c|c}
+				& l 		& r 		\\\hline\hline
+			t	& $(2,2)$	& $(1,1)$	\\\hline
+			b	& $(1,1)$	& $(0,0)$ 
+		\end{tabular}\hspace{3em}
+		$\Delta:$ \quad
+		\begin{tabular}{c|c}
+			a 		& b 		\\\hline\hline
+			$1$		& $0$		
+		\end{tabular}\hspace{3em}
+		$\Epsilon:$ \quad
+		\begin{tabular}{c||c|c}
+				& l 		& r 		\\\hline\hline
+			t	& $(1,1)$	& $(2,2)$	\\\hline
+			b	& $(2,2)$	& $(0,0)$ 
+		\end{tabular}
+	\end{center}	
+
+	\begin{itemize}
+		\item Der Morphismus $(\sigma, \phi): \Gamma \to \Delta$ mit $\sigma(1) = 1$ und $\phi_1(t) = a, \phi_1(b) = b$ ist ein ordinaler Morphismus, dessen Spielerabbildung nicht surjektiv ist. Und tatsächlich gilt hier die Aussage von \Cref{kor:ReflektNG} nicht: Denn $(b,l)$ ist kein Nash-Gleichgewicht von $\Gamma$, obwohl $\phi(b,l) = b$ ein Nash-Gleichgewicht von $\Delta$ ist.
+		\item Der Morphismus $(\tau, \psi): \Delta \to \Epsilon$ mit $\tau(1) = \tau(2) = 1$ und $\psi_1(a) = l, \psi_1(b) = r, \psi_2(a) = t, \psi_2(b) = r$ ist ein ordinaler Morphismus, dessen Spielerabbildung nicht injektiv ist. Und in der Tat gilt auch hier die Aussage des Korollars nicht: Denn $a$ ist kein Nash-Gleichgewicht von $\Delta$, obwohl $\psi(a) = (t,l)$ ein Nash-Gleichgewicht von $\Epsilon$ ist.
+	\end{itemize}
+\end{bsp}
 
 Aus diesem Korollar folgt insbesondere, dass Nash-Gleichgewichte in von einem verallgemeinerten ordinalen Potential induzierten Koordinationsspiel auch Nash-Gleichgewichte im Ausgangsspiel sind. Also sind verallgemeinerte ordinale Potentiale verallgemeinerte Nash-Potentiale.
 
