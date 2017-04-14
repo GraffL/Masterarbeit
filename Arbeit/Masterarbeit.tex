@@ -50,6 +50,9 @@
 % Für fette Symbole in Math-Umgebung (\bm)
 \usepackage{bm}
 
+% Symbole...
+\usepackage{fontawesome}
+\pdfmapfile{+fontawesome.map}
 
 %\usepackage{algorithm}
 %\usepackage{algpseudocode}
@@ -207,21 +210,21 @@
 \newpage
 \phantomsection
 \addcontentsline{toc}{section}{Einleitung}
-\section*{Einleitung}
+\section*{Einleitung}\todo{Einleitung überarbeiten (kürzen?)!}
 
-\todo[inline]{Einleitung schreiben}
+Nicht-kooperative Spiele in strategischer Form sind eine einfache, aber zugleich mächtige Art und Weise eine Vielzahl von Spielen oder spielartigen Situationen mathematisch zu beschrieben. Ein Spiel wird hierbei dadurch gegeben, dass jeder Spieler eine Menge ihm zur Verfügung stehender Strategien sowie eine eigene Kostenfunktion (oder Auszahlungsfunktion) auf dem Produktraum aller spielerspezifischen Strategieräume hat. \glqq Gespielt\grqq{} wird das Spiel dann, indem jeder Spieler eine seiner Strategien auswählt (ohne dabei die Wahlen der anderen Spieler zu kennen). Hat jeder Spieler dies getan, so legt die Gesamtheit aller gewählten Strategien das Ergebnis des Spiels fest, welches dann jeder Spieler mit Hilfe seiner Kostenfunktion für sich bewerten kann.
 
-Satz von \citeauthor{MonShap}.
+Von besonderem Interesse bei der Analyse derartiger Spiele sind Nash-Gleichgewichte: Spielsituationen, in denen keiner der Spieler (aus rein egoistischer Sicht) ein Interesse daran hat einseitig seine gewählte Strategie zu ändern - also Situationen, in denen jede alleinige Strategieänderung eines Spielers zu einem schlechteren oder höchstens genauso guten Ergebnis für diesen Spieler führt. Die Fragen, welche Spiele solch ein Nash-Gleichgewicht besitzen, welche Eigenschaften es dann besitzt und wie man es finden kann, gehören zu den zentralen Fragestellungen der Spieltheorie.
 
-\todo[inline,nolist]{Überblick:}
+Eine Klasse von anschaulichen (endlichen) Spielen, die zudem immer wenigstens ein Nash-Gleichgewicht besitzen, fand \citeauthor{RosenthalPotential} mit den sogenannten Auslastungsspielen, in denen jeder Spieler festlegt, welche Teilmenge einer gemeinsamen Menge von Ressourcen er nutzt, und deren Kosten davon abhängen wie viele Spieler die jeweilige Ressource nutzen. Im Beweis der Existenz eines solchen Gleichgewichtes nutzte \citeauthor{RosenthalPotential} eine Art gemeinsame Kostenfunktion für alle Spieler, eine sogenannte Potentialfunktion. Die durch diese Potentialfunktion beschriebenen Kosten sind dabei auf geeignete Weise mit den ursprünglichen spielerspezifischen Kosten verträglich, sodass ein Minimum der Potentialfunktion automatisch auch ein Nash-Gleichgewicht des eigentlichen Spiels ist.
 
-Nachdem wir in \Cref{sec:Grundlagen} einige Grundbegriffe der Spieltheorie definiert haben, werden wir uns zunächst in \Cref{sec:Potentiale} dem Konzept der Potentialfunktionen für Spiele zuwenden. Wir werden eine ganze Reihe derartiger Potentiale kennenlernen und jeweils notwendige und hinreichende Bedingungen dafür zeigen, dass ein Spiel ein entsprechendes Potential besitzt.
+Später bewiesen \citeauthor{MonShap}, dass sich umgekehrt auch jedes Spiel, welches eine derartige Potentialfunktion besitzt, als Auslastungsspiel darstellen lässt, es also ein Auslastungsspiel gibt, welches äquivalent zu dem Potentialspiel ist. Zudem definierten sie weitere, allgemeinere Potentialbegriffe, welche ebenfalls die Suche von Nash-Gleichgewichten erleichtern, aber dabei auch für Spiele anwendbar sind, welche nicht durch Auslastungsspiele darstellbar sind. 
 
+Beide beschriebenen Sätze nutzen als zentrales Element spezielle Arten von Beziehungen zwischen zwei Spielen (einmal zwischen einem Spiel und dem durch die Potentialfunktion beschriebenen alternativen Spiel und einmal zwischen dem Potentialspiel und dem es darstellenden Auslastungsspiel). Im Rahmen dieser Arbeit wollen wir diese Idee einer gewisse Eigenschaften wie etwa Nash-Gleichgewichte erhaltenden Beziehung zwischen Spielen formalisieren und näher untersuchen. Außerdem werden wir versuchen weitere derartige Beziehungen zwischen Klassen von Spielen zu finden.
 
-\todo[inline,nolist]{Morphismen-Kapitel}
+Nachdem wir in \Cref{sec:Grundlagen} einige Grundbegriffe der Spieltheorie definiert haben, werden wir uns zunächst in \Cref{sec:Potentiale} dem Konzept der Potentialfunktionen für Spiele zuwenden. Wir werden eine ganze Reihe derartiger Potentiale kennenlernen und jeweils notwendige und hinreichende Bedingungen dafür zeigen, dass ein Spiel ein entsprechendes Potential besitzt. Im folgenden \Cref{sec:Morphismen} werden wir verschiedene Arten von Morphismen zwischen Spielen definieren, die dann Isomorphien induzieren, die wir nutzen können um die erwähnten Zusammenhänge zwischen verschiedenen Spielen beschreiben zu können. In \Cref{sec:Auslastungsspiele} schließlich werden wir diese (Iso-)Morphismen nutzen um verschiedene Beziehungen zwischen unterschiedlichen Klassen von Auslastungs- und Potentialspielen zu formulieren und zu beweisen.
 
-Diese Morphismen werden wir schließlich in \Cref{sec:Auslastungsspiele} nutzen um verschiedene Beziehungen zwischen unterschiedlichen Klassen von Auslastungs- und Potentialspielen zu formulieren und zu zeigen.
-
+Wir werden dabei versuchen die verschiedenen Sätze möglichst allgemein zu halten, insbesondere - soweit dies möglich ist - immer auch über unendliche statt, wie in der Literatur oft üblich, nur über endliche Spiele sprechen.
 
 \include{Grundlagen}
 \include{Potentiale}
@@ -232,8 +235,13 @@ Diese Morphismen werden wir schließlich in \Cref{sec:Auslastungsspiele} nutzen 
 \addcontentsline{toc}{section}{Ausblick}
 \section*{Ausblick}
 
-\todo[inline]{Ausblick schreiben}
+Wir haben nun also gesehen, wie (Iso-)Morphismen von Spielen genutzt werden können um Zusammenhänge zwischen Spielen zu formalisieren und zu verstehen welche Eigenschaften die zwei Spiele an den beiden Enden des Morphismus gemeinsam haben. Wichtig festzuhalten ist dabei, dass die Verwendung von Morphismen hierbei niemals unumgänglich war, sondern die Aussagen immer auch ohne diesen Begriff hätten gezeigt werden können. 
 
+Die Verwendung von Morphismen dient daher vor allem der einheitlicheren Beschreibung von Beziehungen zwischen Spielen, erleichtert die Strukturierung der Zusammenhänge, vereinfacht und verkürzt manche Aussagen und gibt möglicherweise auch neue Ideen für weitere Beziehungen. Auch ist es so besser möglich die verschieden starken Abstufungen von möglichen Beziehungen zu verstehen und etwa direkt zu sehen, welche Art von Beziehung man durch das Verknüpfen mehrerer solcher erhält.
+
+\todo[inline]{Konkrete Ergebnisse? V.a. aus Kapitel 4}
+
+\todo[inline]{Kategorientheoretische Sichtweise?}
 
 \newpage
 \nocite{*}

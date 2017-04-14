@@ -11,18 +11,39 @@
 	\end{itemize}
 	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler versucht durch die Wahl einer Strategie $x_i \in X_i$ aus seinem Strateegieraum die eigenen Kosten $c_i((x_j)_{j \in I})$ zu minimieren. Das Tupel $x \coloneqq (x_j)_{j \in I}$ bezeichnen wir dabei als \emph{Strategieprofil}.
 	
-	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
+	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist, und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
 \end{defn}
+
+\begin{beob}\label{beob:endlicheSpiele}
+	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn alle bis auf endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. Wir werden dies später in \Cref{sec:Morphismen} formal zeigen (siehe \Cref{kor:EinStratSpielerWeglassen}).
+\end{beob}
 
 \begin{notation}
 	Ein endliches $2$-Personenspiel lässt sich leicht als Matrix darstellen. Deren Zeilen werden durch die Strategien von Spieler $1$ indiziert, ihre Spalten durch die Strategien von Spieler $2$. Jedem Tupel $(x_1, x_2)$ aus je einer Strategie der beiden Spieler (also einem Strategieprofil) entspricht dann genau ein Eintrag der Matrix, welcher das Tupel $(c_1(x_1, x_2), c_2(x_1, x_2))$ ist.
 \end{notation}
 
-\todo[inline]{Beispiel für diese Notation? Gefangenendilemma/Schere-Stein-Papier/irgendein Spiel, das im weiteren Verlauf interessant sein kann?}
+\begin{bsp}\label{bsp:SchereSteinPapier}
+	Das Spiel Schere-Stein-Papier lässt sich wie folgt als strategisches Spiel beschreiben. Jeder der beiden Spieler hat eine dreielementige Strategiemenge, nämlich $X_1 = X_2 = \set{\text{\faHandScissorsO},\text{ \faHandRockO},\text{ \faHandPaperO}}$, und die durch die folgende Matrix gegebenen Kostenfunktionen:
+	\begin{center}
+		\begin{tabular}{c||c|c|c}
+								& \faHandScissorsO 	& \faHandRockO	& \faHandPaperO 	\\\hline\hline
+			\faHandScissorsO	& $(0,0)$			& $(1,-1)$ 		& $(-1,1)$			\\\hline
+			\faHandRockO		& $(-1,1)$			& $(0,0)$		& $(1,-1)$			\\\hline
+			\faHandPaperO		& $(1,-1)$			& $(-1,1)$		& $(0,0)$
+		\end{tabular}
+	\end{center}	
+\end{bsp}
 
-\begin{beob}\label{beob:endlicheSpiele}
-	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn alle bis auf endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. Wir werden dies später in \Cref{sec:Morphismen} formal zeigen (siehe \Cref{kor:EinStratSpielerWeglassen}).
-\end{beob}
+\begin{bsp}\label{bsp:GefangenenDilemma}\todo{Quelle für Gefangenen-Dilemma? Evtl. genauer beschreiben (auch vorheriges Beispiel)?}
+	Ein klassisches Beispiel der Spieltheorie ist das Gefangenendilemma, in dem beide Spieler je zwei Strategien haben $X_1 = X_2 = \set{\text{gestehen},\text{ leugnen}}$ und die Kostenfunktionen durch die folgende Matrix beschrieben werden:
+	\begin{center}
+		\begin{tabular}{c||c|c}
+							& \text{gestehen} 	& \text{leugnen}	\\\hline\hline
+			\text{gestehen}	& $(2,2)$			& $(0,3)$ 			\\\hline
+			\text{leugnen}	& $(3,0)$			& $(1,1)$	
+		\end{tabular}
+	\end{center}	
+\end{bsp}
 
 \begin{notation}
 	Zu einem Strategieprofil $x \in X$ und einer einzelnen Strategie $\hat{x}_i \in X_i$ bezeichnen wir einer Konvention aus \cite{Polyequilibrium} folgend mit $(x \mid \hat{x}_i)$ das Strategieprofil, das aus $x$ entsteht, wenn Spieler $i$ einseitig seine Strategie von $x_i$ auf $\hat{x}_i$ ändert.
@@ -33,6 +54,10 @@
 		\[c_i(x \mid \hat{x}_i) \geq c_i(x)\]
 	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
 \end{defn}
+
+\begin{bsp}
+	Im Gefangenendilemma (\Cref{bsp:GefangenenDilemma}) gibt es genau ein Nash-Gleichgewicht, nämlich $(\text{gestehen},\text{ gestehen})$, Schere-Stein-Papier (\Cref{bsp:SchereSteinPapier}) besitzt kein Nash-Gleichgewicht.
+\end{bsp}
 
 In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele definiert. Daran anlehnend definieren wir hier zusätzlich skalierte Koordinationsspiele und Dummy-Spieler:
 \begin{defn}

@@ -6,7 +6,8 @@ drawRaster <- function(xdims) {
 
 drawTopografie <- function(costs, xdims, tileColor, zdim=max(costs), newPersp=TRUE) {
   if(newPersp) 
-    persp3D(1:xdims[1], 1:xdims[2], costs, border="black", col=tileColor, facets = TRUE, add=FALSE, xlim=c(1,xdims[1]), ylim=c(1,xdims[2]), zlim=c(0,zdim), d=100000, colkey = FALSE)
+    persp3D(1:xdims[1], 1:xdims[2], costs, border="black", col=tileColor, facets = TRUE, add=FALSE, xlim=c(1,xdims[1]), ylim=c(1,xdims[2]), zlim=c(0,zdim), d=100000, colkey = FALSE,
+            xlab="Spieler 1", ylab="Spieler 2", zlab="Kosten", ticktype="simple")
   else
     persp3D(1:xdims[1], 1:xdims[2], costs, border="black", col=tileColor, facets = TRUE, add=TRUE)
 }
@@ -26,7 +27,8 @@ drawGame <- function(c1, c2, xdims, P=NULL) {
     potHeight = max(P)-min(P)
     dist = 2
   }
-  persp3D(z=matrix(c(1,1,1,1),nrow=2), xlim=c(1,xdims[1]), ylim=c(1,xdims[2]), zlim=c(0,costHeight+dist+potHeight), d=100000, colkey = FALSE)
+  persp3D(z=matrix(c(1,1,1,1),nrow=2), xlim=c(1,xdims[1]), ylim=c(1,xdims[2]), zlim=c(0,costHeight+dist+potHeight), d=100000, colkey = FALSE,
+          xlab="Spieler 1", ylab="Spieler 2", zlab="Kosten", ticktype="simple")
   # draw first player
   for(i in 1:xdims[2]) {
     drawSlice(seq(1,xdims[1]),rep(i,xdims[2]),c1[,i], alpha.col(col=rgb(0.6,0.1,0.2), alpha=0.7))

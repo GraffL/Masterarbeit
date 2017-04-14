@@ -1,0 +1,79 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'EulerDiagramm2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{475.20588071bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.88521763)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{EulerDiagramm2.pdf}}%
+    \put(0.37308265,0.50594016){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{Auslastungsspiele}}}%
+    \put(0.46398178,0.76861732){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[rb]{\smash{gewichtete }}}%
+    \put(0.73189377,0.50433156){\color[rgb]{0,0,0.50196078}\makebox(0,0)[b]{\smash{exaktes Potential}}}%
+    \put(0.72264336,0.63189687){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{gewichtetes Potential}}}%
+    \put(0.50984389,0.86233276){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{allgemeine Spiele}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{EulerDiagramm2.pdf}}%
+    \put(0.08936916,0.12381593){\color[rgb]{1,0,0}\makebox(0,0)[b]{\smash{äquivalent zu}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{EulerDiagramm2.pdf}}%
+    \put(0.73092267,0.68138276){\color[rgb]{0.17647059,0.56470588,1}\makebox(0,0)[b]{\smash{skaliertes Potential}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{EulerDiagramm2.pdf}}%
+    \put(0.73668487,0.73066495){\color[rgb]{0.33333333,0.80392157,1}\makebox(0,0)[b]{\smash{ordinales Potential}}}%
+    \put(0.77737776,0.77998155){\color[rgb]{0.49019608,0.96862745,1}\makebox(0,0)[b]{\smash{verallg. ordinales Potential}}}%
+    \put(0.94089432,0.5556976){\color[rgb]{0.49019608,0.96862745,1}\rotatebox{-90}{\makebox(0,0)[b]{\smash{=   hat FIP}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{EulerDiagramm2.pdf}}%
+    \put(0.29538902,0.12285869){\color[rgb]{1,0.4,0}\makebox(0,0)[b]{\smash{exakt isom. zu}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{EulerDiagramm2.pdf}}%
+    \put(0.29536451,0.07235427){\color[rgb]{1,0.4,0}\makebox(0,0)[b]{\smash{gew. isom. zu}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{EulerDiagramm2.pdf}}%
+    \put(0.29595618,0.02118992){\color[rgb]{1,0.4,0}\makebox(0,0)[b]{\smash{ordinal isom. zu}}}%
+    \put(0.37292334,0.58418725){\color[rgb]{0.8,0.8,0.8}\makebox(0,0)[b]{\smash{aff. lin. Kosten}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{EulerDiagramm2.pdf}}%
+    \put(0.37705549,0.63394454){\color[rgb]{0.8,0.8,0.8}\makebox(0,0)[b]{\smash{exp. Kosten}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{EulerDiagramm2.pdf}}%
+    \put(0.56005794,0.53751139){\color[rgb]{1,0,0}\makebox(0,0)[b]{\smash{\Cref{satz:MondererShapley}}}}%
+    \put(0.38773055,0.72444382){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[b]{\smash{Auslastungsspiele}}}%
+  \end{picture}%
+\endgroup%
