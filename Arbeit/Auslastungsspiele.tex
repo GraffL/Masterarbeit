@@ -17,7 +17,7 @@
 	\end{align*}
 	
 		
-	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$:
+	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
 	\begin{itemize}
 		\item $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$.
 		\item Die Ressourcenkosten sind jeweils nur für genau eine Auslastung nicht $0$: Ressourcen aus $R_K$ genau dann, wenn alle Spieler sie nutzen, Ressourcen aus $R_D$, wenn sie genau ein Spieler nutzt:
@@ -95,12 +95,12 @@ Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Aus
 Hieraus ergeben sich dann direkt die in \cite{CharExGewPotinWCG} beobachteten Zusammenhänge zwischen gewichteten und lastgewichteten Auslastungsspielen:
 
 \begin{kor}
-	Sei $M = (I, R, (S_i), (G_r)$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann gilt:
+	Sei $M = (I, R, S, (g_r))$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann gilt:
 	\begin{itemize}
 		\item Die Nash-Gleichgewichte von $\Gamma(M, w)$ und $\Gamma_l(M,w)$ stimmen überein.
-		\item Eine Funktion $P: X \to \IR$ ist genau dann ein gewichtetes/ordinales/verallgemeinert ordinales/Beste Antwort/lokales Nash-Potential von $\Gamma(M, w)$, wenn es ein solches für $\Gamma_l(M,w)$ ist.
-		\item Eine Funktion $P: X \to \IR$ ist genau dann ein exaktes Potential von $\Gamma(M, w)$, wenn sie ein $w$-Potential von $\Gamma_l(M,w)$ ist.
-		\item Eine Funktion $P: X \to \IR$ ist genau dann ein exaktes Potential von $\Gamma_l(M, w)$, wenn sie ein $(1/w_i)$-Potential von $\Gamma(M,w)$ ist.		
+		\item Eine Funktion $P: S \to \IR$ ist genau dann ein gewichtetes/ordinales/verallgemeinert ordinales/Beste Antwort/lokales Nash-Potential von $\Gamma(M, w)$, wenn es ein solches für $\Gamma_l(M,w)$ ist.
+		\item Eine Funktion $P: S \to \IR$ ist genau dann ein exaktes Potential von $\Gamma(M, w)$, wenn sie ein $w$-Potential von $\Gamma_l(M,w)$ ist.
+		\item Eine Funktion $P: S \to \IR$ ist genau dann ein exaktes Potential von $\Gamma_l(M, w)$, wenn sie ein $(1/w_i)$-Potential von $\Gamma(M,w)$ ist.		
 	\end{itemize}
 \end{kor}
 
@@ -155,13 +155,13 @@ Da endliche Auslastungsspiele nach \Cref{satz:MondererShapley} ein exaktes und d
 Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konvergenz immer bereits in polynomieller Zeit erfolgt. Ein leichte Modifikation des Beweises hierzu in \cite[Theorem 2.5]{BAPfadLaengeInAusl} erlaubt sogar die folgender noch etwas stärkere Aussage:
 
 \begin{satz}\label{satz:BAPotentialFuerMatroidspiele}
-	Sei $M = (I, R, (S_i), (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen.
+	Sei $M = (I, R, S, (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen.
 \end{satz}
 
 \begin{proof}
-	Wir definieren zunächst das Auslastungsmodell $N \coloneqq (I, R, (S_i), (h_r))$, wobei die Ressourcenkosten $h_r$ wie folgt definiert sind:
+	Wir definieren zunächst das Auslastungsmodell $N \coloneqq (I, R, S, (h_r))$, wobei die Ressourcenkosten $h_r$ wie folgt definiert sind:
 		\[h_{\hat{r}}(\hat{k}) \coloneqq \#\Set{(r, k) \in R\times \{1, \dots, \abs{I}\} | c_r(k) \leq c_{\hat{r}}(\hat{k})} \]
-	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, (S_i), (d_i))$ hat nun offenbar die gewünschten Eigenschaften. 
+	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, S, (d_i))$ hat nun offenbar die gewünschten Eigenschaften. 
 	
 	Noch zu zeigen ist, dass $\Gamma(N)$ tatsächlich Beste-Antwort-isomorph zu $\Gamma(M)$ ist. Dazu betrachten wir den Identitätsmorphismus zwischen den beiden Spielen (der offensichtlich bijektiv ist) und zeigen, dass die besten Antworten in $\Gamma(N)$ genau den besten Antworten in $\Gamma(M)$ entsprechen. Dazu benötigen wir die folgende Proposition:	\noqed
 \end{proof}
@@ -243,7 +243,7 @@ Aus \Cref{satz:CharExGewPotinWCG} wissen wir bereits, dass jedes endliche gewich
 								\end{cases} \]
 	Schließlich ist der Strategieraum von Spieler $i \in I$ gegeben durch 
 		\[T_i \coloneqq \Set{\Set{(r, \{i, i'\}) | r \in s_i, i' \in I} | s_i \in S_i }.\]
-	Dadurch erhalten wir das Auslastungsmodell $N \coloneqq (I, Q, (T_i)_{i \in I}, (h_q)_{q \in Q})$. Die Lastenfunktionen des davon erzeugten Auslastungsspiel sind offensichtlich wohldefiniert, da keine Ressource von mehr als zwei Spielern genutzt werden kann. Die Wohldefiniertheit der Kostenfunktionen ergibt sich aus der Äquivalenz von $\Gamma(N)$ zu $\Gamma(M)$.
+	Dadurch erhalten wir das Auslastungsmodell $N \coloneqq (I, Q, \prod_{i \in I} T_i, (h_q)_{q \in Q})$. Die Lastenfunktionen des davon erzeugten Auslastungsspiel sind offensichtlich wohldefiniert, da keine Ressource von mehr als zwei Spielern genutzt werden kann. Die Wohldefiniertheit der Kostenfunktionen ergibt sich aus der Äquivalenz von $\Gamma(N)$ zu $\Gamma(M)$.
 	
 	Um diese Äquivalenz zu zeigen, betrachten wir den folgenden Morphismus $(\id, \phi): \Gamma(M,w) \to \Gamma(N)$ zwischen den beiden Spielen:
 	\[\phi_i: S_i \to T_i: s_i \mapsto \Set{(r, \{i, i'\}) | r \in s_i, i' \in I}\]
@@ -275,7 +275,7 @@ Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potential
 			f'_i(P(x)) - f'_i(P(x\mid \hat{x}_i)) 	&= \left(f_i(P(x)) - f_i(t)\right) - \left(f_i(P(x \mid \hat{x}_i)) - f_i(t)\right) = \\
 													&= f_i(P(x)) - f_i(P(x\mid \hat{x}_i)) = c_i(x) - c_i(x \mid \hat{x}_i)
 		\end{align*}
-	Nun definieren analog zu dem Beweis von \Cref{satz:MondererShapley} folgendes Auslastungsmodell $M = (I, R, (S_i)_{i \in I}, (g_r)_{r \in R})$:
+	Nun definieren analog zu dem Beweis von \Cref{satz:MondererShapley} folgendes Auslastungsmodell $M = (I, R, \prod_{i \in I} S_i, (g_r)_{r \in R})$:
 	\begin{itemize}
 		\item $R \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i } \subseteq \prod_{i \in I}\PSet(X_i)$.
 		\item Für die Ressourcenkosten definieren wir:
