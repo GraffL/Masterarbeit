@@ -3,11 +3,11 @@
 \subsection{Spiele in strategischer Form}
 
 \begin{defn}
-	Ein \emph{(nichtkooperatives) Spiel in strategischer Form} ist ein Tupel $\Gamma = (I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$. Dabei ist
+	Ein \emph{(nichtkooperatives) Spiel in strategischer Form} ist ein Tupel $\Gamma = (I, X = \prod_{i\in I} X_i, (c_i)_{i\in I})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
 		\item $X_i$ die nicht-leere Menge der (reinen) Strategien von Spieler $i$,
-		\item $c_i: X_i \to \IR$ die Kostenfunktion von Spieler $i$.
+		\item $c_i: X \to \IR$ die Kostenfunktion von Spieler $i$.
 	\end{itemize}
 	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler versucht durch die Wahl einer Strategie $x_i \in X_i$ aus seinem Strateegieraum die eigenen Kosten $c_i((x_j)_{j \in I})$ zu minimieren. Das Tupel $x \coloneqq (x_j)_{j \in I}$ bezeichnen wir dabei als \emph{Strategieprofil}.
 	
@@ -61,7 +61,7 @@
 
 In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele definiert. Daran anlehnend definieren wir hier zusätzlich skalierte Koordinationsspiele und Dummy-Spieler:
 \begin{defn}
-	Ein Spiel $\Gamma = (I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$ heißt
+	Ein Spiel $\Gamma = (I, X, (c_i)_{i\in I})$ heißt
 	\begin{itemize}
 		\item \emph{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_j$ für alle Spieler $i,j \in I$.
 		\item \emph{skaliertes Koordinationsspiel}, wenn jeder Spieler eine streng monoton skalierte Variante einer gemeinsamen Kostenfunktion verwendet, d.h. wenn es eine Funktion $c: X \to \IR$ und streng monotone Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $c_i = f_i \circ c$ gilt.
@@ -96,7 +96,7 @@ Durch dieses Verfahren erhält man eine Folge von Strategieprofilen, die jeweils
 \end{defn}
 
 \begin{defn}\label{defn:Pfade}
-	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn je zwei aufeinanderfolgende Strategieprofile einen Schritt bildet. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k}$ aus $x^{k-1}$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k} = \left(x^{k-1} \middle| x^{k}_{i(k)}\right)$.
+	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn je zwei aufeinanderfolgende Strategieprofile einen Schritt bilden. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k}$ aus $x^{k-1}$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k} = \left(x^{k-1} \middle| x^{k}_{i(k)}\right)$.
 	
 	Ein solcher Pfad heißt
 	\begin{itemize}
@@ -176,7 +176,7 @@ Schließlich führen wir noch eigene Bezeichnungen für den Bereich eines Strate
 Eine Klasse von Spielen, welche (im endlichen Fall) immer ein Nash-Gleichgewicht besitzt, bilden die sogenannten Auslastungsspiele, welche erstmals von \citeauthor{RosenthalPotential} in \cite{RosenthalPotential} definiert wurden. Im folgenden wollen wir diese Klasse sowie einige Varianten davon definieren. Verschiedene Eigenschaften dieser Spiele sowie insbesondere ihre Beziehungen zu Potentialspielen werden wir später in \Cref{sec:Auslastungsspiele} diskutieren.
 
 \begin{defn}\label{def:Auslastungsmodel}
-	Ein \emph{Auslastungsmodell $M$} ist gegeben durch ein Tupel $(I, R, (S_i)_{i\in I}, (g_r)_{r \in R})$. Dabei ist
+	Ein \emph{Auslastungsmodell $M$} ist gegeben durch ein Tupel $(I, R, S \coloneqq \prod_{i\in I} S_i, (g_r)_{r \in R})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
 		\item $R$ die Menge der zur Verfügung stehenden Ressourcen,
@@ -190,7 +190,7 @@ Eine Klasse von Spielen, welche (im endlichen Fall) immer ein Nash-Gleichgewicht
 		\[l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}\]
 	und die Kostenfunktionen
 		\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
-	ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S = (S_i)_{i\in I}, (c_i)_{i \in I})$, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ absolut konvergieren).
+	ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S \coloneqq \prod_{i\in I} S_i, (c_i)_{i \in I})$, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Summen für jedes $s \in S$ absolut konvergieren).
 \end{defn}
 
 \begin{bem}\label{bem:AuslSpielWohldefiniertheit}
