@@ -3,11 +3,11 @@
 \subsection{Spiele in strategischer Form}
 
 \begin{defn}
-	Ein \emph{(nichtkooperatives) Spiel in strategischer Form} ist ein Tupel $\Gamma = (I, X = (X_i)_{i \in I}, (c_i)_{i\in I})$. Dabei ist
+	Ein \emph{(nichtkooperatives) Spiel in strategischer Form} ist ein Tupel $\Gamma = (I, X = \prod_{i\in I} X_i, (c_i)_{i\in I})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
 		\item $X_i$ die nicht-leere Menge der (reinen) Strategien von Spieler $i$,
-		\item $c_i: X_i \to \IR$ die Kostenfunktion von Spieler $i$.
+		\item $c_i: X \to \IR$ die Kostenfunktion von Spieler $i$.
 	\end{itemize}
 	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler versucht durch die Wahl einer Strategie $x_i \in X_i$ aus seinem Strateegieraum die eigenen Kosten $c_i((x_j)_{j \in I})$ zu minimieren. Das Tupel $x \coloneqq (x_j)_{j \in I}$ bezeichnen wir dabei als \emph{Strategieprofil}.
 	
