@@ -413,11 +413,11 @@ Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die
 
 \begin{proof}
 	Wir müssen zeigen, dass in einem solchen Spiel jede Pfadzusammenhangskomponente abzählbar groß ist. Seien dazu also $x \in X$ und $n \in \INs$ beliebig. Dann ist
-	\[Y_x^n \coloneqq \left\{y \in X \setMid \exists \gamma \text{ Pfad der Länge $n$ von $x$ nach $y$}\right\}, \]
+	\[Y_x^n \coloneqq \Set{y \in X | \text{es existiert ein Pfad der Länge $n$ von $x$ nach $y$}}, \]
 	die Menge aller von $x$ aus durch Pfade der Länge $n$ erreichbaren Strategieprofile, abzählbar. Denn es gilt induktiv:
 	\begin{description}
 		\item[IA ($\bm{n=1}$)] Es ist
-		\[Y_x^1 = \left\{y \in X \setMid \exists i \in I: y = (x \mid y_i)\right\} = \left\{(x \mid y_i) \setMid i \in I, y_i \in Y_i \right\} = \bigcup_{i \in I} \left\{(x \mid y_i) \setMid y_i \in Y_i \right\}\]
+		\[Y_x^1 = \Set{y \in X | \exists i \in I: y = (x \mid y_i)} = \Set{(x \mid y_i) | i \in I, y_i \in Y_i } = \bigcup_{i \in I} \Set(x \mid y_i) | y_i \in Y_i }\]
 		eine abzählbare Vereinigung (da die Spielermenge abzählbar ist) von abzählbar großen Mengen (den spielerspezifischen Strategieräumen), also selbst abzählbar groß.
 		\item[IS ($\bm{<n \to n}$)] Es ist
 		\[Y_x^n = \bigcup_{y \in Y_x^{n-1}} Y_y^1\]
