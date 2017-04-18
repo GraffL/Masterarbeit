@@ -9,15 +9,15 @@ Darüber hinaus helfen Morphismen dabei auch andere Beziehungen zwischen verschi
 \begin{defn}\label{defn:MorphismusVonSpielen}
 	Zu zwei gegebenen Spielen $\Gamma = (I, X, (c_i)_{i\in I})$ und $\Delta = (J, Y, (d_j)_{j\in J})$ kann man wie folgt einen \emph{Morphismus} $(\sigma, \phi): \Gamma \to \Delta$ zwischen diesen beiden definieren:
 	\begin{itemize}
-		\item Eine Abbildung $\sigma: J \to I$ zwischen den Spielermengen, die \emph{Spielerabbildung}, und
+		\item Eine Abbildung $\sigma: I \from J$ zwischen den Spielermengen, die \emph{Spielerabbildung}, und
 		\item für jeden Spieler $j \in J$ eine Abbildung $\phi_j: X_{\sigma(j)} \to Y_j$ seiner Strategien, die \emph{Strategieabbildungen}.
 	\end{itemize}
 	Ist $(\tau, \psi): \Delta \to \Epsilon$ ein weiterer Morphismus, so ist die Verknüpfung der beiden Morphismen $(\sigma, \phi) \circ (\tau, \psi): \Gamma \to \Epsilon = (K, Z, (e_k)_{k \in K})$ gegeben durch
 	\begin{itemize}
-		\item die Spielerabbildung $\sigma\circ\tau: K \to I$ und
+		\item die Spielerabbildung $\sigma\circ\tau: I \from K$ und
 		\item die Strategieabbildungen $\psi_k \circ \phi_{\tau(k)}: X_{\sigma(\tau(k))} \to Z_k$.
 	\end{itemize}
-	$(\sigma, \phi)$ heißt \emph{Isomorphismus von Spielen}, wenn er einen inversen Morphismus besitzt, d.h. einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ mit $(\sigma, \phi) \circ (\tau, \psi) = (\id, \id)$ und $(\tau, \psi) \circ (\sigma, \phi) = (\id, \id)$, wobei $(\id, \id)$, der Identitätsmorphismus auf dem jeweiligen Spiel, durch die Identität als Spielerabbildung und Identitäten für alle Strategieabbildungen gegeben ist.
+	$(\sigma, \phi)$ heißt \emph{Isomorphismus von Spielen}, wenn er einen inversen Morphismus besitzt, d.h. einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ mit $(\sigma, \phi) \circ (\tau, \psi) = (\id, \id)$ und $(\tau, \psi) \circ (\sigma, \phi) = (\id, \id)$. Dabei ist $(\id, \id)$, der Identitätsmorphismus auf dem jeweiligen Spiel, gegeben durch die Identität als Spielerabbildung und Identitäten für alle Strategieabbildungen.
 \end{defn}
 
 Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie.}. Wir orientieren uns dabei vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung für Spiele für diskrete Spielermengen aus Kapitel 5. 
@@ -60,8 +60,8 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 	
 	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $K \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{\jmath}}(y)$ für einen beliebigen, aber festen Spieler $\hat{\jmath} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): K \to \Delta$:
 	\begin{align*}
-		\sigma:	&&J		\to	 \{\ast\}:	&&j	\mapsto	\ast  \\
-		\phi_j:	&&X_\ast	\to	 Y_j:	&&y	\mapsto	y_j
+		\sigma:	&&\set{\ast}\from J:	&&\ast	\mapsfrom	j  \\
+		\phi_j:	&&X_\ast	\to	 Y_j:	&&y		\mapsto		y_j
 	\end{align*}	
 	Dieser ist kostenerhaltend, denn für jedes Strategieprofil $y \in X = Y$ und jeden Spieler $j \in J$ gilt:
 	\[c_{\sigma(j)}(y) = c_\ast(y) = d_{\hat{\jmath}}(y) \overset{\Gamma \text{ Koord.spiel}}{=} d_j(y) = d_j(\phi(y))\]
@@ -593,8 +593,8 @@ Mit diesem Satz können wir nun die in \Cref{beob:endlicheSpiele} gemachte Beoba
 		\[c'_{\hat{\imath}}(x') \coloneqq c_{\hat{\imath}}(x), \text{ wobei $x \in X$ definiert ist durch } x_i = \begin{cases}x'_i, &i \in I'\\ \ast_i, &\text{sonst}\end{cases}\]
 	und den folgenden Morphismus $(\sigma, \phi): \Gamma \to \Gamma'$ zwischen den beiden Spielen:
 	\begin{align*}
-		\sigma:	&&I\setminus I'	\to	 I:	&&i	\mapsto	i  \\
-		\phi_i:	&&X_i	\to	 X_i:		&&x_i	\mapsto	x_i
+		\sigma:	&&I		\leftarrow	I\setminus I':	&&i		\mapsfrom	i  \\
+		\phi_i:	&&X_i	\to	 		X_i:			&&x_i	\mapsto		x_i
 	\end{align*}	
 	Dieser ist offenbar kostenerhaltend, also insbesondere biordinal, die Spielerabbildung ist injektiv, die Strategieabbildungen sind surjektiv und $I\setminus \sigma(I') = I \setminus I'$ enthält nur Dummy-Spieler. Damit folgt die Behauptung mit \Cref{prop:DummySpielerWeglassen}.
 \end{proof}

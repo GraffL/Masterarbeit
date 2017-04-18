@@ -62,10 +62,6 @@ Für endliche gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG}
 	Alle mit Kostenfunktionen aus $C$ erzeugten gewichteten Auslastungsspiele besitzen genau dann sogar ein exaktes Potential, wenn $C$ ausschließlich affin lineare Funktionen enthält (vgl. \cite[Theorem 3.7]{CharExGewPotinWCG}).
 \end{satz}
 
-Für den ersten Teil folgt aus einem alternativen Beweis von \citeauthor{AUniversalCostrGenPotGames} in \cite[Abschnitt 8]{AUniversalCostrGenPotGames}, dass diese Aussage auch für gewichtete Auslastungspiele mit endlicher Spielermenge, aber potentiell unendlicher Ressourcenmenge gilt, solange jede einzelne Strategie eines Spielers nur endlich viele Ressourcen umfasst. 
-
-\todo[inline]{Verallgemeinerung für unendliche Spiele?}
-
 In \cite[Theorem 5.1]{CharExNGinWCG} zeigen \citeauthor{CharExNGinWCG} weiter, dass diese beiden Klassen von Kostenfunktionen unter allen Klassen stetiger Funktionen gleichzeitig auch die einzigen sind, die die Existenz eines Nash-Gleichgewichtes garantieren.\footnote{zudem sind es auch noch die einzigen Klassen, welche für jedes gewichtete Auslastungsspiel das Erfüllen der FIP sicherstellen.}
 
 Da nun für endliche Spiele alle der in \Cref{sec:Potentiale} definierten Potentiale die Existenz eines Nash-Gleichgewichtes garantieren, folgt hiermit direkt, dass es auch für die allgemeineren Potentialbegriffe keine größeren Klassen von stetigen Funktionen gibt, die immer die Existenz eines entsprechenden Potentials sicher stellen.
@@ -146,6 +142,78 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 \begin{proof}
 	Sei als $M$ ein Auslastungsmodell und $w$ ein positiver Gewichtsvektor, sodass sowohl das ungewichtete Spiel $\Gamma(M)$ als auch das kostengewichtete $\Gamma_c(M, w)$ existieren. Dann ist $(\id, \id): \Gamma_c(M,w) \to \Gamma(M)$ offenbar ein gewichteter Isomorphismus mit Gewichtsvektor $w$.
 \end{proof}
+
+
+\subsubsection{Unendliche Auslastungsspiele}
+
+\todo[inline]{Verallgemeinerung für unendliche Spiele? Evtl. an passenderer Stelle einfügen.}
+
+In \cite[Abschnitt 8]{AUniversalCostrGenPotGames} zeigt \citeauthor{AUniversalCostrGenPotGames}, dass die erste Hälfte von \Cref{satz:CharExGewPotinWCG} (\glqq Gewichtete Auslastungsspiele mit affinen Ressourcenkosten besitzen exakte Potentiale) auch für gewichtete $N$-Personen-Auslastungspiele mit potentiell unendlicher Ressourcenmenge gilt, solange jede einzelne Strategie eines Spielers nur endlich viele Ressourcen umfasst. 
+
+Tatsächlich geht aber wird Endlichkeit der Strategieräume schon im Beweis von \citeauthor{CharExGewPotinWCG} gar nicht benötigt und auch die Endlichkeit der Spielermenge ist nicht notwendig, da - wie wir in \Cref{satz:CharExPot} gesehen haben - die Charakterisierung der Existenz exakter Potentiale von \citeauthor{MonShap} auch für solche Spiele unverändert gilt.
+
+\begin{satz}\label{satz:CharExGewPotinWCG2}
+	Gegeben eine Menge von stetigen Funktionen $C$. Dann besitzt genau dann jedes (wohldefinierte) gewichtete Auslastungsspiel, welches nur Funktionen aus $C$ als Kostenfunktionen verwendet, ein gewichtetes Potential, wenn $C$
+	\begin{itemize}
+		\item entweder ausschließlich affin lineare Funktionen, also Funktionen der Form $g(l) = a_g \cdot l + d_g$,
+		\item oder ausschließlich Funktionen der Form $g(l) = a_g\cdot b^l + d_g$ enthält (mit gemeinsamem $b > 0$).
+	\end{itemize}
+	Alle mit Kostenfunktionen aus $C$ erzeugten gewichteten Auslastungsspiele besitzen genau dann sogar ein exaktes Potential, wenn $C$ ausschließlich affin lineare Funktionen enthält.
+\end{satz}
+
+Neu zu zeigen ist dabei nur die \glqq wenn\grqq-Richtung. Hierzu werden wir kurz die entsprechenden Beweisschritte aus \cite[Abschnitt 3]{CharExGewPotinWCG} skizzieren um zu sehen, dass diese tatsächlich auch schon diese leicht allgemeinere Version des Satzes zeigen. 
+
+Sei dazu also $M = (I, R, S, (g_r))$ ein beliebiges Auslastungsmodell und $w = (w_i)_{i \in I}$ ein Gewichtsvektor, sodass das Spiel $\Gamma(M, w) = (I, S, (c_i))$ wohldefiniert ist. Wir wollen nun zeigen, dass $\Gamma(M, w)$ ein exaktes Potential besitzt, falls alle $g_r$ affin linear sind bzw. ein gewichtetes Potential, falls alle $g_r$ exponentiell sind.
+
+Da wir dies mit Hilfe von \Cref{satz:CharExPot} bzw. \Cref{satz:CharGewPot} tun wollen, betrachten wir zunächst einen beliebigen (nicht-trivialen) $4$-Zykel $\gamma = (s, (s\mid t_i), (s \mid t_i \mid t_{i'}), (s \mid t_{i'}), s)$. Das folgende Lemma zeigt, wie wir die (gewichtete) Gesamtänderung entlang eines solchen Zykels berechnen können:
+
+\newcommand{\wrestr}{w^r_{ii'}}
+
+\begin{lemma}
+	Es gilt:
+		\begin{align} 
+			\PfadAend(\gamma) = \sum_{} + \sum_{} \label{eq:PfadAendUngew}
+		\end{align}
+	Ist $v = (v_i)_{i \in I}$ ein zusätzlicher Gewichtsvektor, so gilt:
+		\begin{align}\begin{split}\label{eq:PfadAendGew}
+			\PfadAend(\gamma, v) &= \sum_{r \in \_\_} \left(\frac{w_{i'}}{v_{i'}} - \frac{w_i}{v_i}\right) g_r(\wrestr + w_i + w_{i'}) - \frac{w_{i'}}{v_{i'}} g_r(\wrestr + w_{i'})  + \frac{w_i}{v_i} g_r(\wrestr + w_i) +\\
+								&+ \sum_{r \in \_\_} \left(\frac{w_i}{v_i} - \frac{w_{i'}}{v_{i'}}\right) g_r(\wrestr + w_i + w_{i'}) - \frac{w_i}{v_i} g_r(\wrestr + w_{i'}) + \frac{w_{i'}}{v_{i'}} g_r(\wrestr + w_i)
+		\end{split}\end{align}
+\end{lemma}
+
+\begin{proof}
+	Die erste Aussage folgt aus der zweiten durch Setzen von $v_i \coloneqq 1$. Wir betrachten daher nur letztere:
+		\begin{align*}
+			\PfadAend(\gamma, v) = \frac{1}{v_i}\left(c_i(s) - c_i(s\mid t_i)\right) + \frac{1}{v_j}\left(c_j(s\mid t_i) - c_j(s\mid t_i\mid t_j)\right) + \frac{1}{v_i}\left(c_i(s\mid t_i\mid t_j) - c_i(s\mid t_j)\right) + \frac{1}{v_j}\left(c_j(s\mid t_j) - c_j(s)\right)
+		\end{align*}
+		
+		\todo[inline]{Beweis...}
+		
+		Da für die Wohldefiniertheit von $\Gamma(M, w)$ bereits gefordert wird, dass alle in der Kostenberechnung auftretenden Summen absolut konvergieren, können wir diese im unendlichen genau wie im endlichen Fall umklammern und umsortieren.
+\end{proof}
+
+Wie auch \citeauthor{CharExGewPotinWCG} beobachten erhalten wir aus diesem Lemma einen alternativen Beweis dafür, dass ungewichtete Auslastungsspiele ein exaktes Potential besitzen. Aus unserer Version des Lemmas erhalten wir sogar noch eine etwas stärkere Version von \Cref{satz:MondererShapley} (die Einschränkung auf endliche Spielermengen entfällt) und gilt damit auch in Fällen, in denen die Rosenthalpotentialfunktion nicht definiert wäre (da die entsprechende Summe divergiert).
+
+\begin{kor}
+	Jedes ungewichtete Auslastungsspiel hat ein exaktes Potential.
+\end{kor}
+
+\begin{proof}
+	Setzen wir in \eqref{eq:PfadAendUngew} alle Gewichte auf $1$, so sehen wir direkt, dass sich alle Summanden wegkürzen und wir erhalten $\PfadAend(\gamma) = 0$. Also besitzt jedes ungewichtete Auslastungsspiel nach \Cref{satz:CharExPot} ein exaktes Potential.
+\end{proof}
+
+Ebenfalls können wir nun leicht folgern, dass gewichtete Auslastungsspiele mit ausschließlich affin linearen Ressourcenkosten immer ein exaktes Potential besitzen. Ist nämlich $g: \IR\to \IR$ eine beliebige affin lineare Funktion, so gilt für alle reellen Zahlen $u,v,w \in \IR$
+	\[(u-v)g(w+u+v) - u g(w+u) + v g(w+v) = 0.\]
+Werden also alle Ressourcenkosten durch affin lineare Funktionen beschrieben, so ist jeder Summand in \eqref{eq:PfadAendUngew} $0$ und folglich auch $\PfadAend(\gamma) = 0$.
+
+
+
+\todo[inline]{weiter}
+
+\begin{kor}
+	\todo[inline]{Verallgemeinerung von \Cref{satz:MondererShapleyKostengew}}
+\end{kor}
+
 
 
 \subsection{Schnelle Beste-Antwort-Dynamik in Matroidspielen}

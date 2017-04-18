@@ -80,7 +80,7 @@ Wir wollen hier noch einige Eigenschaften der verschiedenen Potentiale zusammenf
 Die Zusammenhänge lassen sich alle leicht direkt beweisen. Wir werden diese Beweise hier allerdings nicht führen, da sich die Aussagen auch aus den allgemeineren Sätzen über die entsprechenden Morphismen ergeben, die wir in \Cref{sec:Morphismen} definieren werden (die Beweise finden sich dann in \Cref{sec:Morphismen:Potentialsaetze}). Dass die unterschiedlichen Potentiale auch tatsächlich echt verschiedene Klassen von Spielen beschreiben, zeigen die folgenden Beispiele: 
 
 \begin{bsp}
-	In allen folgenden Beispiel sein $\gamma \coloneqq ((t,l), (t,r), (b,r), (b,l))$ der $4$-Zykel, der den Strategieraum im Uhrzeigersinn durchläuft. Zum Beweis, dass ein Spiel kein bestimmtes Potential besitzen kann, verwenden wir zum Teil bereits die entsprechenden Charakterisierungen aus \Cref{sec:Potentiale:Charakterisierungen}.
+	In allen folgenden Beispiel sei $\gamma \coloneqq ((t,l), (t,r), (b,r), (b,l))$ der $4$-Zykel, der den Strategieraum im Uhrzeigersinn durchläuft. Zum Beweis, dass ein Spiel kein bestimmtes Potential besitzen kann, verwenden wir zum Teil bereits die entsprechenden Charakterisierungen aus \Cref{sec:Potentiale:Charakterisierungen}.
 	\begin{itemize}
 		\item $\Gamma_1$ besitzt ein gewichtetes, aber kein exaktes Potential:
 			\begin{center}
@@ -305,10 +305,10 @@ Eine alternative Charakterisierung für die Existenz eines exakten Potentials ze
 
 \begin{satz}\label{satz:CharGewPot}
 	Ein Spiel besitzt genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)_{i \in I}$, wenn die $w$-gewichtete Gesamtänderung entlang jedes 4-Zykels $0$ ist, d.h. für jeden 4-Zykel $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ gilt:
-		\[\PfadAend_w(\gamma) = \sum_{i=1}^4 w_{i(k)}\cdot\left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = 0\]
+		\[\PfadAend_w(\gamma) = \sum_{i=1}^4 \frac{1}{w_{i(k)}}\left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = 0\]
 \end{satz}
 
-Diese Charakterisierung folgt direkt aus der folgenden Beobachtung aus \cite[Kapitel 3.2]{CharExGewPotinWCG}
+Diese Charakterisierung folgt direkt aus der folgenden Beobachtung in \cite[Kapitel 3.2]{CharExGewPotinWCG}:
 
 \begin{beob}\label{beob:ZshExGewPot}
 	Zu einem Spiel $\Gamma = (I, X, (c_i))$ ist eine Funktion $P: X \to \IR$ genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)$, wenn $P$ ein exaktes Potential zum Spiel $\Gamma_{1/w} \coloneqq (I, X, (c_i/w_i))$ ist.
@@ -408,7 +408,7 @@ Ein Beweis dazu findet sich in \cite[Lemma 2.2]{CharExOrdPot}. \citeauthor{CharE
 Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die größere Klasse der Spiele mit abzählbar großen Pfadzusammenhangskomponenten. Insbesondere gilt damit:
 
 \begin{kor}\label{kor:CharExOrdPotabzIundXi}
-	Ein Spiel mit abzählbar vielen Spielern und abzählbar großen spielerspezifischen Strategieräumen besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungskreise enthält.
+	Ein Spiel mit abzählbar vielen Spielern und abzählbar großen spielerspezifischen Strategieräumen besitzt genau dann ein ordinales Potential, wenn es keine schwachen Verbesserungszykel enthält.
 \end{kor}
 
 \begin{proof}
@@ -417,11 +417,11 @@ Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die
 	die Menge aller von $x$ aus durch Pfade der Länge $n$ erreichbaren Strategieprofile, abzählbar. Denn es gilt induktiv:
 	\begin{description}
 		\item[IA ($\bm{n=1}$)] Es ist
-		\[Y_x^1 = \Set{y \in X | \exists i \in I: y = (x \mid y_i)} = \Set{(x \mid y_i) | i \in I, y_i \in Y_i } = \bigcup_{i \in I} \Set(x \mid y_i) | y_i \in Y_i }\]
+		\[Y_x^1 = \Set{y \in X | \exists i \in I: y = (x \mid y_i)} = \Set{(x \mid y_i) | i \in I, y_i \in Y_i } = \bigcup_{i \in I} \Set{(x \mid y_i) | y_i \in Y_i }\]
 		eine abzählbare Vereinigung (da die Spielermenge abzählbar ist) von abzählbar großen Mengen (den spielerspezifischen Strategieräumen), also selbst abzählbar groß.
 		\item[IS ($\bm{<n \to n}$)] Es ist
 		\[Y_x^n = \bigcup_{y \in Y_x^{n-1}} Y_y^1\]
-		eine (nach Induktionsvoraussetung) abzählbare Vereinigung abzählbar großer Mengen und daher selbst wieder abzählbar.
+		eine (nach Induktionsvoraussetzung) abzählbare Vereinigung abzählbar großer Mengen und daher selbst wieder abzählbar.
 	\end{description}
 	Folglich ist auch $Y_x = \bigcup_{n\in\INs} Y_x^n$ abzählbar und besitzt daher nach \Cref{kor:CharExOrdPotabzX} ein ordinales Potential.
 \end{proof}
@@ -449,7 +449,7 @@ Zum Beweis benötigen wir die folgenden Propositionen:
 \begin{proof}
 	Da die Verknüpfung eines Verbesserungspfades von $z$ nach $y$ mit einem von $y$ nach $x$ einen Verbesserungspfad von $z$ nach $x$ ergibt, ist $\VerbRel$ automatisch immer transitiv.
 	
-	Ferner ist $\VerbRel$ genau dann irreflexiv, wenn für alle $x \in X$ gilt, dass $x \not\VerbRel x$, es also keinen Verbesserungspfad von $x$ nach $x$ gibt. Und letzteres entspricht gerade einem (bei $x$ beginnenden) Verbesserungskreis.
+	Ferner ist $\VerbRel$ genau dann irreflexiv, wenn für alle $x \in X$ gilt, dass $x \not\VerbRel x$, es also keinen Verbesserungspfad von $x$ nach $x$ gibt. Und letzteres entspricht gerade einem (bei $x$ beginnenden) Verbesserungszykel.
 \end{proof}
 
 \begin{prop}\label{prop:VerOrdPotKeineVBZ}
