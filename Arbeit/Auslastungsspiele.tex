@@ -136,17 +136,17 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 \end{proof}
 
 \begin{lemma}\label{lemma:KostengewAuslIsomZuAusl}
-	Jedes kostengewichtete Auslastungsspiel ist gewichtet isomorph zum (ungewichteten) Auslastungsspiel auf dem selben Auslastungsmodell (sofern dieses existiert).
+	Jedes kostengewichtete Auslastungsspiel ist gewichtet isomorph zum (ungewichteten) Auslastungsspiel auf dem selben Auslastungsmodell.
 \end{lemma}
 
 \begin{proof}
-	Sei als $M$ ein Auslastungsmodell und $w$ ein positiver Gewichtsvektor, sodass sowohl das ungewichtete Spiel $\Gamma(M)$ als auch das kostengewichtete $\Gamma_c(M, w)$ existieren. Dann ist $(\id, \id): \Gamma_c(M,w) \to \Gamma(M)$ offenbar ein gewichteter Isomorphismus mit Gewichtsvektor $w$.
+	Sei als $M$ ein Auslastungsmodell und $w$ ein positiver Gewichtsvektor, sodass $\Gamma_c(M, w)$ wohldefiniert ist. Die ungewichtete Variante $\Gamma(M)$ ist dann ebenfalls wohldefiniert, da sie die gleichen Lastfunktionen verwendet und die Spielerkosten lediglich um den konstanten Faktor $\frac{1}{w_i}$ skaliert werden. Aus diesem Grund ist dann auch $(\id, \id): \Gamma_c(M,w) \to \Gamma(M)$ ein gewichteter Isomorphismus mit Gewichtsvektor $w$.
 \end{proof}
 
 
 \subsubsection{Unendliche Auslastungsspiele}
 
-\todo[inline]{Verallgemeinerung für unendliche Spiele? Evtl. an passenderer Stelle einfügen.}
+\todo[inline]{Verallgemeinerung für unendliche Auslastungsspiele. Evtl. an passenderer Stelle einfügen.}
 
 In \cite[Abschnitt 8]{AUniversalCostrGenPotGames} zeigt \citeauthor{AUniversalCostrGenPotGames}, dass die erste Hälfte von \Cref{satz:CharExGewPotinWCG} (\glqq Gewichtete Auslastungsspiele mit affinen Ressourcenkosten besitzen exakte Potentiale) auch für gewichtete $N$-Personen-Auslastungspiele mit potentiell unendlicher Ressourcenmenge gilt, solange jede einzelne Strategie eines Spielers nur endlich viele Ressourcen umfasst. 
 
@@ -165,36 +165,46 @@ Neu zu zeigen ist dabei nur die \glqq wenn\grqq-Richtung. Hierzu werden wir kurz
 
 Sei dazu also $M = (I, R, S, (g_r))$ ein beliebiges Auslastungsmodell und $w = (w_i)_{i \in I}$ ein Gewichtsvektor, sodass das Spiel $\Gamma(M, w) = (I, S, (c_i))$ wohldefiniert ist. Wir wollen nun zeigen, dass $\Gamma(M, w)$ ein exaktes Potential besitzt, falls alle $g_r$ affin linear sind bzw. ein gewichtetes Potential, falls alle $g_r$ exponentiell sind.
 
-Da wir dies mit Hilfe von \Cref{satz:CharExPot} bzw. \Cref{satz:CharGewPot} tun wollen, betrachten wir zunächst einen beliebigen (nicht-trivialen) $4$-Zykel $\gamma = (s, (s\mid t_i), (s \mid t_i \mid t_{i'}), (s \mid t_{i'}), s)$. Das folgende Lemma zeigt, wie wir die (gewichtete) Gesamtänderung entlang eines solchen Zykels berechnen können:
+\newcommand{\wrestr}{{w^r_{\ia\ib}}}
 
-\newcommand{\wrestr}{w^r_{ii'}}
+Da wir dies mit Hilfe von \Cref{satz:CharExPot} bzw. \Cref{satz:CharGewPot} tun wollen, betrachten wir zunächst einen beliebigen (nicht-trivialen) $4$-Zykel $\gamma = (s, (s\mid t_\ia), (s \mid t_\ia \mid t_\ib), (s \mid t_\ib), s)$. Das folgende Lemma zeigt, wie wir die (gewichtete) Gesamtänderung entlang eines solchen Zykels berechnen können. Dazu definieren wir für jede Ressource $r \in R$ das Gesamtgewicht aller diese nutzenden Spieler außer $\ia$ und $\ib$
+	\[\wrestr \coloneqq \sum_{i \in I\setminus\set{\ia, \ib}} w_i \]
+sowie die Menge der Ressourcen, die beide Spieler beim ersten Wechsel abgeben oder beide Spieler beim ersten Wechsel hinzunehmen,
+	\[R_1 \coloneqq \left(s_\ia \setminus t_\ia \cap t_\ib \setminus s_\ib\right) \cup \left(t_\ia \setminus s_\ia \cap s_\ib \setminus t_\ib\right) \]
+und die Menge der Ressourcen, die der eine Spieler abgibt und der zweite hinzunimmt oder umgekehrt,
+	\[R_2 \coloneqq \left(s_\ia \setminus t_\ia \cap s_\ib \setminus t_\ib\right) \cup \left(t_\ia \setminus s_\ia \cap t_\ib \setminus s_\ib\right).\]	
 
-\begin{lemma}
+\begin{lemma}\label{lemma:PfadAenderungen}
 	Es gilt:
-		\begin{align} 
-			\PfadAend(\gamma) = \sum_{} + \sum_{} \label{eq:PfadAendUngew}
-		\end{align}
+		\begin{align}\begin{split}  \label{eq:PfadAendUngew}
+			\PfadAend(\gamma) &= \sum_{r \in R_1} \Bigl(\left(w_\ia - w_\ib\right) g_r(\wrestr + w_\ib + w_\ia) - w_\ia g_r(\wrestr + w_\ia)  + w_\ib g_r(\wrestr + w_\ib)\Bigr) \\
+			&+ \sum_{r \in R_2} \Bigl(\left(w_\ib - w_\ia\right) g_r(\wrestr + w_\ib + w_\ia) - w_\ib g_r(\wrestr + w_\ia) + w_\ia g_r(\wrestr + w_\ib)\Bigr)
+		\end{split}\end{align}
 	Ist $v = (v_i)_{i \in I}$ ein zusätzlicher Gewichtsvektor, so gilt:
 		\begin{align}\begin{split}\label{eq:PfadAendGew}
-			\PfadAend(\gamma, v) &= \sum_{r \in \_\_} \left(\frac{w_{i'}}{v_{i'}} - \frac{w_i}{v_i}\right) g_r(\wrestr + w_i + w_{i'}) - \frac{w_{i'}}{v_{i'}} g_r(\wrestr + w_{i'})  + \frac{w_i}{v_i} g_r(\wrestr + w_i) +\\
-								&+ \sum_{r \in \_\_} \left(\frac{w_i}{v_i} - \frac{w_{i'}}{v_{i'}}\right) g_r(\wrestr + w_i + w_{i'}) - \frac{w_i}{v_i} g_r(\wrestr + w_{i'}) + \frac{w_{i'}}{v_{i'}} g_r(\wrestr + w_i)
+			\PfadAend(\gamma, v) &= \sum_{r \in R_1} \left(\left(\frac{w_\ia}{v_\ia} - \frac{w_\ib}{v_\ib}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)  + \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib)\right) \\
+								&+ \sum_{r \in R_2} \left(\left(\frac{w_\ib}{v_\ib} - \frac{w_\ia}{v_\ia}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ia) + \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ib)\right)
 		\end{split}\end{align}
 \end{lemma}
 
-\begin{proof}
-	Die erste Aussage folgt aus der zweiten durch Setzen von $v_i \coloneqq 1$. Wir betrachten daher nur letztere:
-		\begin{align*}
-			\PfadAend(\gamma, v) = \frac{1}{v_i}\left(c_i(s) - c_i(s\mid t_i)\right) + \frac{1}{v_j}\left(c_j(s\mid t_i) - c_j(s\mid t_i\mid t_j)\right) + \frac{1}{v_i}\left(c_i(s\mid t_i\mid t_j) - c_i(s\mid t_j)\right) + \frac{1}{v_j}\left(c_j(s\mid t_j) - c_j(s)\right)
-		\end{align*}
-		
-		\todo[inline]{Beweis...}
-		
-		Da für die Wohldefiniertheit von $\Gamma(M, w)$ bereits gefordert wird, dass alle in der Kostenberechnung auftretenden Summen absolut konvergieren, können wir diese im unendlichen genau wie im endlichen Fall umklammern und umsortieren.
-\end{proof}
+Der Beweis erfolgt durch einsetzen der Definition der Kostenfunktionen, Umsortieren der Summanden und Kürzen. Da für die Wohldefiniertheit von $\Gamma(M, w)$ bereits gefordert wird, dass alle in der Kostenberechnung auftretenden Summen absolut konvergieren, können wir dies im unendlichen genau wie im endlichen Fall machen.
 
-Wie auch \citeauthor{CharExGewPotinWCG} beobachten erhalten wir aus diesem Lemma einen alternativen Beweis dafür, dass ungewichtete Auslastungsspiele ein exaktes Potential besitzen. Aus unserer Version des Lemmas erhalten wir sogar noch eine etwas stärkere Version von \Cref{satz:MondererShapley} (die Einschränkung auf endliche Spielermengen entfällt) und gilt damit auch in Fällen, in denen die Rosenthalpotentialfunktion nicht definiert wäre (da die entsprechende Summe divergiert).
+Wir können nun leicht folgern, dass gewichtete Auslastungsspiele mit ausschließlich affin linearen Ressourcenkosten immer ein exaktes Potential besitzen. Ist nämlich $g: \IR\to \IR$ eine beliebige affin lineare Funktion, so gilt für alle reellen Zahlen $u,v,w \in \IR$
+	\[(u-v)g(w+u+v) - u g(w+u) + v g(w+v) = 0.\]
+Werden also alle Ressourcenkosten durch affin lineare Funktionen beschrieben, so ist jeder Summand in \eqref{eq:PfadAendUngew} null und folglich auch $\PfadAend(\gamma) = 0$.
 
-\begin{kor}
+Sei nun also $M$ ein Auslastungsmodell, in dem alle Ressourcenkosten von der Form $g(l) = a_g\cdot b^l + d_g$ sind. Dann definieren wir die Gewichte $v_i \coloneqq \frac{w_i b^{w_i}}{b^{w_i}-1}$. Da sowohl $b$ als auch $w_i$ positive reelle Zahlen sind, gilt dies auch für $v_i$. Wir setzen nun diese Gewichte in \eqref{eq:PfadAendGew} aus \Cref{lemma:PfadAenderungen} ein und sehen, dass so alle Summanden und damit auch die gewichtete Pfadänderung null werden:
+\begin{align*}
+		&\left(\frac{w_\ia}{v_\ia} - \frac{w_\ib}{v_\ib}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)  + \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib) =\\
+	= 	&\frac{w_\ia}{v_\ia}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ia)\right) - \frac{w_\ib}{v_\ib}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ib)\right) =\\
+	=	&\frac{b^{w_\ia}-1}{b^{w_\ia}}\left(a_{g_r}b^{\wrestr + w_\ib + w_\ia}+d_{g_r} - a_{g_r} b^{\wrestr + w_\ia} - d_{g_r}\right) - \frac{b^{w_\ib}-1}{b^{w_\ib}}\left(a_{g_r}b^{\wrestr + w_\ib + w_\ia}+d_{g_r} - a_{g_r} b^{\wrestr + w_{i}} - d_{g_r}\right) =\\
+	=	&a_{g_r}b^\wrestr \Big(\left(b^{w_\ia}-1\right)\left(b^{w_\ib}-1\right) - \left(b^{w_\ib}-1\right)\left(b^{w_\ia}-1\right)\Big) = 0
+\end{align*}
+Somit hat $\Gamma(M)$ nach \Cref{satz:CharGewPot} ein gewichtetes Potential und wir haben \Cref{satz:CharExGewPotinWCG2} vollständig bewiesen.
+
+Wie schon \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG} beobachten erhalten wir aus \Cref{lemma:PfadAenderungen} auch einen alternativen Beweis dafür, dass ungewichtete Auslastungsspiele ein exaktes Potential besitzen. Aus unserer Version des Lemmas erhalten wir sogar noch eine etwas stärkere Version der einen Richtung von \Cref{satz:MondererShapley} (die Einschränkung auf endliche Spielermengen entfällt), die also auch in Fällen gilt, in denen die Rosenthalpotentialfunktion nicht definiert wäre (da die entsprechende Summe divergiert).
+
+\begin{kor}\label{kor:MondererShapleyUnendl}
 	Jedes ungewichtete Auslastungsspiel hat ein exaktes Potential.
 \end{kor}
 
@@ -202,18 +212,9 @@ Wie auch \citeauthor{CharExGewPotinWCG} beobachten erhalten wir aus diesem Lemma
 	Setzen wir in \eqref{eq:PfadAendUngew} alle Gewichte auf $1$, so sehen wir direkt, dass sich alle Summanden wegkürzen und wir erhalten $\PfadAend(\gamma) = 0$. Also besitzt jedes ungewichtete Auslastungsspiel nach \Cref{satz:CharExPot} ein exaktes Potential.
 \end{proof}
 
-Ebenfalls können wir nun leicht folgern, dass gewichtete Auslastungsspiele mit ausschließlich affin linearen Ressourcenkosten immer ein exaktes Potential besitzen. Ist nämlich $g: \IR\to \IR$ eine beliebige affin lineare Funktion, so gilt für alle reellen Zahlen $u,v,w \in \IR$
-	\[(u-v)g(w+u+v) - u g(w+u) + v g(w+v) = 0.\]
-Werden also alle Ressourcenkosten durch affin lineare Funktionen beschrieben, so ist jeder Summand in \eqref{eq:PfadAendUngew} $0$ und folglich auch $\PfadAend(\gamma) = 0$.
+Die entsprechenden Aussagen für last- bzw. kostengewichtete Spiele ergeben sich jetzt direkt aus \Cref{satz:CharExGewPotinWCG2} bzw. \Cref{kor:MondererShapleyUnendl}, da wir bereits gesehen haben, dass diese Spiele immer gewichtet isomorph zu gewichteten bzw. ungewichteten Auslastungsspielen auf dem gleichen Auslastungsmodell sind (vgl. \Cref{lemma:lastgewAuslIsomGewAusl} und \Cref{lemma:KostengewAuslIsomZuAusl}). Alternativ könnte man diese Aussagen auch auf analogem Wege zu den obigen mit entsprechend angepassten Versionen von \Cref{lemma:PfadAenderungen} zeigen.
 
-
-
-\todo[inline]{weiter}
-
-\begin{kor}
-	\todo[inline]{Verallgemeinerung von \Cref{satz:MondererShapleyKostengew}}
-\end{kor}
-
+\todo[inline]{Auf Rückrichtungen eingehen. Im Idealfall Gegenbeispiel(e) angeben, sonst zumindest Offenheit der Frage erwähnen.}
 
 
 \subsection{Schnelle Beste-Antwort-Dynamik in Matroidspielen}
@@ -402,7 +403,7 @@ Für skalierte Nicht-Singleton-Auslastungsspiele hingegen besitzen nicht einmal 
 	Da dieses Spiel kein Nash-Gleichgewicht besitzt (den Strategieraum gegen den Uhrzeigersinn durchlaufen ist ein Verbesserungszykel), kann dieses Spiel nach \Cref{satz:CharExNashPot} kein Nash-Potential haben.
 \end{bsp}
 
-Schließlich wollen wir noch die allgemeinste Form der in dieser Arbeit definierten Auslastungsspiele betrachten: Gewichtete Auslastungsspiele mit nicht-anonymen Ressourcenkosten. Da endliche Spiele \Cref{satz:JedesSpielGewAusl} zufolge immer äquivalent zu einem gewichteten Auslastungsspiel sind, lassen sich insbesondere nicht-anonyme gewichtete Auslastungsspiele immer auch als solche darstellen. Dabei wird allerdings die Ressourcenmenge im Allgemeinen erheblich größer. 
+Schließlich wollen wir noch die allgemeinste Form der zu Beginn dieser Arbeit definierten Auslastungsspiele betrachten: Gewichtete Auslastungsspiele mit nicht-anonymen Ressourcenkosten. Da endliche Spiele \Cref{satz:JedesSpielGewAusl} zufolge immer äquivalent zu einem gewichteten Auslastungsspiel sind, lassen sich insbesondere nicht-anonyme gewichtete Auslastungsspiele immer auch als solche darstellen. Dabei wird allerdings die Ressourcenmenge im Allgemeinen erheblich größer. 
 
 Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender) so ist ein entsprechender Wechsel zu gewichteten Auslastungsspielen ohne Vergrößerung der Ressourcenmenge und selbst bei abzählbar unendlichen Spielermengen möglich:
 
