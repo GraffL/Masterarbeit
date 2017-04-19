@@ -9,13 +9,13 @@ In diesem Kapitel werden wir einige Varianten von Potentialfunktionen kennenlern
 Zunächst definieren wir eine Auswahl verschiedener Typen von Potentialfunktionen:
 
 \begin{defn}
-	Zu einem Spiel $\Gamma = (I, X, (c_i)_{i\in I})$ heißt eine Funktion $P: X \to \IR$
+	Zu einem Spiel $\Gamma = (I, X, (c_i))$ heißt eine Funktion $P: X \to \IR$
 	\begin{itemize}
 		\item \emph{verallgemeinertes Nash-Potential}, wenn jedes Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist, d.h. für alle $x \in X$ gilt:
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \implies \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
 		\item \emph{Nash-Potential}, wenn jedes Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
-		\item \emph{lokales Nash-Potential}, wenn jedes lokale Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
+		\item \emph{lokales Nash-Potential}, wenn jedes \glqq lokale\grqq{} Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
 			\[\forall i \in I, \hat{x}_i \in X_i: P(x) \leq P(x \mid \hat{x}_i) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
 		\item \emph{Beste-Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ gilt:
 			\[\arg\min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i) = \arg \min_{\hat{x}_i \in X_i} P(x \mid \hat{x}_i)\]
@@ -49,11 +49,11 @@ Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden ers
 
 Verallgemeinerte Nash-Potentiale (und damit alle oben beschriebenen Potentiale) formalisieren die Idee ein Spiel durch irgendein anderes mit einer einzigen Funktion beschriebenes Optimierungsproblem zu ersetzen, dessen Optima Nash-Gleichgewichte im ursprünglichen Spiel sind. Im Falle eines Nash-Potentials entsprechen diese Optima sogar allen Nash-Gleichgewichten. Findet man nun ein solches Optimierungsproblem und kann von diesem zeigen, dass es immer ein Optimum besitzt (etwa weil es durch eine stetige Funktion beschrieben wird und der Strategieraum kompakt ist), so zeigt dies, dass das ursprüngliche Spiel mindestens ein Nash-Gleichgewicht besitzt. Außerdem kann man dieses durch Lösen des Optimierungsproblems bestimmen.
 
-Versteht man zu einem gegebenen Strategieprofil $x \in X$ dessen \emph{Nachbarschaft} als die Menge aller durch höchstens einen Schritt erreichbarer Strategieprofile, d.h. die Menge $\{(x \mid \hat{x}_i) | i \in I, \hat{x}_i \in X_i\}$, so nennen wir $x$ ein \emph{lokales Minimum} einer Funktion $P: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist. Ein lokales Nash-Potential beschreibt damit ein Optimierungsproblem, dessen \emph{lokale} Minima den Nash-Gleichgewichten des Ausgangsspiels entsprechen.
+Versteht man zu einem gegebenen Strategieprofil $x \in X$ dessen \emph{Nachbarschaft} als die Menge aller durch höchstens einen Schritt erreichbarer Strategieprofile, d.h. die Menge $\set{(x \mid \hat{x}_i) | i \in I, \hat{x}_i \in X_i}$, so nennen wir $x$ ein \emph{lokales Minimum} einer Funktion $P: X \to \IR$, wenn es ein Minimum innerhalb seiner Nachbarschaft ist. Ein lokales Nash-Potential beschreibt damit ein Optimierungsproblem, dessen \emph{lokale} Minima den Nash-Gleichgewichten des Ausgangsspiels entsprechen.
 
-Die Nachbarschaft eines Strategieprofils $x$ besteht nun gerade aus den Profilen, die man mit $x$ vergleichen muss, um festzustellen, ob es sich bei $x$ um ein Nash-Gleichgewicht handelt. Hat man also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem lokalen Nash-Potential $P$, so induziert dieses ein Koordinationsspiel $K \coloneqq (I, X, (P))$ auf dem selben Strategieraum, dessen Nash-Gleichgewichte gerade mit denen des Spiels $\Gamma$ übereinstimmen.
+Die Nachbarschaft eines Strategieprofils $x$ besteht nun gerade aus den Profilen, die man mit $x$ vergleichen muss, um festzustellen, ob es sich bei $x$ um ein Nash-Gleichgewicht handelt. Hat man also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem lokalen Nash-Potential $P$, so induziert dieses ein Koordinationsspiel $\Kappa \coloneqq (I, X, (P))$ auf dem selben Strategieraum, dessen Nash-Gleichgewichte gerade mit denen des Spiels $\Gamma$ übereinstimmen.
 
-Weitere Spezialisierungen dieses Potentialbegriffs führen dann zu induzierten Koordinationsspielen, welche noch mehr Eigenschaften des Ausgansspiels übernehmen: So hat das durch ein Beste-Antwort-Potential beschriebene Spiel etwa die gleichen Beste-Antwort-Pfade und eignet sich daher beispielsweise zur Analyse von Beste-Antwort-Dynamiken. Durch ein ordinales Potential erhält man ein Spiel, welches auch die gleichen Verbesserungs- und Nichtverschlechterungspfade enthält. Bei einem verallgemeinerten ordinalen Potential bleiben diese hingegen jeweils nur in eine Richtung erhalten: Ein Verbesserungspfad im Ausgangsspiel ist auch einer im Koordinationsspiel und ein Nichtverschlechterungspfad im Koordinationsspiel entspricht einem solchen im ursprünglichen Spiel (vgl. \Cref{prop:ordPotVerbpfad}).
+Weitere Spezialisierungen dieses Potentialbegriffs führen dann zu induzierten Koordinationsspielen, welche noch mehr Eigenschaften des Ausgansspiels übernehmen: So hat das durch ein Beste-Antwort-Potential beschriebene Spiel etwa die gleichen Beste-Antwort-Pfade und eignet sich daher beispielsweise zur Analyse von Beste-Antwort-Dynamiken. Durch ein ordinales Potential erhält man ein Spiel, welches auch die gleichen Verbesserungs- und Nichtverschlechterungspfade besitzt. Bei einem verallgemeinerten ordinalen Potential bleiben diese hingegen jeweils nur in eine Richtung erhalten: Ein Verbesserungspfad im Ausgangsspiel ist auch einer im Koordinationsspiel und ein Nichtverschlechterungspfad im Koordinationsspiel entspricht einem solchen im ursprünglichen Spiel (vgl. \Cref{prop:ordPotVerbpfad}).
 
 Für skalierte, gewichtete und exakte Potentiale gibt es eine noch anschaulichere Betrachtungsweise für den Fall (endlicher) 2-Personenspiele. Statt als Matrix kann man deren Strategieraum auch als Gitternetz in der Ebene auffassen, wobei jede Strategie von Spieler 1 einer waagerechten und jede Strategie von Spieler 2 einer senkrechten Gitterlinie entspricht. Kreuzungspunkte von zwei Gerade entsprechen dann gerade vollständige Strategieprofilen. Kostenfunktionen (ebenso wie Potentiale) sind dann \glqq Reliefkarten\grqq{}, deren Höhe den jeweiligen Kosten entspricht. 
 
@@ -66,7 +66,7 @@ Für skalierte, gewichtete und exakte Potentiale gibt es eine noch anschaulicher
 
 Ein Potential entspricht in diesem Bild einer gemeinsamen Reliefkarte für beide Spieler, die - im Falle eines exakten Potentials - \glqq scheibenweise\grqq{} bis auf eine additive Konstante mit der eigentlichen Kostenfunktion übereinstimmt. Anders formuliert: Wird die Strategie eines Spieler festgehalten, so kann der andere Spieler seine Kostenveränderungen bei der Wahl der verschiedenen ihm zur Verfügung stehenden Strategien auch anhand der Potentialfunktion ablesen. 
 
-Geht man nun über zu einem skalierten Potential, so lesen die beiden Spieler das Potential sozusagen in verschiedenen Einheiten ab (müssen den erhaltenen Wert also noch passend skalieren um ihre tatsächliche Veränderung zu bekommen). Sind die Skalierungsfunktionen linear (das Potential also sogar ein gewichtetes), dann sind die verschiedenen Einheiten proportional zueinander.
+Geht man nun über zu einem skalierten Potential, so lesen die beiden Spieler das Potential sozusagen in verschiedenen Einheiten ab (müssen das Potential also erst noch passend skalieren um ihre tatsächliche Veränderung zu bekommen). Sind die Skalierungsfunktionen linear (das Potential also sogar ein gewichtetes), dann sind die verschiedenen Einheiten proportional zueinander.
 
 
 \subsection{Eigenschaften der Potentiale}
@@ -80,7 +80,7 @@ Wir wollen hier noch einige Eigenschaften der verschiedenen Potentiale zusammenf
 Die Zusammenhänge lassen sich alle leicht direkt beweisen. Wir werden diese Beweise hier allerdings nicht führen, da sich die Aussagen auch aus den allgemeineren Sätzen über die entsprechenden Morphismen ergeben, die wir in \Cref{sec:Morphismen} definieren werden (die Beweise finden sich dann in \Cref{sec:Morphismen:Potentialsaetze}). Dass die unterschiedlichen Potentiale auch tatsächlich echt verschiedene Klassen von Spielen beschreiben, zeigen die folgenden Beispiele: 
 
 \begin{bsp}
-	In allen folgenden Beispiel sei $\gamma \coloneqq ((t,l), (t,r), (b,r), (b,l))$ der $4$-Zykel, der den Strategieraum im Uhrzeigersinn durchläuft. Zum Beweis, dass ein Spiel kein bestimmtes Potential besitzen kann, verwenden wir zum Teil bereits die entsprechenden Charakterisierungen aus \Cref{sec:Potentiale:Charakterisierungen}.
+	Es sei jeweils $\gamma \coloneqq ((t,l), (t,r), (b,r), (b,l))$ der $4$-Zykel, der den Strategieraum im Uhrzeigersinn durchläuft. Zum Beweis, dass ein Spiel kein bestimmtes Potential besitzen kann, verwenden wir zum Teil bereits die entsprechenden Charakterisierungen aus \Cref{sec:Potentiale:Charakterisierungen}.
 	\begin{itemize}
 		\item $\Gamma_1$ besitzt ein gewichtetes, aber kein exaktes Potential:
 			\begin{center}
@@ -143,7 +143,7 @@ Die Zusammenhänge lassen sich alle leicht direkt beweisen. Wir werden diese Bew
 	\end{itemize}
 	Die folgenden drei Beispiele sind \cite[Beispiele 4.1, 4.2 und 4.3]{BestRespPot} entnommen:
 	\begin{itemize}
-		\item $\Gamma_4$ besitzt ein verallgemeinert ordinales und ein Beste-Antwort-Potential ($P_4$), aber kein ordinales Potential:
+		\item $\Gamma_4$ besitzt ein verallgemeinert ordinales und ein Beste-Antwort-Potential, aber kein ordinales Potential:
 			\begin{center}
 				$\Gamma_4:$ \quad
 				\begin{tabular}{c||c|c|c}
@@ -159,7 +159,7 @@ Die Zusammenhänge lassen sich alle leicht direkt beweisen. Wir werden diese Bew
 				\end{tabular}
 			\end{center}
 			$P_4$ ist sowohl ein verallgemeinertes ordinales als auch ein Beste-Antwort-Potential für $\Gamma_4$, ein ordinales Potential kann es allerdings nach \Cref{satz:CharOrdPot} nicht geben, da $\gamma$ ein schwacher Verbesserungszykel ist.
-		\item $\Gamma_5$ besitzt ein verallgemeinertes ordinales Potential ($P_5$), aber kein Beste-Antwort-Potential:
+		\item $\Gamma_5$ besitzt ein verallgemeinertes ordinales Potential, aber kein Beste-Antwort-Potential:
 			\begin{center}
 				$\Gamma_5:$ \quad
 				\begin{tabular}{c||c|c}
@@ -175,7 +175,7 @@ Die Zusammenhänge lassen sich alle leicht direkt beweisen. Wir werden diese Bew
 				\end{tabular}
 			\end{center}
 		$P_5$ ist ein verallgemeinertes ordinales Potential für $\Gamma_5$. Ein Beste-Antwort-Potential hierzu kann es aber nach \Cref{satz:CharExBAPot} nicht geben, da $\gamma$ ein schwacher Beste-Antwort-Verbesserungszykel ist.
-		\item $\Gamma_6$ besitzt ein Beste-Antwort-Potential ($P_6$), aber kein verallgemeinertes ordinales Potential:
+		\item $\Gamma_6$ besitzt ein Beste-Antwort-Potential, aber kein verallgemeinertes ordinales Potential:
 			\begin{center}
 				$\Gamma_6:$ \quad
 				\begin{tabular}{c||c|c|c}
@@ -249,7 +249,7 @@ Für Spiele mit unendlicher Spielermenge wird sich im folgenden Abschnitt die Be
 
 \subsection{Charakterisierungen der Potentiale}\label{sec:Potentiale:Charakterisierungen}
 
-In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale notwendige und hinreichende Anforderungen an ein Spiel beschreiben, damit dieses ein entsprechendes Potential besitzt.
+In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale notwendige und hinreichende Anforderungen an ein Spiel finden dafür, dass dieses ein entsprechendes Potential besitzt.
 
 \subsubsection{Exakte Potentiale}
 
@@ -260,11 +260,11 @@ In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale no
 \begin{proof}
 	Wir folgen dem Beweis aus \cite[Anhang A]{MonShap}. Dort wird der Satz zwar nur für $N$-Personenspiele gezeigt, mit \Cref{beob:KompWeisePotentiale} überträgt sich dieser Beweis aber direkt auch auf allgemeine Spiele.
 	
-	Sei zunächst $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ ein beliebiger 4-Zykel in einem Spiel mit Potential $P$. Dann gilt für die Gesamtänderung:
-		\[\PfadAend(\gamma) = \sum_{i=1}^4 \left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = \sum_{k=1}^{4} \left(P(x^k) - P(x^{k-1})\right) = P(x^4) - P(x^0) = 0^{}\]
+	Sei zunächst $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ ein beliebiger 4-Zykel in einem Spiel mit exaktem Potential $P$. Dann gilt für die Gesamtänderung entlang dieses Pfades:
+		\[\PfadAend(\gamma) = \sum_{k=1}^4 \left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = \sum_{k=1}^{4} \left(P(x^k) - P(x^{k-1})\right) = P(x^4) - P(x^0) = 0^{}\]
 		
-	Ist umgekehrt $\Gamma$ ein Spiel, in dem für alle 4-Zykel $\gamma$ gilt $\PfadAend(\gamma) = 0$, $x$ ein beliebiges, aber festes Strategieprofil in $\Gamma$ und $Y_x$ dessen Pfadzusammenhangskomponente, dann definiere wie folgt eine Funktion $P_x$ auf $Y_x$:
-		\[P: Y_x \to \IR: y \mapsto \PfadAend(\gamma), \,\gamma \text{ beliebiger Pfad von } x \text{ nach } y \]
+	Ist umgekehrt $\Gamma$ ein Spiel, in dem für alle 4-Zykel $\gamma$ gilt $\PfadAend(\gamma) = 0$, $\hat{x}$ ein beliebiges, aber festes Strategieprofil in $\Gamma$ und $Y_{\hat{x}}$ dessen Pfadzusammenhangskomponente, dann definiere wie folgt eine Funktion $P_{\hat{x}}$ auf $Y_{\hat{x}}$:
+		\[P_{\hat{x}}: Y_{\hat{x}} \to \IR: x \mapsto \PfadAend(\gamma), \,\gamma \text{ beliebiger Pfad von } \hat{x} \text{ nach } x \]
 	Damit diese Funktion tatsächlich wohldefiniert ist, muss für je zwei Pfade $\gamma_1$ und $\gamma_2$ von $\hat{x}$ nach $x$ gelten, dass die jeweiligen Gesamtänderungen gleich sind, d.h. $\PfadAend(\gamma_1) = \PfadAend(\gamma_2)$. Dies ist nach \Cref{beob:Pfade} äquivalent zu
 		\[\PfadAend\left(\gamma_1 \cdot \overset{\leftarrow}{\gamma_2}\right) = 0.\]
 	Dazu zeigen wir nun mittels Induktion über deren Länge, dass für alle Zykel $\mu$ gilt $\PfadAend(\mu) = 0$:
@@ -272,28 +272,28 @@ In diesem Abschnitt wollen wir für einige der zuvor beschriebenen Potentiale no
 		\item[IA ($\bm{\abs{\mu}=4}$)]\hspace{-.5em}\footnote{Zykel der Längen $0$, $1$, $2$ und $3$ haben automatisch immer Gesamtänderung $0$, da in ihnen alle Abweichungen vom gleichen Spieler vorgenommen werden müssen.} D.h. $\mu$ ist ein 4-Zykel und damit $\PfadAend(\mu) = 0$ nach Voraussetzung.
 		\item[IS ($\bm{\abs{\mu}\eqqcolon n}$)] Vorausgesetzt es gibt einen Pfad $\mu' = (x'^0, \dots, x'^n)$ gleicher Länge und Gesamtänderung wie $\mu$, sodass in den ersten beiden Schritten der gleiche Spieler seine Strategie wechselt, d.h. $i(1)=i(2)$. Dann erhält man durch Weglassen des ersten Schrittes einen \emph{kürzeren} Pfad $\mu'' \coloneqq (x'^0, x'^2, \dots, x'^n)$ mit gleicher Gesamtänderung, welche dann nach Induktion bereits $0$ ist. In diesem Fall haben wir dann wie gewünscht $\PfadAend(\mu) = \PfadAend(\mu') = \PfadAend(\mu'') = 0$.
 		
-		Die Existenz eines solchen Pfades $\mu'$ zeigen wir nun mittels Induktion über $k \coloneqq \min\left\{1 < l \leq n \setMid i(l) = i(1)\right\}$. Ein solches $k$ existiert immer, da Spieler $i(1)$ bereits im ersten Schritt seine Strategie wechselt und dies daher im Verlauf des Zykels noch mindestens ein weiteres Mal tun muss, damit der Zykel geschlossen werden kann.
+		Die Existenz eines derartigen Pfades $\mu'$ zeigen wir nun mittels Induktion über $k \coloneqq \min\left\{1 < l \leq n \setMid i(l) = i(1)\right\}$. Wenigstens ein solches $k$ existiert immer, da Spieler $i(1)$ bereits im ersten Schritt seine Strategie wechselt und dies daher im Verlauf des Zykels noch mindestens ein weiteres Mal tun muss, damit der Zykel geschlossen werden kann.
 		\begin{description}
 			\item[IA ($\bm{k=2}$)] Dann gilt bereits $i(1)=i(2)$ und wir sind fertig mit $\mu' \coloneqq \mu$.
-			\item[IS ($\bm{k-1\to k}$)] Wir ändern $\mu$ so ab, dass Spieler $i(1)$ bereits im $(k-1)$-ten Schritt der abweichende Spieler ist. Dann sind wir fertig nach Induktionsvoraussetzung. Dazu ersetzen wir in $\mu$ das Strategieprofil $x^k$ durch $(x^{k-1} \mid x^{k+1}_{i(1)})$, sodass also Spieler $i(1)$ bereits einen Schritt früher (im $(k-1)$-ten) seine Strategie wechselt und der Spieler, der dies zuvor in diesem Schritt getan hat, einen Schritt später.
+			\item[IS ($\bm{k-1\to k}$)] Wir ändern $\mu$ so ab, dass Spieler $i(1)$ schon im $(k-1)$-ten Schritt der abweichende Spieler ist. Dann sind wir fertig nach Induktionsvoraussetzung. Dazu ersetzen wir in $\mu$ das Strategieprofil $x^{k-1}$ durch $(x^{k-2} \mid x^{k}_{i(1)})$, sodass also Spieler $i(1)$ bereits einen Schritt früher (im $(k-1)$-ten) seine Strategie wechselt und der Spieler, der dies zuvor in diesem Schritt getan hat, einen Schritt später.
 			
 			Bei dieser Anpassung bleibt die Gesamtänderung des Pfades $\mu$ gleich, denn wir ersetzen lediglich ein Pfadstück der Länge $2$ durch ein anderes Pfadstück der Länge $2$. Und da sich diese beiden Pfade zu einem 4-Zykel zusammensetzen lassen, haben diese nach Voraussetzung die gleiche Gesamtänderung.
 			
 			Auf dieses abgeänderte $\mu$ können wir nun die Induktionsvoraussetzung anwenden und erhalten dadurch einen neuen Pfad $\mu'$ mit den gewünschten Eigenschaften.
 		\end{description}
-		Hiermit können wir auch den Induktionsschritt der äußeren Induktion und damit den Nachweis der Wohldefiniertheit von $P$ abschließen. 
+		Hiermit können wir auch den Induktionsschritt der äußeren Induktion und damit den Nachweis der Wohldefiniertheit von $P_{\hat{x}}$ abschließen. 
 	\end{description}	
-	Wählen wir nun für jede maximale Pfadzusammenhangskomponente ein einziges $x$ in dieser und definieren wie oben eine Funktion $P_x$, so lassen sich alle diese Funktionen zu einer Funktion $P$ auf ganz $X$ zusammensetzen. Nach Definition erfüllt diese auf jeder Pfadzusammenhangskomponente die Bedingung eines exakten Potentials. Also ist nach \Cref{beob:KompWeisePotentiale} $P$ ein exaktes Potential auf $X$.
+	Wählen wir nun für jede maximale Pfadzusammenhangskomponente ein einziges $\hat{x}$ in dieser und definieren wie oben eine Funktion $P_{\hat{x}}$, so lassen sich alle diese Funktionen zu einer Funktion $P$ auf ganz $X$ zusammensetzen. Nach Definition erfüllt diese auf jeder Pfadzusammenhangskomponente die Bedingung eines exakten Potentials. Also ist $P$ nach \Cref{beob:KompWeisePotentiale} ein exaktes Potential auf $X$.
 \end{proof}
 
 Eine alternative Charakterisierung für die Existenz eines exakten Potentials zeigen \citeauthor{KoordDummy} in \cite[Theorem 2.1]{KoordDummy}:
 
 \begin{satz}\label{satz:CharExPotAlt}
-	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein exaktes Potential, wenn es ein Koordinationsspiel $K = (I, X, (p))$ und ein Dummy-Spiel $D = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $K$ und $D$ sind, d.h. $c_i = p + d_i$.
+	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein exaktes Potential, wenn es ein Koordinationsspiel $\Kappa = (I, X, (p))$ und ein Dummy-Spiel $\Dummy = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $\Kappa$ und $\Dummy$ sind, d.h. $c_i = p + d_i$.
 \end{satz}
 
 \begin{proof}
-	Ist $\Gamma$ ein Spiel mit einem exakten Potential $P$, so definiert dieses ein Koordinationsspiel $K \coloneqq (I, X, (P))$. Ferner ist $D \coloneqq (I, X, (P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategien/Strategieprofile $x \in X, \hat{x}_i \in X_i$:
+	Ist $\Gamma$ ein Spiel mit einem exakten Potential $P$, so definiert dieses ein Koordinationsspiel $\Kappa \coloneqq (I, X, (P))$. Ferner ist $\Dummy \coloneqq (I, X, (P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategieprofile/Strategien $x \in X, \hat{x}_i \in X_i$:
 		\[(P-c_i)(x) - (P-c_i)(x \mid \hat{x}_i) = \left(P(x) - P(x \mid \hat{x}_i)\right) - \left(c_i(x) - c_i(x \mid \hat{x}_i)\right) = 0 \]
 	Daraus erhalten wir $(P-c_i)(x) = (P-c_i)(x \mid \hat{x}_i)$.
 	
@@ -305,7 +305,7 @@ Eine alternative Charakterisierung für die Existenz eines exakten Potentials ze
 
 \begin{satz}\label{satz:CharGewPot}
 	Ein Spiel besitzt genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)_{i \in I}$, wenn die $w$-gewichtete Gesamtänderung entlang jedes 4-Zykels $0$ ist, d.h. für jeden 4-Zykel $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ gilt:
-		\[\PfadAend_w(\gamma) = \sum_{i=1}^4 \frac{1}{w_{i(k)}}\left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = 0\]
+		\[\PfadAend_w(\gamma) = \sum_{k=1}^4 \frac{1}{w_{i(k)}}\left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = 0\]
 \end{satz}
 
 Diese Charakterisierung folgt direkt aus der folgenden Beobachtung in \cite[Kapitel 3.2]{CharExGewPotinWCG}:
@@ -322,14 +322,14 @@ Diese Charakterisierung folgt direkt aus der folgenden Beobachtung in \cite[Kapi
 Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} eine Charakterisierung durch eine Zerlegung des Spiels in ein Dummy- und ein skaliertes Koordinationsspiel:
 
 \begin{satz}\label{satz:CharSkalPot}
-	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein skaliertes Potential, wenn es ein skaliertes Koordinationsspiel $K = (I, X, (p_i))$ und ein Dummy-Spiel $D = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $K$ und $D$ sind, d.h. $c_i = p_i + d_i$.
+	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein skaliertes Potential, wenn es ein skaliertes Koordinationsspiel $\Kappa = (I, X, (p_i))$ und ein Dummy-Spiel $\Dummy = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $\Kappa$ und $\Dummy$ sind, d.h. $c_i = p_i + d_i$.
 \end{satz}
 
 \begin{proof}
-	Ist $\Gamma$ ein Spiel mit einem skalierten Potential $P$ und entsprechenden Skalierungsfunktionen $f_i$, so definiert dieses ein skaliertes Koordinationsspiel $K \coloneqq (I, X, (f_i \circ P))$. Ferner ist $D \coloneqq (I, X, (f_i\circ P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategien/Strategieprofile $x \in X, \hat{x}_i \in X_i$:
+	Ist $\Gamma$ ein Spiel mit einem skalierten Potential $P$ und entsprechenden Skalierungsfunktionen $f_i$, so erhält man ein skaliertes Koordinationsspiel $\Kappa \coloneqq (I, X, (f_i \circ P))$. Ferner ist $\Dummy \coloneqq (I, X, (f_i\circ P-c_i))$ ein dazu passendes Dummy-Spiel, denn es gilt für jeden Spieler $i \in I$ und alle Strategieprofile/Strategien $x \in X, \hat{x}_i \in X_i$:
 	\[(f_i\circ P-c_i)(x) - (f_i\circ P-c_i)(x \mid \hat{x}_i) = \left(f_i\circ P(x) - f_i\circ P(x \mid \hat{x}_i)\right) - \left(c_i(x) - c_i(x \mid \hat{x}_i)\right) = 0 \]
 	
-	Starten wir umgekehrt mit einem skalierten Koordinationsspiel $K = (I, X, (f_i \circ P))$ und einem Dummy-Spiel $D = (I, X, (d_i))$, so ist $P$ ein skaliertes Potential zu dem Spiel $\Gamma \coloneqq (I, X, (f_i\circ P + d_i))$, denn es gilt:
+	Starten wir umgekehrt mit einem skalierten Koordinationsspiel $\Kappa = (I, X, (f_i \circ P))$ und einem Dummy-Spiel $\Dummy = (I, X, (d_i))$, so ist $P$ ein skaliertes Potential zu dem Spiel $\Gamma \coloneqq (I, X, (f_i\circ P + d_i))$, denn es gilt:
 		\begin{align*}
 			(f_i\circ P + d_i)(x) - (f_i\circ P + d_i)(x \mid \hat{x}_i) &= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i) + d_i(x) - d_i(x \mid \hat{x}_i) \\
 				&= (f_i\circ P)(x) - (f_i\circ P)(x \mid \hat{x}_i) \qedhere
@@ -340,14 +340,14 @@ Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} e
 \subsubsection{Ordinale Potentiale}
 
 \begin{defn}
-	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gibt, also $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
+	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gibt, also eine Funktion $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
 \end{defn}
 
 Wir definieren nun eine Äquivalenzrelation auf dem Strategieraum:
-	\[x \NVrel y \dIff \text{ es gibt einen Nicht-Verschlechterungspfad von $x$ nach $y$ und umgekehrt}\]
+	\[x \NVrel y \dIff \text{ es gibt einen Nichtverschlechterungspfad von $x$ nach $y$ und umgekehrt}\]
 Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodNV \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine transitive Ordnung
-	\[[x] \SVord [y] \dIff \text{Es gibt einen schwachen Verbesserungspfad d. Länge $\geq1$ von $y$ nach $x$}\]
-Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich aus der Beobachtung, dass die Verknüpfung eines nicht-Verschlechterungspfades mit einem schwachen Verbesserungspfad wieder einen schwachen Verbesserungspfad ergibt. 
+	\[[x] \SVord [y] \dIff \text{ es gibt einen schwachen Verbesserungspfad d. Länge $\geq1$ von $y$ nach $x$}\]
+Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich aus der Beobachtung, dass die Verknüpfung eines Nichtverschlechterungspfades mit einem schwachen Verbesserungspfad wieder einen schwachen Verbesserungspfad bildet. 
 
 Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgende Charakterisierung der Existenz von ordinalen Potentialen:
 
@@ -371,21 +371,21 @@ Zum Beweis dieses Satzes benötigen wir zwei Propositionen:
 
 \begin{proof}
 	Angenommen $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Verbesserungszykel in $\Gamma$, so gilt für alle $0 < k \leq n$: $c_{i(k)}(x^k) \leq c_{i(k)}(x^{k-1})$ und für ein solches $k$ sogar $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$. Da ferner $P$ ein ordinales Potential ist, folgt daraus:
-		\[P(x^0) \leq P(x^1) \leq \dots \leq P(x^{k-1}) < P(x^k) \leq \dots \leq P(x^n) = P(x^0)\]
+		\[P(x^0) \geq P(x^1) \geq \dots \geq P(x^{k-1}) > P(x^k) \geq \dots \geq P(x^n) = P(x^0)\]
 	Dies ist jedoch ein Widerspruch. Also kann es keinen solchen Verbesserungszykel geben.
 \end{proof}
 
 \begin{proof}[Beweis von \Cref*{satz:CharOrdPot}]
-	Sei zunächst $P: X \to \IR$ ein ordinales Potential eines Spiels $\Gamma$. Nach \Cref{prop:OrdPotKeineschwVBZ} gibt es in $X$ dann keine schwachen Verbesserungszykel, woraus mit \Cref{prop:SVordStrPO} folgt, dass $\SVord$ eine strikte Partialordnung ist. Wir müssen also noch zeigen, dass $(\XmodNV, \SVord)$ reell geordnet ist. 
+	Sei zunächst $P: X \to \IR$ ein ordinales Potential eines Spiels $\Gamma$. Nach \Cref{prop:OrdPotKeineschwVBZ} gibt es in $X$ dann keine schwachen Verbesserungszykel, woraus mit \Cref{prop:SVordStrPO} folgt, dass $\SVord$ eine strikte Partialordnung ist. Wir müssen noch zeigen, dass $(\XmodNV, \SVord)$ reell geordnet ist. 
 	
-	Definiere dazu die Abbildung $f: \XmodNV \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es Nichtverschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Nichtverschlechterungszykel und da es keine schwachen Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
+	Definiere dazu die Abbildung $f: \XmodNV \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es Nichtverschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Nichtverschlechterungszykel und da es keine schwachen Verbesserungszykel in $\Gamma$ gibt, muss in diesem Zykel (und damit auch in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
 		
 	Ferner ist diese Abbildung streng monoton, denn gilt $[x] \SVord [y]$, so gibt es einen schwachen Verbesserungspfad $\gamma$ von $y$ nach $x$. Damit folgt analog zum ersten Punkt: $P(x) < P(y)$
 	
-	Ist umgekehrt $(\XmodNV, \SVord)$ reell-geordnet mit Abbildung $f: \XmodNV \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein ordinales Potential, denn es gilt:
+	Ist umgekehrt $(\XmodNV, \SVord)$ reell-geordnet mit Abbildung $f: \XmodNV \to \IR$, so definiere die Abbildung $P: X \to \IR: x \mapsto f([x])$. Diese ist ein ordinales Potential, denn:
 	\begin{enumerate}
-		\item Gilt $c_i(x) > c_i(x \mid \hat{x}_i)$, so ist $(x, (x \mid \hat{x}_i))$ ein schwacher Verbesserungspfad, also $[x] \succ [(x \mid \hat{x}_i)]$. Daraus wiederum folgt $P(x) = f([x]) > f([(x \mid \hat{x}_i)]) = P(x \mid \hat{x}_i)$.
-		\item Gilt $c_i(x) = c_i(x \mid \hat{x}_i)$, so sind sowohl $(x, (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), x)$ nicht-Verschlechterungspfade, also $[x] = [(x \mid \hat{x}_i)]$ und damit $P(x) = f([x]) = f([(x \mid \hat{x}_i)]) = P(x \mid \hat{x}_i)$. \qedhere
+		\item Gilt $c_i(x) > c_i(x \mid \hat{x}_i)$, so ist $(x, (x \mid \hat{x}_i))$ ein schwacher Verbesserungspfad, also $[x] \SVord [(x \mid \hat{x}_i)]$. Daraus wiederum folgt $P(x) = f([x]) > f([(x \mid \hat{x}_i)]) = P(x \mid \hat{x}_i)$.
+		\item Gilt $c_i(x) = c_i(x \mid \hat{x}_i)$, so sind sowohl $(x, (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), x)$ Nichtverschlechterungspfade, also $[x] = [(x \mid \hat{x}_i)]$ und $P(x) = f([x]) = f([(x \mid \hat{x}_i)]) = P(x \mid \hat{x}_i)$. \qedhere 
 	\end{enumerate}
 \end{proof}
 
@@ -414,16 +414,19 @@ Laut \Cref{beob:KompWeisePotentiale} gilt diese Charakterisierung sogar für die
 \begin{proof}
 	Wir müssen zeigen, dass in einem solchen Spiel jede Pfadzusammenhangskomponente abzählbar groß ist. Seien dazu also $x \in X$ und $n \in \INs$ beliebig. Dann ist
 	\[Y_x^n \coloneqq \Set{y \in X | \text{es existiert ein Pfad der Länge $n$ von $x$ nach $y$}}, \]
-	die Menge aller von $x$ aus durch Pfade der Länge $n$ erreichbaren Strategieprofile, abzählbar. Denn es gilt induktiv:
+	die Menge aller von $x$ aus durch Pfade der Länge $n$ erreichbaren Strategieprofile, abzählbar. Es gilt nämlich induktiv:
 	\begin{description}
 		\item[IA ($\bm{n=1}$)] Es ist
-		\[Y_x^1 = \Set{y \in X | \exists i \in I: y = (x \mid y_i)} = \Set{(x \mid y_i) | i \in I, y_i \in Y_i } = \bigcup_{i \in I} \Set{(x \mid y_i) | y_i \in Y_i }\]
+		\begin{align*}
+			Y_x^1 	&= \Set{y \in X | \exists i \in I: y = (x \mid y_i)} = \\
+					&= \Set{(x \mid y_i) | i \in I, y_i \in Y_i } = \bigcup_{i \in I} \Set{(x \mid y_i) | y_i \in Y_i }
+		\end{align*}
 		eine abzählbare Vereinigung (da die Spielermenge abzählbar ist) von abzählbar großen Mengen (den spielerspezifischen Strategieräumen), also selbst abzählbar groß.
 		\item[IS ($\bm{<n \to n}$)] Es ist
 		\[Y_x^n = \bigcup_{y \in Y_x^{n-1}} Y_y^1\]
-		eine (nach Induktionsvoraussetzung) abzählbare Vereinigung abzählbar großer Mengen und daher selbst wieder abzählbar.
+		eine (nach Induktionsvoraussetzung) abzählbare Vereinigung abzählbar großer Mengen (nach Induktionsanfang) und daher selbst wieder abzählbar.
 	\end{description}
-	Folglich ist auch $Y_x = \bigcup_{n\in\INs} Y_x^n$ abzählbar und besitzt daher nach \Cref{kor:CharExOrdPotabzX} ein ordinales Potential.
+	Folglich ist auch $Y_x = \bigcup_{n\in\INs} Y_x^n$ abzählbar und besitzt wegen \Cref{kor:CharExOrdPotabzX} ein ordinales Potential.
 \end{proof}
 
 \begin{bem}
@@ -462,7 +465,7 @@ Zum Beweis benötigen wir die folgenden Propositionen:
 
 
 \begin{proof}[Beweis von \Cref*{satz:CharVerallOrdPot}]
-	$(X, \VerbRel)$ reell geordnet mit streng monotoner Abbildung $f: X \to \IR$, so sieht man direkt, dass $f$ auch ein verallgemeinertes Potential ist. Denn für $x \in X, \hat{x}_i \in X_i$ mit $c_i(x) > c_i(x \mid \hat{x}_i)$ ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad, also $(x \mid \hat{x}_i) \VerbRel x$ und damit $f(x \mid \hat{x}_i) < f(x)$.
+	Ist $(X, \VerbRel)$ reell geordnet mit streng monotoner Abbildung $f: X \to \IR$, so sieht man direkt, dass $f$ auch ein verallgemeinertes Potential ist. Denn für $x \in X, \hat{x}_i \in X_i$ mit $c_i(x) > c_i(x \mid \hat{x}_i)$ ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad, also $(x \mid \hat{x}_i) \VerbRel x$ und damit $f(x \mid \hat{x}_i) < f(x)$.
 	
 	Haben wir hingegen ein Spiel $\Gamma$ mit einem verallgemeinerten ordinalen Potential $P$, so ist $(X, \VerbRel)$ reell geordnet, denn:
 	\begin{enumerate}
@@ -471,45 +474,45 @@ Zum Beweis benötigen wir die folgenden Propositionen:
 	\end{enumerate} 
 \end{proof}
 
-Erneut können wir daraus für \glqq kleine\grqq{} Spiele einfachere Charakterisierungen erhalten (die Beweise sind ganz analog zu denen von \Cref{kor:CharExOrdPotabzX} und \Cref{kor:CharExOrdPotabzIundXi}):
+Erneut können wir daraus für \glqq kleine\grqq{} Spiele einfachere Charakterisierungen erhalten (die Beweise sind völlig analog zu denen von \Cref{kor:CharExOrdPotabzX} und \Cref{kor:CharExOrdPotabzIundXi}):
 
 \begin{kor}\label{kor:CharExVerOrdPotabzX}
-	Ein Spiel mit abzählbarem Strategieraum besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungskreise enthält.
+	Ein Spiel mit abzählbarem Strategieraum besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungszykel enthält.
 \end{kor}
 
 \begin{kor}\label{kor:CharExVerOrdPotabzIundXi}
-	Ein Spiel mit abzählbar vielen Spielern und abzählbar großen spielerspezifischen Strategieräumen besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungskreise enthält.
+	Ein Spiel mit abzählbar vielen Spielern und abzählbar großen spielerspezifischen Strategieräumen besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es keine Verbesserungszykel enthält.
 \end{kor}
 
-Beschränkt man sich hingegen auf die Klasse der endlichen Spielen, so erhält man die (auf anderem Wege) erstmals von \citeauthor{MonShap} in \cite[Lemma 2.5]{MonShap} gezeigte Charakterisierung der Existenz von verallgemeinerten ordinalen Potentialen:
+Beschränkt man sich sogar auf die Klasse der endlichen Spielen, so erhält man die (auf anderem Wege) erstmals von \citeauthor{MonShap} in \cite[Lemma 2.5]{MonShap} gezeigte Charakterisierung der Existenz von verallgemeinerten ordinalen Potentialen:
 
 \begin{kor}\label{kor:CharExVerOrdFIP}
 	Ein endliches Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn es die FIP besitzt.
 \end{kor}
 
 \begin{proof}
-	In einem Spiel mit endlichem Strategieraum sind unendliche Verbesserungspfade genau die Verbesserungskreise. Damit folgt die Aussage direkt aus \Cref{kor:CharExVerOrdPotabzX}.
+	In einem Spiel mit endlichem Strategieraum sind unendliche Verbesserungspfade genau die Verbesserungszykel. Damit folgt die Aussage direkt aus \Cref{kor:CharExVerOrdPotabzX}.
 \end{proof}
 
 \begin{bem}
 	Möchte man in den oben beschriebenen Fällen eine konkrete Potentialfunktion angeben, so kann man dies analog zu einer alternativen, konstruktiven Beweisidee für endliche Spiele aus \cite[Abschnitt 5]{CongGamesPlayerSpecPayoff} tun:
 
-	Sei dazu $\Gamma$ ein Spiel mit abzählbarem Strategieraum $X := \{x^1, x^2, \dots \}$ und ohne Verbesserungszykel. Definiere die Funktion $h: X \to \IR: x^k \mapsto 2^{-k}$ sowie für jedes Strategieprofil $x \in X$ die Menge $Y_{>x} \coloneqq \left\{y \in X \setMid \exists \text{ Verbesserungspfad von } y \text{ nach } x\right\}$ und mit deren Hilfe
+	Sei dazu $\Gamma$ ein Spiel mit abzählbarem Strategieraum $X := \{x^1, x^2, \dots \}$ (bzw. entsprechender Pfadzusammenhangskomponente) und ohne Verbesserungszykel. Definiere die Funktion $h: X \to \IR: x^k \mapsto 2^{-k}$ sowie für jedes Strategieprofil $x \in X$ die Menge $Y_{>x} \coloneqq \left\{y \in X \setMid \exists \text{ Verbesserungspfad von } y \text{ nach } x\right\}$ und mit deren Hilfe
 	\[P: X \to \IR: x \mapsto 1 - \sum_{y \in Y_{>x}} h(y)\]
 \end{bem}
 
 \begin{proof}
-	Diese Funktion ist wohldefiniert, da $\sum_{k=1}^{\infty} 2^{-k} = 1$ absolut konvergiert. Sie ist außerdem ein verallgemeinertes ordinales Potential, denn gilt $c_i(x) > c_i(x \mid \hat{x}_i)$ so ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad. Außerdem gilt $x \notin Y_{>x}$, da es in $\Gamma$ keine Verbesserungszykel gibt. Damit folgt:
-		\[P(x) = 1 - \sum_{y \in Y_{>x}} h(y) > 1 - \sum_{y \in Y_{>x}} h(y) - h(x) = 1 - \sum_{y \in Y_{>(x \mid \hat{x}_i)}}h(y) = P(x \mid \hat{x}_i)\qedhere\]
+	Diese Funktion ist wohldefiniert, da $\sum_{k=1}^{\infty} 2^{-k} = 1$ absolut konvergiert. Sie ist außerdem ein verallgemeinertes ordinales Potential, denn gilt $c_i(x) > c_i(x \mid \hat{x}_i)$ so ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad. Damit gilt offenbar $Y_{>x} \subseteq Y_{>(x \mid \hat{x}_i)}$ und außerdem $x \notin Y_{>x}$, da es in $\Gamma$ keine Verbesserungszykel gibt. Damit folgt:
+		\[P(x) = 1 - \sum_{y \in Y_{>x}} h(y) > 1 - \sum_{y \in Y_{>x}} h(y) - h(x) \geq 1 - \sum_{y \in Y_{>(x \mid \hat{x}_i)}}h(y) = P(x \mid \hat{x}_i)\qedhere\]
 \end{proof}
 
 
 \subsubsection{Beste-Antwort-Potentiale}
 
-Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeauthor{BestRespPot} in \cite[Theorem 3.1]{BestRespPot} eine solche für Beste-Antwort-Potentiale. Dazu definiert man die Äquivalenzrelation:
-	\[x \BArel y \dIff \text{ es gibt einen Beste-Antwort-Pfad von $x$ nach $y$ und umgekehrt}\]
-und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhält man eine transitive Ordnung
-\[[x] \BAord [y] \dIff \text{Es gibt einen schwachen Beste-Antwort-Verbesserungspfad von $y$ nach $x$}\]
+Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeauthor{BestRespPot} in \cite[Theorem 3.1]{BestRespPot} eine solche für Beste-Antwort-Potentiale. Dazu verwenden wir die Äquivalenzrelation
+	\[x \BArel y \dIff \text{ es gibt einen Beste-Antwort-Pfad von $x$ nach $y$ und umgekehrt}.\]
+Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhalten wir die transitive Ordnung
+\[[x] \BAord [y] \dIff \text{ es gibt einen schwachen Beste-Antwort-Verbesserungspfad von $y$ nach $x$}\]
 
 \begin{satz}\label{satz:CharExBAPot}
 	Ein Spiel, in dem jeder Spieler zu jedem Strategieprofil wenigstens eine beste Antwort zur Verfügung hat, besitzt genau dann ein Beste-Antwort-Potential, wenn  $(\XmodBA, \BAord)$ reell geordnet ist.
@@ -528,8 +531,8 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 \end{prop}
 
 \begin{proof}
-	Angenommen $\Gamma$ enthielte einen Verbesserungszykel $\gamma = (x^0, \dots, x^n)$ wäre ein schwacher Beste-Antwort-Verbesserungszykel in $\Gamma$, so gilt für alle $0 < k \leq n$:
-		\[c_{i(k)}(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_i) \leq c_{i(k)}(x^{k-1})\]
+	Angenommen $\Gamma$ enthielte einen Verbesserungszykel $\gamma = (x^0, \dots, x^n)$, so wäre für alle $0 < k \leq n$
+		\[c_{i(k)}(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_i)\]
 	und, da $P$ ein Beste-Antwort-Potential ist, ebenso 
 		\[P(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} P(x^{k-1} \mid \hat{x}_i) \leq P(x^{k-1}).\]
 	Ferner gilt für ein solches $k$ sogar $c_{i(k)}(x^k) < c_{i(k)}(x^{k-1})$, also auch $P(x^k) < P(x^{k-1})$ (da $x^{k-1}_{i(k)}$ keine beste Antwort auf $x^{k-1}$ ist). Zusammen folgt daher
@@ -539,20 +542,22 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 
 
 \begin{proof}[Beweis von \Cref*{satz:CharExBAPot}]
-	Sei zunächst $P: X \to \IR$ ein Beste-Antwort-Potential eines Spiels $\Gamma$. Dann gibt es in $\Gamma$ \Cref{prop:BAPotKeineschwBAVBZ} keine schwachen Beste-Antwort-Verbesserungszykel und daher ist $\BAord$ nach \Cref{prop:BARelPartOrdVerbz} eine strikte Partialordnung auf $\XmodBA$.
+	Sei zunächst $P: X \to \IR$ ein Beste-Antwort-Potential eines Spiels $\Gamma$. Dann gibt es in $\Gamma$ laut \Cref{prop:BAPotKeineschwBAVBZ} keine schwachen Beste-Antwort-Verbesserungszykel und daher ist $\BAord$ nach \Cref{prop:BARelPartOrdVerbz} eine strikte Partialordnung auf $\XmodBA$.
 	
-	Ferner ist $(\XmodBA, \BAord)$ reell geordnet. Definiere dazu die Abbildung $f: \XmodBA \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es also Beste-Antwort-Pfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Beste-Antwort-Zykel und da es keine schwachen Beste-Antwort-Verbesserungszykel in $\Gamma$ gibt, muss in die diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
+	Ferner ist $(\XmodBA, \BAord)$ reell geordnet. Definiere dazu die Abbildung 
+		\[f: \XmodBA \to \IR: [x] \mapsto P(x).\]
+	Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es Beste-Antwort-Pfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Beste-Antwort-Zykel und da es keine schwachen Beste-Antwort-Verbesserungszykel in $\Gamma$ gibt, muss in diesem Zykel (und damit bereits in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
 		
 	Schließlich ist diese Abbildung streng monoton, denn gilt $[x] \SVord [y]$, so gibt es einen schwachen Beste-Antwort-Verbesserungspfad $\gamma$ von $y$ nach $x$. Damit folgt analog zum Beweis von \Cref{prop:BAPotKeineschwBAVBZ} $P(x) < P(y)$.
 	
-	Ist umgekehrt $\Gamma$ ein Spiel, für das $(\XmodBA, \BAord)$ reell geordnet ist mit Abbildung $f: \XmodBA \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein beste Antwort-Potential, denn es gilt $\arg \min_{x'_i \in X_i}c_i(x \mid x'_i) = \arg \min_{x'_i \in X_i} P(x \mid x'_i)$:
+	Ist umgekehrt $\Gamma$ ein Spiel, für das $(\XmodBA, \BAord)$ reell geordnet ist mit einer streng monotonen Abbildung $f: \XmodBA \to \IR$, so definiere $P: X \to \IR: x \mapsto f([x])$. Dies ist ein Beste-Antwort-Potential, denn es gilt $\arg \min_{x'_i \in X_i}c_i(x \mid x'_i) = \arg \min_{x'_i \in X_i} P(x \mid x'_i)$:
 	\begin{description}
 		\item[\glqq$\bm{\subseteq}$\grqq:] Ist $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, so ist also $\hat{x}_i$ insbesondere auch eine beste Antwort auf alle Strategieprofile $(x \mid x'_i)$ für $x'_i \in X_i$.
 			\begin{description}
-				\item[1. Fall:] Gilt $c_i(x \mid \hat{x}_i) < c_i(x \mid x'_i)$, so ist $((x \mid x'_i), (x \mid \hat{x}_i))$ ein Beste-Antwort-Verbesserungspfad, also $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$ und damit $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) < f ([(x \mid x'_i)]) = P(x \mid x'_i)$.
+				\item[1. Fall:] Gilt $c_i(x \mid \hat{x}_i) < c_i(x \mid x'_i)$, so ist $((x \mid x'_i), (x \mid \hat{x}_i))$ ein Beste-Antwort-Verbesserungspfad, also $[(x \mid \hat{x}_i)] \BAord [(x \mid x'_i)]$ und damit erhalten wir wie gewünscht $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) < f ([(x \mid x'_i)]) = P(x \mid x'_i)$.
 				\item[2. Fall:] Gilt $c_i(x \mid \hat{x}_i) = c_i(x \mid x'_i)$, so sind sowohl $((x \mid x'_i), (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), (x \mid x'_i))$ Beste-Antwort-Pfade und folglich $(x \mid x'_i) \BArel (x \mid \hat{x}_i)$. Somit folgt $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) = f([(x \mid x'_i)]) = P(x \mid x'_i)$.
 			\end{description}
-			Insgesamt gilt also für alle $x'_i \in X_i$, dass $P(x \mid \hat{x}_i) \leq P(x \mid x'_i)$ und daher $\hat{x}_i \in \arg \min_{x'_i \in X_i} P(x \mid x'_i)$.
+			Insgesamt haben wir so für alle $x'_i \in X_i$ gezeigt, dass $P(x \mid \hat{x}_i) \leq P(x \mid x'_i)$ und daher gilt $\hat{x}_i \in \arg \min_{x'_i \in X_i} P(x \mid x'_i)$.
 		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gäbe es also eine beste Antwort $x'_i \in X_i$ auf $x$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Entsprechend wäre $((x \mid \hat{x}_i), (x \mid x'_i))$ ein (schwacher) Beste-Antwort-Verbesserungspfad und daher $[(x \mid x'_i)] \BAord [(x \mid \hat{x}_i)]$. Somit wäre nach Definition von $P$ auch $P(x \mid x'_i) = f([x \mid x'_i]) < f([x \mid \hat{x}_i]) = P(x \mid \hat{x}_i)$, im Widerspruch zu $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Also gibt es kein solches $x'_i$ und es gilt $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i)$. \qedhere
 	\end{description}
 \end{proof}
@@ -563,37 +568,40 @@ und auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \le
 Das folgende Beispiel enthält genau einen solchen Fall und ist damit zwar kein Gegenbeispiel zu dem in \cite{BestRespPot} gezeigten Satz, aber zu dem dort geführten Beweis hierzu:
 
 \begin{bsp}
-	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat zwar offenbar ein exaktes und damit erst recht Beste-Antwort-Potential, es steht aber trotzdem im Widerspruch zu obigem Beweis. Da es keinerlei Beste Antworten besitzt, ist nämlich $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
+	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat zwar offenbar ein exaktes und damit erst recht Beste-Antwort-Potential, es steht aber trotzdem im Widerspruch zu obigem Beweis. Da es keinerlei beste Antworten besitzt, ist nämlich $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
 \end{bsp}
 
 
 \subsubsection{Nash-Potentiale}
 
-Die Existenz eines verallgemeinerten Nash-Potentials (und gleichzeitig auch der anderen beiden Nash-Potentiale) schließlich lässt sich für endliche Spiele trivialerweise dadurch charakterisieren, dass das entsprechende Spiel ein Nash-Gleichgewicht besitzt. Und unendliche Spiele besitzen immer alle NashPotentiale.
+Die Existenz eines verallgemeinerten Nash-Potentials (und gleichzeitig auch der anderen beiden Nash-Potentiale) schließlich lässt sich für endliche Spiele trivialerweise dadurch charakterisieren, dass das entsprechende Spiel ein Nash-Gleichgewicht besitzt. Und unendliche Spiele besitzen sogar immer alle NashPotentiale.
 
-\begin{beob}
+\begin{beob}\label{beob:UnendlichePfadzshkomp}
 	Wie bereits in \Cref{beob:endlicheSpiele} festgestellt ist der Strategieprofilraum $X \coloneqq \prod_{i \in I}X_i$ eines Spiels genau dann endlich, wenn alle Strategiemengen $X_i$ endlich sind und nur endlich viele davon mehr als eine Strategie enthalten. Umgekehrt muss ein Spiel mit unendlich großem Strategieprofilraum mindestens eine unendlich große Strategiemenge oder aber unendlich viele Spieler mit zwei oder mehr Strategien haben.
 	
 	In beiden Fällen enthält automatisch jede Pfadzusammenhangskomponente einen Pfad unendlicher Länge ohne Wiederholungen: Entweder indem ein Spieler unendlich oft seine Strategie wechselt oder unendlich viele verschiedene Spieler nacheinander je einmal ihre Strategie ändern. Insbesondere sind in diesem Fall auch alle Pfadzusammenhangskomponenten unendlich groß.
 \end{beob}
 
-Denn auf jeder Pfadzusammenhangskomponente, welche mindestens ein Nash-Gleichgewicht enthält, können wir folgendes lokale Nash-Potential und Nash-Potential definieren:
-	\[P: X \to \IR: x \mapsto \min\Set{\abs{\gamma} | \gamma \text{ (endlicher) Pfad von } x \text{ zu einem Nash-Gleichgewicht}} \]
-Denn die Nash-Gleichgewichte sind nun genau die Strategieprofile mit $P(x) = 0$ und für alle anderen Strategieprofile fällt das Potential entlang jedes kürzesten Pfades zum nächsten Nash-Gleichgewicht in jedem Schritt strikt ab (befindet sich als nicht in einem (lokalen) Minimum).
-
-Für unendliche Pfadzusammenhangskomponenten \emph{ohne} Nash-Gleichgewicht können wir ferner wie folgt ein lokales Nash-Potential und Nash-Potential finden. Wir wählen einen festen, unendlichen Pfad $\hat{\gamma} = (x^0, x^1, \dots)$ in dieser Zusammenhangskomponente, welcher kein Strategieprofil mehrfach enthält. Dann definieren wir:
-	\[P: X \to \IR: x \mapsto \begin{cases}
-		1/k, \hspace{12.5em} x = x^{k-1} \text{ auf dem Pfad } \hat{\gamma} \\
-		\min\Set{\abs{\gamma} | \gamma \text{ Pfad von $x$ zu einem Profil auf $\hat{\gamma}$}}, \qquad\text{sonst}
-	\end{cases}\]
-Diese Funktion besitzt keine (lokalen) Minima und erfüllt daher trivialerweise alle Bedingungen an die verschiedenen Nash-Potentiale.
-
-Nicht einmal ein verallgemeinertes Nash-Potential besitzt ein Spiel hingegen dann, wenn es eine endliche Pfadzusammenhangskomponente ohne Nash-Gleichgewichte enthält\footnote{Tatsächlich besitzt ein Spiel genau dann eine (und in diesem Fall auch nur eine) endliche Pfadzusammenhangskomponente, wenn es selbst schon endlich ist. Denn um einen unendlichen Strategieprofilraum besitzen zu können, muss es mindestens einen Spieler mit unendlichem Strategieraum oder unendlich viele Spieler mit mehr als einer Strategie geben. Beides führt automatisch dazu, dass alle Pfadzusammenhangskomponenten unendlich groß sind.}. Denn gäbe es ein solches, so würde es auch ein (globales) Minimum annehmen und dieses müsste folglich einem Nash-Gleichgewicht in der Zusammenhangskomponente entsprechen. Insgesamt erhalten wir damit die folgende Charakterisierung:
+Wir können damit den folgenden Charakterisierungssatz für Nash-Potentiale zeigen:
 
 \begin{satz}\label{satz:CharExNashPot}
 	Ein Spiel besitzt genau dann ein Nash-Potential/verallgemeinertes/lokales Nash-Potential, wenn alle endlichen Pfadzusammenhangskomponenten mindestens ein Nash-Gleichgewicht besitzen.
 \end{satz}
 
+\begin{proof}
+	Auf jeder Pfadzusammenhangskomponente, welche mindestens ein Nash-Gleichgewicht enthält, können wir folgendes lokale Nash-Potential und Nash-Potential definieren:
+	\[P: X \to \IR: x \mapsto \min\Set{\abs{\gamma} | \gamma \text{ (endlicher) Pfad von } x \text{ zu einem Nash-Gleichgewicht}} \]
+	Denn die Nash-Gleichgewichte sind nun genau die Strategieprofile mit $P(x) = 0$ und für alle anderen Strategieprofile fällt das Potential entlang jedes kürzesten Pfades zum nächsten Nash-Gleichgewicht in jedem Schritt strikt ab (befindet sich also insbesondere nicht in einem (lokalen) Minimum).
+	
+	Für unendliche Pfadzusammenhangskomponenten \emph{ohne} Nash-Gleichgewicht können wir ferner wie folgt ein lokales Nash-Potential und Nash-Potential finden. Wir wählen einen festen, unendlichen Pfad $\hat{\gamma} = (x^0, x^1, \dots)$ in dieser Zusammenhangskomponente, welcher kein Strategieprofil mehrfach enthält. Dann definieren wir:
+	\[P: X \to \IR: x \mapsto \begin{cases}
+	1/k, \hspace{12.5em} x = x^{k-1} \text{ auf dem Pfad } \hat{\gamma} \\
+	\min\Set{\abs{\gamma} | \gamma \text{ Pfad von $x$ zu einem Profil auf $\hat{\gamma}$}}, \qquad\text{sonst}
+	\end{cases}\]
+	Diese Funktion besitzt keine (lokalen) Minima und erfüllt daher trivialerweise alle Bedingungen an die verschiedenen Nash-Potentiale.
+	
+	Nicht einmal ein verallgemeinertes Nash-Potential besitzt ein Spiel hingegen dann, wenn es eine endliche Pfadzusammenhangskomponente ohne Nash-Gleichgewichte enthält\footnote{Tatsächlich besitzt ein Spiel genau dann eine (und in diesem Fall auch nur eine) endliche Pfadzusammenhangskomponente, wenn es selbst schon endlich ist. Denn um einen unendlichen Strategieprofilraum besitzen zu können, muss es mindestens einen Spieler mit unendlichem Strategieraum oder unendlich viele Spieler mit mehr als einer Strategie geben. Beides führt nach \Cref{beob:UnendlichePfadzshkomp} automatisch dazu, dass alle Pfadzusammenhangskomponenten unendlich groß sind.}. Denn gäbe es ein solches, so würde es auch ein (globales) Minimum annehmen und dieses müsste folglich einem Nash-Gleichgewicht in der Zusammenhangskomponente entsprechen.
+\end{proof}
 
 \subsubsection{Zusammenfassung}
 
@@ -615,13 +623,13 @@ Eine Zusammenfassung aller in diesem Abschnitt beschriebenen Charakterisierungen
 		& (\Cref{satz:CharSkalPot})	\\\hline
 		ordinales Potential				& $\iff$	& $(\XmodNV, \SVord)$ ist reell geordnet
 		& (\Cref{satz:CharOrdPot})	\\
-		-f. $I$ und $X_i$ abzählbar:	& $\iff$	& $\Gamma$ enthält keine schwachen Verbesserungszykel 
+		-für $I$ und $X_i$ abzählbar:	& $\iff$	& $\Gamma$ enthält keine schwachen Verbesserungszykel 
 		& (\Cref{kor:CharExOrdPotabzIundXi})\\\hline
 		verallg. ord. Potential			& $\iff$	& $(X, \VerbRel)$ ist reell geordnet
 		& (\Cref{satz:CharVerallOrdPot})\\
-		-f. $I$ und $X_i$ abzählbar:	& $\iff$	& $\Gamma$ enthält keine Verbesserungszykel
+		-für $I$ und $X_i$ abzählbar:	& $\iff$	& $\Gamma$ enthält keine Verbesserungszykel
 		& (\Cref{kor:CharExVerOrdPotabzIundXi})\\
-		-f. $\Gamma$ endlich:			& $\iff$	& $\Gamma$ hat FIP
+		-für $\Gamma$ endlich:			& $\iff$	& $\Gamma$ hat FIP
 		& (\Cref{kor:CharExVerOrdFIP})\\\hline
 		Beste-Antwort-Potential			& $\impliedby$	& es existieren immer beste Antworten, $\Gamma$ enthält keine schwachen Beste-Antwort-Verbesserungszykel und $(\XmodBA, \BAord)$ ist reell geordnet
 		& (\Cref{satz:CharExBAPot})	\\
