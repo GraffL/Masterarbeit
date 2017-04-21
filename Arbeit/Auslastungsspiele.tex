@@ -45,9 +45,10 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 	Berücksichtigt man nur die Ressourcen aus $R_K$, so erhält man ein Koordinationsspiel, nimmt man nur die aus $R_D$, so erhält man ein Dummy-Spiel. Aus dieser Beobachtung ergibt sich der in \cite{KoordDummy} beschriebene alternative Beweis für die Rückrichtung: Man zerlegt das exakte Potentialspiel zunächst in ein Koordinations- und ein Dummyspiel (siehe \Cref{satz:CharExPotAlt}), konstruiert für jedes der beiden ein äquivalentes Auslastungsspiel (mit Ressourcenmengen $R_K$ bzw. $R_D$) und erhält schließlich die Summe der beiden Auslastungsspiele als zum Ausgangsspiel kostenerhaltend isomorphes Auslastungsspiel.
 \end{bem}
 
-Auslastungsspiele sind also nicht nur \emph{ein} Beispiel für Spiele mit exaktem Potential, sondern in gewissem Sinne (nämlich bis auf Isomorphie) sogar \emph{das} Beispiel für solche Spiele. Eine naheliegende Frage ist nun, ob es ähnliche Klassen von \glqq auslastungsartigen\grqq{} Spielen gibt, welche genau den Spielen mit allgemeineren Potentialen entsprechen. Im Folgenden werden wir versuchen eine zu gewichteten Potentialspielen passende Verallgemeinerung von Auslastungsspielen zu finden.
 
 \subsection{Von ungewichtet zu gewichtet}
+
+Auslastungsspiele sind also nicht nur \emph{ein} Beispiel für Spiele mit exaktem Potential, sondern in gewissem Sinne (nämlich bis auf Isomorphie) sogar \emph{das} Beispiel für solche Spiele. Eine naheliegende Frage ist nun, ob es ähnliche Klassen von \glqq auslastungsartigen\grqq{} Spielen gibt, welche genau den Spielen mit allgemeineren Potentialen entsprechen. Im Folgenden werden wir versuchen eine zu gewichteten Potentialspielen passende Verallgemeinerung von Auslastungsspielen zu finden.
 
 \subsubsection{Gewichtete Auslastungsspiele}
 
@@ -214,7 +215,7 @@ Wie schon \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG} beobachten,
 
 Die entsprechenden Aussagen für last- bzw. kostengewichtete Spiele ergeben sich jetzt direkt aus \Cref{satz:CharExGewPotinWCG2} bzw. \Cref{kor:MondererShapleyUnendl}, da wir bereits gesehen haben, dass diese Spiele immer gewichtend isomorph zu gewichteten bzw. ungewichteten Auslastungsspielen auf dem gleichen Auslastungsmodell sind (vgl. \Cref{lemma:lastgewAuslIsomGewAusl} und \Cref{lemma:KostengewAuslIsomZuAusl}). Alternativ könnte man diese Aussagen auch auf analogem Wege zu den obigen mit entsprechend angepassten Versionen von \Cref{lemma:PfadAenderungen} zeigen.
 
-\todo[inline]{Auf Rückrichtungen eingehen. Im Idealfall Gegenbeispiel(e) angeben, sonst zumindest Offenheit der Frage erwähnen.}
+\todo[inline]{Auf Rückrichtungen eingehen. Im Idealfall Gegenbeispiel(e) angeben, sonst zumindest Offenheit der Frage erwähnen. Evtl.: Jedes exakte Potentialspiel mit abzählbar vielen Spielern ist äquivalent zu lastgewichtetem Auslastungsspiel (mit $1/2^i$ Gewichten)}
 
 
 \subsection{Schnelle Beste-Antwort-Dynamik in Matroidspielen}
@@ -423,9 +424,12 @@ Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender
 \end{proof}
 
 
-\subsection{Überblick}
+\subsection{Zusammenfassung}
+
+In \Cref{abb:Zusammenfassung} sind die meisten der in diesem Kapitel gezeigten Zusammenhänge dargestellt.
 
 \begin{figure}[h]\centering\graphicspath{{../Bilder/}}
 	\resizebox{.9\textwidth}{!}{\input{../Bilder/EulerDiagramm2.pdf_tex}}
 	\caption{Zusammenhänge zwischen den verschiedenen Spieleklassen für endliche Spiele \\\todo[inline]{Zeichnung aktualisieren oder weglassen?}}
+	\label{abb:Zusammenfassung}
 \end{figure}

@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{475.20588071bp}%
+    \setlength{\unitlength}{500.71959488bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,32 +48,43 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.88521763)%
+  \begin{picture}(1,0.91668178)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{EulerDiagramm2.pdf}}%
-    \put(0.37308265,0.50594016){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{Auslastungsspiele}}}%
-    \put(0.46398178,0.76861732){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[rb]{\smash{gewichtete }}}%
-    \put(0.73189377,0.50433156){\color[rgb]{0,0,0.50196078}\makebox(0,0)[b]{\smash{exaktes Potential}}}%
-    \put(0.72264336,0.63189687){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{gewichtetes Potential}}}%
-    \put(0.50984389,0.86233276){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{allgemeine Spiele}}}}%
+    \put(0.3961236,0.4197711){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{ungewichtete}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{EulerDiagramm2.pdf}}%
-    \put(0.08936916,0.12381593){\color[rgb]{1,0,0}\makebox(0,0)[b]{\smash{äquivalent zu}}}%
+    \put(0.38309754,0.72802192){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{gewichtete}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{EulerDiagramm2.pdf}}%
-    \put(0.73092267,0.68138276){\color[rgb]{0.17647059,0.56470588,1}\makebox(0,0)[b]{\smash{skaliertes Potential}}}%
+    \put(0.50211168,0.32162187){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{kosten-}}}%
+    \put(0.50325286,0.2873854){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{gewichtete}}}%
+    \put(0.2989754,0.14587483){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{last-}}}%
+    \put(0.29669297,0.10935595){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{gewichtete}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{EulerDiagramm2.pdf}}%
-    \put(0.73668487,0.73066495){\color[rgb]{0.33333333,0.80392157,1}\makebox(0,0)[b]{\smash{ordinales Potential}}}%
-    \put(0.77737776,0.77998155){\color[rgb]{0.49019608,0.96862745,1}\makebox(0,0)[b]{\smash{verallg. ordinales Potential}}}%
-    \put(0.94089432,0.5556976){\color[rgb]{0.49019608,0.96862745,1}\rotatebox{-90}{\makebox(0,0)[b]{\smash{=   hat FIP}}}}%
+    \put(0.50895896,0.09794381){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{skalierte}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{EulerDiagramm2.pdf}}%
-    \put(0.29538902,0.12285869){\color[rgb]{1,0.4,0}\makebox(0,0)[b]{\smash{exakt isom. zu}}}%
+    \put(0.09783857,0.65907593){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{gewichtete}}}}%
+    \put(0.09612563,0.33211902){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{nicht-anonyme}}}}%
+    \put(0.05846554,0.66078886){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{nicht-anonyme}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{EulerDiagramm2.pdf}}%
-    \put(0.29536451,0.07235427){\color[rgb]{1,0.4,0}\makebox(0,0)[b]{\smash{gew. isom. zu}}}%
+    \put(0.6995418,0.4334609){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{}}}%
+    \put(0.32522337,0.00664659){\color[rgb]{1,0,0}\makebox(0,0)[b]{\smash{Auslastungsspiele}}}%
+    \put(0.8273578,0.00664659){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Spiele mit ... Potential}}}%
+    \put(0.75774373,0.43117848){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{exaktem}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{EulerDiagramm2.pdf}}%
-    \put(0.29595618,0.02118992){\color[rgb]{1,0.4,0}\makebox(0,0)[b]{\smash{ordinal isom. zu}}}%
-    \put(0.37292334,0.58418725){\color[rgb]{0.8,0.8,0.8}\makebox(0,0)[b]{\smash{aff. lin. Kosten}}}%
+    \put(0.7566025,0.29080908){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{gewichtendem}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{EulerDiagramm2.pdf}}%
-    \put(0.37705549,0.63394454){\color[rgb]{0.8,0.8,0.8}\makebox(0,0)[b]{\smash{exp. Kosten}}}%
+    \put(0.74062555,0.20635919){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{skalierendem}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{EulerDiagramm2.pdf}}%
-    \put(0.56005794,0.53751139){\color[rgb]{1,0,0}\makebox(0,0)[b]{\smash{\Cref{satz:MondererShapley}}}}%
-    \put(0.38773055,0.72444382){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[b]{\smash{Auslastungsspiele}}}%
+    \put(0.75660255,0.15272205){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{ordinalem}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{EulerDiagramm2.pdf}}%
+    \put(0.75089646,0.64458563){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{Beste-Antwort}}}%
+    \put(0.97451223,0.37697524){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[b]{\smash{verallgemeinertem ordinalem}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{EulerDiagramm2.pdf}}%
+    \put(0.54890147,0.15386333){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{Sing.}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{EulerDiagramm2.pdf}}%
+    \put(0.45646308,0.5110635){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{aff. lin. R.-Kost.}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{EulerDiagramm2.pdf}}%
+    \put(0.4572354,0.56305898){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{aff. exp. R.-Kost.}}}%
+    \put(0.55006552,0.20085368){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$N$-Pers.}}}%
+    \put(0.46789803,0.88330008){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{alle Spiele}}}%
   \end{picture}%
 \endgroup%
