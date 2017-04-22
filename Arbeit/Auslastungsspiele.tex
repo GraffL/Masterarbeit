@@ -63,6 +63,8 @@ Für endliche gewichtete Auslastungsspiele zeigen \citeauthor{CharExGewPotinWCG}
 	Alle mit Kostenfunktionen aus $C$ erzeugten gewichteten Auslastungsspiele besitzen genau dann sogar ein exaktes Potential, wenn $C$ ausschließlich affin lineare Funktionen enthält (vgl. \cite[Theorem 3.7]{CharExGewPotinWCG}).
 \end{satz}
 
+Die wichtigsten Beweisschritte für die \glqq wenn\grqq-Richtung werden wir in \Cref{sec:Auslastungsspiele:unendliche} skizzieren.
+
 In \cite[Theorem 5.1]{CharExNGinWCG} zeigen \citeauthor{CharExNGinWCG} weiter, dass diese beiden Klassen von Kostenfunktionen unter allen Klassen stetiger Funktionen zugleich auch die einzigen sind, die die Existenz eines Nash-Gleichgewichtes garantieren.\footnote{zudem sind es auch noch die einzigen Klassen, welche für jedes gewichtete Auslastungsspiel das Erfüllen der FIP sicherstellen.}
 
 Da nun für endliche Spiele alle der in \Cref{sec:Potentiale} definierten Potentiale die Existenz eines Nash-Gleichgewichtes garantieren, folgt hiermit direkt, dass es auch für die allgemeineren Potentialbegriffe keine größeren Klassen von stetigen Funktionen gibt, die immer die Existenz eines entsprechenden Potentials sicher stellen.
@@ -145,11 +147,9 @@ Nicht nur entspricht dieser Satz genau dem von \citeauthor{MonShap} bewiesenen S
 \end{proof}
 
 
-\subsubsection{Unendliche Auslastungsspiele}
+\subsubsection{Unendliche Auslastungsspiele}\label{sec:Auslastungsspiele:unendliche}
 
-\todo[inline]{Verallgemeinerung für unendliche Auslastungsspiele. Evtl. an passenderer Stelle einfügen.}
-
-In \cite[Abschnitt 8]{AUniversalCostrGenPotGames} zeigt \citeauthor{AUniversalCostrGenPotGames}, dass die erste Hälfte von \Cref{satz:CharExGewPotinWCG} (\glqq Gewichtete Auslastungsspiele mit affinen Ressourcenkosten besitzen exakte Potentiale) auch für gewichtete $N$-Personen-Auslastungspiele mit potentiell unendlicher Ressourcenmenge gilt, solange jede einzelne Strategie eines Spielers nur endlich viele Ressourcen umfasst. 
+In \cite[Abschnitt 8]{AUniversalCostrGenPotGames} zeigt \citeauthor{AUniversalCostrGenPotGames}, dass die erste Hälfte von \Cref{satz:CharExGewPotinWCG} (\glqq Gewichtete Auslastungsspiele mit affinen Ressourcenkosten besitzen exakte Potentiale\grqq) auch für gewichtete $N$-Personen-Auslastungspiele mit potentiell unendlicher Ressourcenmenge gilt, solange jede einzelne Strategie eines Spielers nur endlich viele Ressourcen umfasst. 
 
 Tatsächlich aber wird Endlichkeit der Strategieräume schon im Beweis von \citeauthor{CharExGewPotinWCG} gar nicht benötigt und auch die Endlichkeit der Spielermenge ist nicht notwendig, da - wie wir in \Cref{satz:CharExPot} gesehen haben - die Charakterisierung der Existenz exakter Potentiale von \citeauthor{MonShap} auch für solche Spiele unverändert gilt.
 
@@ -196,10 +196,11 @@ Werden also alle Ressourcenkosten durch affin lineare Funktionen beschrieben, so
 
 Sei nun also $M$ ein Auslastungsmodell, in dem alle Ressourcenkosten von der Form $g(l) = a_g\cdot b^l + d_g$ sind. Dann definieren wir die Gewichte $v_i \coloneqq \frac{w_i b^{w_i}}{b^{w_i}-1}$. Da sowohl $b$ als auch $w_i$ positive reelle Zahlen sind, gilt dies auch für $v_i$. Wir setzen nun diese Gewichte in \eqref{eq:PfadAendGew} aus \Cref{lemma:PfadAenderungen} ein und sehen, dass so alle Summanden und damit auch die gewichtete Pfadänderung null werden:
 \begin{align*}
-		&\left(\frac{w_\ia}{v_\ia} - \frac{w_\ib}{v_\ib}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)  + \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib) =\\
-	= 	&\frac{w_\ia}{v_\ia}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ia)\right) - \frac{w_\ib}{v_\ib}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ib)\right) =\\
-	=	&\frac{b^{w_\ia}-1}{b^{w_\ia}}\left(a_{g_r}b^{\wrestr + w_\ib + w_\ia}+d_{g_r} - a_{g_r} b^{\wrestr + w_\ia} - d_{g_r}\right) - \frac{b^{w_\ib}-1}{b^{w_\ib}}\left(a_{g_r}b^{\wrestr + w_\ib + w_\ia}+d_{g_r} - a_{g_r} b^{\wrestr + w_{i}} - d_{g_r}\right) =\\
-	=	&a_{g_r}b^\wrestr \Big(\left(b^{w_\ia}-1\right)\left(b^{w_\ib}-1\right) - \left(b^{w_\ib}-1\right)\left(b^{w_\ia}-1\right)\Big) = 0
+	&\quad \left(\frac{w_\ia}{v_\ia} - \frac{w_\ib}{v_\ib}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)  + \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib) =\\
+	&= \frac{w_\ia}{v_\ia}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ia)\right) - \frac{w_\ib}{v_\ib}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ib)\right) =\\
+	&= \frac{b^{w_\ia}-1}{b^{w_\ia}}\left(a_{g_r}b^{\wrestr + w_\ib + w_\ia}+d_{g_r} - a_{g_r} b^{\wrestr + w_\ia} - d_{g_r}\right) \\
+	&  \hspace{4em} -\frac{b^{w_\ib}-1}{b^{w_\ib}}\left(a_{g_r}b^{\wrestr + w_\ib + w_\ia}+d_{g_r} - a_{g_r} b^{\wrestr + w_{i}} - d_{g_r}\right) =\\
+	&= a_{g_r}b^\wrestr \Big(\left(b^{w_\ia}-1\right)\left(b^{w_\ib}-1\right) - \left(b^{w_\ib}-1\right)\left(b^{w_\ia}-1\right)\Big) = 0
 \end{align*}
 Somit hat $\Gamma(M)$ nach \Cref{satz:CharGewPot} ein gewichtetes Potential und wir haben \Cref{satz:CharExGewPotinWCG2} vollständig bewiesen.
 
@@ -313,7 +314,7 @@ Aus \Cref{satz:CharExGewPotinWCG2} wissen wir bereits, dass jedes gewichtete $N$
 									a_r w_i w_{i'}, 	& k=2, i \neq i' \\
 									a_r w_i^2 + b_r w_i	& k=1, i = i'
 								\end{cases} \]
-	Schließlich ist der Strategieraum von Spieler $i \in I$ gegeben durch 
+	Schließlich ist der Strategieraum von Spieler $i \in I$ gegeben durch
 		\[T_i \coloneqq \Set{\Set{(r, \{i, i'\}) | r \in s_i, i' \in I} | s_i \in S_i }.\]
 	Dadurch erhalten wir das Auslastungsmodell $N \coloneqq (I, Q, \prod_{i \in I} T_i, (h_q)_{q \in Q})$. Die Lastenfunktionen des davon erzeugten Auslastungsspiel sind offensichtlich wohldefiniert, da keine Ressource von mehr als zwei Spielern genutzt werden kann. Die Wohldefiniertheit der Kostenfunktionen ergibt sich aus der Äquivalenz von $\Gamma(N)$ zu $\Gamma(M)$.
 	
@@ -384,7 +385,7 @@ Die Rückrichtung hingegen können wir nur in einer deutlich abgeschwächten For
 
 Skalierte Nicht-Singleton-Auslastungsspiele hingegen besitzen im Allgemeinen nicht einmal ein Nash-Potential (also erst recht kein ordinales) wie das folgende Beispiel zeigt:
 
-\begin{bsp}
+\begin{bsp}\label{bsp:NichtSingeltonSkalAusl}
 	Wir betrachten ein skaliertes $2$-Personen-Auslastungsmodell mit Ressourcenmenge $R \coloneqq \set{r, s, t, u, v}$, folgenden Ressourcenkosten
 	\begin{center}\begin{tabular}{c|ccccc}
 		Ressource:	& $r$ 	& $s$	& $t$	& $u$	& $v$	\\\hline\hline
@@ -428,14 +429,14 @@ Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender
 
 \subsection{Zusammenfassung}
 
-In \Cref{abb:Zusammenfassung} sind die meisten der in diesem Kapitel beschriebenen Zusammenhänge in einer gemeinsamen Übersicht dargestellt.
+In \Cref{abb:Zusammenfassung} sind die meisten der in diesem Kapitel beschriebenen Zusammenhänge in einer gemeinsamen Übersicht dargestellt.\todo{Evtl. Beispiele für nicht-Inklusionen mit darstellen?}
 
 \begin{figure}[h]\centering
 		\graphicspath{{../Bilder/}}\Large\sffamily
 		% \thb{} umschließt alle Referenzen, gibt diesen einen weißen, halbtransparenten Hintergrund, kleine Schriftgröße und macht sie unterstrichen
 		\newcommand{\thb}[1]{\transparent{0.7}\colorbox{white}{\transparent{1}\small\underline{#1}}}
 		% Ändert Cref-Format für die Links in der Grafik (Abkürzungen, ganzes Wort verlinkt und keine farbliche Hervorhebung)
-		\Crefformat{satz}{\thb{#2Satz #1#3}}\Crefformat{lemma}{\thb{#2Lemma #1#3}}\Crefformat{bem}{\thb{#2Bem. #1#3}}
+		\Crefformat{satz}{\thb{#2Satz #1#3}}\Crefformat{lemma}{\thb{#2Lemma #1#3}}\Crefformat{bem}{\thb{#2Bem. #1#3}}\Crefformat{bsp}{\thb{#2Bs\smash{p}. #1#3}}
 		\hypersetup{hidelinks}	
 	\resizebox{.99\textwidth}{!}{\input{../Bilder/EulerDiagramm2.pdf_tex}}
 	\caption{Eingige Zusammenhänge zwischen den verschiedenen Spieleklassen. Die Inklusionen gelten jeweils für beliebige Spiele.}
