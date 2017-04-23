@@ -124,7 +124,7 @@
     \put(0.65960602,0.00662708){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{\normalsize endliche Spiele}}}}%
     \put(0.48293321,0.40382314){\color[rgb]{0,0,0}\rotatebox{90.22515179}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:skalSingeltonAusl}}}}}}%
     \put(0.54975944,0.41038988){\color[rgb]{0.97254902,0.44313725,0.28235294}\makebox(0,0)[b]{\smash{\textbf{$\bm N$-Pers.}}}}%
-    \put(0.90855684,0.29358279){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{\textbf{\small$\Gamma_i$ aus \Cref{bsp:PotentialInklusionen}}}}}%
+    \put(0.90855684,0.29358279){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{\textbf{\small$\bm\Gamma_i$ aus \Cref{bsp:PotentialInklusionen}}}}}%
     \put(0.88639209,0.77601976){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{$\bm\Gamma_1$}}}%
     \put(0.88981349,0.4194888){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{$\bm\Gamma_2$}}}%
     \put(0.8977784,0.36259584){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{$\bm\Gamma_3$}}}%
