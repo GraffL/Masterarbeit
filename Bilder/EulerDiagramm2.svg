@@ -681,6 +681,21 @@
          d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
          id="path11591-1-0" />
     </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker11589-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path11591-0"
+         inkscape:connector-curvature="0" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -690,15 +705,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="348.1994"
-     inkscape:cy="85.188997"
+     inkscape:cx="217.03"
+     inkscape:cy="372.39697"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="657"
      inkscape:window-x="-8"
-     inkscape:window-y="544"
+     inkscape:window-y="32"
      inkscape:window-maximized="1"
      fit-margin-top="-5"
      fit-margin-left="0"
@@ -1603,5 +1618,24 @@
          x="350.69278"
          y="331.68942"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'">\Cref{bsp:NichtSingeltonSkalAusl}</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4,2,1,2;stroke-opacity:1;marker-end:url(#marker11589-2);stroke-dashoffset:0"
+       d="m 446.65843,85.123702 c 0,0 -112.94772,9.318917 -176.3347,29.225188 -17.15285,5.38674 16.37067,103.91098 -46.3347,143.5109"
+       id="path11581-00"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="364.27286"
+       y="155.29245"
+       id="text5180-9"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.99172434,-0.12838546,0.12838546,0.99172434,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-4"
+         x="364.27286"
+         y="155.29245"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:ReprAbzbarerExPotspieleDurchLastgewAusl}</tspan></text>
   </g>
 </svg>

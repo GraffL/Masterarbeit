@@ -133,5 +133,7 @@
     \put(0.96832564,0.84391015){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{$\bm\Gamma_5$}}}%
     \put(0.58378663,0.28294572){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[b]{\smash{$\bm\Gamma$}}}%
     \put(0.53903711,0.24606286){\color[rgb]{0.58823529,0,0.58823529}\makebox(0,0)[lb]{\smash{\textbf{\Cref{bsp:NichtSingeltonSkalAusl}}}}}%
+    \put(0.60697169,0.60588712){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{7.3763042}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:ReprAbzbarerExPotspieleDurchLastgewAusl}}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{EulerDiagramm2.pdf}}%
   \end{picture}%
 \endgroup%
