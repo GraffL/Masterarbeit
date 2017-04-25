@@ -340,7 +340,11 @@ Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} e
 \subsubsection{Ordinale Potentiale}
 
 \begin{defn}
-	Eine Menge $X$ mit einer strikten Partialordnung $\prec$ (irreflexiv und transitiv) heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gibt, also eine Funktion $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
+	Eine Menge $X$ mit einer Relation $\prec$ heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn 
+	\begin{itemize}
+		\item $\prec$ eine strikten Partialordnung ist (d.h. irreflexiv und transitiv) und 
+		\item es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gibt, also eine Funktion $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
+	\end{itemize}
 \end{defn}
 
 Wir definieren nun eine Äquivalenzrelation auf dem Strategieraum:
