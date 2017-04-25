@@ -17,7 +17,7 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} Auslastungs
 	\end{align*}
 	
 		
-	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
+	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
 	\begin{itemize}
 		\item $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$.
 		\item Die Ressourcenkosten sind jeweils nur für genau eine Auslastung nicht null: Ressourcen aus $R_K$ genau dann, wenn alle Spieler sie nutzen, Ressourcen aus $R_D$, wenn sie genau ein Spieler nutzt:
@@ -211,15 +211,43 @@ Wie schon \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG} beobachten,
 \end{kor}
 
 \begin{proof}
-	Setzen wir in \eqref{eq:PfadAendUngew} alle Gewichte auf $1$, so sehen wir direkt, dass sich alle Summanden wegkürzen und wir erhalten $\PfadAend(\gamma) = 0$. Also besitzt jedes ungewichtete Auslastungsspiel nach \Cref{satz:CharExPot} ein exaktes Potential.
+	Setzen wir in \eqref{eq:PfadAendUngew} alle Gewichte auf $1$, so sehen wir direkt, dass sich unabhängig von der Form der verwendeten Ressourcenkosten $g_r$ alle Summanden wegkürzen und wir erhalten $\PfadAend(\gamma) = 0$. Also besitzt jedes ungewichtete Auslastungsspiel nach \Cref{satz:CharExPot} ein exaktes Potential.
 \end{proof}
 
 \begin{bem}\label{bem:UnendlLastKostGewAusl}
 	Die entsprechenden Aussagen für last- bzw. kostengewichtete Spiele ergeben sich jetzt direkt aus \Cref{satz:CharExGewPotinWCG2} bzw. \Cref{kor:MondererShapleyUnendl}, da wir bereits gesehen haben, dass diese Spiele immer gewichtend isomorph zu gewichteten bzw. ungewichteten Auslastungsspielen auf dem gleichen Auslastungsmodell sind (vgl. \Cref{lemma:lastgewAuslIsomGewAusl} und \Cref{lemma:KostengewAuslIsomZuAusl}). Alternativ könnte man diese Aussagen auch auf analogem Wege zu den obigen mit entsprechend angepassten Versionen von \Cref{lemma:PfadAenderungen} zeigen.
 \end{bem}
 
-\todo[inline]{Auf Rückrichtungen eingehen. Im Idealfall Gegenbeispiel(e) angeben, sonst zumindest Offenheit der Frage erwähnen. Evtl.: Jedes exakte Potentialspiel mit abzählbar vielen Spielern ist äquivalent zu lastgewichtetem Auslastungsspiel (mit $1/2^i$ Gewichten)}
+Wie wir sehen lassen sich also die Sätze über die Existenz von Potentialen in den verschiedenen Auslastungsspielen leicht auch auf unendliche Spiele anwenden. Für die umgekehrte Richtung hingegen, also das Konstruieren eines äquivalenten Auslastungsspieles zu einem gegebenen Potentialspiel, ist es weniger klar, ob die entsprechenden Aussagen aus \Cref{satz:MondererShapley} und \cref{satz:MondererShapleyKostengew} auch für Spiele mit unendlicher Spielermenge gelten. 
 
+Zumindest wird dafür aber eine neue Konstruktion notwendig sein, da die für den endlichen Fall verwendete an zentraler Stelle die Endlichkeit der Spielermenge verwendet: Nämlich um zu testen, ob \emph{alle} Spieler gleichzeitig eine bestimmte Ressource benutzen, die dann gerade einem Strategieprofil entspricht. Dies ist aber natürlich nur möglich, wenn die Zahl der Spieler endlich ist. Wir können die Konstruktion allerdings noch retten, wenn wir uns erlauben neue Spielergewichte einzuführen, sodass die Summe aller dieser gegen einen endlichen Wert konvergiert. Dadurch erhalten wir den folgenden Satz:
+
+\begin{satz}\label{satz:ReprAbzbarerExPotspieleDurchLastgewAusl}
+	Zu jedem Spiel mit abzählbarer Spielermenge und exakter Potentialfunktion gibt es ein äquivalentes lastgewichtetes Auslastungsspiel.
+\end{satz}
+
+\begin{proof}
+	Wir verwenden eine nur leicht modifizierte Version der Konstruktion aus dem Beweis zu \Cref{satz:MondererShapley}. Sei also $\Gamma$ ein Spiel mit abzählbarer Spielermenge $I$ (wir nehmen ohne Einschränkung $I \subseteq \IN$ an) und exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
+	\begin{itemize}
+		\item Ressourcen $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$
+		\item mit Ressourcenkosten
+		\[g_r(k) \coloneqq 
+		\begin{cases}
+		P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=\sum_{i \in I} 1/2^i \\
+		c_{\hat{\imath}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}} \in R_D, x_{\hat{\imath}} \in X_{\hat{\imath}} \text{ bel. und } k=1/2^{\hat{\imath}} \\
+		0,						&\text{sonst}
+		\end{cases}
+		\]
+		\item und dazu Strateegien $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$.
+	\end{itemize}
+	Dann betrachten wir das zusammen mit dem Gewichtsvektor $w \coloneqq (1/2^i)_{i \in I}$ darauf induzierte lastgewichtete Auslastungsspiel $\Gamma_l(M, w)$. Dessen Lastfunktionen sind wohldefiniert, da die Summe aller Spielergewichte $\sum_{i \in I} 1/2^i \leq 1$ absolut konvergiert. Die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma_l(M, w)$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma_l(M, w)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ ist. Dieser ist offenbar bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
+	\begin{align*}
+	d_{\hat{\imath}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} g_r(l_r(\phi(x))) = \\
+	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(\underbrace{l_r(\phi(x))}_{= \sum 1/2^i \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\imath}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1/2^{\hat{\imath}} \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}) = \\
+	&=g_{\left(\{x_i\}\right)_{i \in I}}\left(\sum_{i \in I} 1/2^i\right) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}\left(1/2^{\hat{\imath}}\right) = \\
+	&=P(x) + c_{\hat{\imath}}(x) - P(x) = c_{\hat{\imath}}(x) \qedhere									
+	\end{align*}
+\end{proof}
 
 \subsection{Schnelle Beste-Antwort-Dynamik in Matroidspielen}
 
