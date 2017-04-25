@@ -420,7 +420,8 @@
        y1="197.92644"
        x2="331.6235"
        y2="141.14073"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99170062,0,1.1803264)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4495"
@@ -704,9 +705,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="217.03"
-     inkscape:cy="372.39697"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="272.29453"
+     inkscape:cy="410.03476"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -745,6 +746,12 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-12.314697,225.15512)">
+    <path
+       style="opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient4477);stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 320.72871,-27.769136 269.53923,0 0,260.714296 -269.53923,0"
+       id="rect3529"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
     <rect
        style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.4000001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3581-5-5-9-5"
@@ -858,7 +865,7 @@
          y="302.46979">gewichtete</tspan></text>
     <path
        style="opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient4493);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 391.69508,142.23459 0,172.11936 -122.14286,0 0,-172.11936"
+       d="m 391.69508,142.23446 0,170.69087 -122.14286,0 0,-170.69087"
        id="rect3472"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
@@ -922,12 +929,12 @@
          x="59.339306"
          y="49.731495">nicht-anonyme</tspan></text>
     <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#000080;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000080;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3505"
        width="472.14288"
-       height="127.14288"
+       height="132.14288"
        x="106.6951"
-       y="10.088019" />
+       y="5.0880189" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -991,12 +998,6 @@
          id="tspan3527"
          x="487.40936"
          y="172.23085">gewichtetem</tspan></text>
-    <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient4477);stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 320.72871,-27.769136 269.53923,0 0,260.714296 -269.53923,0"
-       id="rect3529"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#085ec0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1063,14 +1064,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#f87148;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="356.6951"
-       y="257.94513"
+       x="355.26654"
+       y="258.65942"
        id="text3577"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3579"
-         x="356.6951"
-         y="257.94513">Sing.</tspan></text>
+         x="355.26654"
+         y="258.65942">Sing.</tspan></text>
     <rect
        style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.4000001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3581"
@@ -1097,20 +1098,20 @@
        width="137.06236"
        height="25.714285"
        x="228.79153"
-       y="-19.197704"
+       y="-17.769133"
        rx="7"
        ry="7" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="300.33151"
-       y="-0.19052677"
+       y="0.52375895"
        id="text3583-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3585-8"
          x="300.33151"
-         y="-0.19052677">\normalsize aff. exp. R.-Kost.</tspan></text>
+         y="0.52375895">\normalsize aff. exp. R.-Kost.</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1296,7 +1297,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:NichtAnonymeAusl}</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#75c206;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2, 1, 2;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-9-0-8)"
-       d="m 77.584472,-107.45549 115.843368,0.13816"
+       d="M 77.584472,-57.958015 192.41769,-105.29702"
        id="path4511-7-7-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -1509,13 +1510,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#f87148;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="357.42368"
+       x="353.85226"
        y="228.53389"
        id="text3622"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3624"
-         x="357.42368"
+         x="353.85226"
          y="228.53389">$\bm N$-Pers.</tspan></text>
     <text
        xml:space="preserve"
@@ -1618,24 +1619,24 @@
          x="350.69278"
          y="331.68942"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'">\Cref{bsp:NichtSingeltonSkalAusl}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="376.49863"
+       y="155.43466"
+       id="text5180-9"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.99172434,-0.12838546,0.12838546,0.99172434,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-4"
+         x="376.49863"
+         y="155.43466"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:ReprAbzbarerExPotspieleDurchLastgewAusl}</tspan></text>
     <path
        style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4,2,1,2;stroke-opacity:1;marker-end:url(#marker11589-2);stroke-dashoffset:0"
        d="m 446.65843,85.123702 c 0,0 -112.94772,9.318917 -176.3347,29.225188 -17.15285,5.38674 16.37067,103.91098 -46.3347,143.5109"
        id="path11581-00"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="364.27286"
-       y="155.29245"
-       id="text5180-9"
-       sodipodi:linespacing="125%"
-       transform="matrix(0.99172434,-0.12838546,0.12838546,0.99172434,0,0)"><tspan
-         sodipodi:role="line"
-         id="tspan5182-4"
-         x="364.27286"
-         y="155.29245"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:ReprAbzbarerExPotspieleDurchLastgewAusl}</tspan></text>
   </g>
 </svg>
