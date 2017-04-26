@@ -69,13 +69,7 @@ In \cite[Theorem 5.1]{CharExNGinWCG} zeigen \citeauthor{CharExNGinWCG} weiter, d
 
 Da nun für endliche Spiele alle der in \Cref{sec:Potentiale} definierten Potentiale die Existenz eines Nash-Gleichgewichtes garantieren, folgt hiermit direkt, dass es auch für die allgemeineren Potentialbegriffe keine größeren Klassen von stetigen Funktionen gibt, die immer die Existenz eines entsprechenden Potentials sicher stellen.
 
-Zusammen zeigen diese beiden Sätze bereits deutlich, dass der Schritt vom ungewichteten Fall zum gewichteten auf Seite der Auslastungsspiele erheblich größer ist als auf Seite der Potentiale. Tatsächlich zeigt \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Theorem 1]{ReprOfFiniteGamesAsNCG}, dass dieser Verallgemeinerungsschritt für (endliche) Auslastungsspiele bereits der größtmögliche ist, denn es gilt:
-
-\begin{satz}\label{satz:JedesSpielGewAusl}
-	Jedes endliche Spiel ist äquivalent zu einem gewichteten Auslastungsspiel.\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} zeigt sogar, dass jedes endliche Spiel äquivalent zu einem gewichteten Netzwerkauslastungsspiel mit privaten Kanten und einheitlichem Start- und Zielknoten ist.}
-\end{satz}
-
-Die Menge der gewichteten Auslastungsspiele umfasst also (bis auf kostenerhaltende Isomorphie) bereits \emph{alle} endlichen Spiele in strategischer Form. Möchte man daher eine wirklich analoge Verallgemeinerung von Auslastungsspielen passend zu gewichteten Potentialspielen finden, muss man also andere Varianten betrachten Gewichte ins Spiel zu bringen. In \Cref{def:gewAuslastungsspiel} hatten wir bereits zwei solche gesehen, welche wir nun näher untersuchen wollen:
+Zusammen zeigen diese beiden Sätze bereits deutlich, dass der Schritt vom ungewichteten Fall zum gewichteten auf Seite der Auslastungsspiele erheblich größer ist als auf Seite der Potentiale. Möchte man daher eine wirklich analoge Verallgemeinerung von Auslastungsspielen passend zu gewichteten Potentialspielen finden, muss man also andere Varianten betrachten Gewichte ins Spiel zu bringen. In \Cref{def:gewAuslastungsspiel} hatten wir bereits zwei solche gesehen, welche wir nun näher untersuchen wollen:
 
 \subsubsection{Lastgewichtete Auslastungsspiele}
 
@@ -112,7 +106,27 @@ Außerdem übersetzt sich damit \Cref{satz:CharExGewPotinWCG} zu
 	\end{itemize}
 \end{kor}
 
-Insbesondere sehen wir damit aber auch, dass lastgewichtete Auslastungsspiele ebenfalls eine zu starke Verallgemeinerung von ungewichteten Auslastungsspielen sind, um eine Entsprechung der gewichteten Potentialspiele sein zu können.
+Insbesondere sehen wir damit aber auch, dass lastgewichtete Auslastungsspiele ebenfalls eine zu starke Verallgemeinerung von ungewichteten Auslastungsspielen sind, um eine Entsprechung der gewichteten Potentialspiele sein zu können. Tatsächlich zeigt \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Theorem 1]{ReprOfFiniteGamesAsNCG}, dass dieser Verallgemeinerungsschritt für (endliche) Auslastungsspiele bereits der größtmögliche ist, denn es gilt:
+
+\begin{satz}\label{satz:JedesSpielLastGewAusl}
+	Jedes endliche Spiel $\Gamma = (I = \set{1, \dots, n}, X, (c_i))$ ist äquivalent zu einem lastgewichteten Auslastungsspiel mit Gewichten $w_i = n + i -2$.\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} zeigt sogar, dass jedes endliche Spiel äquivalent zu einem lastgewichteten Netzwerkauslastungsspiel (dort als \glqq gewichtetes Netzwerkauslastungsspiel\grqq{} bezeichnet) mit privaten Kanten und einheitlichem Start- und Zielknoten ist.}
+\end{satz}
+
+Die Menge der lastgewichteten Auslastungsspiele umfasst also (bis auf kostenerhaltende Isomorphie) bereits \emph{alle} endlichen Spiele in strategischer Form. Und wie man leicht sehen kann, gilt dies genauso für gewichtete Auslastungsspiele:
+
+\begin{kor}\label{kor:JedesSpielGewAusl}
+	Jedes endliche Spiel ist äquivalent zu einem gewichteten Auslastungsspiel.
+\end{kor}
+
+\begin{proof}
+	Sei $\Gamma = (I = \set{1, \dots, n}, X, (c_i))$ ein endliches Spiel und $w \coloneqq (n+i-2)_{i \in I}$ der Gewichtsvektor aus \Cref{satz:JedesSpielLastGewAusl}. Nach diesem Satz gibt es dann ein Auslastungsmodell $M$, sodass das lastgewichtete Auslastungsspiel $\Gamma_l(M, w)$ äquivalent zu dem Spiel $\Gamma_{1/w_i} = (I, X, (\frac{1}{w_i}c_i))$ ist. Und damit ist dann das gewichtete Auslastungsspiel $\Gamma(M, w)$ äquivalent zum Ausgangsspiel $\Gamma$ (vgl. den Beweis zu \Cref{lemma:lastgewAuslIsomGewAusl}). 
+\end{proof}
+
+Für endliche Spiele erhalten wir so eine Version von \Cref{lemma:lastgewAuslIsomGewAusl} mit einem stärkeren Isomorphiebegriff:
+
+\begin{kor}\label{kor:endlLastGewAuslIsomGewAusl}
+	Jedes endliche lastgewichtete Auslastungsspiel ist konstenerhaltend isomorph zu einem endlichen gewichteten Auslastungspiel und umgkehrt.
+\end{kor}
 
 
 \subsubsection{Kostengewichtete Auslastungsspiele}
@@ -218,7 +232,7 @@ Wie schon \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG} beobachten,
 	Die entsprechenden Aussagen für last- bzw. kostengewichtete Spiele ergeben sich jetzt direkt aus \Cref{satz:CharExGewPotinWCG2} bzw. \Cref{kor:MondererShapleyUnendl}, da wir bereits gesehen haben, dass diese Spiele immer gewichtend isomorph zu gewichteten bzw. ungewichteten Auslastungsspielen auf dem gleichen Auslastungsmodell sind (vgl. \Cref{lemma:lastgewAuslIsomGewAusl} und \Cref{lemma:KostengewAuslIsomZuAusl}). Alternativ könnte man diese Aussagen auch auf analogem Wege zu den obigen mit entsprechend angepassten Versionen von \Cref{lemma:PfadAenderungen} zeigen.
 \end{bem}
 
-Wie wir sehen lassen sich also die Sätze über die Existenz von Potentialen in den verschiedenen Auslastungsspielen leicht auch auf unendliche Spiele anwenden. Für die umgekehrte Richtung hingegen, also das Konstruieren eines äquivalenten Auslastungsspieles zu einem gegebenen Potentialspiel, ist es weniger klar, ob die entsprechenden Aussagen aus \Cref{satz:MondererShapley} und \cref{satz:MondererShapleyKostengew} auch für Spiele mit unendlicher Spielermenge gelten. 
+Wie wir sehen, lassen sich also die Sätze über die Existenz von Potentialen in den verschiedenen Auslastungsspielen leicht auch auf unendliche Spiele anwenden. Für die umgekehrte Richtung hingegen, also das Konstruieren eines äquivalenten Auslastungsspieles zu einem gegebenen Potentialspiel, ist es weniger klar, ob die entsprechenden Aussagen aus \Cref{satz:MondererShapley} und \Cref{satz:MondererShapleyKostengew} auch für Spiele mit unendlicher Spielermenge gelten. 
 
 Zumindest wird dafür aber eine neue Konstruktion notwendig sein, da die für den endlichen Fall verwendete an zentraler Stelle die Endlichkeit der Spielermenge verwendet: Nämlich um zu testen, ob \emph{alle} Spieler gleichzeitig eine bestimmte Ressource benutzen, die dann gerade einem Strategieprofil entspricht. Dies ist aber natürlich nur möglich, wenn die Zahl der Spieler endlich ist. Wir können die Konstruktion allerdings noch retten, wenn wir uns erlauben neue Spielergewichte einzuführen, sodass die Summe aller dieser gegen einen endlichen Wert konvergiert. Dadurch erhalten wir den folgenden Satz:
 
@@ -253,7 +267,7 @@ Zumindest wird dafür aber eine neue Konstruktion notwendig sein, da die für de
 
 Da endliche Auslastungsspiele nach \Cref{satz:MondererShapley} ein exaktes und damit insbesondere ein Beste-Antwort-Potential besitzt, wissen wir bereits, dass in solchen Spielen jede Beste-Antwort-Dynamik nach endlicher Zeit ein Nash-Gleichgewicht erreicht. Allerdings kann diese Suche im Allgemeinen sehr lange dauern. Zum Beispiel stellen \citeauthor{BAPfadLaengeInAusl} in \cite[Theorem 3.1]{BAPfadLaengeInAusl} ein (endliches) $N$-Personen-Auslastungsspiel vor, welches einen Beste-Antwort-Verbesserungspfad der Länge $2^{N/4}$ besitzt.
 
-Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konvergenz immer schon in polynomieller Zeit erfolgt. Ein leichte Modifikation des Beweises hierzu in \cite[Theorem 2.5]{BAPfadLaengeInAusl} erlaubt sogar die folgender noch etwas stärkere Aussage:
+Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konvergenz immer schon in polynomieller Zeit erfolgt. Eine leichte Modifikation des Beweises hierzu in \cite[Theorem 2.5]{BAPfadLaengeInAusl} erlaubt sogar die folgende noch etwas stärkere Aussage:
 
 \begin{satz}\label{satz:BAPotentialFuerMatroidspiele}
 	Sei $M = (I, R, S, (g_r))$ ein endliches Matroidspiel. Dann ist $\Gamma(M)$ Beste-Antwort-isomorph zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen.
@@ -432,10 +446,10 @@ Skalierte Nicht-Singleton-Auslastungsspiele hingegen besitzen im Allgemeinen nic
 			$\set{r,s}$	& $(6,6)$		& $(13,11)$		\\\hline
 			$\set{u,v}$	& $(5,8)$		& $(14,5)$ 
 		\end{tabular}\end{center}
-	Da dieses Spiel kein Nash-Gleichgewicht besitzt (den Strategieraum gegen den Uhrzeigersinn durchlaufen ist ein Verbesserungszykel), kann es zu diesem Spiel nach \Cref{satz:CharExNashPot} kein Nash-Potential geben.
+	Da dieses Spiel kein Nash-Gleichgewicht besitzt (den Strategieraum entgegen dem Uhrzeigersinn zu durchlaufen ergibt einen Verbesserungszykel), kann es zu diesem Spiel nach \Cref{satz:CharExNashPot} kein Nash-Potential geben.
 \end{bsp}
 
-Schließlich wollen wir noch die allgemeinste Form der zu Beginn dieser Arbeit definierten Auslastungsspiele betrachten: Gewichtete Auslastungsspiele mit nicht-anonymen Ressourcenkosten. Da endliche Spiele \Cref{satz:JedesSpielGewAusl} zufolge immer äquivalent zu einem gewichteten Auslastungsspiel sind, lassen sich insbesondere (endliche) nicht-anonyme gewichtete Auslastungsspiele immer auch als solche darstellen. Dabei wird allerdings die Ressourcenmenge im Allgemeinen erheblich größer. 
+Schließlich wollen wir noch die allgemeinste Form der zu Beginn dieser Arbeit definierten Auslastungsspiele betrachten: Gewichtete Auslastungsspiele mit nicht-anonymen Ressourcenkosten. Da endliche Spiele \Cref{kor:JedesSpielGewAusl} zufolge immer äquivalent zu einem gewichteten Auslastungsspiel sind, lassen sich insbesondere (endliche) nicht-anonyme gewichtete Auslastungsspiele immer auch als solche darstellen. Dabei wird allerdings die Ressourcenmenge im Allgemeinen erheblich größer. 
 
 Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender) so ist ein entsprechender Wechsel zu gewichteten Auslastungsspielen ohne Vergrößerung der Ressourcenmenge und selbst bei abzählbar unendlichen Spielermengen möglich:
 
@@ -464,11 +478,11 @@ In \Cref{abb:Zusammenfassung} sind die meisten der in diesem Kapitel beschrieben
 	% \thb{} umschließt alle Referenzen, gibt diesen einen weißen, halbtransparenten Hintergrund, kleine Schriftgröße und macht sie unterstrichen
 	\newcommand{\thb}[1]{\transparent{0.7}\colorbox{white}{\transparent{1}\small\underline{#1}}}
 	% Ändert Cref-Format für die Links in der Grafik (Abkürzungen, ganzes Wort verlinkt und keine farbliche Hervorhebung)
-	\Crefformat{satz}{\thb{#2Satz #1#3}}\Crefformat{lemma}{\thb{#2Lemma #1#3}}\Crefformat{bem}{\thb{#2Bem. #1#3}}\Crefformat{bsp}{\thb{#2Bs\smash{p}. #1#3}}
+	\Crefformat{satz}{\thb{#2Satz #1#3}}\Crefformat{lemma}{\thb{#2Lemma #1#3}}\Crefformat{bem}{\thb{#2Bem. #1#3}}\Crefformat{bsp}{\thb{#2Bs\smash{p}. #1#3}}\Crefformat{kor}{\thb{#2Kor. #1#3}}
 	\hypersetup{hidelinks}	
 	\resizebox{.99\textwidth}{!}{\input{../Bilder/EulerDiagramm2.pdf_tex}}
 	% Standarddefinitionen von Cref-Format wiederherstellen:
-	\Crefformat{satz}{Satz #2#1#3}\Crefformat{lemma}{Lemma #2#1#3}\Crefformat{bem}{Bemerkung #2#1#3}\Crefformat{bsp}{Beispiel #2#1#3}
+	\Crefformat{satz}{Satz #2#1#3}\Crefformat{lemma}{Lemma #2#1#3}\Crefformat{bem}{Bemerkung #2#1#3}\Crefformat{bsp}{Beispiel #2#1#3}\Crefformat{kor}{\thb{Korollar #2#1#3}}
 	\caption{Einige Zusammenhänge zwischen den verschiedenen Spieleklassen. Die dargestellten Inklusionen gelten jeweils für beliebige Spiele. Echte und unechte Inklusionen werden dabei nicht unterschieden - in einigen Fällen sind aber als Belege für deren Echtheit Beispiele angegeben.}
 	\label{abb:Zusammenfassung}
 \end{figure}

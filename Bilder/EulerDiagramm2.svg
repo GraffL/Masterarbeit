@@ -697,6 +697,51 @@
          id="path11591-0"
          inkscape:connector-curvature="0" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send-4-1"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4544-5-0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Sstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Sstart-4-7"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4559-4-6"
+         style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(0.3,0,0,0.3,-0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send-4-0-9-8"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4544-5-7-0-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -705,9 +750,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="373.29437"
-     inkscape:cy="321.09621"
+     inkscape:zoom="2.8"
+     inkscape:cx="139.88143"
+     inkscape:cy="408.94493"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1152,29 +1197,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="257.46384"
-       y="173.55432"
+       x="260.56586"
+       y="168.11356"
        id="text5180-8"
        sodipodi:linespacing="125%"
-       transform="matrix(0.41877888,-0.90808824,0.90808824,0.41877888,0,0)"><tspan
+       transform="matrix(0.44163912,-0.89719278,0.89719278,0.44163912,0,0)"><tspan
          sodipodi:role="line"
          id="tspan5182-8"
-         x="257.46384"
-         y="173.55432"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:JedesSpielGewAusl}</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#75c206;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-82.703369"
-       y="87.32354"
-       id="text5180-8-3"
-       sodipodi:linespacing="125%"
-       transform="matrix(-0.00392963,-0.99999228,0.99999228,-0.00392963,0,0)"><tspan
-         sodipodi:role="line"
-         id="tspan5182-8-3"
-         x="-82.703369"
-         y="87.32354"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#75c206;fill-opacity:1">\Cref{lemma:lastgewAuslIsomGewAusl}</tspan></text>
+         x="260.56586"
+         y="168.11356"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{kor:JedesSpielGewAusl}</tspan></text>
     <rect
        style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.4000001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3581-5-5"
@@ -1295,24 +1327,18 @@
          x="245.25401"
          y="63.594173"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:NichtAnonymeAusl}</tspan></text>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#75c206;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2, 1, 2;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-9-0-8)"
-       d="M 77.584472,-57.958015 192.41769,-105.29702"
-       id="path4511-7-7-6"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#75c206;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="140.96324"
-       y="-117.60094"
+       x="143.26996"
+       y="-32.971172"
        id="text5180-8-3-82-5"
        sodipodi:linespacing="125%"
-       transform="matrix(0.99995598,0.00938298,-0.00938298,0.99995598,0,0)"><tspan
+       transform="matrix(0.92906572,-0.36991471,0.36991471,0.92906572,0,0)"><tspan
          sodipodi:role="line"
          id="tspan5182-8-3-6-2"
-         x="140.96324"
-         y="-117.60094"
+         x="143.26996"
+         y="-32.971172"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#75c206;fill-opacity:1">\Cref{satz:NichtAnonymeAusl}</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#75c206;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Arrow2Sstart)"
@@ -1638,5 +1664,62 @@
        id="path11581-00"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 4;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-4-1)"
+       d="M 270.24589,-192.1854 C 18.349401,-15.407411 64.952481,145.49868 168.44268,275.91389"
+       id="path4511-8-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#75c206;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-82.703369"
+       y="87.32354"
+       id="text5180-8-3"
+       sodipodi:linespacing="125%"
+       transform="matrix(-0.00392963,-0.99999228,0.99999228,-0.00392963,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-8-3"
+         x="-82.703369"
+         y="87.32354"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#75c206;fill-opacity:1">\Cref{lemma:lastgewAuslIsomGewAusl}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="264.81708"
+       y="15.277742"
+       id="text5180-8-0"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.76334462,-0.64599148,0.64599148,0.76334462,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-8-4"
+         x="264.81708"
+         y="15.277742"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:JedesSpielLastGewAusl}</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#75c206;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2, 1, 2;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-9-0-8)"
+       d="M 77.584472,-57.958015 192.41769,-105.29702"
+       id="path4511-7-7-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2,4;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Arrow2Sstart-4-7);marker-end:url(#Arrow1Send-4-0-9-8);fill-opacity:0.36470589"
+       d="M 208.50797,-92.27608 C 75.115035,-12.56698 77.859,145.27073 177.63106,250.05411"
+       id="path4511-8-5-3-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="-83.489273"
+       y="120.96762"
+       id="text5180-8-3-6"
+       sodipodi:linespacing="125%"
+       transform="matrix(-0.00392963,-0.99999228,0.99999228,-0.00392963,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-8-3-26"
+         x="-83.489273"
+         y="120.96762"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1;">\Cref{kor:endlLastGewAuslIsomGewAusl}</tspan></text>
   </g>
 </svg>

@@ -53,7 +53,7 @@ Die Nachbarschaft eines Strategieprofils $x$ besteht nun gerade aus den Profilen
 
 Weitere Spezialisierungen des Potentialbegriffs führen dann zu induzierten Koordinationsspielen, welche noch mehr Eigenschaften des Ausgansspiels übernehmen: So hat das durch ein Beste-Antwort-Potential beschriebene Spiel etwa die gleichen Beste-Antwort-Pfade und eignet sich daher beispielsweise zur Analyse von Beste-Antwort-Dynamiken (vgl. \Cref{sec:Auslastungsspiele:BADynamiken}). Durch ein ordinales Potential erhält man ein Spiel, welches auch die gleichen Verbesserungs- und Nichtverschlechterungspfade besitzt. Bei einem verallgemeinerten ordinalen Potential bleiben diese hingegen jeweils nur in eine Richtung erhalten: Ein Verbesserungspfad im Ausgangsspiel ist auch einer im Koordinationsspiel und ein Nichtverschlechterungspfad im Koordinationsspiel entspricht einem solchen im ursprünglichen Spiel (vgl. \Cref{prop:ordPotVerbpfad} bzw. \Cref{prop:NVReflVerbErh}).
 
-Für skalierte, gewichtete und exakte Potentiale gibt es eine noch anschaulichere Betrachtungsweise für den Fall (endlicher) 2-Personenspiele. Statt als Matrix kann man deren Strategieraum auch als Gitternetz in der Ebene auffassen, wobei jede Strategie von Spieler 1 einer waagerechten und jede Strategie von Spieler 2 einer senkrechten Gitterlinie entspricht. Kreuzungspunkte von zwei Gerade entsprechen dann gerade vollständige Strategieprofilen und Kostenfunktionen (ebenso wie Potentiale) sind \glqq Reliefkarten\grqq{}, deren Höhe den jeweiligen Kosten entspricht. 
+Für skalierte, gewichtete und exakte Potentiale gibt es eine noch anschaulichere Betrachtungsweise für den Fall (endlicher) 2-Personenspiele. Statt als Matrix kann man deren Strategieraum auch als Gitternetz in der Ebene auffassen, wobei jede Strategie von Spieler 1 einer waagerechten und jede Strategie von Spieler 2 einer senkrechten Gitterlinie entspricht. Kreuzungspunkte von zwei Geraden entsprechen dann vollständigen Strategieprofilen und Kostenfunktionen (ebenso wie Potentiale) sind \glqq Reliefkarten\grqq{}, deren Höhe den jeweiligen Kosten entspricht. 
 
 \begin{figure}[ht]\centering
 	\includegraphics[width=.3\textwidth]{../Bilder/exaktesPotentialSp1.pdf}
@@ -243,7 +243,7 @@ Für Spiele mit unendlicher Spielermenge wird sich im folgenden Abschnitt die Be
 
 \subsection{Charakterisierungen der Potentiale}\label{sec:Potentiale:Charakterisierungen}
 
-In diesem Abschnitt wollen wir die zuvor beschriebenen Potentiale notwendige und hinreichende Anforderungen an ein Spiel finden dafür, dass dieses ein entsprechendes Potential besitzt.
+In diesem Abschnitt wollen wir für die zuvor beschriebenen Potentiale notwendige und hinreichende Anforderungen dafür finden, dass ein Spiel ein entsprechendes Potential besitzt.
 
 \subsubsection{Exakte Potentiale}
 
@@ -263,7 +263,7 @@ In diesem Abschnitt wollen wir die zuvor beschriebenen Potentiale notwendige und
 		\[\PfadAend\left(\gamma_1 \cdot \overset{\leftarrow}{\gamma_2}\right) = 0.\]
 	Dazu zeigen wir nun mittels Induktion über deren Länge, dass für alle Zykel $\mu$ gilt $\PfadAend(\mu) = 0$:
 	\begin{description}
-		\item[IA ($\bm{\abs{\mu}=4}$)]\hspace{-.5em}\footnote{Zykel der Längen $0$, $1$, $2$ und $3$ haben automatisch immer Gesamtänderung $0$, da in ihnen alle Abweichungen vom gleichen Spieler vorgenommen werden müssen.} D.h. $\mu$ ist ein 4-Zykel und damit $\PfadAend(\mu) = 0$ nach Voraussetzung.
+		\item[IA ($\bm{\abs{\mu}=4}$)]\hspace{-.5em}\footnote{Zykel der Längen $1$, $2$ und $3$ haben automatisch immer Gesamtänderung $0$, da in ihnen alle Abweichungen vom gleichen Spieler vorgenommen werden müssen.} D.h. $\mu$ ist ein 4-Zykel und damit $\PfadAend(\mu) = 0$ nach Voraussetzung.
 		\item[IS ($\bm{\abs{\mu}\eqqcolon n}$)] Vorausgesetzt es gibt einen Pfad $\mu' = (x'^0, \dots, x'^n)$ gleicher Länge und Gesamtänderung wie $\mu$, sodass in den ersten beiden Schritten der gleiche Spieler seine Strategie wechselt, d.h. $i(1)=i(2)$. Dann erhält man durch Weglassen des ersten Schrittes einen \emph{kürzeren} Pfad $\mu'' \coloneqq (x'^0, x'^2, \dots, x'^n)$ mit gleicher Gesamtänderung, welche dann nach Induktion bereits $0$ ist. In diesem Fall haben wir dann wie gewünscht $\PfadAend(\mu) = \PfadAend(\mu') = \PfadAend(\mu'') = 0$.
 		
 		Die Existenz eines derartigen Pfades $\mu'$ zeigen wir durch eine weitere Induktion über $k \coloneqq \min\left\{1 < l \leq n \setMid i(l) = i(1)\right\}$. Dieses $k$ existiert immer, da Spieler $i(1)$ bereits im ersten Schritt seine Strategie wechselt und dies daher im Verlauf des Zykels noch mindestens ein weiteres Mal tun muss, damit der Zykel geschlossen werden kann.
@@ -336,7 +336,7 @@ Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} e
 \begin{defn}
 	Eine Menge $X$ mit einer Relation $\prec$ heißt \emph{reell geordnet}\footnote{\citeauthor{CharExOrdPot} bezeichnen solche Mengen in \cite{CharExOrdPot} als \glqq properly ordered\grqq}, wenn 
 	\begin{itemize}
-		\item $\prec$ eine strikten Partialordnung ist (d.h. irreflexiv und transitiv) und 
+		\item $\prec$ eine strikte Partialordnung ist (d.h. irreflexiv und transitiv) und 
 		\item es eine strikt monotone Abbildung von $X$ in die reellen Zahlen gibt, also eine Funktion $f: X \to \IR$ mit $x \prec x' \implies f(x) < f(x')$.
 	\end{itemize}
 \end{defn}
@@ -376,7 +376,7 @@ Zum Beweis dieses Satzes benötigen wir zwei Propositionen:
 \begin{proof}[Beweis von \Cref*{satz:CharOrdPot}]
 	Sei zunächst $P: X \to \IR$ ein ordinales Potential eines Spiels $\Gamma$. Nach \Cref{prop:OrdPotKeineschwVBZ} gibt es in $X$ dann keine schwachen Verbesserungszykel, woraus mit \Cref{prop:SVordStrPO} folgt, dass $\SVord$ eine strikte Partialordnung ist. 
 	
-	Wir definieren ferner die Abbildung $f: \XmodNV \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es Nichtverschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden dieses einen Nichtverschlechterungszykel und da es keine schwachen Verbesserungszykel in $\Gamma$ gibt, muss in diesem Zykel (und damit auch in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
+	Wir definieren ferner die Abbildung $f: \XmodNV \to \IR: [x] \mapsto P(x)$. Diese ist wohldefiniert, denn ist $y \in [x]$, so gibt es Nichtverschlechterungspfade von $x$ nach $y$ und umgekehrt. Zusammen bilden diese einen Nichtverschlechterungszykel und da es keine schwachen Verbesserungszykel in $\Gamma$ gibt, muss in diesem Zykel (und damit auch in den beiden Pfaden) in jedem Schritt Gleichheit gelten. Insbesondere folgt damit $P(x) = P(y)$.
 		
 	Ferner ist diese Abbildung streng monoton, denn gilt $[x] \SVord [y]$, so gibt es einen schwachen Verbesserungspfad $\gamma$ von $y$ nach $x$. Damit folgt analog zum Beweis von \Cref{prop:OrdPotKeineschwVBZ} $P(x) < P(y)$, also nach Definition $f([x]) < f([y])$.
 	

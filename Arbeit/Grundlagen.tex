@@ -9,13 +9,13 @@
 		\item $X_i$ die nicht-leere Menge der (reinen) Strategien von Spieler $i$,
 		\item $c_i: X \to \IR$ die Kostenfunktion von Spieler $i$.
 	\end{itemize}
-	Das eigentliche Spiel besteht nun daraus, dass jeder Spieler $\ib$ versucht durch die Wahl einer Strategie $x_\ib \in X_\ib$ aus seinem Strateegieraum die eigenen Kosten $c_\ib((x_i)_{i \in I})$ zu minimieren. Das Tupel $x \coloneqq (x_i)_{i \in I}$ bezeichnen wir dabei als \emph{Strategieprofil}.
+	Das eigentliche Spiel besteht nun darin, dass jeder Spieler $\ib \in I$ versucht durch die Wahl einer Strategie $x_\ib \in X_\ib$ aus seinem Strateegieraum die eigenen Kosten $c_\ib((x_i)_{i \in I})$ zu minimieren. Das Tupel $x \coloneqq (x_i)_{i \in I}$ bezeichnen wir dabei als \emph{Strategieprofil}.
 	
 	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist, und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
 \end{defn}
 
 \begin{beob}\label{beob:endlicheSpiele}
-	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn alle bis auf endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Für die Suche beispielsweise nach Nash-Gleichgewichten oder Verbesserungspfaden spielen aber nur solche Spieler eine Rolle. Wir werden dies später in \Cref{sec:Morphismen} formal zeigen (siehe \Cref{kor:EinStratSpielerWeglassen}).
+	Ist ein Spiel endlich, so können wir in der Regel ohne Einschränkung annehmen, dass auch die Menge der Spieler endlich ist. Denn die Menge $X = \prod_{i\in I} X_i$ kann nur endlich sein, wenn alle bis auf endliche viele $X_i$ einelementig sind. Also haben in einem endlichen Spiel nur endlich viele Spieler mehr als eine Strategie. Und für die Suche beispielsweise nach Nash-Gleichgewichten spielen nur solche Spieler überhaupt eine Rolle. Wir werden dies später in \Cref{sec:Morphismen} formal zeigen (siehe \Cref{kor:EinStratSpielerWeglassen}).
 \end{beob}
 
 \begin{notation}
@@ -66,7 +66,7 @@ In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele defi
 		\item \emph{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_\ia$ für alle Spieler $i,\ia \in I$.
 		\item \emph{skaliertes Koordinationsspiel}, wenn jeder Spieler eine streng monoton skalierte Variante einer gemeinsamen Kostenfunktion verwendet, d.h. wenn es eine Funktion $c: X \to \IR$ und streng monotone\footnote{Mit streng monotonen Funktionen sind in dieser Arbeit immer ordnungserhaltende, also streng monoton \emph{wachsende} Funktionen gemeint.} Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $c_i = f_i \circ c$ gilt.
 	\end{itemize}
-	Ein Spieler $i \in I$ heißt \emph{Dummy-Spieler}, wenn die alleinige Abweichung dieses Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X, i \in I$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$. 
+	Ein Spieler $i \in I$ heißt \emph{Dummy-Spieler}, wenn die alleinige Abweichung dieses Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$. 
 	
 	Das ganze Spiel $\Gamma$ heißt \emph{Dummy-Spiel}, wenn alle Spieler des Spiels Dummy-Spieler sind.
 \end{defn}
@@ -80,7 +80,7 @@ In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele defi
 
 \subsection{Abweichungspfade}
 
-Eine natürliche Methode ein Nash-Gleichgewicht in einem konkreten Spiel zu finden ist die folgende: Man beginnt bei einem beliebigen Strategieprofil und prüft, ob dieses bereits ein Nash-Gleichgewicht ist. Ist dies der Fall, ist man bereits fertig. Andernfalls gibt es wenigstens einen Spieler, der seine Kosten durch einen einseitigen Strategiewechsel verbessern kann. Dadurch erhält man ein neues Strategieprofil, für das man erneut prüft, ob es ein Nash-Gleichgewicht ist usw. Terminiert dieses Verfahren, so hat man ein Nash-Gleichgewicht gefunden. 
+Eine natürliche Methode ein Nash-Gleichgewicht in einem konkreten Spiel zu finden, ist die folgende: Man beginnt bei einem beliebigen Strategieprofil und prüft, ob dieses bereits ein Nash-Gleichgewicht ist. Ist dies der Fall, ist man bereits fertig. Andernfalls gibt es wenigstens einen Spieler, der seine Kosten durch einen einseitigen Strategiewechsel verbessern kann. Dadurch erhält man ein neues Strategieprofil, für das man erneut prüft, ob es ein Nash-Gleichgewicht ist usw. Terminiert dieses Verfahren, so hat man ein Nash-Gleichgewicht gefunden. 
 
 Im Laufe dieses Verfahrens erhält man eine Folge von Strategieprofilen, die jeweils durch Abweichung eines einzelnen Spielers auseinander hervorgehen, wobei dieser Spieler seine Kosten senkt. Eine solche Folge bezeichnen \citeauthor{MonShap} in \cite{MonShap} als \glqq Verbesserungspfad\grqq. Stellt man andere Bedingungen an die Kostenveränderung für den abweichenden Spieler, so erhält man analog weitere Arten von Pfaden im Strategieraum (vergleiche etwa \cite{CharExOrdPot} und \cite{BestRespPot}).
 
@@ -112,9 +112,9 @@ Im Laufe dieses Verfahrens erhält man eine Folge von Strategieprofilen, die jew
 \begin{defn}\label{defn:Pfade2}	
 	Für einen endlichen Pfad $\gamma = (x^0, \dots, x^n)$ ist
 	\begin{itemize}
-		\item die \emph{Gesamtänderung} entlang des Pfades $\PfadAend(\gamma)$ definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
+		\item die \emph{Gesamtänderung} $\PfadAend(\gamma)$ entlang des Pfades definiert als die Summe aller Änderungen für die jeweils abweichenden Spieler:
 		\[\PfadAend(\gamma) \coloneqq \sum_{k=1}^{n} \left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) \]
-		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keine Strategie $\hat{x}_i$ gibt, mit $c_{i}(x^n) > c_{i}(x^n \mid \hat{x}_i)$.
+		\item $\gamma$ ein \emph{abgeschlossener Verbesserungspfad}, wenn er ein Verbesserungspfad ist, der nicht mehr nach hinten verlängert werden kann, d.h. es keinen Spieler $i$ mit einer Strategie $\hat{x}_i$ gibt, sodass $c_{i}(x^n) > c_{i}(x^n \mid \hat{x}_i)$ gilt.
 		\item $\gamma$ ein \emph{($n$-)Zykel}, wenn $x^0 = x^n$ und $n \geq 1$ gilt.
 		\item $\invPf{\gamma} \coloneqq (x^n, x^{n-1}, \dots, x^0)$ der in die Gegenrichtung laufende Pfad.
 	\end{itemize}
@@ -143,22 +143,22 @@ Der eingangs beschriebene natürliche Algorithmus zum Finden eines Nash-Gleichge
 \begin{beob}\label{beob:VerbPfadeundNGe}
 	Das Ende eines abgeschlossenen Verbesserungspfades ist immer ein Nash-Gleichgewicht. Denn wäre dem nicht so, dann gäbe es wenigstens einen Spieler, der sich durch Abweichen noch verbessern kann - was zu einer Verlängerung des Verbesserungspfades führen würde. 
 		
-	Umgekehrt ist offenkundig auch jedes Nash-Gleichgewicht Ende wenigstens eines abgeschlossenen Verbesserungspfades (sogar Beste-Antwort-Verbesserungspfades) - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
+	Umgekehrt bildet offenkundig auch jedes Nash-Gleichgewicht das Ende wenigstens eines abgeschlossenen Verbesserungspfades (sogar Beste-Antwort-Verbesserungspfades) - nämlich des trivialen, nur aus diesem Strategieprofil bestehenden Verbesserungspfades.
 \end{beob}
 
 \begin{beob}\label{kor:ExVerbPfadExNG}
 	Ein Spiel $\Gamma$ besitzt genau dann (mindestens) ein Nash-Gleichgewicht, wenn es (mindestens) einen abgeschlossenen (Beste-Antwort-)Verbesserungspfad besitzt. Ein Spiel mit FIP besitzt dementsprechend immer wenigstens ein Nash-Gleichgewicht.
 \end{beob}
 
-Alternativ können auch Beste-Antwort-Schritte dazu verwendet werden Nash-Gleichgewichte zu charakterisieren:
+Alternativ können auch Beste-Antwort-Schritte dazu verwendet werden, Nash-Gleichgewichte zu charakterisieren:
 
 \begin{beob}\label{beob:BASchritteNG}
-	Eine Strategieprofil $x \in X$ ist genau dann ein Nash-Gleichgewicht, wenn $(x,x)$ für jeden Spieler ein Beste-Antwort-Schritt ist.
+	Ein Strategieprofil $x \in X$ ist genau dann ein Nash-Gleichgewicht, wenn $(x,x)$ für jeden Spieler ein Beste-Antwort-Schritt ist.
 \end{beob}
 
-Beste-Antwort-Pfade treten bei sogenannten Beste-Antwort-Dynamiken auf: Bei diesen handelt es sich ebenfalls um Verfahren zum Auffinden von Nash-Gleichgewichten, im Unterschied zum zuvor beschriebenen Verfahren wechselt der abweichende Spieler hierbei allerdings nicht zu irgendeiner für ihn besseren Strategie, sondern wählt direkt die (momentan) beste der ihm zur Verfügung stehenden Strategien. 
+Beste-Antwort-Pfade treten bei sogenannten Beste-Antwort-Dynamiken auf: Bei diesen handelt es sich ebenfalls um Verfahren zum Auffinden von Nash-Gleichgewichten, im Unterschied zum zuvor beschriebenen Verfahren wechselt der abweichende Spieler hierbei allerdings nicht zu irgendeiner für ihn besseren Strategie, sondern wählt direkt die (momentan) \emph{beste} der ihm zur Verfügung stehenden Strategien. 
 
-Schließlich führen wir noch eigene Bezeichnungen für den Bereich eines Strategieraums ein, der von einem gegebenen Strategieprofil aus überhaupt mit Hilfe von Pfaden erreicht werden kann. 
+Schließlich führen wir noch eigene Bezeichnungen für den Bereich eines Strategieraums ein, der von einem gegebenen Strategieprofil aus überhaupt mit Hilfe eines Pfades erreicht werden kann. 
 
 \begin{defn}
 	Eine Teilmenge $Y \subseteq X$ des Strategieraumes bezeichnen wir als \emph{Pfadzusammenhangskomponente}, wenn es für je zwei $x, y \in Y$ einen Pfad von $x$ nach $y$ in $Y$ gibt. Zu einem gegebeenen Strategieprofil $x \in X$ ist \emph{die Pfadzusammenhangskomponente von $x$} die (bezüglich Inklusion) maximale Pfadzusammenhangskomponente $Y_x \subseteq X$, welche $x$ enthält.
@@ -173,7 +173,7 @@ Schließlich führen wir noch eigene Bezeichnungen für den Bereich eines Strate
 
 \subsection{Auslastungsspiele}
 
-In diesem Abschnitt wollen wir noch eine besondere Klasse von Spielen kennenlernen, die erstmals von \citeauthor{RosenthalPotential} in \cite{RosenthalPotential} definierten Auslastungsspiele sowie einige Varianten davon. Verschiedene Eigenschaften dieser Spiele sowie insbesondere ihre Beziehungen zu Potentialspielen werden wir später in \Cref{sec:Auslastungsspiele} diskutieren.
+In diesem Abschnitt wollen wir noch eine besondere Klasse von Spielen kennenlernen, nämlich die erstmals von \citeauthor{RosenthalPotential} in \cite{RosenthalPotential} definierten Auslastungsspiele sowie einige Varianten davon. Verschiedene Eigenschaften dieser Spiele sowie insbesondere ihre Beziehungen zu Potentialspielen werden wir später in \Cref{sec:Auslastungsspiele} diskutieren.
 
 \begin{defn}\label{def:Auslastungsmodel}
 	Ein \emph{Auslastungsmodell $M$} ist ein Tupel $M = (I, R, S \coloneqq \prod_{i\in I} S_i, (g_r)_{r \in R})$. Dabei ist
@@ -189,14 +189,14 @@ In diesem Abschnitt wollen wir noch eine besondere Klasse von Spielen kennenlern
 	Ein Auslastungsmodell $M$ induziert durch die Lastfunktionen
 		\[l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}\]
 	und die Kostenfunktionen
-		\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r(l_r(s)) \]
+		\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} g_r(l_r(s)) \]
 	ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S, (c_i)_{i \in I})$, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Mengen/Summen für jedes $s \in S$ endlich sind/absolut konvergieren).
 \end{defn}
 
 \begin{bem}\label{bem:AuslSpielWohldefiniertheit}
-	Eine Lastfunktion $l_r$ ist genau dann wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\Set{i \in I | \exists s_i \in S_i: r \in s}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Diese Bedingung ist aber nicht notwendig.
+	Eine Lastfunktion $l_r$ ist genau dann wohldefiniert, wenn diese Ressource $r$ von höchstens endlich vielen verschiedenen Spielen benutzt werden kann. Das heißt wenn gilt: $\abs{\Set{i \in I | \exists s_i \in S_i: r \in s_i}} < \infty$. Sind alle $l_r$ bereits wohldefiniert, so ist eine hinreichende Bedingung für die Wohldefiniertheit von $c_i$, dass alle diesem Spieler zur Auswahl stehende Teilmengen von $R$ endlich sind. Diese Bedingung ist aber nicht notwendig.
 	
-	Insbesondere induzieren Auslastungsmodelle mit endlicher Ressourcen- und Spielerzahl daher immer ein Auslastungsspiel.
+	Insbesondere induzieren Auslastungsmodelle mit endlicher Ressourcen- und Spielerzahl daher immer ein wohldefiniertes Auslastungsspiel.
 	
 	Ist die Ressourcenmenge $R$ endlich, so ist das induzierte Auslastungsspiel ein endliches Spiel (d.h. dessen Strategieraum ist endlich). Ist umgekehrt der Strategieraum endlich und jede Strategie jedes Spielers enthält nur endlich viele Ressourcen, so können wir ohne Einschränkung davon ausgehen, dass auch $R$ endlich ist. Denn in diesem Fall tauchen nur endlich viele der Ressourcen in einer Strategie wenigstens eines der Spieler auf - und alle anderen Ressourcen können für die Betrachtung des Spiels ignoriert werden.
 \end{bem}
@@ -213,29 +213,29 @@ Verallgemeinerungen von Auslastungsspielen erhalten wir durch das Einführen von
 	Zusammen mit einem positiven Gewichtsvektor $(w_i)_{i\in I} \in \IR_{> 0}^I$ induziert ein Auslastungsmodell $M$ (wiederum unter der Voraussetzung, dass alle beteiligten Funktionen wohldefiniert sind)
 	\begin{itemize}
 		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion
-		\[c_i: S \to \IR: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
+		\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} w_i\cdot g_r(l_r(s)) \]
 		und die gleiche Lastfunktion wie im ungewichteten Fall.
 		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion 
 		\[l_r: S \to \IN: s \mapsto \sum\set{w_i | r \in s_i}.\]
 		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion
-		\[c_i: S \to \IR: s \mapsto \sum_{r \in R} w_i\cdot g_r(l_r(s)) \]
+		\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} w_i\cdot g_r(l_r(s)) \]
 		und die Lastfunktion 
 		\[l_r: S \to \IN: s \mapsto \sum\set{w_i | r \in s_i}.\]
 	\end{itemize}	
 \end{defn}
 
 \begin{beob}
-	Für (last-)gewichtete Auslastungsspiele ist es auch möglich, dass abzählbar unendlich viele Spieler eine Ressource nutzen können (und die entsprechende Lastfunktion dennoch wohldefiniert ist) - beispielsweise dann, wenn der Gewichtsvektor von der Form $(2^n)_{n \in \IN}$ ist.
+	Für (last-)gewichtete Auslastungsspiele ist es auch möglich, dass abzählbar unendlich viele Spieler eine Ressource nutzen können (und die entsprechende Lastfunktion dennoch wohldefiniert ist) - beispielsweise dann, wenn der Gewichtsvektor von der Form $(1/2^n)_{n \in \IN}$ ist.
 \end{beob}
 
-Einige weitere Varianten von Auslastungsspielen sind:
+Einige weitere Varianten von Auslastungsspielen sind die folgenden:
 
 \begin{defn}\label{def:weitereAuslastungsspiel}
 	\begin{itemize}
 		\item Zusammen mit einer Familie streng monotoner Skalierungsfunktionen $(f_i: \IR \to \IR)_{i\in I}$ erhält man aus einem Auslastungsmodell ein \emph{skaliertes Auslastungsspiel} durch Verwenden der Kostenfunktionen
-			\[c_i: S \to \IR: s \mapsto \sum_{r \in R} f_i(g_r(l_r(s))). \]
+			\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} f_i(g_r(l_r(s))). \]
 		\item Ein \emph{Auslastungsmodell/-spiel mit spielerspezifischen Ressourcenkosten} erhält man, wenn es zu jeder Ressource $r \in R$ und jedem Spieler $i \in I$ eine spielerspezifische Ressourcenkostenfunktion $g_r^i: \IR_{\geq 0} \to \IR$ gibt und die Kostenfunktionen der Spieler definiert sind als
-			\[c_i: S \to \IR: s \mapsto \sum_{r \in R} g_r^i(l_r(s)).\]
+			\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} g_r^i(l_r(s)).\]
 	\end{itemize}
 \end{defn}
 
@@ -256,7 +256,7 @@ Speziellere Klassen von Auslastungsspielen erhalten wir hingegen, wenn die Menge
 	Ein Auslastungsmodell/-spiel heißt \emph{Singelton-Auslastungsmodell/-spiel}, wenn jede Strategie jedes Spielers aus genau einer Ressource besteht.
 \end{defn}
 
-Eine andere Möglichkeit ist, dass die zulässigen Teilmengen jedes Spielers Basen eines Matroids auf der Ressourcenmenge bilden:
+Eine andere Möglichkeit ist, dass die zulässigen Teilmengen jedes Spielers den Basen eines (spielerspezifischen) Matroids auf der Ressourcenmenge entsprechen:
 
 \begin{defn}
 	Ein ungewichtetes Auslastungsmodell/-spiel heißt \emph{Matroidmodell/-spiel}, wenn es für jeden Spieler $i \in I$ einen Matroid $M_i$ auf der Ressourcenmenge gibt, sodass $S_i$ gerade die Basen dieses Matroids sind.
@@ -272,7 +272,7 @@ Eine andere Möglichkeit ist, dass die zulässigen Teilmengen jedes Spielers Bas
 	Die Mengen in $M$ bezeichnen wir dann als \emph{unabhängige Mengen}, die bezüglich Inklusion maximalen Mengen unter diesen nennen wir \emph{Basen des Matroids}.
 \end{defn}
 
-Eine wichtige Eigenschaft, welche alle Matroide erfüllen, ist der starke Basisaustauschsatz (vgl. \cite[Theorem 29.12]{CombOptMatroide}):
+Eine wichtige Eigenschaft, welche alle Matroide erfüllen, ist der starke Basisaustauschsatz (\cite[Theorem 29.12]{CombOptMatroide}):
 
 \begin{satz}
 	Seien $M$ ein Matroid, $B_1, B_2$ zwei Basen von $M$ und $q \in B_1 \setminus B_2$ beliebig. Dann gibt es ein Element $r \in B_2 \setminus B_1$, sodass das Vertauschen dieser beiden Elemente wieder zwei Basen ergibt, d.h. sowohl $B_1 \setminus \set{q} \cup \set{r}$ als auch $B_2 \setminus \set{r} \cup \set{q}$ sind ebenfalls Basen von $M$.
