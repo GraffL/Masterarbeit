@@ -124,8 +124,8 @@
 
 %draft-options:
 \definecolor{darkgreen}{rgb}{0,0.6,0.35}
-\usepackage[ngerman, textsize=small, textwidth=4.5cm, color=darkgreen]{todonotes}
-\usepackage[left=1cm, right=5cm]{geometry}
+%\usepackage[ngerman, textsize=small, textwidth=4.5cm, color=darkgreen]{todonotes}
+%\usepackage[left=1cm, right=5cm]{geometry}
 
 
 % Nur für dieses Dokument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -174,7 +174,7 @@
 \begin{document}
 	
 % Spezielle Silbentrennung:
-\hyphenation{Ko-or-di-na-tion Ko-or-di-na-tions-spie-len Ko-or-di-na-tions-spiels Be-o-bach-tung Po-ten-tial-funk-ti-on}	
+\hyphenation{Ko-or-di-na-tion Ko-or-di-na-tions-spie-len Ko-or-di-na-tions-spiels Be-o-bach-tung Po-ten-tial-funk-ti-on Stra-te-gie-pro-fil-ab-bil-dung}	
 	
 	
 % Titelseite:
@@ -186,21 +186,21 @@
 \thispagestyle{empty}
 
 
-\begin{titlepage}\center
+\begin{titlepage}\centering
 	\textsc{\LARGE Universität Augsburg}\\[1cm]
 	
-	\textsc{\Large Institut für Mathematik}\\[1.5cm]
+	\textsc{\Large Institut für Mathematik}\\[2.5cm]
 	
 	% Title
-	{\LARGE Masterarbeit \\[1cm]}
-	{\Huge\setstretch{2.0} Zusammenhänge zwischen Auslastungs- und Potentialspielen}
+	{\huge \bfseries Masterarbeit \\[1.5cm]}
+	{\Huge\setstretch{1.1} Zusammenhänge zwischen Auslastungs- und Potentialspielen \par}
 
 	\vfill
 	
 	% Author and supervisor
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushleft} \large
-			\emph{von:}\\
+			\emph{Vorgelegt von:}\\
 			Lukas \textsc{Graf}
 		\end{flushleft}
 	\end{minipage}
@@ -215,25 +215,27 @@
 
 % CONTENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage\null\thispagestyle{empty}\newpage
 \tableofcontents
+\newpage\null\thispagestyle{empty}\newpage
 
 \phantomsection
 \addcontentsline{toc}{section}{Einleitung}
 \section*{Einleitung}
 
-Nicht-kooperative Spiele in strategischer Form sind eine einfache, aber zugleich mächtige Art und Weise eine Vielzahl von Spielen oder spielartigen Situationen mathematisch zu beschreiben. Ein Spiel wird hierbei dadurch angegeben, dass jeder Spieler eine Menge ihm zur Verfügung stehender Strategien sowie eine eigene Kostenfunktion (oder Auszahlungsfunktion) auf dem Produktraum aller spielerspezifischen Strategieräume hat. \glqq Gespielt\grqq{} wird ein solches Spiel, indem jeder Spieler eine seiner Strategien auswählt (ohne dabei die Wahlen der anderen Spieler zu kennen). Hat jeder Spieler dies getan, so legt die Gesamtheit aller gewählten Strategien das Ergebnis des Spiels fest, welches dann jeder Spieler mit Hilfe seiner Kostenfunktion für sich bewerten kann.
+Nicht-kooperative Spiele in strategischer Form sind eine einfache, aber zugleich mächtige Art und Weise, eine Vielzahl von Spielen oder spielartigen Situationen mathematisch zu beschreiben. Ein Spiel wird hierbei dadurch angegeben, dass jeder Spieler eine Menge ihm zur Verfügung stehender Strategien sowie eine eigene Kostenfunktion (oder Auszahlungsfunktion) auf dem Produktraum aller spielerspezifischen Strategieräume hat. \glqq Gespielt\grqq{} wird ein solches Spiel, indem jeder Spieler eine seiner Strategien auswählt (ohne dabei die Wahlen der anderen Spieler zu kennen). Hat jeder Spieler dies getan, so legt die Gesamtheit aller gewählten Strategien das Ergebnis des Spiels fest, welches dann jeder Spieler mit Hilfe seiner Kostenfunktion für sich bewerten kann.
 
-Von besonderem Interesse bei der Analyse derartiger Spiele sind Nash-Gleichgewichte: Spielsituationen, in denen keiner der Spieler (aus rein egoistischer Sicht) ein Interesse daran hat einseitig seine gewählte Strategie zu ändern - also Situationen, in denen jede alleinige Strategieänderung eines Spielers zu einem schlechteren oder höchstens genauso guten Ergebnis für diesen Spieler führt. Die Fragen, welche Spiele solch ein Nash-Gleichgewicht besitzen, welche Eigenschaften dieses dann besitzt und wie man es finden kann, gehören zu den zentralen Fragestellungen der Spieltheorie.
+Von besonderem Interesse bei der Analyse derartiger Spiele sind Nash-Gleichgewichte: Spielsituationen, in denen keiner der Spieler (aus rein egoistischer Sicht) ein Interesse daran hat, einseitig seine gewählte Strategie zu ändern - also Situationen, in denen jede alleinige Strategieänderung eines Spielers zu einem schlechteren oder höchstens genauso guten Ergebnis für diesen Spieler führt. Die Fragen, welche Spiele solch ein Nash-Gleichgewicht besitzen, welche Eigenschaften dieses dann besitzt und wie man es finden kann, gehören zu den zentralen Fragestellungen der Spieltheorie.
 
 Eine Klasse von anschaulichen (endlichen) Spielen, die zudem immer wenigstens ein Nash-Gleichgewicht besitzen, fand \citeauthor{RosenthalPotential} mit den sogenannten Auslastungsspielen. Dabei handelt es sich um Spiele, in denen jeder Spieler festlegt, welche Teilmenge einer gemeinsamen Menge von Ressourcen er nutzt, wobei deren Kosten davon abhängen, wie viele Spieler die jeweilige Ressource nutzen. Im Beweis der Existenz eines solchen Gleichgewichtes nutzte \citeauthor{RosenthalPotential} eine Art gemeinsame Kostenfunktion für alle Spieler, eine sogenannte Potentialfunktion. Die durch diese Potentialfunktion beschriebenen Kosten sind dabei auf geeignete Weise mit den ursprünglichen spielerspezifischen Kosten verträglich, sodass ein Minimum der Potentialfunktion automatisch auch ein Nash-Gleichgewicht des eigentlichen Spiels ist.
 
 Später bewiesen \citeauthor{MonShap}, dass sich umgekehrt auch jedes Spiel, welches eine derartige Potentialfunktion besitzt, als Auslastungsspiel darstellen lässt, es also ein Auslastungsspiel gibt, welches äquivalent zu dem Potentialspiel ist. Zudem definierten sie weitere, allgemeinere Potentialbegriffe, welche ebenfalls die Suche von Nash-Gleichgewichten erleichtern, aber dabei auch für Spiele anwendbar sind, welche nicht durch \citeauthor{RosenthalPotential}s Auslastungsspiele darstellbar sind. 
 
-Beide beschriebenen Sätze nutzen als zentrales Element spezielle Arten von Beziehungen zwischen zwei Spielen (einmal zwischen einem Spiel und dem durch die Potentialfunktion beschriebenen alternativen Spiel und einmal zwischen dem Potentialspiel und dem es darstellenden Auslastungsspiel). Im Rahmen dieser Arbeit wollen wir diese Idee einer Beziehung zwischen zwei Spielen, die gewisse Eigenschaften wie etwa Nash-Gleichgewichte erhält, formalisieren und näher untersuchen. Außerdem werden wir versuchen weitere derartige Beziehungen zwischen verschiedenen Klassen von Spielen zu finden.
+Beide beschriebenen Sätze nutzen als zentrales Element spezielle Arten von Beziehungen zwischen zwei Spielen (einmal zwischen einem Spiel und dem durch die Potentialfunktion beschriebenen alternativen Spiel und einmal zwischen dem Potentialspiel und dem es darstellenden Auslastungsspiel). Im Rahmen dieser Arbeit wollen wir diese Idee einer Beziehung zwischen zwei Spielen, die gewisse Eigenschaften wie etwa Nash-Gleichgewichte erhält, formalisieren und näher untersuchen. Außerdem werden wir versuchen, weitere derartige Beziehungen zwischen verschiedenen Klassen von Spielen zu finden.
 
-Nachdem wir in \Cref{sec:Grundlagen} einige Grundbegriffe der Spieltheorie definiert haben, werden wir uns zunächst in \Cref{sec:Potentiale} dem Konzept von Potentialfunktionen für Spiele zuwenden. Wir werden eine ganze Reihe derartiger Potentiale kennenlernen und jeweils notwendige und hinreichende Bedingungen dafür zeigen, dass ein Spiel ein entsprechendes Potential besitzt. Im folgenden \Cref{sec:Morphismen} werden wir verschiedene Arten von Morphismen zwischen Spielen definieren, die dann Isomorphien induzieren, die wir nutzen können um die besagten Beziehungen zwischen verschiedenen Spielen beschreiben zu können. In \Cref{sec:Auslastungsspiele} schließlich werden wir diese (Iso-)Morphismen nutzen, um einige Zusammenhänge zwischen unterschiedlichen Klassen von Auslastungs- und Potentialspielen zu formulieren und zu beweisen.
+Nachdem wir in \Cref{sec:Grundlagen} einige Grundbegriffe der Spieltheorie definiert haben, werden wir uns zunächst in \Cref{sec:Potentiale} dem Konzept von Potentialfunktionen für Spiele zuwenden. Wir werden eine ganze Reihe derartiger Potentiale kennenlernen und jeweils notwendige und hinreichende Bedingungen dafür zeigen, dass ein Spiel ein entsprechendes Potential besitzt. Im folgenden \Cref{sec:Morphismen} werden wir verschiedene Arten von Morphismen zwischen Spielen definieren, die dann Isomorphien induzieren, die wir nutzen können, um die besagten Beziehungen zwischen verschiedenen Spielen beschreiben zu können. In \Cref{sec:Auslastungsspiele} schließlich werden wir diese (Iso-)Morphismen nutzen, um einige Zusammenhänge zwischen unterschiedlichen Klassen von Auslastungs- und Potentialspielen zu formulieren und zu beweisen.
 
-Wir werden dabei immer versuchen die verschiedenen Sätze möglichst allgemein zu halten und insbesondere - soweit dies möglich ist - auch über unendliche statt, wie in der Literatur meist üblich, nur über endliche Spiele sprechen.
+Wir werden dabei immer versuchen, die verschiedenen Sätze möglichst allgemein zu halten und insbesondere - soweit dies möglich ist - auch über unendliche statt, wie in der Literatur meist üblich, nur über endliche Spiele sprechen.
 
 \include{Grundlagen}
 \include{Potentiale}
@@ -244,19 +246,19 @@ Wir werden dabei immer versuchen die verschiedenen Sätze möglichst allgemein z
 \addcontentsline{toc}{section}{Ausblick}
 \section*{Ausblick}
 
-Wir haben nun also gesehen, wie (Iso-)Morphismen von Spielen genutzt werden können um Zusammenhänge zwischen Spielen zu formalisieren und zu verstehen welche Eigenschaften die zwei Spiele an den beiden Enden des Morphismus gemeinsam haben. Diese haben wir dann genutzt um verschiedene Aussagen über Potential- und Auslastungsspiele zu zeigen. Dabei ist es allerdings wichtig festzuhalten, dass die Verwendung von Morphismen hierbei niemals unumgänglich war, sondern die Aussagen immer auch ohne diesen Begriff hätten gezeigt werden können. 
+Wir haben nun also gesehen, wie (Iso-)Morphismen von Spielen genutzt werden können, um Zusammenhänge zwischen Spielen zu formalisieren und zu verstehen, welche Eigenschaften die zwei Spiele an den beiden Enden des Morphismus gemeinsam haben. Diese haben wir dann genutzt, um verschiedene Aussagen über Potential- und Auslastungsspiele zu zeigen. Dabei ist es allerdings wichtig festzuhalten, dass die Verwendung von Morphismen hierbei niemals unumgänglich war, sondern die Aussagen immer auch ohne diesen Begriff hätten gezeigt werden können. 
 
-Die Verwendung von Morphismen dient daher vor allem der einheitlicheren Beschreibung von Beziehungen zwischen Spielen, erleichtert die Strukturierung der Zusammenhänge, vereinfacht und verkürzt manche Aussagen und gibt möglicherweise auch neue Ideen für weitere Beziehungen. Auch ist es so besser möglich die verschieden starken Abstufungen von möglichen Beziehungen zu verstehen und etwa direkt zu sehen, welche Art von Beziehung man durch das Verknüpfen mehrerer solcher erhält.
+Die Verwendung von Morphismen dient daher vor allem der einheitlicheren Beschreibung von Beziehungen zwischen Spielen, erleichtert die Strukturierung der Zusammenhänge, vereinfacht und verkürzt manche Aussagen und gibt möglicherweise auch neue Ideen für weitere Beziehungen. Auch ist es so besser möglich, die verschieden starken Abstufungen von möglichen Beziehungen zu verstehen und etwa direkt zu sehen, welche Art von Beziehung man durch das Verknüpfen mehrerer solcher erhält.
 
-Zunächst haben wir die Morphismenbegriffe dazu genutzt Potentiale durch passende Morphismen in Koordinationsspiele zu beschreiben. Dadurch hoffen wir einen neuen Blickwinkel auf Potentiale gewonnen zu haben. Ferner haben wir diesen Zusammenhang genutzt um einige Eigenschaften und Zusammenhänge der verschiedenen Potentialarten zu beweisen.
+Zunächst haben wir die Morphismenbegriffe dazu genutzt, Potentiale durch passende Morphismen in Koordinationsspiele zu beschreiben. Dadurch hoffen wir, einen neuen Blickwinkel auf Potentiale gewonnen zu haben. Ferner haben wir diesen Zusammenhang genutzt, um einige Eigenschaften und Zusammenhänge der verschiedenen Potentialarten zu beweisen.
 
-Sodann haben wir analoge Sätze zu dem von \citeauthor{MonShap} für gewichtete und skalierte Potentiale gesehen, haben Beste-Antwort-Isomorphismen und deren Verknüpfung dazu genutzt schnelle Konvergenz der Beste-Antwort-Dynamik für Matroidspiele zu zeigen und haben gesehen wie sich selbst nicht-anonyme Auslastungsspiele als gewöhnliche anonyme Auslastungsspiele darstellen lassen.
+Sodann haben wir analoge Sätze zu dem von \citeauthor{MonShap} für gewichtete und skalierte Potentiale gesehen, haben Beste-Antwort-Isomorphismen und deren Verknüpfung dazu genutzt, schnelle Konvergenz der Beste-Antwort-Dynamik für Matroidspiele zu zeigen, und haben gesehen, wie sich selbst nicht-anonyme Auslastungsspiele als gewöhnliche anonyme Auslastungsspiele darstellen lassen.
 
-Gleichzeitig haben wir aber auch festgestellt, dass skalierte Auslastungsspiele bereits wieder eine zu große Klasse von Auslastungsspielen sind um vollständig in der Menge der Spiele mit skaliertem Potential enthalten sein zu können. Entsprechend unserer Suche nach einer passenden Klasse für Spiele mit gewichtetem Potential könnte man nun weiter nach einer passenderen Verallgemeinerung von kostengewichteten Auslastungsspielen suchen, die genau den skalierten Potentialspielen entspricht. 
+Gleichzeitig haben wir aber auch festgestellt, dass skalierte Auslastungsspiele bereits wieder eine zu große Klasse von Auslastungsspielen sind, um vollständig in der Menge der Spiele mit skaliertem Potential enthalten sein zu können. Entsprechend unserer Suche nach einer passenden Klasse für Spiele mit gewichtetem Potential könnte man nun weiter nach einer passenderen Verallgemeinerung von kostengewichteten Auslastungsspielen suchen, die genau den skalierten Potentialspielen entspricht. 
 
-Ein anderes Ziel könnte es sein andere Varianten zu finden, die noch allgemeineren Potentialspielen entsprechen. Vermutlich wird dies allerdings neue und aufwändigere Konstruktionen erfordern, da die Potentiale mit größerer Allgemeinheit immer weniger Information über das ursprüngliche Spiel enthalten. Ein skaliertes Potential etwa legt zusammen mit den Skalierungsfunktionen ein Spiel noch bis auf exakte Isomorphie eindeutig fest, ein ordinales Potential hingegen tut das nicht mehr (da hier zwar noch das Vorzeichen, aber keine Information mehr über die Größe der Änderungen eingeht).
+Ein anderes Ziel könnte es sein, andere Varianten zu finden, die noch allgemeineren Potentialspielen entsprechen. Vermutlich wird dies allerdings neue und aufwändigere Konstruktionen erfordern, da die Potentiale mit größerer Allgemeinheit immer weniger Information über das ursprüngliche Spiel enthalten. Ein skaliertes Potential etwa legt zusammen mit den Skalierungsfunktionen ein Spiel noch bis auf exakte Isomorphie eindeutig fest, ein ordinales Potential hingegen tut das nicht mehr (da hier zwar noch das Vorzeichen, aber keine Information mehr über die Größe der Änderungen eingeht).
 
-Weitere Fragestelltungen könnten sein, welche Sätze man noch für unendliche Spiele verallgemeinern kann (v.a. \Cref{satz:JedesSpielLastGewAusl} und der zweite Teil von \Cref{satz:MondererShapley}) oder ob Konstruktionen in bereits existierenden Sätzen vereinfachen kann (etwa ob man analog zu \Cref{satz:GewAuslZuUngewAusl} gewichtete Auslastungsspiele mit affin exponentiellen Ressourcenkosten ohne den Umweg eines gewichteten Potentials direkt in isomorphe kostengewichtete Auslastungsspiele umwandeln kann). Und all diese Fragen lassen sich für kostenerhaltende Isomorphie (also Äquivalenz), aber - falls die entprechenden Aussagen nicht zugänglich oder sogar falsch sind - auch für die verschiedenen schwächeren Isomorphiebegriffe untersuchen.
+Weitere Fragestelltungen könnten sein, welche Sätze man noch für unendliche Spiele verallgemeinern kann (v.a. \Cref{satz:JedesSpielLastGewAusl} und der zweite Teil von \Cref{satz:MondererShapley}) oder ob Konstruktionen in bereits existierenden Sätzen vereinfachen kann (etwa ob man analog zu \Cref{satz:GewAuslZuUngewAusl} gewichtete Auslastungsspiele mit affin exponentiellen Ressourcenkosten ohne den Umweg eines gewichteten Potentials direkt in isomorphe kostengewichtete Auslastungsspiele umwandeln kann). All diese Fragen lassen sich für kostenerhaltende Isomorphie (also Äquivalenz), aber - falls die entsprechenden Aussagen nicht zugänglich oder sogar falsch sind - auch für die verschiedenen schwächeren Isomorphiebegriffe untersuchen.
 
 \newpage
 %\nocite{*}
