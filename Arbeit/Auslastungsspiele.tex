@@ -37,7 +37,7 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} mit Auslast
 			\[\left(c_{\hat{\imath}}(x) - P(x)\right) - \left(c_{\hat{\imath}}(x \mid \hat{x}_{\hat{\imath}}) - P(x \mid \hat{x}_{\hat{\imath}})\right) = \left(c_{\hat{\imath}}(x) - c_{\hat{\imath}}(x \mid \hat{x}_{\hat{\imath}})\right) - \left(P(x) - P(x \mid \hat{x}_{\hat{\imath}})\right) = 0\]
 		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
 	\end{itemize}
-	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma(M)$. Dazu betrachten wir $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ ist. Dieser ist offenbar bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
+	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma(M)$. Dazu betrachten wir $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ ist. Dieser ist offenkundig bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
 	\begin{align*}
 		d_{\hat{\imath}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} g_r(l_r(\phi(x))) = \sum_{r \in R: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(l_r(\phi(x))) = \\
 		&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(\underbrace{l_r(\phi(x))}_{= N \Leftrightarrow r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\imath}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1 \Leftrightarrow r = \left(X_i\setminus\set{x_i}\right)_{i \in I\setminus\set{\hat{\imath}}} \times X_{\hat{\imath}}}) = \\
@@ -85,7 +85,7 @@ Die erste alternative Klasse von Auslastungsspielen sind die lastgewichteten Aus
 \end{lemma}
 
 \begin{proof}
-	Sei $M = (I, R, (S_i), (g_r))$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann ist $(\id, \id): \Gamma(M, w) \to \Gamma_l(M,w)$ offenbar ein Isomorphismus und ferner gewichtend, denn sind $c_i$ die Kostenfunktionen von $\Gamma(M, w)$ und $d_i$ die von $\Gamma_l(M,w)$, so gilt sogar für jedes Strategieprofil $s$:
+	Sei $M = (I, R, (S_i), (g_r))$ ein Auslastungsmodell und $w = (w_i)$ ein Gewichtsvektor. Dann ist $(\id, \id): \Gamma(M, w) \to \Gamma_l(M,w)$ offensichtlich ein Isomorphismus und ferner gewichtend, denn sind $c_i$ die Kostenfunktionen von $\Gamma(M, w)$ und $d_i$ die von $\Gamma_l(M,w)$, so gilt sogar für jedes Strategieprofil $s$:
 		\[c_i(s) = \sum_{r \in s_i} w_i\cdot g_r(l_r(s)) = w_i \cdot \sum_{r \in s_i} g_r(l_r(s)) = w_i \cdot d_i(s)\]
 	Insbesondere ist damit $\Gamma(M, w)$ genau dann wohldefiniert, wenn $\Gamma_l(M, w)$ dies ist.
 \end{proof}
@@ -283,7 +283,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \begin{proof}
 	Wir definieren zunächst das Auslastungsmodell $N \coloneqq (I, R, S, (h_r))$, wobei die Ressourcenkosten $h_{\hat{r}}$ wie folgt definiert sind:
 		\[h_{\hat{r}}(\hat{k}) \coloneqq \#\Set{(r, k) \in R\times \{1, \dots, \abs{I}\} | g_r(k) \leq g_{\hat{r}}(\hat{k})} \]
-	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können, und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, S, (d_i))$ hat nun offenbar die gewünschten Eigenschaften. 
+	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können, und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, S, (d_i))$ hat nun offensichtlich die gewünschten Eigenschaften. 
 	
 	Noch zu zeigen ist, dass $\Gamma(N)$ tatsächlich Beste-Antwort-isomorph zu $\Gamma(M)$ ist. Dazu betrachten wir den Identitätsmorphismus zwischen den beiden Spielen (der offensichtlich bijektiv ist) und zeigen, dass die besten Antworten in $\Gamma(N)$ genau den besten Antworten in $\Gamma(M)$ entsprechen. Dazu benötigen wir die folgende Proposition:	\noqed
 \end{proof}
@@ -405,7 +405,7 @@ Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potential
 				\end{cases}\]
 		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
 	\end{itemize}
-	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Kostenfunktionen $d_i$ sind es, da jeder Spieler immer nur genau für eine Ressource etwas zahlen muss. Zum Beweis der exakten Isomorphie von $\Gamma$ und $\Gamma(M, (f_i))$ betrachten wir den über $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ definierten Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
+	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Kostenfunktionen $d_i$ sind es, da jeder Spieler immer nur genau für eine Ressource etwas zahlen muss. Zum Beweis der exakten Isomorphie von $\Gamma$ und $\Gamma(M, (f_i))$ betrachten wir den über $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ definierten Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$. Dieser ist offenkundig bijektiv auf allen Mengen und zudem exakt, denn es gilt:
 	\begin{align*}
 	d_{\hat{\imath}}(\phi(x)) &- d_{\hat{\imath}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} f_{\hat{\imath}} \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\imath}}(\hat{x}_{\hat{\imath}})} f_{\hat{\imath}} \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
 	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} f_{\hat{\imath}} (\underbrace{g_r(l_r(\phi(x)))}_{= t \impliedby r \neq \left(\{x_i\}\right)_{i \in I}}) -

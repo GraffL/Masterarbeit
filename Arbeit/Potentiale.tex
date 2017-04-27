@@ -500,7 +500,7 @@ Beschränkt man sich sogar auf die Klasse der endlichen Spielen, so erhält man 
 \end{bem}
 
 \begin{proof}
-	Diese Funktion ist wohldefiniert, da $\sum_{k=1}^{\infty} 2^{-k} = 1$ absolut konvergiert. Sie ist außerdem ein verallgemeinertes ordinales Potential, denn gilt $c_i(x) > c_i(x \mid \hat{x}_i)$ so ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad. Damit gilt offenbar $Y_{>x} \subseteq Y_{>(x \mid \hat{x}_i)}$ und außerdem $x \notin Y_{>x}$, da es in $\Gamma$ keine Verbesserungszykel gibt. Damit folgt:
+	Diese Funktion ist wohldefiniert, da $\sum_{k=1}^{\infty} 2^{-k} = 1$ absolut konvergiert. Sie ist außerdem ein verallgemeinertes ordinales Potential, denn gilt $c_i(x) > c_i(x \mid \hat{x}_i)$ so ist $(x, (x \mid \hat{x}_i))$ ein Verbesserungspfad. Damit gilt offenkundig $Y_{>x} \subseteq Y_{>(x \mid \hat{x}_i)}$ und außerdem $x \notin Y_{>x}$, da es in $\Gamma$ keine Verbesserungszykel gibt. Damit folgt:
 		\[P(x) = 1 - \sum_{y \in Y_{>x}} h(y) > 1 - \sum_{y \in Y_{>x}} h(y) - h(x) \geq 1 - \sum_{y \in Y_{>(x \mid \hat{x}_i)}}h(y) = P(x \mid \hat{x}_i)\qedhere\]
 \end{proof}
 
@@ -566,7 +566,7 @@ Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\l
 Das folgende Beispiel enthält genau einen solchen Fall und ist damit zwar kein Gegenbeispiel zu dem in \cite{BestRespPot} gezeigten Satz, aber zu dem dort geführten Beweis hierzu:
 
 \begin{bsp}
-	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat offenbar ein exaktes und damit erst recht Beste-Antwort-Potential, es steht aber trotzdem im Widerspruch zu obigem Beweis. Da es keinerlei beste Antworten besitzt, ist nämlich $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
+	Wir betrachten das $1$-Personenspiel $\Gamma \coloneqq (\{\ast\}, \IZ, (\id))$. Dieses hat offensichtlich ein exaktes und damit erst recht Beste-Antwort-Potential, es steht aber trotzdem im Widerspruch zu obigem Beweis. Da es keinerlei beste Antworten besitzt, ist nämlich $\IZ/{\BArel} = \IZ$ und $f: \IZ \to \IR: z \mapsto 0$ zeigt, dass der Strategieraum reell geordnet ist. Aber im Gegensatz zur Aussage in obigem Beweis liefert $f$ kein Beste-Antwort-Potential für $\Gamma$.
 \end{bsp}
 
 
