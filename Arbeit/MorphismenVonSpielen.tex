@@ -20,7 +20,7 @@ Darüber hinaus helfen Morphismen dabei auch, andere Beziehungen zwischen versch
 	Ein Morphismus $(\sigma, \phi)$ heißt \emph{Isomorphismus von Spielen}, wenn er einen inversen Morphismus besitzt, d.h. einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ mit $(\sigma, \phi) \circ (\tau, \psi) = (\id, \id)$ und $(\tau, \psi) \circ (\sigma, \phi) = (\id, \id)$. Dabei ist $(\id, \id)$, der Identitätsmorphismus auf dem jeweiligen Spiel, gegeben durch die Identität als Spielerabbildung und Identitäten für alle Strategieabbildungen.
 \end{defn}
 
-Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem - noch deutlich allgemeineren - Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie.}. Wir orientieren uns dabei vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung auf Spiele mit diskreter Spielermenge aus Kapitel 5. 
+Diese Art und Weise Abbildungen zwischen zwei Spielen zu definieren ergibt sich aus dem -- noch deutlich allgemeineren -- Ansatz hierzu von \citeauthor{LapGameCat} in \cite{LapGameCat}\footnote{\citeauthor{LapGameCat} lässt in seiner Definition allerdings alle beteiligten Abbildungen in die jeweils umgekehrte Richtung gehen. Wir betrachten hier also gewissermaßen die zur dort definierten duale Kategorie.}. Wir orientieren uns dabei vor allem an dem dort in Kapitel 4 vorgestellten Morphismusbegriff für topologische Spiele (in denen die Spielermenge ein topologischer Raum und der Strategieraum eine Garbe über diesem ist) bzw. dessen Spezialisierung auf Spiele mit diskreter Spielermenge aus Kapitel 5. 
 
 In dortigen Kontext ergibt es sich etwas natürlicher, dass die Abbildung zwischen den Spielermengen in die entgegengesetzte Richtung zu denen zwischen den Strategieräumen verläuft. Eine andere, auch im hier vorliegenden Kontext sinnvolle Begründung hierfür liefert aber die folgende Bemerkung:
 
@@ -197,7 +197,7 @@ Dies ist also ein Beispiel dafür, wie man eine hinreichende Bedingung für die 
 		\[c_2(t,l) < c_2(t,r) \implies f_2(c_2(t,l)) < f_2(c_2(t,r)) \implies d(\phi(t,l)) < d(\phi(t,r)) \]
 \end{bsp}
 
-Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein, ersetzen Monotonie durch strenge Monotonie und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren - wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe Spiele dann als \glqq ähnlich\grqq.}.
+Wir schränken daher die Verträglichkeitsbedingung auf Nachbarschaften ein, ersetzen Monotonie durch strenge Monotonie und kommen so zum Begriff eines skalierten Morphismus. Analog hierzu lassen sich auch für die anderen Potentialbegriffe passende Begriffe eines Morphismus (und damit eines Isomorphismus) definieren -- wie das etwa \citeauthor{ReprOfFiniteGamesAsNCG} in \cite[Abschnitt 2.1]{ReprOfFiniteGamesAsNCG} für exakte Potentiale tut\footnote{\citeauthor{ReprOfFiniteGamesAsNCG} bezeichnet zwei exakt isomorphe Spiele dann als \glqq ähnlich\grqq.}.
 
 \begin{defn}\label{def:PotentialMorphismen}
 	Ein Morphismus $(\sigma, \phi)$ von $\Gamma = (I, X, (c_i)_{i\in I})$ nach $\Delta = (J, Y, (d_j)_{j\in J})$ heißt
@@ -297,7 +297,7 @@ Insbesondere erhält man also keine Kategorie von Spielen im Sinne der Kategorie
 		\end{align}
 	Die Injektivität der Spielerabbildung stellt nämlich gerade sicher, dass die Strategie von Spieler $\sigma(j)$ ausschließlich die Strategie von Spieler $j$ und keinem anderen beeinflusst.
 	
-	Wir zeigen das Lemma nun für exakte Morphismen - der Beweis für die anderen Morphismenarten geht dann völlig analog. Seien also zwei exakte Morphismen mit injektiver Spielerabbildung gegeben:
+	Wir zeigen das Lemma nun für exakte Morphismen -- der Beweis für die anderen Morphismenarten geht dann völlig analog. Seien also zwei exakte Morphismen mit injektiver Spielerabbildung gegeben:
 		\begin{center}\begin{tikzcd}
 			  \Gamma = (I, X, (c_i)) \arrow[r, "{(\sigma, \phi)}"] \arrow[rr, bend right=15, "{(\sigma\circ\tau, \psi\circ\phi)}"'] 
 			  & \Delta = (J, Y, (d_j)) \arrow[r, "{(\tau, \psi)}"] 
@@ -344,7 +344,7 @@ Lediglich bei skalierenden Morphismen ist die Komposition zweier solcher auch in
 	\end{center}
 	Dass $(\id, \id): \Gamma \to \Delta$ ein skalierender Morphismus ist, haben wir bereits in \Cref{bsp:GegenbspSkalUndIsoIstSkalIso} gesehen und $(\id, \id): \Delta \to \Epsilon$ ist ein skalierender Morphismus mit Skalierungsfunktionen $f'_1 \coloneqq \id$ und $f'_2 \coloneqq \id$. 
 	
-	Die Verknüpfung der beiden Morphismen (also $(\id, \id): \Gamma \to \Epsilon$) ist zwar noch ein ordinaler, aber kein skalierender Morphismus mehr, denn eine Skalierungsfunktion für Spieler 1 müsste dazu $1$ und $2$ auf den gleichen Wert abbilden - ein Widerspruch dazu, dass Skalierungsfunktionen \emph{streng} monoton sein müssen.
+	Die Verknüpfung der beiden Morphismen (also $(\id, \id): \Gamma \to \Epsilon$) ist zwar noch ein ordinaler, aber kein skalierender Morphismus mehr, denn eine Skalierungsfunktion für Spieler 1 müsste dazu $1$ und $2$ auf den gleichen Wert abbilden -- ein Widerspruch dazu, dass Skalierungsfunktionen \emph{streng} monoton sein müssen.
 \end{bsp}
 
 
@@ -367,7 +367,7 @@ Da der in \Cref{bsp:Koordinationsspiel} zur Charakterisierung von Koordinationss
 \end{kor}
 
 \begin{proof}
-	Nach \Cref{prop:CharPotentialeDurchIsos} ist $\Delta$ exakt/gewichtend/\dots{} isomorph zu einem Koordintionsspiel und da wir laut \Cref{lemma:KompositionVonMorphismen} Isomorphismen verknüpfen können, gilt dies auch für $\Gamma$, welches damit - erneut nach \Cref{prop:CharPotentialeDurchIsos} - ein exaktes/gewichtetes/\dots{} Potential besitzt.
+	Nach \Cref{prop:CharPotentialeDurchIsos} ist $\Delta$ exakt/gewichtend/\dots{} isomorph zu einem Koordintionsspiel und da wir laut \Cref{lemma:KompositionVonMorphismen} Isomorphismen verknüpfen können, gilt dies auch für $\Gamma$, welches damit -- erneut nach \Cref{prop:CharPotentialeDurchIsos} -- ein exaktes/gewichtetes/\dots{} Potential besitzt.
 \end{proof}
 
 
@@ -455,9 +455,9 @@ Ordinale Morphismen mit surjektiver Spielerabbildung erhalten also Verbesserungs
 	
 	Insbesondere wissen wir damit, dass es auch in $\phi(\gamma)$ einen Spieler $j(k)$ geben muss, der im $k$-ten Schritt seine Strategie echt ändert. Es gilt also
 		\[\phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^k\right) = \left(\phi(x^k)\right)_{\sigma(j(k))} \neq \left(\phi(x^{k-1})\right)_{\sigma(j(k))} = \phi_{\sigma(j(k))}\left(x_{\sigma(j(k))}^{k-1}\right)\]
-	Daraus folgt $x_{\sigma(j(k))}^k \neq x_{\sigma(j(k))}^{k-1}$ und, da es in einem Pfad pro Schritt höchstens einen abweichenden Spieler geben kann, auch $i(k) = \sigma(j(k))$. Wegen der Ordinalität von $\phi$ folgt dann aber aus $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$, dass sich auch $j(k)$ echt verschlechtert, d.h. $d_{j(k)}(\phi(x^k)) > d_{j(k)}(\phi(x^{k-1}))$ - im Widerspruch dazu, dass $\phi(\gamma)$ ein Nichtverschlechterungspfad ist.
+	Daraus folgt $x_{\sigma(j(k))}^k \neq x_{\sigma(j(k))}^{k-1}$ und, da es in einem Pfad pro Schritt höchstens einen abweichenden Spieler geben kann, auch $i(k) = \sigma(j(k))$. Wegen der Ordinalität von $\phi$ folgt dann aber aus $c_{i(k)}(x^k) > c_{i(k)}(x^{k-1})$, dass sich auch $j(k)$ echt verschlechtert, d.h. $d_{j(k)}(\phi(x^k)) > d_{j(k)}(\phi(x^{k-1}))$ -- im Widerspruch dazu, dass $\phi(\gamma)$ ein Nichtverschlechterungspfad ist.
 
-	Ist nun $\gamma$ ein Verbesserungspfad, so gilt in jedem Schritt $c_{i(k)}(x^{k}) < c_{i(k)}(x^{k-1})$ und daher - mit dem gleichen Argument wie eben - auch $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$. Also ist $\phi(\gamma)$ ein Verbesserungspfad.
+	Ist nun $\gamma$ ein Verbesserungspfad, so gilt in jedem Schritt $c_{i(k)}(x^{k}) < c_{i(k)}(x^{k-1})$ und daher -- mit dem gleichen Argument wie eben -- auch $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$. Also ist $\phi(\gamma)$ ein Verbesserungspfad.
 \end{proof}
 
 Im Allgemeinen bilden (ordinale) Morphismen Pfade nicht wieder auf Pfade ab. Ist nämlich $(\sigma, \phi): \Gamma \to \Delta$ ein solcher Morphismus und gibt es zwei Spieler $j$ und $j'$ mit $\sigma(j) = \sigma(j') \eqqcolon i$, dann kann eine einseitige Abweichung von Spieler $i$ in $\Gamma$ zu einer gleichzeitigen Abweichung der \emph{beiden} Spieler $j$ und $j'$ in $\Delta$ führen. Wie wir bereits im Beweis von \Cref{lemma:KompositionVonMorphismen} gesehen haben, können derartige Probleme hingegen nicht auftreten, wenn die Spielerabbildung $\sigma$ injektiv ist.
@@ -473,7 +473,7 @@ Dies erlaubt uns folgendes Korollar:
 \end{kor}
 	
 \begin{proof}	
-	Nehmen wir im Widerspruch zur Behauptung an, $\gamma$ wäre nicht abgeschlossen. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches $\gamma$ zu einem Verbesserungspfad $\gamma' \coloneqq (x^0, \dots, x^n, x^{n+1})$ in $\Gamma$ verlängert. Nach \Cref{beob:PfadeAufPfade} ist dann auch $\phi(\gamma')$ ein Pfad in $\Delta$ und mit \Cref{prop:NVReflVerbErh} sogar ein Verbesserungspfad, also insbesondere eine Verlängerung des Pfades $\phi(\gamma)$ - ein Widerspruch zu dessen Abgeschlossenheit.
+	Nehmen wir im Widerspruch zur Behauptung an, $\gamma$ wäre nicht abgeschlossen. Dann gäbe es folglich ein Strategieprofil $x^{n+1} \in X$, welches $\gamma$ zu einem Verbesserungspfad $\gamma' \coloneqq (x^0, \dots, x^n, x^{n+1})$ in $\Gamma$ verlängert. Nach \Cref{beob:PfadeAufPfade} ist dann auch $\phi(\gamma')$ ein Pfad in $\Delta$ und mit \Cref{prop:NVReflVerbErh} sogar ein Verbesserungspfad, also insbesondere eine Verlängerung des Pfades $\phi(\gamma)$ -- ein Widerspruch zu dessen Abgeschlossenheit.
 \end{proof}
 
 \begin{kor}\label{kor:ReflektNG}
@@ -551,7 +551,7 @@ Für monotone Morphismen gibt es einen zu \Cref{prop:NVReflVerbErh} analogen Sat
 	Sei $(\sigma, \phi): \Gamma \to \Delta$ ein monotoner Morphismus und $\gamma = (x^0, x^1, \dots)$ ein Pfad in $X$, sodass auch $\phi(\gamma) \coloneqq (\phi(x^0), \phi(x^1), \dots)$ ein Pfad in $Y$ ist. Ist dann $\gamma$ ein Nichtverschlechterungspfad, so auch $\phi(\gamma)$. Ist $\phi(\gamma)$ sogar ein Verbesserungspfad, so auch $\gamma$.
 \end{prop}
 
-Das heißt monotone Morphismen erhalten Nichtverschlechterungspfade und reflektieren Verbesserungspfade - also genau umgekehrt zu ordinalen Morphismen.
+Das heißt monotone Morphismen erhalten Nichtverschlechterungspfade und reflektieren Verbesserungspfade -- also genau umgekehrt zu ordinalen Morphismen.
 
 \begin{proof}
 	Zunächst beobachten wir, dass $\sigma$ immer den in $\phi(\gamma)$ im $k$-ten Schritt abweichenden Spieler (sofern es einen solchen gibt) auf den im gleichen Schritt abweichenden Spieler in $\gamma$ abbildet. Ist nämlich $j(k)$ der entsprechende Spieler aus $\Delta$, so gilt:
@@ -560,7 +560,7 @@ Das heißt monotone Morphismen erhalten Nichtverschlechterungspfade und reflekti
 	
 	Ist nun $\gamma$ ein Nichtverschlechterungspfad und es gibt im $k$-ten Schritt einen (echt) abweichenden Spieler $j(k)$, so ist also $\sigma(j(k)) = i(k)$ und daher $c_{\sigma(j(k))}(x^k) \leq c_{\sigma(j(k))}(x^{k-1})$. Mit der Monotonie von $\phi$ folgt daraus direkt auch $d_{j(k)}(\phi(x^k)) \leq d_{j(k)}(\phi(x^{k-1}))$.
 	
-	Ist $\phi(\gamma)$ ein Verbesserungspfad, gilt in jedem Schritt $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$ und daher - erneut wegen der Monotonie von $\phi$ - auch $c_{\sigma(j(k))}(x^{k+1}) < c_{\sigma(j(k))}(x^{k})$.
+	Ist $\phi(\gamma)$ ein Verbesserungspfad, gilt in jedem Schritt $d_{j(k)}(\phi(x^{k+1})) < d_{j(k)}(\phi(x^k))$ und daher -- erneut wegen der Monotonie von $\phi$ -- auch $c_{\sigma(j(k))}(x^{k+1}) < c_{\sigma(j(k))}(x^{k})$.
 \end{proof}
 
 Der folgende Satz zeigt, wann man Spieler weglassen kann, ohne dadurch die Nash-Gleichgewichte des Spiels zu beeinflussen.
