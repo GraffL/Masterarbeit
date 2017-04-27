@@ -198,12 +198,12 @@ und die Menge der Ressourcen, die der eine Spieler abgibt und der zweite hinzuni
 	Es gilt:
 		\begin{align}\begin{split}  \label{eq:PfadAendUngew}
 			\PfadAend(\gamma) &= \sum_{r \in R_1} \Bigl(\left(w_\ia - w_\ib\right) g_r(\wrestr + w_\ib + w_\ia) - w_\ia g_r(\wrestr + w_\ia)  + w_\ib g_r(\wrestr + w_\ib)\Bigr) \\
-			&+ \sum_{r \in R_2} \Bigl(\left(w_\ib - w_\ia\right) g_r(\wrestr + w_\ib + w_\ia) - w_\ib g_r(\wrestr + w_\ia) + w_\ia g_r(\wrestr + w_\ib)\Bigr)
+			&+ \sum_{r \in R_2} \Bigl(\left(w_\ib - w_\ia\right) g_r(\wrestr + w_\ib + w_\ia) - w_\ib g_r(\wrestr + w_\ib) + w_\ia g_r(\wrestr + w_\ia)\Bigr)
 		\end{split}\end{align}
 	Ist $v = (v_i)_{i \in I}$ ein zusätzlicher Gewichtsvektor, so gilt:
 		\begin{align}\begin{split}\label{eq:PfadAendGew}
 			\PfadAend(\gamma, v) &= \sum_{r \in R_1} \left(\left(\frac{w_\ia}{v_\ia} - \frac{w_\ib}{v_\ib}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)  + \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib)\right) \\
-								&+ \sum_{r \in R_2} \left(\left(\frac{w_\ib}{v_\ib} - \frac{w_\ia}{v_\ia}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ia) + \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ib)\right)
+								&+ \sum_{r \in R_2} \left(\left(\frac{w_\ib}{v_\ib} - \frac{w_\ia}{v_\ia}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib) + \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)\right)
 		\end{split}\end{align}
 \end{lemma}
 
@@ -211,9 +211,9 @@ Der Beweis erfolgt durch Einsetzen der Definition der Kostenfunktionen, Umsortie
 
 Wir können nun leicht folgern, dass gewichtete Auslastungsspiele mit ausschließlich affin linearen Ressourcenkosten immer ein exaktes Potential besitzen. Ist nämlich $g: \IR\to \IR$ eine beliebige affin lineare Funktion, so gilt für alle reellen Zahlen $u,v,w \in \IR$
 	\[(u-v)g(w+u+v) - u g(w+u) + v g(w+v) = 0.\]
-Werden also alle Ressourcenkosten durch affin lineare Funktionen beschrieben, so ist jeder Summand in \eqref{eq:PfadAendUngew} null und folglich auch $\PfadAend(\gamma) = 0$.
+Werden also alle Ressourcenkosten durch affin lineare Funktionen beschrieben, so ist jeder Summand in \eqref{eq:PfadAendUngew} null und folglich auch $\PfadAend(\gamma) = 0$. Nach \Cref{satz:CharExPot} hat das Spiel dann ein exaktes Potential.
 
-Sei nun also $M$ ein Auslastungsmodell, in dem alle Ressourcenkosten von der Form $g(k) = a_g\cdot b^k + d_g$ sind. Dann definieren wir die Gewichte $v_i \coloneqq \frac{w_i b^{w_i}}{b^{w_i}-1}$. Da sowohl $b$ als auch $w_i$ positive reelle Zahlen sind, gilt dies auch für $v_i$. Wir setzen nun diese Gewichte in \eqref{eq:PfadAendGew} aus \Cref{lemma:PfadAenderungen} ein und sehen, dass so alle Summanden und damit auch die gewichtete Pfadänderung null werden:
+Sei nun also $M$ ein Auslastungsmodell, in dem alle Ressourcenkosten von der Form $g(k) = a_g\cdot b^k + d_g$ sind. Dann definieren wir die Gewichte $v_i \coloneqq \frac{w_i b^{w_i}}{b^{w_i}-1}$. Da sowohl $b$ als auch $w_i$ positive reelle Zahlen sind, gilt dies auch für $v_i$. Wir setzen nun diese Gewichte in \eqref{eq:PfadAendGew} aus \Cref{lemma:PfadAenderungen} ein und sehen, dass dadurch alle Summanden und damit auch die gewichtete Pfadänderung null werden:
 \begin{align*}
 	&\quad \left(\frac{w_\ia}{v_\ia} - \frac{w_\ib}{v_\ib}\right) g_r(\wrestr + w_\ib + w_\ia) - \frac{w_\ia}{v_\ia} g_r(\wrestr + w_\ia)  + \frac{w_\ib}{v_\ib} g_r(\wrestr + w_\ib) =\\
 	&= \frac{w_\ia}{v_\ia}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ia)\right) - \frac{w_\ib}{v_\ib}\left(g_r(\wrestr + w_\ib + w_\ia) - g_r(\wrestr + w_\ib)\right) =\\
@@ -223,14 +223,14 @@ Sei nun also $M$ ein Auslastungsmodell, in dem alle Ressourcenkosten von der For
 \end{align*}
 Somit hat $\Gamma(M)$ nach \Cref{satz:CharGewPot} ein gewichtetes Potential und wir haben \Cref{satz:CharExGewPotinWCG2} vollständig bewiesen.
 
-Wie schon \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG} beobachten, erhalten wir aus \Cref{lemma:PfadAenderungen} auch einen alternativen Beweis dafür, dass ungewichtete Auslastungsspiele ein exaktes Potential besitzen. Aus unserer Version des Lemmas erhalten wir sogar noch eine etwas stärkere Version der einen Richtung von \Cref{satz:MondererShapley} (die Einschränkung auf endliche Spielermengen und endliche Strategien entfällt), die also auch in Fällen gilt, in denen die Rosenthal-Potentialfunktion nicht definiert wäre (da die entsprechende Summe divergiert).
+\citeauthor{CharExGewPotinWCG} beobachten in \cite{CharExGewPotinWCG} außerdem, dass wir aus \Cref{lemma:PfadAenderungen} auch einen alternativen Beweis dafür bekommen können, dass ungewichtete Auslastungsspiele ein exaktes Potential besitzen. Aus unserer Version des Lemmas erhalten wir sogar noch eine etwas stärkere Version der einen Richtung von \Cref{satz:MondererShapley} (die Einschränkung auf endliche Spielermengen und endliche Strategien entfällt), die also auch in Fällen gilt, in denen die Rosenthal-Potentialfunktion nicht definiert wäre (da die entsprechende Summe divergiert):
 
 \begin{kor}\label{kor:MondererShapleyUnendl}
 	Jedes ungewichtete Auslastungsspiel hat ein exaktes Potential.
 \end{kor}
 
 \begin{proof}
-	Setzen wir in \eqref{eq:PfadAendUngew} alle Gewichte auf $1$, so sehen wir direkt, dass sich unabhängig von der Form der verwendeten Ressourcenkosten $g_r$ alle Summanden wegkürzen und wir erhalten $\PfadAend(\gamma) = 0$. Also besitzt jedes ungewichtete Auslastungsspiel nach \Cref{satz:CharExPot} ein exaktes Potential.
+	Setzen wir in \eqref{eq:PfadAendUngew} alle Gewichte auf $1$, so sehen wir direkt, dass sich unabhängig von der Form der verwendeten Ressourcenkosten $g_r$ alle Summanden wegkürzen, und wir erhalten $\PfadAend(\gamma) = 0$. Also besitzt jedes ungewichtete Auslastungsspiel nach \Cref{satz:CharExPot} ein exaktes Potential.
 \end{proof}
 
 \begin{bem}\label{bem:UnendlLastKostGewAusl}
@@ -239,16 +239,18 @@ Wie schon \citeauthor{CharExGewPotinWCG} in \cite{CharExGewPotinWCG} beobachten,
 
 Wie wir sehen, lassen sich also die Sätze über die Existenz von Potentialen in den verschiedenen Auslastungsspielen leicht auch auf unendliche Spiele anwenden. Für die umgekehrte Richtung hingegen, also das Konstruieren eines äquivalenten Auslastungsspieles zu einem gegebenen Potentialspiel, ist es weniger klar, ob die entsprechenden Aussagen aus \Cref{satz:MondererShapley} und \Cref{satz:MondererShapleyKostengew} auch für Spiele mit unendlicher Spielermenge gelten. 
 
-Zumindest wird dafür aber eine neue Konstruktion notwendig sein, da die für den endlichen Fall verwendete an zentraler Stelle die Endlichkeit der Spielermenge verwendet: Nämlich um zu testen, ob \emph{alle} Spieler gleichzeitig eine bestimmte Ressource benutzen, die dann gerade einem Strategieprofil entspricht. Dies ist aber natürlich nur möglich, wenn die Zahl der Spieler endlich ist. Wir können die Konstruktion allerdings noch retten, wenn wir uns erlauben neue Spielergewichte einzuführen, sodass die Summe aller dieser gegen einen endlichen Wert konvergiert. Dadurch erhalten wir den folgenden Satz:
+Zumindest wird dafür aber vermutlich eine neue Konstruktion notwendig sein, da die für den endlichen Fall verwendete an zentraler Stelle die Endlichkeit der Spielermenge verwendet: Nämlich um zu testen, ob \emph{alle} Spieler gleichzeitig eine bestimmte Ressource benutzen, die dann gerade einem Strategieprofil entspricht. Ein solcher Test ist problemlos möglich, wenn die Zahl der Spieler endlich ist, aber nicht mehr, wenn sie unendlich oder gar überabzählbar ist.
+
+Wir können die Konstruktion allerdings noch retten, wenn wir uns dabei erlauben neue Spielergewichte einzuführen, sodass die Summe aller dieser gegen einen endlichen Wert konvergiert. Dadurch erhalten wir zumindest noch den folgenden Satz, der jedoch deutlich schwächer ist als die bisherigen Versionen. Denn dieses Mal gehört das konstruierte Spiel einer der Varianten von Auslastungsspielen an, die im Allgemeinen kein exaktes Potential besitzen (die verwendeten Ressourcenkosten sind auch weder affin linear noch affin exponentiell).
 
 \begin{satz}\label{satz:ReprAbzbarerExPotspieleDurchLastgewAusl}
 	Zu jedem Spiel mit abzählbarer Spielermenge und exakter Potentialfunktion gibt es ein äquivalentes lastgewichtetes Auslastungsspiel.
 \end{satz}
 
 \begin{proof}
-	Wir verwenden eine nur leicht modifizierte Version der Konstruktion aus dem Beweis zu \Cref{satz:MondererShapley}. Sei also $\Gamma$ ein Spiel mit abzählbarer Spielermenge $I$ (wir nehmen ohne Einschränkung $I \subseteq \IN$ an) und exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
+	Wir verwenden eine nur leicht modifizierte Version der Konstruktion aus dem Beweis zu \Cref{satz:MondererShapley}. Sei also $\Gamma$ ein Spiel mit abzählbarer Spielermenge $I$ (wir nehmen ohne Einschränkung $I \subseteq \IN$ an) und exaktem Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
 	\begin{itemize}
-		\item Ressourcen $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$
+		\item Ressourcen $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$, wobei $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und \\ $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$ sind,
 		\item mit Ressourcenkosten
 		\[g_r(k) \coloneqq 
 		\begin{cases}
@@ -259,12 +261,12 @@ Zumindest wird dafür aber eine neue Konstruktion notwendig sein, da die für de
 		\]
 		\item und dazu Strateegien $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$.
 	\end{itemize}
-	Dann betrachten wir das zusammen mit dem Gewichtsvektor $w \coloneqq (1/2^i)_{i \in I}$ darauf induzierte lastgewichtete Auslastungsspiel $\Gamma_l(M, w)$. Dessen Lastfunktionen sind wohldefiniert, da die Summe aller Spielergewichte $\sum_{i \in I} 1/2^i \leq 1$ absolut konvergiert. Die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma_l(M, w)$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma_l(M, w)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ ist. Dieser ist offenbar bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
+	Dann betrachten wir das zusammen mit dem Gewichtsvektor $w \coloneqq (1/2^i)_{i \in I}$ darauf induzierte lastgewichtete Auslastungsspiel $\Gamma_l(M, w)$. Dessen Lastfunktionen sind wohldefiniert, da die Summe aller Spielergewichte $\sum_{i \in I} 1/2^i \leq 1$ absolut konvergiert. Die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma_l(M, w)$. Dazu betrachten wir den Morphismus $(\id, \phi): \Gamma \to \Gamma_l(M, w)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ ist. Dieser ist offensichtlich bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
 	\begin{align*}
 	d_{\hat{\imath}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} g_r(l_r(\phi(x))) = \\
-	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(\underbrace{l_r(\phi(x))}_{= \sum 1/2^i \iff r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\imath}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1/2^{\hat{\imath}} \iff r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}) = \\
+	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(\underbrace{l_r(\phi(x))}_{= \sum 1/2^i \Leftrightarrow r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\imath}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{=1/2^{\hat{\imath}} \Leftrightarrow r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}) = \\
 	&=g_{\left(\{x_i\}\right)_{i \in I}}\left(\sum_{i \in I} 1/2^i\right) + g_{\left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\hat{\imath}} \times X_{\hat{\imath}}}\left(1/2^{\hat{\imath}}\right) = \\
-	&=P(x) + c_{\hat{\imath}}(x) - P(x) = c_{\hat{\imath}}(x) \qedhere									
+	&=\quad\quad\quad P(x) \quad\quad\quad~\, + \quad\quad c_{\hat{\imath}}(x) - P(x) \quad\quad~~\, = c_{\hat{\imath}}(x) \qedhere									
 	\end{align*}
 \end{proof}
 
@@ -281,7 +283,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \begin{proof}
 	Wir definieren zunächst das Auslastungsmodell $N \coloneqq (I, R, S, (h_r))$, wobei die Ressourcenkosten $h_{\hat{r}}$ wie folgt definiert sind:
 		\[h_{\hat{r}}(\hat{k}) \coloneqq \#\Set{(r, k) \in R\times \{1, \dots, \abs{I}\} | g_r(k) \leq g_{\hat{r}}(\hat{k})} \]
-	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, S, (d_i))$ hat nun offenbar die gewünschten Eigenschaften. 
+	Das heißt also wir ordnen alle möglichen Werte, welche die Ressourcenkostenfunktionen annehmen können, und ersetzen dann die tatsächlichen Kosten durch die Position dieser Kosten in der Liste aller Kosten. Das von $N$ induzierte Auslastungsspiel $\Gamma(N) \eqqcolon (I, R, S, (d_i))$ hat nun offenbar die gewünschten Eigenschaften. 
 	
 	Noch zu zeigen ist, dass $\Gamma(N)$ tatsächlich Beste-Antwort-isomorph zu $\Gamma(M)$ ist. Dazu betrachten wir den Identitätsmorphismus zwischen den beiden Spielen (der offensichtlich bijektiv ist) und zeigen, dass die besten Antworten in $\Gamma(N)$ genau den besten Antworten in $\Gamma(M)$ entsprechen. Dazu benötigen wir die folgende Proposition:	\noqed
 \end{proof}
@@ -311,7 +313,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \end{proof}
 
 \begin{proof}[Beweis von \Cref*{satz:BAPotentialFuerMatroidspiele} (Forts.)]
-	Sei $s \in S$ ein beliebiges Strategieprofil, $s^\ast_i$ eine beste Antwort von Spieler $i$ auf $s$ im Spiel $\Gamma(M)$ (also bezüglich $c_i$) und $s'_i$ eine beste Antwort im Spiel $\Gamma(N)$ (also bezüglich der alternativen Kosten $d_i$). Wir werden nun zeigen, dass $c_i(s \mid s^\ast_i) = c_i(s \mid s'_i)$ gilt. Mit \Cref{prop:BAPotentialFuerMatroidspieleHilfsP} erhalten wir dann auch $d_i(s \mid s^\ast_i) = d_i(s)$ und folglich ist sowohl $s'_i$ eine Beste Antwort in $\Gamma(M)$ als auch $s^\ast_i$ eine Beste Antwort in $\Gamma(N)$. Das zeigt, dass die Identitätsabbildung zwischen den beiden Spielen beste Antworten in beide Richtungen erhält und daher ein Beste-Antwort-Morphismus ist. 
+	Sei $s \in S$ ein beliebiges Strategieprofil, $s^\ast_i$ eine beste Antwort von Spieler $i$ auf $s$ im Spiel $\Gamma(M)$ (also bezüglich $c_i$) und $s'_i$ eine beste Antwort im Spiel $\Gamma(N)$ (also bezüglich der alternativen Kosten $d_i$). Wir werden nun zeigen, dass $c_i(s \mid s^\ast_i) = c_i(s \mid s'_i)$ gilt. Mit \Cref{prop:BAPotentialFuerMatroidspieleHilfsP} erhalten wir dann auch $d_i(s \mid s^\ast_i) = d_i(s)$ und folglich ist sowohl $s'_i$ eine Beste Antwort in $\Gamma(M)$ als auch $s^\ast_i$ eine Beste Antwort in $\Gamma(N)$. Das zeigt, dass die Identitätsabbildung zwischen den beiden Spielen beste Antworten in beide Richtungen erhält und daher ein Beste-Antwort-Isomorphismus ist. 
 	
 	Wir untersuchen dazu, welcher der drei theoretisch möglichen Fälle tatsächlich eintreten kann:
 	\begin{description}
@@ -327,7 +329,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \end{kor}
 
 \begin{proof}
-	Die Rosenthalpotentialfunktion $P: S \to \IR: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} h_r(k)$ ist (wie in \Cref{satz:MondererShapley} gezeigt) ein exaktes Potential für das Auslastungsspiel $\Gamma(N)$, insbesondere also auch ein Beste-Antwort-Potential. Ferner sieht man leicht, dass diese Potentialfunktion höchstens $\abs{R}\cdot\abs{I}\cdot \abs{R}\abs{I}$ viele verschiedene Werte annehmen kann.
+	Die Rosenthal-Potentialfunktion $P: S \to \IR: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} h_r(k)$ ist (wie in \Cref{satz:MondererShapley} gezeigt) ein exaktes Potential für das Auslastungsspiel $\Gamma(N)$, insbesondere also auch ein Beste-Antwort-Potential. Ferner sieht man leicht, dass diese Potentialfunktion höchstens $\abs{R}\cdot\abs{I}\cdot \abs{R}\abs{I}$ viele verschiedene Werte annehmen kann.
 	
 	Zusammen mit \Cref{kor:PotentialeDurchIsosUebertragen} können wir nun aus \Cref{satz:BAPotentialFuerMatroidspiele} folgern, dass $P$ auch ein Beste-Antwort-Potential für $\Gamma(M)$ ist. Mit \Cref{prop:BAPotBAPfad} ist dann jeder Beste-Antwort-Verbesserungspfad in $\Gamma(M)$ auch ein solcher im von $P$ induzierten Koordinationsspiel. In diesem kann aber kein solcher Pfad länger als $\abs{I}^2\abs{R}^2$ sein, was somit auch für alle Beste-Antwort-Verbesserungspfade in $\Gamma(M)$ gelten muss.
 \end{proof}
@@ -337,7 +339,7 @@ Für die Teilklasse der Matroidspiele kann man jedoch zeigen, dass diese Konverg
 \end{kor}
 
 \begin{proof}
-	Nach \Cref{lemma:KostengewAuslIsomZuAusl} ist $\Gamma_c(M,w)$ gewichtet (und damit auch Beste-Antwort-)isomorph zu $\Gamma(M)$ und dieses nach \Cref{satz:BAPotentialFuerMatroidspiele} zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen. Da die Verknüpfung von Beste-Antwort-Isomorphismen wieder ein Beste-Antwort-Isomorphismus ist, folgt die zu zeigende Aussage dann analog zu \Cref{kor:BA-DynamikInMatroidSpielen}. 
+	Nach \Cref{lemma:KostengewAuslIsomZuAusl} ist $\Gamma_c(M,w)$ gewichtet (und damit auch Beste-Antwort-) isomorph zu $\Gamma(M)$ und dieses nach \Cref{satz:BAPotentialFuerMatroidspiele} zu einem Auslastungsspiel mit selber Ressourcenmenge, in dem alle Ressourcenkosten nur Werte zwischen $1$ und $\abs{R}\cdot\abs{I}$ annehmen. Da die Verknüpfung von Beste-Antwort-Isomorphismen wieder ein Beste-Antwort-Isomorphismus ist, folgt die zu zeigende Aussage nun analog zu \Cref{kor:BA-DynamikInMatroidSpielen}. 
 \end{proof}
 
 Auf lastgewichtete bzw. gewichtete Matroidspiele lässt sich diese Aussage hingegen nicht verallgemeinern. Zwar funktioniert der Beweis von \Cref{satz:BAPotentialFuerMatroidspiele} weiterhin (wenn auch mit größerem Bild der Kostenfunktionen), aber das dabei erhaltene alternative Auslastungsspiel ist dann ebenfalls gewichtet und hat daher im Allgemeinen kein Potential. \citeauthor{NGinGewMatroidSpielen} geben in \cite[Theorem 14]{NGinGewMatroidSpielen} ein lastgewichtetes\footnote{Dort werden lastgewichtete Auslastungsspiele als \glqq weighted congestion games\grqq{} bezeichnet.} Matroidspiel mit zwei Spielern, vier Ressourcen und monoton wachsenden Kostenfunktionen an, welches kein Beste-Antwort-Potential besitzt. Wegen \Cref{lemma:lastgewAuslIsomGewAusl} kann auch die gewichtete Version davon kein Beste-Antwort-Potential besitzen.
@@ -349,7 +351,7 @@ Auf lastgewichtete bzw. gewichtete Matroidspiele lässt sich diese Aussage hinge
 Aus \Cref{satz:CharExGewPotinWCG2} wissen wir bereits, dass jedes gewichtete $N$-Personen-Auslastungsspiel mit affin linearen Kostenfunktionen ein exaktes Potential hat und daher nach \Cref{satz:MondererShapley} äquivalent zu einem (ungewichteten) Auslastungsspiel ist. Der folgende Satz enthält im Wesentlichen die gleiche Aussage, allerdings auch für Spiele mit unendlicher Spielermenge. Außerdem ist das konstruierte Auslastungsspiel etwas einfacher und hat im Allgemeinen eine kleinere Ressourcenmenge.
 
 \begin{satz}\label{satz:GewAuslZuUngewAusl}
-	Sei $\Gamma(M,w)$ ein gewichtetes Auslastungsspiel, in dem alle Kostenfunktionen affin linear sind. Dann gibt es ein dazu äquivalentes (ungewichtetes) Auslastungsspiel $\Gamma(N)$. 
+	Sei $\Gamma(M,w)$ ein gewichtetes Auslastungsspiel, in dem alle Kostenfunktionen affin linear sind. Dann gibt es ein dazu äquivalentes (ungewichtetes) Auslastungsspiel. 
 \end{satz}
 
 \begin{proof}
@@ -365,15 +367,12 @@ Aus \Cref{satz:CharExGewPotinWCG2} wissen wir bereits, dass jedes gewichtete $N$
 		\[T_i \coloneqq \Set{\Set{(r, \{i, i'\}) | r \in s_i, i' \in I} | s_i \in S_i }.\]
 	Dadurch erhalten wir das Auslastungsmodell $N \coloneqq (I, Q, \prod_{i \in I} T_i, (h_q)_{q \in Q})$. Die Lastenfunktionen des davon erzeugten Auslastungsspiel sind offensichtlich wohldefiniert, da keine Ressource von mehr als zwei Spielern genutzt werden kann. Die Wohldefiniertheit der Kostenfunktionen ergibt sich aus der Äquivalenz von $\Gamma(N)$ zu $\Gamma(M)$.
 	
-	Um diese Äquivalenz zu zeigen, betrachten wir den Morphismus $(\id, \phi): \Gamma(M,w) \to \Gamma(N)$ zwischen den beiden Spielen, der wie folgt definiert ist:
-	\[\phi_i: S_i \to T_i: s_i \mapsto \Set{(r, \{i, i'\}) | r \in s_i, i' \in I}\]
-	Dieser Morphismus ist offensichtlich auf allen Mengen bijektiv und zudem kostenerhaltend, denn es gilt:
+	Zum Beweis der Äquivalenz betrachten wir den Morphismus $(\id, \phi): \Gamma(M,w) \to \Gamma(N)$ mit Strategieabbildungen $\phi_i: S_i \to T_i: s_i \mapsto \Set{(r, \{i, i'\}) | r \in s_i, i' \in I}$. Dieser Morphismus ist offensichtlich auf allen Mengen bijektiv und zudem kostenerhaltend, denn es gilt:
 	\begin{align*}
 	d_i(\phi(s)) 	&= \sum_{q \in \phi(s)_i = \phi_i(s_i)} h_q(l_q(\phi(s))) = \sum_{r \in s_i, i' \in I} h_{(r, \{i,i'\})}(l_{(r, \{i,i'\})}(\phi(s))) = \\
 	&= \sum_{r \in s_i} \left(h_{(r, \{i\})}(\underbrace{l_{(r, \{i\})}\phi(s)}_{=1}) + \sum_{i' \in I\setminus\{i\}} h_{(r, \{i, i'\})}(\underbrace{l_{(r, \{i, i'\})}(\phi(s))}_{=2 \iff r \in s_{i'}})\right) = \\
-	&= \sum_{r \in s_i}\left( a_r w_i^2 + b_r w_i + \sum_{i' \in I\setminus\{i\}: r \in s_{i'}} a_r w_i w_{i'}\right) = \\
-	&= \sum_{r \in s_i}w_i \left( b_r + a_r \sum_{i' \in I: r \in s_{i'}}w_{i'} \right) = \sum_{r \in s_i}w_i \left( b_r + a_r l_r(s)\right) = \\
-	&= \sum_{r \in s_i}w_i g_r(l_r(s)) = c_i(s) \qedhere
+	&= \sum_{r \in s_i}\left( a_r w_i^2 + b_r w_i + \sum_{i' \in I\setminus\{i\}: r \in s_{i'}} a_r w_i w_{i'}\right) = \sum_{r \in s_i}w_i \left( b_r + a_r \sum_{i' \in I: r \in s_{i'}}w_{i'} \right) =\\
+	&= \sum_{r \in s_i}w_i \left( b_r + a_r l_r(s)\right) = \sum_{r \in s_i}w_i g_r(l_r(s)) = c_i(s)
 	\end{align*}
 \end{proof}
 
@@ -390,7 +389,7 @@ Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potential
 \end{satz}
 
 \begin{proof}
-	Gegeben also ein Spiel $\Gamma = (I, X, (c_i)_{i\in i})$ mit einem skalierten Potential $P$ sowie entsprechenden Skalierungsfunktionen $f_i$. Wir können ohne Einschränkung annehmen, dass es einen Wert $t \in \IR$ gibt, der von allen Skalierungsfunktionen auf $0$ abgebildet wird. Ist dies nämlich nicht der Fall, so wählen wir ein beliebiges aber festes Strategieprofil $\widetilde{x} \in X$, setzen $t \coloneqq P(\widetilde{x})$ und verwenden alternative Skalierungsfunktionen $f'_i(\_) \coloneqq f_i(\_) - f_i(t)$. Diese sind offensichtlich immer noch streng monoton und bilden $t$ auf $0$ ab. Ferner sind sie weiterhin Skalierungsfunktionen zu dem gegebenen Potential $P$, denn es gilt:
+	Gegeben also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem skalierten Potential $P$ sowie entsprechenden Skalierungsfunktionen $f_i$. Wir können ohne Einschränkung annehmen, dass es einen Wert $t \in \IR$ gibt, der von allen Skalierungsfunktionen auf $0$ abgebildet wird. Ist dies nämlich nicht der Fall, so wählen wir ein beliebiges aber festes Strategieprofil $\widetilde{x} \in X$, setzen $t \coloneqq P(\widetilde{x})$ und verwenden alternative Skalierungsfunktionen $f'_i(\_) \coloneqq f_i(\_) - f_i(t)$. Diese bilden offensichtlich $t$ auf $0$ ab und sind immer noch streng monoton. Ferner sind sie weiterhin Skalierungsfunktionen zu dem gegebenen Potential $P$, denn es gilt:
 		\begin{align*}
 			f'_i(P(x)) - f'_i(P(x\mid \hat{x}_i)) 	&= \left(f_i(P(x)) - f_i(t)\right) - \left(f_i(P(x \mid \hat{x}_i)) - f_i(t)\right) = \\
 													&= f_i(P(x)) - f_i(P(x\mid \hat{x}_i)) = c_i(x) - c_i(x \mid \hat{x}_i)
@@ -406,7 +405,7 @@ Nachdem wir die Äquivalenz von ungewichteten Auslastungs- und exakten Potential
 				\end{cases}\]
 		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
 	\end{itemize}
-	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt dann aus dem Beweis der exakten Isomorphie der Spiele $\Gamma$ und $\Gamma(M, (f_i))$. Dazu betrachten wir den über $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ definierten Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
+	Die induzierten Lastfunktionen sind automatisch wohldefiniert, da die Spielermenge endlich ist, die Kostenfunktionen $d_i$ sind es, da jeder Spieler immer nur genau für eine Ressource etwas zahlen muss. Zum Beweis der exakten Isomorphie von $\Gamma$ und $\Gamma(M, (f_i))$ betrachten wir den über $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ definierten Morphismus $(\id, \phi): \Gamma \to \Gamma(M)$. Dieser ist offenbar bijektiv auf allen Mengen und zudem exakt, denn es gilt:
 	\begin{align*}
 	d_{\hat{\imath}}(\phi(x)) &- d_{\hat{\imath}}(\phi(x \mid \hat{x}_i)) =\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} f_{\hat{\imath}} \circ g_r(l_r(\phi(x))) - \sum_{r \in \phi_{\hat{\imath}}(\hat{x}_{\hat{\imath}})} f_{\hat{\imath}} \circ g_r(l_r(\phi(x \mid \hat{x}_i))) = \\
 	&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} f_{\hat{\imath}} (\underbrace{g_r(l_r(\phi(x)))}_{= t \impliedby r \neq \left(\{x_i\}\right)_{i \in I}}) -
@@ -456,7 +455,7 @@ Skalierte Nicht-Singleton-Auslastungsspiele hingegen besitzen im Allgemeinen nic
 
 Schließlich wollen wir noch die allgemeinste Form der zu Beginn dieser Arbeit definierten Auslastungsspiele betrachten: Gewichtete Auslastungsspiele mit nicht-anonymen Ressourcenkosten. Da endliche Spiele \Cref{kor:JedesSpielGewAusl} zufolge immer äquivalent zu einem gewichteten Auslastungsspiel sind, lassen sich insbesondere (endliche) nicht-anonyme gewichtete Auslastungsspiele immer auch als solche darstellen. Dabei wird allerdings die Ressourcenmenge im Allgemeinen erheblich größer. 
 
-Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender), so ist ein entsprechender Wechsel zu gewichteten Auslastungsspielen ohne Vergrößerung der Ressourcenmenge und selbst bei abzählbar unendlichen Spielermengen möglich:
+Begnügen wir uns hingegen mit gewichtender Isomorphie (statt kostenerhaltender), so ist ein entsprechender Wechsel zu gewichteten Auslastungsspielen ohne Vergrößerung der Ressourcenmenge und selbst bei abzählbar unendlichen Spielermengen möglich:
 
 \begin{satz}\label{satz:NichtAnonymeAusl}
 	Jedes nicht-anonyme Auslastungsspiel mit abzählbarer Spielermenge ist äquivalent zu einem lastgewichteten (anonymen) Auslastungsspiel und jedes nicht-anonyme gewichtete Auslastungsspiel mit abzählbarer Spielermenge ist gewichtend isomorph zu einem gewichteten (anonymen) Auslastungsspiel. Dabei verwenden jeweils beide Spiele die gleiche Ressourcenmenge.
@@ -470,7 +469,7 @@ Begnügen wir uns allerdings mit gewichteter Isomorphie (statt kostenerhaltender
 	\end{cases} \]
 	Wir erhalten so ein (anonymes) Auslastungsmodell $N \coloneqq (I, R, S, (h_r))$ und sehen leicht, dass $\Gamma(M)$ und $\Gamma_l(N, v)$ äquivalent sind. Dabei sind die Lastfunktionen wohldefiniert, da $\sum_{n \in I} 1/3^n$ endlich ist, und die Kostenfunktionen wegen der Äquivalenz zu $\Gamma(M)$. 
 	
-	Ist zusätzlich ein Gewichtsvektor $w = (w_i)_{i\in I}$ gegeben, so ist das nicht-anonyme gewichtete Auslastungsspiel $\Gamma(M, w)$ gewichtet isomorph zum gewichteten Auslastungsspiel $\Gamma(N, v)$, wobei $(w_i/v_i)_{i \in I}$ der Gewichtsvektor des Isomorphismus ist.
+	Ist zusätzlich ein Gewichtsvektor $w = (w_i)_{i\in I}$ gegeben, so ist das nicht-anonyme gewichtete Auslastungsspiel $\Gamma(M, w)$ gewichtend isomorph zum gewichteten Auslastungsspiel $\Gamma(N, v)$, wobei $(w_i/v_i)_{i \in I}$ der Gewichtsvektor des Isomorphismus ist.
 \end{proof}
 
 
@@ -488,6 +487,6 @@ In \Cref{abb:Zusammenfassung} sind die meisten der in diesem Kapitel beschrieben
 	\resizebox{.99\textwidth}{!}{\input{../Bilder/EulerDiagramm2.pdf_tex}}
 	% Standarddefinitionen von Cref-Format wiederherstellen:
 	\Crefformat{satz}{Satz #2#1#3}\Crefformat{lemma}{Lemma #2#1#3}\Crefformat{bem}{Bemerkung #2#1#3}\Crefformat{bsp}{Beispiel #2#1#3}\Crefformat{kor}{\thb{Korollar #2#1#3}}
-	\caption{Einige Zusammenhänge zwischen den verschiedenen Spieleklassen. Die dargestellten Inklusionen gelten jeweils für beliebige Spiele. Echte und unechte Inklusionen werden dabei nicht unterschieden -- in einigen Fällen sind aber als Belege für deren Echtheit Beispiele angegeben.}
+	\caption{Einige Zusammenhänge zwischen den verschiedenen Spieleklassen. Die dargestellten Inklusionen gelten jeweils für beliebige Spiele. Echte und unechte Inklusionen werden dabei nicht unterschieden -- in einigen Fällen sind aber als Belege für deren Echtheit Beispiele angegeben.\\Die einzelnen Sätze sind jeweils mit den entsprechenden Stellen in der Arbeit verlinkt.}
 	\label{abb:Zusammenfassung}
 \end{figure}

@@ -559,7 +559,7 @@
          inkscape:connector-curvature="0"
          id="path4544-0-9"
          d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
-         style="fill:#13a000;fill-opacity:1;fill-rule:evenodd;stroke:#13a000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#00be6e;fill-opacity:1;fill-rule:evenodd;stroke:#00be6e;stroke-width:1pt;stroke-opacity:1"
          transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
     </marker>
     <marker
@@ -603,7 +603,7 @@
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
-         style="fill:#008000;fill-opacity:1;fill-rule:evenodd;stroke:#008000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#00be6e;fill-opacity:1;fill-rule:evenodd;stroke:#00be6e;stroke-width:1pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
          id="path11591-8" />
     </marker>
@@ -750,16 +750,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="638.76097"
-     inkscape:cy="421.8918"
+     inkscape:zoom="1.4"
+     inkscape:cx="233.66981"
+     inkscape:cy="110.26073"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="657"
      inkscape:window-x="-8"
-     inkscape:window-y="32"
+     inkscape:window-y="544"
      inkscape:window-maximized="1"
      fit-margin-top="-5"
      fit-margin-left="0"
@@ -1290,14 +1290,14 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#13a000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.99999976, 3.99999976000000010;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-9-4)"
+       style="fill:none;fill-rule:evenodd;stroke:#00be6e;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.99999976, 3.99999976000000010;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-9-4)"
        d="M 442.00178,227.40392 361.06144,288.7008"
        id="path4511-7-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#13a000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#00be6e;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="164.57805"
        y="463.41415"
        id="text5180-81-1"
@@ -1307,7 +1307,7 @@
          id="tspan5182-3-0"
          x="164.57805"
          y="463.41415"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#13a000;fill-opacity:1;">\Cref{satz:skalPotZuSkalAusl}</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#00be6e;fill-opacity:1;">\Cref{satz:skalPotZuSkalAusl}</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2, 1, 2;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-9-0)"
        d="M 69.825695,167.75722 163.31991,286.9806"
@@ -1407,13 +1407,13 @@
          y="415.67667"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\normalsize äquivalent</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#13a000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker11589-1)"
+       style="fill:none;fill-rule:evenodd;stroke:#00be6e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker11589-1)"
        d="m 20.929963,432.98493 57.142857,0"
        id="path11581-7"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#13a000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00be6e;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="90.058731"
        y="438.69919"
        id="text11773-9"
@@ -1422,7 +1422,7 @@
          id="tspan11775-4"
          x="90.058731"
          y="438.69919"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#13a000;fill-opacity:1;">\normalsize exakt isomorph</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#00be6e;fill-opacity:1;">\normalsize exakt isomorph</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#75c206;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker11589-8)"
        d="m 20.929963,455.20828 57.142857,0"

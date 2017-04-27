@@ -38,7 +38,7 @@
 
 % URL in eigener Zeile und etwas eingerückt darstellen (vermeidet overfullboxes)
 \DeclareFieldFormat{formaturl}{\newline\phantom{mmm}#1}
-\newbibmacro*{url}{%
+\renewbibmacro*{url}{%
 	\iffieldundef{url}{}{%
 		\printtext[formaturl]{%
 			\printfield{url}}%
