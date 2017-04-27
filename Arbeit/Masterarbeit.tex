@@ -31,6 +31,19 @@
 \usepackage[babel]{csquotes}
 \bibliography{literatur}
 
+% Nicht alle Einträge im Literaturverzeichnis darstellen:
+\AtEveryBibitem{\clearfield{doi}} 
+\AtEveryBibitem{\clearfield{issn}} 
+\AtEveryBibitem{\clearname{editor}} 
+
+% URL in eigener Zeile und etwas eingerückt darstellen (vermeidet overfullboxes)
+\DeclareFieldFormat{formaturl}{\newline\phantom{mmm}#1}
+\newbibmacro*{url}{%
+	\iffieldundef{url}{}{%
+		\printtext[formaturl]{%
+			\printfield{url}}%
+}}
+
 % sidewaystable
 \usepackage{rotating}
 
@@ -39,7 +52,7 @@
 \usepackage[all]{xy}
 
 % Automatische Referenzen mit Namen
-\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, breaklinks=true]{hyperref}
 \usepackage{cleveref}			% Referenzen mit Name
 
 \usepackage{icomma}				% Korrektes Typesetting von Kommazahlen
