@@ -11,7 +11,7 @@ Zunächst definieren wir eine Auswahl verschiedener Arten von Potentialfunktione
 \begin{defn}
 	Zu einem Spiel $\Gamma = (I, X, (c_i))$ heißt eine Funktion $P: X \to \IR$
 	\begin{itemize}
-		\item \emph{verallgemeinertes Nash-Potential}, wenn jedes Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist, d.h. für alle $x \in X$ gilt:
+		\item \emph{verallgemeinertes Nash-Potential}, wenn jedes Minimum von $P$ ein Nash-Gleich\-ge\-wicht in $\Gamma$ ist, d.h. für alle $x \in X$ gilt:
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \implies \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
 		\item \emph{Nash-Potential}, wenn jedes Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
@@ -34,7 +34,7 @@ Zunächst definieren wir eine Auswahl verschiedener Arten von Potentialfunktione
 
 Exakte, gewichtete, ordinale und verallgemeinerte ordinale Potentiale wurden erstmals in \cite{MonShap} definiert, beste Antwort-Potentiale erstmals in \cite{BestRespPot}. Die Begriffe verallgemeinertes und lokales Nash-Potential dürften für die Anwendung eher weniger interessant sein, sondern sollen vor allem das grundlegende Konzept eines Potentials formalisieren und umfassen daher auch (fast) alle anderen Potentiale. Die Beziehungen zwischen den verschiedenen Potentialbegriffen werden in dem an \cite[Abbildung 1]{BestRespPot} angelehnten Euler-Diagramm (\Cref{diag:Potentiale}) dargestellt.
 
-\begin{figure}[h]\centering
+\begin{figure}[ht]\centering
 	\includegraphics[width=.4\textwidth]{../Bilder/EulerDiagPotentiale.pdf}
 	\caption{Beziehungen zwischen den einzelnen Potentialbegriffen}\label{diag:Potentiale}
 \end{figure}

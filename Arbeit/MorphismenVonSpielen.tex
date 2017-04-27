@@ -58,7 +58,7 @@ Eine relative starke Forderung ist die, dass Morphismen \emph{kostenerhaltend} s
 \begin{bsp}\label{bsp:Koordinationsspiel}
 	Ein Spiel $\Delta = (J, Y, (d_j))$ ist genau dann ein Koordinationsspiel, wenn es einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von einem 1-Personenspiel nach $\Delta$ gibt.
 	
-	Ist nämlich $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $\Kappa \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{\jmath}}(y)$ für einen beliebigen, aber festen Spieler $\hat{\jmath} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): \Kappa \to \Delta$:
+	Denn ist $\Delta$ ein Koordinationsspiel, so definiert man ein 1-Personenspiel $\Kappa \coloneqq (\{\ast\}, X, (c_\ast))$ mit $X = X_\ast \coloneqq Y$ und $c_\ast(y) \coloneqq d_{\hat{\jmath}}(y)$ für einen beliebigen, aber festen Spieler $\hat{\jmath} \in J$. Ferner definiert man den folgenden Morphismus $(\sigma, \phi): \Kappa \to \Delta$:
 	\begin{align*}
 		\sigma:	&&\set{\ast}\from J:	&&\ast	\mapsfrom	j  \\
 		\phi_j:	&&X_\ast	\to	 Y_j:	&&y		\mapsto		y_j
@@ -147,7 +147,7 @@ Der Begriff eines monotonen Isomorphismus liefert uns nun das erste Beispiel ein
 
 \begin{proof}
 	Wir konstruieren ein zu $\Gamma$ monoton isomorphes Spiel $\Delta$ und einen kostenerhaltenden Morphismus mit surjektiver Strategieprofilabbildung von $\Kappa$ nach $\Delta$. Mit \Cref{bsp:Koordinationsspiel} ist $\Delta$ dann ein Koordinationsspiel und nach \Cref{prop:MonIsoKoordDannskPot} besitzt $\Gamma$ folglich ein skaliertes Potential.
-	\begin{figure}[h]\centering
+	\begin{figure}[ht]\centering
 		\begin{tikzpicture}
 		\node[] 									(K) 	{$\Kappa$};
 		\node[right of=K, node distance=9em] 		(topM) 	{};
