@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/impress-default.css" rel="stylesheet" />
+    <link href="css/impress-custom.css" rel="stylesheet" />
+
+	
+	<link rel="stylesheet" href="katex/katex.min.css">
+	<script src="katex/katex.min.js"></script>
+	<script src="katex/contrib/auto-render.min.js"></script>
+</head>
+
+
+<body class="impress-not-supported">	
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+	<div id="LoadScreen" class="step" data-x="0" data-y="0">
+	</div>
+	
+	<div id="TitlePage" class="step" data-x="0" data-y="0">
+		<div style="width:1700px; height:200px; background:linear-gradient(to right, darkgreen, #000000); position:absolute; left:-200px; top:-100px; box-shadow: 10px 10px 8px #868686;" class="TeXFake"></div>
+		<div class="TeXTitle" style="margin:150px auto 50px auto;">
+			<h1>Zusammenhänge von<br />Auslastungsspielen und Potentialspielen</h1>
+		</div>
+		
+		<div style="text-align:center; font-size:120%;" class="TeXFake">
+			Kolloquium zur Masterarbeit<br /><span style="font-size:80%;">18. Mai 2017</span>
+		</div>
+		
+		<div style="width:1700px; height:50px; position:absolute; left:-200px; bottom:-40px; display:table; table-layout: fixed;" class="TeXFake">
+		<div style="width:33%; background-color:#000000; color:#FFFFFF; text-align:right; font-size:55%; padding:10px 30px; font-weight:bold; display:table-cell;">Lukas Graf</div>
+		<div style="background-color:darkgreen; color:#FFFFFF; text-align:left; font-size:55%; padding:10px 30px; font-weight:bold; display:table-cell;">Oberseminar zur Optimierung</div>
+		</div>
+	</div>
+
+    <div id="DefSpiele" class="step" data-x="0" data-y="800">
+		<h2>Endliche (nichtkooperative) Spiele</h2>
+		
+		\[\Gamma = (I, X := \prod_{i\in I} X_i, (c_i)_{i\in I})\]
+		
+        <div class="theoremstyle d">Ein <em>endliches (nichtkooperatives) Spiel (in strategischer Form)</em> ist gegeben durch
+		<ul>
+			<li class="substep">$I$ - Spielermenge (endlich)</li>
+			<li class="substep">$X_i$ - Strategiemenge von Spieler $i \in I$ (endlich) <br />
+				Strategieprofil und Strategieprofilraum</li>
+			<li class="substep">$c_i: X \to \mathbb{R}$ - Kostenfunktion von Spieler $i \in I$</li>
+		</ul>		
+		</div>
+		
+		<div class="theoremstyle d">Ein <em>Nash-Gleichgewicht</em>...</div>
+		
+		<div class="theoremstyle d">Ein <em>Koordinationsspiel</em>...</div>
+    </div>
+
+    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
+        
+    </div>
+	
+    <div id="UngewAuslastungsspiele" class="step" data-x="-400" data-y="200" data-z="0" data-scale=".8">
+        
+    </div>
+	
+    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
+        
+    </div>
+	
+    <div id="Potentialspiele" class="step" data-x="500" data-y="200" data-z="0" data-scale=".8">
+        
+    </div>
+	
+    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
+        
+    </div>
+	
+    <div id="Morphismen" class="step" data-x="0" data-y="-350" data-z="0" data-scale=".8">
+        
+    </div>
+
+    <div id="overview" class="step" data-x="0" data-y="200" data-z="-1" data-scale="2.5">
+    </div>
+
+</div>
+
+<!--
+    This is a UI plugin. You can read more about plugins in src/plugins/README.md.
+    For now, I'll just tell you that this adds some graphical controls to navigate the
+    presentation. In the CSS file you can style them as you want. We've put them bottom right.
+-->
+<div id="impress-toolbar"></div>
+
+
+<script>
+  renderMathInElement(
+	document.body,
+	  {
+		  delimiters: [
+			  {left: "$$", right: "$$", display: true},
+			  {left: "\\[", right: "\\]", display: true},
+			  {left: "$", right: "$", display: false},
+			  {left: "\\(", right: "\\)", display: false}
+		  ]
+	  }
+  );
+</script>
+	
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
+
+
