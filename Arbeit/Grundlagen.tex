@@ -2,7 +2,7 @@
 
 \subsection{Spiele in strategischer Form}
 
-\begin{defn}
+\begin{defn}\defIndexSil{Spiel}
 	Ein \emph{(nichtkooperatives) Spiel in strategischer Form} ist gegeben durch ein Tupel $\Gamma = (I, X = \prod_{i\in I} X_i, (c_i)_{i\in I})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
@@ -11,7 +11,7 @@
 	\end{itemize}
 	Das eigentliche Spiel besteht nun darin, dass jeder Spieler $\ib \in I$ versucht durch die Wahl einer Strategie $x_\ib \in X_\ib$ aus seinem Strateegieraum die eigenen Kosten $c_\ib((x_i)_{i \in I})$ zu minimieren. Das Tupel $x \coloneqq (x_i)_{i \in I}$ bezeichnen wir dabei als \emph{Strategieprofil}.
 	
-	Wir nennen ein solches Spiel \emph{endlich}, wenn der gesamte Strategieraum $X$ endlich ist, und $N$-Personenspiel, wenn $\abs{I} = N \in \IN$ gilt.
+	Wir nennen ein solches Spiel \defIndexSub{endlich}{Spiel}{endliches}, wenn der gesamte Strategieraum $X$ endlich ist, und \defIndexSub{$N$-Personen-}{Spiel}{$N$-Personen-}, wenn $\abs{I} = N \in \IN$ gilt.
 \end{defn}
 
 \begin{beob}\label{beob:endlicheSpiele}
@@ -50,7 +50,7 @@
 \end{notation}
 
 \begin{defn}
-	Ein Strategieprofil $x \in X$ ist ein \emph{(reines) Nash-Gleichgewicht}, wenn für jeden Spieler $i \in I$ und jede seiner Strategien $\hat{x}_i$ gilt:
+	Ein Strategieprofil $x \in X$ ist ein \emph{(reines)}~\defIndex{Nash-Gleichgewicht}, wenn für jeden Spieler $i \in I$ und jede seiner Strategien $\hat{x}_i$ gilt:
 		\[c_i(x \mid \hat{x}_i) \geq c_i(x)\]
 	Ein Nash-Gleichgewicht ist also ein Strategieprofil, aus dem heraus kein Spieler einen Anreiz für einen einseitigen Strategiewechsel hat.	
 \end{defn}
@@ -63,12 +63,12 @@ In \cite[Definition 2.2]{KoordDummy} werden Koordinations- und Dummy-Spiele defi
 \begin{defn}
 	Ein Spiel $\Gamma = (I, X, (c_i))$ heißt
 	\begin{itemize}
-		\item \emph{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_\ia$ für alle Spieler $i,\ia \in I$.
-		\item \emph{skaliertes Koordinationsspiel}, wenn jeder Spieler eine streng monoton skalierte Variante einer gemeinsamen Kostenfunktion verwendet, d.h. wenn es eine Funktion $c: X \to \IR$ und streng monotone\footnote{Mit streng monotonen Funktionen sind in dieser Arbeit immer ordnungserhaltende, also streng monoton \emph{wachsende} Funktionen gemeint.} Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $c_i = f_i \circ c$ gilt.
+		\item \defIndex{Koordinationsspiel}, wenn alle Spieler eine gemeinsame Kostenfunktion nutzen, wenn also gilt $c_i = c_\ia$ für alle Spieler $i,\ia \in I$.
+		\item \defIndex{skaliertes Koordinationsspiel}, wenn jeder Spieler eine streng monoton skalierte Variante einer gemeinsamen Kostenfunktion verwendet, d.h. wenn es eine Funktion $c: X \to \IR$ und streng monotone\footnote{Mit streng monotonen Funktionen sind in dieser Arbeit immer ordnungserhaltende, also streng monoton \emph{wachsende} Funktionen gemeint.} Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $c_i = f_i \circ c$ gilt.
 	\end{itemize}
-	Ein Spieler $i \in I$ heißt \emph{Dummy-Spieler}, wenn die alleinige Abweichung dieses Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$. 
+	Ein Spieler $i \in I$ heißt \defIndex{Dummy-Spieler}, wenn die alleinige Abweichung dieses Spielers von einem gegebenen Strategieprofil nie zu einer Änderung seiner Kosten führt. D.h. wenn für alle $x \in X$ und $\hat{x}_i \in X_i$ gilt $c_i(x) = c_i(x \mid \hat{x}_i)$. 
 	
-	Das ganze Spiel $\Gamma$ heißt \emph{Dummy-Spiel}, wenn alle Spieler des Spiels Dummy-Spieler sind.
+	Das ganze Spiel $\Gamma$ heißt \defIndex{Dummy-Spiel}, wenn alle Spieler des Spiels Dummy-Spieler sind.
 \end{defn}
 
 \begin{beob}
@@ -85,27 +85,27 @@ Eine natürliche Methode ein Nash-Gleichgewicht in einem konkreten Spiel zu find
 Im Laufe dieses Verfahrens erhält man eine Folge von Strategieprofilen, die jeweils durch Abweichung eines einzelnen Spielers auseinander hervorgehen, wobei dieser Spieler seine Kosten senkt. Eine solche Folge bezeichnen \citeauthor{MonShap} in \cite{MonShap} als \glqq Verbesserungspfad\grqq. Stellt man andere Bedingungen an die Kostenveränderung für den abweichenden Spieler, so erhält man analog weitere Arten von Pfaden im Strategieraum (vergleiche etwa \cite{CharExOrdPot} und \cite{BestRespPot}).
 
 \begin{defn}\label{defn:Schritte}
-	Ein Tupel von Strategieprofilen $(x^0, x^1) \in X\times X$ nennen wir einen \emph{Schritt}, wenn $x^1$ durch Abweichung eines einzelnen Spielers aus $x^0$ entsteht. Das heißt also, wenn es einen Spieler $i \in I$ gibt, sodass $x^1 = (x^0 \mid x^1_i)$ gilt. 
+	Ein Tupel von Strategieprofilen $(x^0, x^1) \in X\times X$ nennen wir einen \defIndex{Schritt}, wenn $x^1$ durch Abweichung eines einzelnen Spielers aus $x^0$ entsteht. Das heißt also, wenn es einen Spieler $i \in I$ gibt, sodass $x^1 = (x^0 \mid x^1_i)$ gilt. 
 	
 	Ein solcher Schritt heißt
 	\begin{itemize}
-		\item \emph{Nichtverschlechterungsschritt}, wenn sich der abweichende Spieler nicht verschlechtert, d.h. $c_i(x^0) \geq c_i(x^1)$.
-		\item \emph{Verbesserungsschritt}, wenn sich der abweichende Spieler echt verbessert, wenn also $c_i(x^0) > c_i(x^1)$ gilt.
-		\item \emph{Beste-Antwort-Schritt}, wenn der abweichende Spieler eine für ihn bestmögliche Antwort wählt, d.h. $\min_{\hat{x}_i \in X_i} c_i(x^0 \mid \hat{x}_i) = c_i(x^1)$.		
+		\item \defIndexSub{Nichtverschlechterungsschritt}{Schritt}{Nichtverschlechterungs-}, wenn sich der abweichende Spieler nicht verschlechtert, d.h. $c_i(x^0) \geq c_i(x^1)$.
+		\item \defIndexSub{Verbesserungsschritt}{Schritt}{Verbesserungs-}, wenn sich der abweichende Spieler echt verbessert, wenn also $c_i(x^0) > c_i(x^1)$ gilt.
+		\item \defIndexSub{Beste-Antwort-Schritt}{Schritt}{Beste-Antwort-}, wenn der abweichende Spieler eine für ihn bestmögliche Antwort wählt, d.h. $\min_{\hat{x}_i \in X_i} c_i(x^0 \mid \hat{x}_i) = c_i(x^1)$.		
 	\end{itemize}
 \end{defn}
 
 \begin{defn}\label{defn:Pfade}
-	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \emph{Pfad}, wenn je zwei aufeinanderfolgende Strategieprofile einen Schritt bilden. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k}$ aus $x^{k-1}$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k} = \left(x^{k-1} \mid x^{k}_{i(k)}\right)$.
+	Eine Folge von Strategieprofilen $\gamma = (x^0, x^1, x^2, \dots) \in X^\IN$ ist ein \defIndex{Pfad}, wenn je zwei aufeinanderfolgende Strategieprofile einen Schritt bilden. Das heißt wenn es für jeden Schritt $k$ einen Spieler $i(k) \in I$ gibt, sodass das Profil $x^{k}$ aus $x^{k-1}$ durch alleinige Abweichung dieses Spielers entsteht, also $x^{k} = \left(x^{k-1} \mid x^{k}_{i(k)}\right)$.
 	
 	Ein solcher Pfad heißt
 	\begin{itemize}
-		\item \emph{Nichtverschlechterungspfad}, wenn jeder Schritt ein Nichtverschlechterungsschritt ist, d.h. für alle $k$ gilt $c_{i(k)}(x^{k-1}) \geq c_{i(k)}(x^{k})$.
-		\item \emph{schwacher Verbesserungspfad}, wenn er ein Nichtverschlechterungspfad ist und mindestens ein Schritt ein Verbesserungsschritt ist.
-		\item \emph{Verbesserungspfad}, wenn jeder Schritt ein Verbesserungsschritt ist.
-		\item \emph{Beste-Antwort-Pfad}\footnote{In \cite{BestRespPot} werden solche Pfade als \glqq Beste-Antwort-kompatibel\grqq{} bezeichnet.}, wenn jeder Schritt ein Beste-Antwort-Schritt ist, wenn also gilt $\min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_i) = c_{i(k)}(x^k)$.
-		\item \emph{schwacher Beste-Antwort-Verbesserungspfad}, wenn er ein schwacher Verbesserungspfad und ein Beste-Antwort-Pfad ist.
-		\item \emph{Beste-Antwort-Verbesserungspfad}, wenn er ein Verbesserungspfad und ein Beste-Antwort-Pfad ist.
+		\item \defIndexSub{Nichtverschlechterungspfad}{Pfad}{Nichtsverschlechterungs-}, wenn jeder Schritt ein Nichtverschlechterungsschritt ist, d.h. für alle $k$ gilt $c_{i(k)}(x^{k-1}) \geq c_{i(k)}(x^{k})$.
+		\item \defIndexSub{schwacher Verbesserungspfad}{Pfad}{schwacher Verbesserungs-}, wenn er ein Nichtverschlechterungspfad ist und mindestens ein Schritt ein Verbesserungsschritt ist.
+		\item \defIndexSub{Verbesserungspfad}{Pfad}{Verbesserungs-}, wenn jeder Schritt ein Verbesserungsschritt ist.
+		\item \defIndexSub{Beste-Antwort-Pfad}{Pfad}{Beste-Antwort-}\footnote{In \cite{BestRespPot} werden solche Pfade als \glqq Beste-Antwort-kompatibel\grqq{} bezeichnet.}, wenn jeder Schritt ein Beste-Antwort-Schritt ist, wenn also gilt $\min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_i) = c_{i(k)}(x^k)$.
+		\item \defIndexSub{schwacher Beste-Antwort-Verbesserungspfad}{Pfad}{schwacher Beste-Antwort-Verbesserungs}, wenn er ein schwacher Verbesserungspfad und ein Beste-Antwort-Pfad ist.
+		\item \defIndexSub{Beste-Antwort-Verbesserungspfad}{Pfad}{Beste-Antwort-Verbesserungs-}, wenn er ein Verbesserungspfad und ein Beste-Antwort-Pfad ist.
 	\end{itemize}
 \end{defn}
 
@@ -137,7 +137,7 @@ Im Laufe dieses Verfahrens erhält man eine Folge von Strategieprofilen, die jew
 Der eingangs beschriebene natürliche Algorithmus zum Finden eines Nash-Gleichgewichtes terminiert genau dann immer, wenn alle Verbesserungspfade in dem gegebenen Spiel endlich sind. Diese Eigenschaft bezeichnen wir als als finite improvement property:
 
 \begin{defn}
-	Ein Spiel $\Gamma$ hat die \emph{finite improvement property (FIP)}, wenn jeder Verbesserungspfad endlich ist.
+	Ein Spiel $\Gamma$ hat die \defIndex{finite improvement property (FIP)}, wenn jeder Verbesserungspfad endlich ist.
 \end{defn}
 
 \begin{beob}\label{beob:VerbPfadeundNGe}
@@ -161,7 +161,7 @@ Beste-Antwort-Pfade treten bei sogenannten Beste-Antwort-Dynamiken auf: Bei dies
 Schließlich führen wir noch eigene Bezeichnungen für den Bereich eines Strategieraums ein, der von einem gegebenen Strategieprofil aus überhaupt mit Hilfe eines Pfades erreicht werden kann. 
 
 \begin{defn}
-	Eine Teilmenge $Y \subseteq X$ des Strategieraumes bezeichnen wir als \emph{Pfadzusammenhangskomponente}, wenn es für je zwei $x, y \in Y$ einen Pfad von $x$ nach $y$ in $Y$ gibt. Zu einem gegebeenen Strategieprofil $x \in X$ ist \emph{die Pfadzusammenhangskomponente von $x$} die (bezüglich Inklusion) maximale Pfadzusammenhangskomponente $Y_x \subseteq X$, welche $x$ enthält.
+	Eine Teilmenge $Y \subseteq X$ des Strategieraumes bezeichnen wir als \defIndex{Pfadzusammenhangskomponente}, wenn es für je zwei $x, y \in Y$ einen Pfad von $x$ nach $y$ in $Y$ gibt. Zu einem gegebeenen Strategieprofil $x \in X$ ist \emph{die Pfadzusammenhangskomponente von $x$} die (bezüglich Inklusion) maximale Pfadzusammenhangskomponente $Y_x \subseteq X$, welche $x$ enthält.
 \end{defn}
 
 \begin{beob}\label{beob:NPersSpieleNureinePfadzshkomp}
@@ -176,7 +176,7 @@ Schließlich führen wir noch eigene Bezeichnungen für den Bereich eines Strate
 In diesem Abschnitt wollen wir noch eine besondere Klasse von Spielen kennenlernen, nämlich die erstmals von \citeauthor{RosenthalPotential} in \cite{RosenthalPotential} definierten Auslastungsspiele sowie einige Varianten davon. Verschiedene Eigenschaften dieser Spiele und insbesondere ihre Beziehungen zu Potentialspielen werden wir später in \Cref{sec:Auslastungsspiele} diskutieren.
 
 \begin{defn}\label{def:Auslastungsmodel}
-	Ein \emph{Auslastungsmodell} ist ein Tupel $M = (I, R, S \coloneqq \prod_{i\in I} S_i, (g_r)_{r \in R})$. Dabei ist
+	Ein \defIndex{Auslastungsmodell} ist ein Tupel $M = (I, R, S \coloneqq \prod_{i\in I} S_i, (g_r)_{r \in R})$. Dabei ist
 	\begin{itemize}
 		\item $I$ die Menge der Spieler,
 		\item $R$ die Menge der zur Verfügung stehenden Ressourcen,
@@ -190,7 +190,7 @@ In diesem Abschnitt wollen wir noch eine besondere Klasse von Spielen kennenlern
 		\[l_r: S \to \IN: s \mapsto \abs{\{i\in I \mid r \in s_i\}}\]
 	und die Kostenfunktionen
 		\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} g_r(l_r(s)) \]
-	ein \emph{Auslastungsspiel} $\Gamma(M) := (I, S, (c_i)_{i \in I})$, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Mengen/Summen für jedes $s \in S$ endlich sind/absolut konvergieren).
+	ein \defIndex{Auslastungsspiel} $\Gamma(M) := (I, S, (c_i)_{i \in I})$, wenn alle $c_i$ und alle $l_r$ auf ganz $S$ wohldefiniert sind (also die entsprechenden Mengen/Summen für jedes $s \in S$ endlich sind/absolut konvergieren).
 \end{defn}
 
 \begin{bem}\label{bem:AuslSpielWohldefiniertheit}
@@ -212,12 +212,12 @@ Verallgemeinerungen von Auslastungsspielen erhalten wir durch das Einführen von
 \begin{defn}\label{def:gewAuslastungsspiel}
 	Zusammen mit einem positiven Gewichtsvektor $(w_i)_{i\in I} \in \IR_{> 0}^I$ induziert ein Auslastungsmodell $M$ (wiederum unter der Voraussetzung, dass alle beteiligten Funktionen wohldefiniert sind)
 	\begin{itemize}
-		\item ein \emph{kostengewichtetes Auslastungsspiel} $\Gamma_c(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion
+		\item ein \defIndexSub{kostengewichtetes Auslastungsspiel}{Auslastungsspiel}{kostengewichtetes} $\Gamma_c(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion
 		\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} w_i\cdot g_r(l_r(s)) \]
 		und die gleiche Lastfunktion wie im ungewichteten Fall.
-		\item ein \emph{lastgewichtetes Auslastungsspiel} $\Gamma_l(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion 
+		\item ein \defIndexSub{lastgewichtetes Auslastungsspiel}{Auslastungsspiel}{lastgewichtetes} $\Gamma_l(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion wie im ungewichteten Fall und die Lastfunktion 
 		\[l_r: S \to \IN: s \mapsto \sum\set{w_i | r \in s_i}.\]
-		\item ein \emph{gewichtetes Auslastungsspiel} $\Gamma(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion
+		\item ein \defIndexSub{gewichtetes Auslastungsspiel}{Auslastungsspiel}{gewichtetes} $\Gamma(M, w) := (I, S, (c_i)_{i \in I})$ durch die Kostenfunktion
 		\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} w_i\cdot g_r(l_r(s)) \]
 		und die Lastfunktion 
 		\[l_r: S \to \IN: s \mapsto \sum\set{w_i | r \in s_i}.\]
@@ -232,7 +232,7 @@ Einige weitere Varianten von Auslastungsspielen sind die folgenden:
 
 \begin{defn}\label{def:weitereAuslastungsspiel}
 	\begin{itemize}
-		\item Zusammen mit einer Familie streng monotoner Skalierungsfunktionen $(f_i: \IR \to \IR)_{i\in I}$ erhält man aus einem Auslastungsmodell ein \emph{skaliertes Auslastungsspiel} durch Verwenden der Kostenfunktionen
+		\item Zusammen mit einer Familie streng monotoner Skalierungsfunktionen $(f_i: \IR \to \IR)_{i\in I}$ erhält man aus einem Auslastungsmodell ein \defIndexSub{skaliertes Auslastungsspiel}{Auslastungsspiel}{skaliertes} durch Verwenden der Kostenfunktionen
 			\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} f_i(g_r(l_r(s))). \]
 		\item Ein \emph{Auslastungsmodell/-spiel mit spielerspezifischen Ressourcenkosten} erhält man, wenn es zu jeder Ressource $r \in R$ und jedem Spieler $i \in I$ eine spielerspezifische Ressourcenkostenfunktion $g_r^i: \IR_{\geq 0} \to \IR$ gibt und die Kostenfunktionen der Spieler definiert sind als
 			\[c_i: S \to \IR: s \mapsto \sum_{r \in s_i} g_r^i(l_r(s)).\]
@@ -258,12 +258,12 @@ Speziellere Klassen von Auslastungsspielen erhalten wir hingegen, wenn die Menge
 
 Eine andere Möglichkeit ist, dass die zulässigen Teilmengen jedes Spielers den Basen eines (spielerspezifischen) Matroids auf der Ressourcenmenge entsprechen:
 
-\begin{defn}
+\begin{defn}\defIndexSil{Matroidmodell}\defIndexSil{Matroidspiel}
 	Ein ungewichtetes Auslastungsmodell/-spiel heißt \emph{Matroidmodell/-spiel}, wenn es für jeden Spieler $i \in I$ einen Matroid $M_i$ auf der Ressourcenmenge gibt, sodass $S_i$ gerade die Basen dieses Matroids sind.
 \end{defn}
 
 \begin{defn}
-	Ein Teilmengensystem $M \subseteq \PSet(R)$ auf einer endlichen Menge $R$ heißt Matroid, wenn es die folgenden drei Axiome erfüllt (vgl. \cite[Abschnitt 39.1]{CombOptMatroide})
+	Ein Teilmengensystem $M \subseteq \PSet(R)$ auf einer endlichen Menge $R$ heißt \defIndex{Matroid}, wenn es die folgenden drei Axiome erfüllt (vgl. \cite[Abschnitt 39.1]{CombOptMatroide})
 	\begin{enumerate}
 		\item $\emptyset \in M$ (oder äquivalent dazu: $M \neq \emptyset$)
 		\item $M$ ist abgeschlossen unter Inklusion, d.h. $\forall S \in M, T \subseteq R: T \subseteq S \implies T \in M$.

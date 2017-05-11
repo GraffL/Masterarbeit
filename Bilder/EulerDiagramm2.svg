@@ -742,6 +742,38 @@
          style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:1pt;stroke-opacity:1"
          transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send-1"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path4544-57"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send-1-5"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path4544-57-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#005a35;fill-opacity:1;fill-rule:evenodd;stroke:#005a35;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -750,16 +782,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="233.66981"
-     inkscape:cy="110.26073"
+     inkscape:zoom="1.979899"
+     inkscape:cx="323.82469"
+     inkscape:cy="439.68949"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="657"
      inkscape:window-x="-8"
-     inkscape:window-y="544"
+     inkscape:window-y="32"
      inkscape:window-maximized="1"
      fit-margin-top="-5"
      fit-margin-left="0"
@@ -782,7 +814,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -791,6 +823,12 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-12.314697,225.15512)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-1)"
+       d="M 447.17215,75.756096 C 398.20502,-23.075469 59.87438,-5.0464354 62.253999,95.255381"
+       id="path4511-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        style="opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient4477);stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 320.72871,-27.769136 269.53923,0 0,260.714296 -269.53923,0"
@@ -1178,15 +1216,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="385.34879"
-       y="97.735779"
+       x="385.79129"
+       y="95.913712"
        id="text5180"
        sodipodi:linespacing="125%"
-       transform="matrix(0.99832589,-0.05783954,0.05783954,0.99832589,0,0)"><tspan
+       transform="matrix(0.99858846,-0.05311383,0.05311383,0.99858846,0,0)"><tspan
          sodipodi:role="line"
          id="tspan5182"
-         x="385.34879"
-         y="97.735779"
+         x="385.79129"
+         y="95.913712"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:MondererShapley}</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 4;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-4)"
@@ -1721,5 +1759,37 @@
          x="-83.489273"
          y="120.96762"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1;">\Cref{kor:endlLastGewAuslIsomGewAusl}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="384.91144"
+       y="-183.23087"
+       id="text5180-7"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.8563942,0.51632255,-0.51632255,0.8563942,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-6"
+         x="384.91144"
+         y="-183.23087"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:ExUndGewPotAlsAnonymeAusl}</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#005a35;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-1-5)"
+       d="M 527.07114,154.97674 C 525.58118,33.921821 572.11866,-47.549171 79.523539,-50.282912"
+       id="path4511-6-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#005a35;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="238.61435"
+       y="-470.79202"
+       id="text5180-7-4"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.37662741,0.92636483,-0.92636483,0.37662741,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan5182-6-8"
+         x="238.61435"
+         y="-470.79202"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#005a35;fill-opacity:1">\Cref{satz:ExUndGewPotAlsAnonymeAusl}</tspan></text>
   </g>
 </svg>

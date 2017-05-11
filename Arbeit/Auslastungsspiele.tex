@@ -7,7 +7,7 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} mit Auslast
 \end{satz}
 
 \begin{proof}
-	Sei $\Gamma(M)$ ein beliebiges Auslastungsspiel. Dann definieren wir wie folgt die Rosenthal-Potentialfunktion (vgl. \cite{RosenthalPotential}):
+	Sei $\Gamma(M)$ ein beliebiges solches $N$-Personen-Auslastungsspiel. Dann definieren wir wie folgt die Rosenthal-Potentialfunktion (vgl. \cite{RosenthalPotential}):
 		\[P: S \to \IR: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k) \]
 	Die Funktion ist wohldefiniert, da die insgesamt $N$ Spieler zusammen nur endlich viele Ressourcen auf einmal nutzen können und daher nur endlich viele der inneren Summen ungleich null sind. Sie ist ferner ein exaktes Potential, denn zu jedem Strategieprofil $s \in S$ und jeder alternativen Strategie $\hat{s}_i$ von Spieler $i$ gilt:
 	\begin{align*}
@@ -18,7 +18,7 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} mit Auslast
 	\end{align*}
 	
 		
-	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
+	Für die umgekehrte Richtung orientieren wir uns an dem Beweis in \cite[Theorem 1]{MultiPotGames}. Gegeben also ein $N$-Personenspiel $\Gamma = (I, X, (c_i))$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
 	\begin{itemize}
 		\item Die Ressourcenmenge $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$ setzt sich zusammen aus zwei Arten von Ressourcen, nämlich 
 			\begin{itemize}
@@ -470,6 +470,41 @@ Begnügen wir uns hingegen mit gewichtender Isomorphie (statt kostenerhaltender)
 	Wir erhalten so ein (anonymes) Auslastungsmodell $N \coloneqq (I, R, S, (h_r))$ und sehen leicht, dass $\Gamma(M)$ und $\Gamma_l(N, v)$ äquivalent sind. Dabei sind die Lastfunktionen wohldefiniert, da $\sum_{n \in I} 1/3^n$ endlich ist, und die Kostenfunktionen wegen der Äquivalenz zu $\Gamma(M)$. 
 	
 	Ist zusätzlich ein Gewichtsvektor $w = (w_i)_{i\in I}$ gegeben, so ist das nicht-anonyme gewichtete Auslastungsspiel $\Gamma(M, w)$ gewichtend isomorph zum gewichteten Auslastungsspiel $\Gamma(N, v)$, wobei $(w_i/v_i)_{i \in I}$ der Gewichtsvektor des Isomorphismus ist.
+\end{proof}
+
+Erlauben wir uns nun bei der Konstruktion des Auslastungsspieles, welches äquivalent zu einem exakten bzw. gewichteten Potentialspiel ist, die Verwendung der nicht-anonymen Variante, so erhalten wir die Entsprechungen der \cref{satz:MondererShapley,satz:MondererShapleyKostengew} auch für unendliche bzw. überabzählbare Spiele.
+
+\begin{satz}\label{satz:ExUndGewPotAlsAnonymeAusl}
+	Jedes Spiel mit einem exakten Potential ist äquivalent zu einem (ungewichteten) nicht-anonymen Auslastungsspiel und jedes Spiel mit gewichtetem Potential ist äquivalent zu einem gewichteten nicht-anonymen Auslastungsspiel.
+\end{satz}
+
+\begin{proof}
+	Wir verwenden eine leicht angepasste Variante der Konstruktion aus dem Beweis zu \Cref{satz:MondererShapley}: Gegeben also ein Spiel $\Gamma = (I, X, (c_i))$ mit einem exakten Potential $P$. Hierzu definieren wir folgendes nicht-anonymes Auslastungsmodell $M = (I, R, S, (g_r)_{r \in R})$:
+	\begin{itemize}
+		\item Die Ressourcenmenge $R \coloneqq R_K \cup R_D \subseteq \prod_{i \in I}\PSet(X_i)$ setzt sich genauso zusammen wie im ursprünglichen Beweis
+		\begin{itemize}
+			\item $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und 
+			\item $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$.
+		\end{itemize}
+		\item Und auch die Ressourcenkosten sind jeweils nur für genau eine Auslastung nicht null: Da die Lastfunktionen nicht-anonymer Auslastungsspiele mengenwertig sind, können wir hier nun auch bei unendlichen Spielermengen testen, ob alle Spieler zugleich eine bestimmte Ressource nutzen (was für die Ressourcen aus $R_k$ notwendig ist).
+		\[g_r(J) \coloneqq 
+		\begin{cases}
+		P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } J=I \\
+		c_{\hat{\imath}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\set{\hat{\imath}}} \times X_{\hat{\imath}} \in R_D, x_{\hat{\imath}} \in X_{\hat{\imath}} \text{ bel. und } \abs{J}=1 \\
+		0,						&\text{sonst}
+		\end{cases}
+		\]
+		Der zweite Fall hängt wieder nicht von der Wahl der Strategie $x_{\hat{\imath}} \in X_{\hat{\imath}}$ ab.
+		\item $S_i \coloneqq \Set{ \Set{r \in R | x_i \in r_i} | x_i \in X_i }$
+	\end{itemize}
+	Die Wohldefiniertheit der Kostenfunktionen $d_i$ folgt aus dem Beweis der Äquivalenz der Spiele $\Gamma$ und $\Gamma(M)$. Dazu betrachten wir $(\id, \phi): \Gamma \to \Gamma(M)$, wobei $\phi_i(x) \coloneqq s(x_i) \coloneqq \{r \in R \mid x_i \in r_i\}$ ist. Dieser ist offenkundig bijektiv auf allen Mengen und zudem kostenerhaltend, denn es gilt:
+	\begin{align*}
+		d_{\hat{\imath}}(\phi(x)) 	&=\sum_{r \in \phi(x)_{\hat{\imath}} = \phi_{\hat{\imath}}(x_{\hat{\imath}})} g_r(l_r(\phi(x))) = \sum_{r \in R: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(l_r(\phi(x))) = \\
+		&=\sum_{r \in R_K: x_{\hat{\imath}} \in r_{\hat{\imath}}} g_r(\underbrace{l_r(\phi(x))}_{= I \Leftrightarrow r = \left(\{x_i\}\right)_{i \in I}}) + \sum_{r \in R_D: x_{\hat{\imath}} \in r_i} g_r(\underbrace{l_r(\phi(x))}_{\abs{.}=1 \Leftrightarrow r = \left(X_i\setminus\set{x_i}\right)_{i \in I\setminus\set{\hat{\imath}}} \times X_{\hat{\imath}}}) = \\
+		&=g_{\left(\{x_i\}\right)_{i \in I}}(I) \,+ g_{\left(X_i\setminus\set{x_i}\right)_{i \in I\setminus\set{\hat{\imath}}} \times X_{\hat{\imath}}}(\set{x_{\hat{\imath}}}) = \\
+		&=\quad P(x) \quad\quad + \quad\quad\quad c_{\hat{\imath}}(x) - P(x) \quad\quad\quad = c_{\hat{\imath}}(x) 
+	\end{align*}
+	Für den Beweis des zweiten Teils des Satzes können wir völlig analog den Beweis zu \Cref{satz:MondererShapleyKostengew} anpassen.
 \end{proof}
 
 

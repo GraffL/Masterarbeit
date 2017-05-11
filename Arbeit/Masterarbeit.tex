@@ -54,6 +54,8 @@
 % Automatische Referenzen mit Namen
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, breaklinks=true]{hyperref}
 \usepackage{cleveref}			% Referenzen mit Name
+% Format, wenn mehrere Sätze auf einmal referenziert werden (\cref{satz1,satz2})
+\crefmultiformat{satz}{Sätze~#2#1#3}{ und~#2#1#3}{, #2#1#3}{ und~#2#1#3}
 
 \usepackage{icomma}				% Korrektes Typesetting von Kommazahlen
 
@@ -137,7 +139,7 @@
 
 %draft-options:
 \definecolor{darkgreen}{rgb}{0,0.6,0.35}
-%\usepackage[ngerman, textsize=small, textwidth=4.5cm, color=darkgreen]{todonotes}
+\usepackage[ngerman, textsize=small, textwidth=4.5cm, color=darkgreen]{todonotes}
 %\usepackage[left=1cm, right=5cm]{geometry}
 
 
@@ -182,6 +184,14 @@
 \newcommand{\ia}{{i'}}
 \newcommand{\ib}{{\hat{\imath}}}
 
+% Index anlegen:
+\usepackage{makeidx}
+\makeindex
+
+\newcommand{\defIndex}[1]{\emph{#1}\index{#1|textbf}}
+\newcommand{\defIndexSub}[3]{\emph{#1}\index{#2!#3|textbf}}
+\newcommand{\defIndexSil}[1]{\index{#1|textbf}}
+
 % DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -208,19 +218,21 @@
 	{\huge \bfseries Masterarbeit \\[1cm]}
 	{\Huge\setstretch{1.1} Zusammenhänge zwischen Auslastungs- und Potentialspielen\\[2cm] \par}
 
-	\graphicspath{{../Bilder/}}\Large\resizebox{.75\textwidth}{!}{\input{../Bilder/EulerDiagramm3.pdf_tex}}
+	\graphicspath{{../Bilder/}}\Large\resizebox{.75\textwidth}{!}{\input{../Bilder/EulerDiagramm3.pdf_tex}}\\[1cm]	
+
+	\small überarbeite Version vom \today
 
 	\vfill
 	
 	% Author and supervisor
 	\begin{minipage}{0.4\textwidth}
-		\begin{flushleft} \large
+		\begin{flushleft}\large
 			\emph{Vorgelegt von:}\\
 			Lukas \textsc{Graf}
 		\end{flushleft}
 	\end{minipage}
 	\begin{minipage}{0.4\textwidth}
-		\begin{flushright} \large
+		\begin{flushright}\large
 			\emph{Betreut von:} \\
 			Prof. Dr. Tobias \textsc{Harks}
 		\end{flushright}
@@ -276,6 +288,12 @@ Ein anderes Ziel könnte es sein, andere Varianten zu finden, die noch allgemein
 Weitere Fragestelltungen könnten sein, welche Sätze man noch für unendliche Spiele verallgemeinern kann (v.a. \Cref{satz:JedesSpielLastGewAusl} und der zweite Teil von \Cref{satz:MondererShapley}) oder ob Konstruktionen in bereits existierenden Sätzen vereinfachen kann (etwa ob man analog zu \Cref{satz:GewAuslZuUngewAusl} gewichtete Auslastungsspiele mit affin exponentiellen Ressourcenkosten ohne den Umweg eines gewichteten Potentials direkt in isomorphe kostengewichtete Auslastungsspiele umwandeln kann). All diese Fragen lassen sich für kostenerhaltende Isomorphie (also Äquivalenz), aber -- falls die entsprechenden Aussagen nicht zugänglich oder sogar falsch sind -- auch für die verschiedenen schwächeren Isomorphiebegriffe untersuchen.
 
 \newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{Index}
+\printindex
+\todo[inline]{Index erstellen}
+
 %\nocite{*}
 \printbibliography
 

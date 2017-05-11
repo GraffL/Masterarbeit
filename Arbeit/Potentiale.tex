@@ -15,19 +15,19 @@ Zunächst definieren wir eine Auswahl verschiedener Arten von Potentialfunktione
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \implies \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
 		\item \emph{Nash-Potential}, wenn jedes Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
 			\[P(x) = \min_{\hat{x} \in X}P(\hat{x}) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
-		\item \emph{lokales Nash-Potential}, wenn jedes \glqq lokale\grqq{} Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
+		\item \defIndexSub{lokales Nash-Potential}{Potential}{lokales Nash-}, wenn jedes \glqq lokale\grqq{} Minimum von $P$ ein Nash-Gleichgewicht in $\Gamma$ ist und umgekehrt, d.h. für alle $x \in X$ gilt:
 			\[\forall i \in I, \hat{x}_i \in X_i: P(x) \leq P(x \mid \hat{x}_i) \iff \forall i \in I, \hat{x}_i \in X_i: c_i(x) \leq c_i(x \mid \hat{x}_i) \]
-		\item \emph{Beste-Antwort-Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ gilt:
+		\item \defIndexSub{Beste-Antwort-Potential}{Potential}{Beste-Antwort-}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ gilt:
 			\[\arg\min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i) = \arg \min_{\hat{x}_i \in X_i} P(x \mid \hat{x}_i)\]
-		\item \emph{verallgemeinertes ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+		\item \defIndexSub{verallgemeinertes ordinales Potential}{Potential}{verallgemeinertes ordinales}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) > c_i(x \mid \hat{x}_i) \implies P(x) > P(x \mid \hat{x}_i)\]
-		\item \emph{ordinales Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+		\item \defIndexSub{ordinales Potential}{Potential}{ordinales}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) > c_i(x \mid \hat{x}_i) \iff P(x) > P(x \mid \hat{x}_i)\]
-		\item \emph{skaliertes Potential}, wenn es streng monotone Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+		\item \defIndexSub{skaliertes Potential}{Potential}{skaliertes}, wenn es streng monotone Funktionen $f_i: \IR \to \IR$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) - c_i(x \mid \hat{x}_i) = f_i(P(x)) - f_i(P(x \mid \hat{x}_i))\]
-		\item \emph{gewichtetes Potential}, wenn es einen Gewichtsvektor $(w_i)_{i\in I} \in \IR_{>0}^I$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+		\item \defIndexSub{gewichtetes Potential}{Potential}{gewichtetes}, wenn es einen Gewichtsvektor $(w_i)_{i\in I} \in \IR_{>0}^I$ gibt, sodass für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) - c_i(x \mid \hat{x}_i) = w_i\cdot(P(x) - P(x \mid \hat{x}_i))\]
-		\item \emph{exaktes Potential}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
+		\item \defIndexSub{exaktes Potential}{Potential}{exaktes}, wenn für jeden Spieler $i$ und alle Strategieprofile $x \in X$ sowie $\hat{x}_i \in X_i$ gilt:
 			\[c_i(x) - c_i(x \mid \hat{x}_i) = P(x) - P(x \mid \hat{x}_i)\]
 	\end{itemize}
 \end{defn}
@@ -247,7 +247,7 @@ In diesem Abschnitt wollen wir für die zuvor beschriebenen Potentiale notwendig
 
 \subsubsection{Exakte Potentiale}
 
-\begin{satz}\label{satz:CharExPot}
+\begin{satz}\label{satz:CharExPot}\index{Potential!exaktes}
 	Ein Spiel besitzt genau dann ein exaktes Potential, wenn alle 4-Zykel im Strategieraum eine Gesamtänderung von $0$ haben.
 \end{satz}
 
@@ -282,7 +282,7 @@ In diesem Abschnitt wollen wir für die zuvor beschriebenen Potentiale notwendig
 
 Eine alternative Charakterisierung für die Existenz eines exakten Potentials zeigen \citeauthor{KoordDummy} in \cite[Theorem 2.1]{KoordDummy}:
 
-\begin{satz}\label{satz:CharExPotAlt}
+\begin{satz}\label{satz:CharExPotAlt}\index{Potential!exaktes}
 	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein exaktes Potential, wenn es ein Koordinationsspiel $\Kappa = (I, X, (p))$ und ein Dummy-Spiel $\Dummy = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $\Kappa$ und $\Dummy$ sind, d.h. $c_i = p + d_i$.
 \end{satz}
 
@@ -297,7 +297,7 @@ Eine alternative Charakterisierung für die Existenz eines exakten Potentials ze
 
 \subsubsection{Gewichtete und skalierte Potentiale}
 
-\begin{satz}\label{satz:CharGewPot}
+\begin{satz}\label{satz:CharGewPot}\index{Potential!gewichtetes}
 	Ein Spiel besitzt genau dann ein gewichtetes Potential mit Gewichtsvektor $w = (w_i)_{i \in I}$, wenn die $w$-gewichtete Gesamtänderung entlang jedes 4-Zykels $0$ ist, d.h. für jeden 4-Zykel $\gamma \coloneqq (x^0, x^1, x^2, x^3, x^4)$ gilt:
 		\[\PfadAend_w(\gamma) = \sum_{k=1}^4 \frac{1}{w_{i(k)}}\left(c_{i(k)}(x^k) - c_{i(k)}(x^{k-1})\right) = 0\]
 \end{satz}
@@ -315,7 +315,7 @@ Diese Charakterisierung folgt direkt aus der folgenden Beobachtung in \cite[Kapi
 
 Für skalierte Potentiale erhalten wir ganz analog zu \Cref{satz:CharExPotAlt} eine Charakterisierung durch Zerlegen des Spiels in ein Dummy- und ein skaliertes Koordinationsspiel:
 
-\begin{satz}\label{satz:CharSkalPot}
+\begin{satz}\label{satz:CharSkalPot}\index{Potential!skaliertes}
 	Ein Spiel $\Gamma = (I, X, (c_i))$ besitzt genau dann ein skaliertes Potential, wenn es ein skaliertes Koordinationsspiel $\Kappa = (I, X, (p_i))$ und ein Dummy-Spiel $\Dummy = (I, X, (d_i))$ auf dem selben Strategieraum gibt, sodass die Kostenfunktionen in $\Gamma$ die Summe der Kostenfunktionen aus $\Kappa$ und $\Dummy$ sind, d.h. $c_i = p_i + d_i$.
 \end{satz}
 
@@ -349,7 +349,7 @@ Sowohl Wohldefiniertheit als auch Transitivität dieser Relation ergeben sich au
 
 Damit zeigen \citeauthor{CharExOrdPot} in \cite[Theorem 3.1]{CharExOrdPot} folgende Charakterisierung der Existenz von ordinalen Potentialen:
 
-\begin{satz}\label{satz:CharOrdPot}
+\begin{satz}\label{satz:CharOrdPot}\index{Potential!ordinales}
 	Ein Spiel besitzt genau dann ein ordinales Potential, wenn $(\XmodNV, \SVord)$ reell geordnet ist.
 \end{satz}
 
@@ -438,7 +438,7 @@ Vollkommen analog zu \Cref{satz:CharOrdPot} erhält man unter Verwendung der Rel
 	\[x \VerbRel y \dIff \text{ es gibt einen Verbesserungspfad der Länge $\geq 1$ von $y$ nach $x$}\]
 eine Charakterisierung der Existenz eines verallgemeinerten ordinalen Potentials:
 
-\begin{satz}\label{satz:CharVerallOrdPot}
+\begin{satz}\label{satz:CharVerallOrdPot}\index{Potential!verallgemeinertes ordinales}
 	Ein Spiel besitzt genau dann ein verallgemeinertes ordinales Potential, wenn $(X, \VerbRel)$ reell geordnet ist.
 \end{satz}
 
@@ -512,7 +512,7 @@ Ebenfalls analog zur Charakterisierung für ordinale Potentiale zeigt \citeautho
 Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\lbrace[x] \mid x \in X\right\rbrace$ erhalten wir die transitive Ordnung
 \[[x] \BAord [y] \dIff \text{ es gibt einen schwachen Beste-Antwort-Verbesserungspfad von $y$ nach $x$}\]
 
-\begin{satz}\label{satz:CharExBAPot}
+\begin{satz}\label{satz:CharExBAPot}\index{Potential!Beste-Antwort-}
 	Ein Spiel, in dem jeder Spieler zu jedem Strategieprofil wenigstens eine beste Antwort zur Verfügung hat, besitzt genau dann ein Beste-Antwort-Potential, wenn  $(\XmodBA, \BAord)$ reell geordnet ist.
 \end{satz}
 

@@ -84,7 +84,7 @@
     \put(0.45881149,0.77361057){\color[rgb]{1,0.33333333,0.33333333}\makebox(0,0)[b]{\smash{\textbf{\normalsize aff. exp. R.-Kost.}}}}%
     \put(0.46783357,1.09082948){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{\huge alle Spiele}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{EulerDiagramm2.pdf}}%
-    \put(0.60222177,0.6545177){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{3.31581209}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:MondererShapley}}}}}}%
+    \put(0.60219694,0.65451179){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{3.04463098}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:MondererShapley}}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{EulerDiagramm2.pdf}}%
     \put(0.40397211,1.02858023){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{63.79148967}{\makebox(0,0)[b]{\smash{\textbf{\Cref{kor:JedesSpielGewAusl}}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{EulerDiagramm2.pdf}}%
@@ -136,5 +136,8 @@
     \put(0.31812463,1.02838128){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{40.24005397}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:JedesSpielLastGewAusl}}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=28]{EulerDiagramm2.pdf}}%
     \put(0.17360552,0.64220458){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{90.22515179}{\makebox(0,0)[b]{\smash{\textbf{\Cref{kor:endlLastGewAuslIsomGewAusl}}}}}}%
+    \put(0.65620143,0.70782459){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{-31.08589708}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:ExUndGewPotAlsAnonymeAusl}}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{EulerDiagramm2.pdf}}%
+    \put(0.81829218,0.70478171){\color[rgb]{0,0.35294118,0.20784314}\rotatebox{-67.87506757}{\makebox(0,0)[b]{\smash{\textbf{\Cref{satz:ExUndGewPotAlsAnonymeAusl}}}}}}%
   \end{picture}%
 \endgroup%
