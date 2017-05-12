@@ -5,6 +5,9 @@ h3 {text-align:center; font-size:125%;}
 ul {margin-left:1em;}
 
 
+.onlyActive {transition: opacity 1s;}
+.past .onlyActive {opacity: 0;}
+
 .TeXFake {transition: opacity .5s;}
 .past .TeXFake { opacity: 0;}
 
@@ -116,10 +119,13 @@ span.vanish.past {display:none;}
 .impress-on-Overview .sidebar-container {transition: width 2s;}
 
 
+.katex {font-size:110% !important;}
+
 /* Erstellen: */
 .step {
 	border:2px #000000 solid;
 	opacity: 1 !important;
+	background-color:#FFFFFFC0;
 	background-image:url(./../Grid.png);
 }
 
@@ -129,3 +135,4 @@ span.vanish.past {display:none;}
 
 .TeXFake {opacity:0;}
 .TeXFakeShadow  {box-shadow:none;}
+.TeXTitle {background:none; color:#000000; padding:20px; box-shadow: 5px 5px 0px #FFFFFF;}

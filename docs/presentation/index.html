@@ -3,18 +3,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=1024" />
+    <meta name="viewport" content="width=1920" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    <title>Kolloquium zur Masterarbeit: Zusammenhänge zwischen Auslastungsspielen und Potentialspielen</title>
     
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
-
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <meta name="author" content="Lukas Graf" />
 
     <link href="css/impress-default.css" rel="stylesheet" />
     <link href="css/impress-custom.css" rel="stylesheet" />
-
 	
 	<link rel="stylesheet" href="katex/katex.min.css">
 	<script src="katex/katex.min.js"></script>
@@ -31,7 +27,7 @@
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
 
-<div id="impress">
+<div id="impress" data-autoplay="0">
 	<div id="LoadScreen" class="step" data-x="0" data-y="0">
 	</div>
 	
@@ -74,8 +70,26 @@
         
     </div>
 	
-    <div id="UngewAuslastungsspiele" class="step" data-x="-400" data-y="200" data-z="0" data-scale=".8">
-        
+    <div id="UngewAuslastungsspiele" class="step" data-x="-400" data-y="300" data-z="0" data-scale="1">
+        <div class="substep" style="width:40%; position:absolute; left:0px; top:100px; text-align:center;">
+			<h2>Auslastungsmodell</h2>
+			$M = (I, R, (S_i)_{i\in I}, (g_r)_{r \in R})$
+			<ul style="text-align:left;">
+				<li>$I$ - Spielermenge (endl.)</li>
+				<li>$R$ - Ressourcenmenge (endl.)</li>
+				<li>$S_i \subseteq \mathcal{P}(R)$ - für Spieler $i$ zulässige Ressourcenwahlen</li>
+				<li>$g_r: \mathbb{R}_{\geq 0} \to \mathbb{R}$ - Ressourcenkosten für Ressource $r$</li>
+			</ul>
+		</div>
+		
+		<div class="substep" style="width:55%; position:absolute; right:0px; top:200px; text-align:center; border:5px solid #FF0000; padding:5px;">
+			<h2>(ungewichtetes) Auslastungsspiel</h2>
+			$\Gamma(M) := (I, S := \prod_{i\in I}S_i, (c_i)_{i\in I})$
+			<ul style="text-align:left;">
+				<li>Kostenfunktion: $c_i(s) := \sum_{r \in s_i} g_r(l_r(s))$</li>
+				<li>Lastfunktion: $l_r(s) := \#\{i \in I | r \in s_i\}$</li>
+			</ul>
+		</div>
     </div>
 	
     <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
@@ -86,12 +100,25 @@
         
     </div>
 	
-    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
+    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1">
         
     </div>
 	
-    <div id="Morphismen" class="step" data-x="0" data-y="-350" data-z="0" data-scale=".8">
+	<div class="step" data-x="0" data-y="125" data-z="50" data-rotate-x="-30" data-scale=".8" style="height:200px;">
+		<img src="images/PfeilMS.svg" width="500" style="position:absolute; left:500px; bottom: 20px; z-index:100;" />
+		
+		<div class="onlyActive" style="position:absolute; bottom:200px; left:500px; background-color:#FFFFFFE0; padding:10px 30px;">
+			<p class="theoremstyle s">
+			Monderer und Shapley
+			</p>
+		</div>
+    </div>
+	
+	<div class="step" data-x="0" data-y="-350" data-z="0"data-rotate-x="-30"  data-scale=".8" data-autoplay="0.01" style="display:none;">
         
+    </div>
+    <div id="Morphismen" class="step" data-x="0" data-y="-350" data-z="0" data-scale=".8">
+        <h2>Morphismen von Spielen</h2>
     </div>
 
     <div id="overview" class="step" data-x="0" data-y="200" data-z="-1" data-scale="2.5">
@@ -104,7 +131,7 @@
     For now, I'll just tell you that this adds some graphical controls to navigate the
     presentation. In the CSS file you can style them as you want. We've put them bottom right.
 -->
-<div id="impress-toolbar"></div>
+<div id="impress-toolbar" style="display:none;"></div>
 
 
 <script>
@@ -123,6 +150,7 @@
 	
 
 <script src="js/impress.js"></script>
+<script src="js/impress-custom.js"></script>
 <script>impress().init();</script>
 
 </body>
