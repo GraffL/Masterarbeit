@@ -47,12 +47,12 @@
 		</div>
 	</div>
 
-    <div id="DefSpiele" class="step" data-x="0" data-y="800">
+    <div id="DefSpiele" class="step" data-x="0" data-y="850">
 		<h2>Endliche (nichtkooperative) Spiele</h2>
 		
-		\[\Gamma = (I, X := \prod_{i\in I} X_i, (c_i)_{i\in I})\]
+		<p style="text-align:center;">$\Gamma = (I, X := \prod_{i\in I} X_i, (c_i)_{i\in I})$</p><br />
 		
-        <div class="theoremstyle d">Ein <em>endliches (nichtkooperatives) Spiel (in strategischer Form)</em> ist gegeben durch
+        <div class="theoremstyle d">Ein <strong>endliches (nichtkooperatives) Spiel (in strategischer Form)</strong> ist gegeben durch
 		<ul>
 			<li class="substep">$I$ - Spielermenge (endlich)</li>
 			<li class="substep">$X_i$ - Strategiemenge von Spieler $i \in I$ (endlich) <br />
@@ -61,16 +61,17 @@
 		</ul>		
 		</div>
 		
-		<div class="theoremstyle d">Ein <em>Nash-Gleichgewicht</em>...</div>
+		<div class="theoremstyle d">Ein Strategieprofil $x \in X$ ist ein <strong>Nash-Gleichgewicht</strong>, wenn jeder Spieler $i \in I$ sich durch Wahl einer Alternativstrategie $\hat{x}_i \in X_i$ nicht verbessern kann, d.h. $c_i(x\mid \hat{x}_i) \geq c_i(x)$.</p>
+		</div>
 		
-		<div class="theoremstyle d">Ein <em>Koordinationsspiel</em>...</div>
+		<div class="theoremstyle d">Ein Spiel $\Gamma$ ist ein <strong>Koordinationsspiel</strong>, wenn alle Spieler eine gemeinsame Kostenfunktion verwenden, d.h. $c_i = c_{\hat{\imath}}$ für alle Spieler $i, \hat{\imath} \in I$.</div>
     </div>
 
     <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
         
     </div>
 	
-    <div id="UngewAuslastungsspiele" class="step" data-x="-400" data-y="300" data-z="0" data-scale="1">
+    <div id="UngewAuslastungsspiele" class="step" data-x="-600" data-y="300" data-z="0" data-scale="1">
         <div class="substep" style="width:40%; position:absolute; left:0px; top:100px; text-align:center;">
 			<h2>Auslastungsmodell</h2>
 			$M = (I, R, (S_i)_{i\in I}, (g_r)_{r \in R})$
@@ -82,7 +83,7 @@
 			</ul>
 		</div>
 		
-		<div class="substep" style="width:55%; position:absolute; right:0px; top:200px; text-align:center; border:5px solid #FF0000; padding:5px;">
+		<div class="substep" style="width:55%; position:absolute; right:0px; top:100px; text-align:center; border:5px solid #FF0000; padding:5px;">
 			<h2>(ungewichtetes) Auslastungsspiel</h2>
 			$\Gamma(M) := (I, S := \prod_{i\in I}S_i, (c_i)_{i\in I})$
 			<ul style="text-align:left;">
@@ -92,38 +93,218 @@
 		</div>
     </div>
 	
-    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
-        
+    <div id="RosenthalPot" class="step" data-x="0" data-y="300" data-z="0" data-scale="1">
+		<div style="width:50%; position:absolute; right:0px; top:100px; margin-right:-50px;">
+			<div class="theoremstyle s">
+				Jedes (ungewichtete) Auslastungsspiel besitzt ein Nash-Gleichgewicht. <span class="cite">Rosenthal'73</span>
+			</div>
+			
+			<div class="proofstyle">
+				Definiere ein <strong>Potential</strong>:<br />
+					$P: S \to \mathbb{R}: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k)$<br />
+				Für jede Abweichung $s \to (s\mid \hat{s}_i)$ gilt:<br />
+					$c_i(s) - c_i(s\mid \hat{s}_i) = P(s) - P(s\mid \hat{s}_i)$<br />
+				Jeder Verbesserungsschritt verringert also auch das Potential.<br />
+				Ein Minimum von $P$ entspricht daher einem Nash-Gleichgewicht.
+			</div>
+		</div>
     </div>
 	
-    <div id="Potentialspiele" class="step" data-x="500" data-y="200" data-z="0" data-scale=".8">
+    <div id="Potentialspiele" class="step" data-x="600" data-y="300" data-z="0" data-scale="1">
+		<div style="width:40%; position:absolute; left:100px; top:100px; text-align:center; border:5px solid #0000FF; padding:5px;">
+			<h2>exaktes Potential</h2>
+			$P: X \to \mathbb{R}$ mit <br />
+			$c_i(x) - c_i(x\mid \hat{x}_i) = P(x) - P(x\mid \hat{x}_i)$<br />
+			f.a. $x \in X, i \in I, \hat{x}_i \in X_i$
+		</div>
         
+		
+		<div style="width:44%; position:absolute; right:0px; top:0px; text-align:center;">
+			<img src="images/exaktesPotentialSp1.svg" width="49%" />
+			<img src="images/exaktesPotentialSp2.svg" width="49%" /><br />
+			<img src="images/exaktesPotential.svg" width="50%" />
+		</div>
     </div>
 	
     <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1">
         
     </div>
 	
-	<div class="step" data-x="0" data-y="125" data-z="50" data-rotate-x="-30" data-scale=".8" style="height:200px;">
+	<div class="step" data-x="0" data-y="25" data-z="50" data-rotate-x="-30" data-scale=".8" style="height:200px;">
 		<img src="images/PfeilMS.svg" width="500" style="position:absolute; left:500px; bottom: 20px; z-index:100;" />
 		
-		<div class="onlyActive" style="position:absolute; bottom:200px; left:500px; background-color:#FFFFFFE0; padding:10px 30px;">
+		<div class="onlyActive" style="position:absolute; bottom:250px; left:300px; background-color:#FFFFFF; padding:10px 30px;">
 			<p class="theoremstyle s">
-			Monderer und Shapley
+			Jedes exakte Potentialspiel &bdquo;ist&ldquo; ein ungewichtetes Auslastungsspiel. <span class="cite">Monderer/Shapley'96</span>
 			</p>
 		</div>
     </div>
-	
-	<div class="step" data-x="0" data-y="-350" data-z="0"data-rotate-x="-30"  data-scale=".8" data-autoplay="0.01" style="display:none;">
-        
-    </div>
+	        
     <div id="Morphismen" class="step" data-x="0" data-y="-350" data-z="0" data-scale=".8">
         <h2>Morphismen von Spielen</h2>
+		
+		<div class="theoremstyle d">$(\sigma, \phi): \Gamma = (I, X, (c_i)) \to \Delta = (J, Y, (d_j))$ <em>Morphismus</em> von Spielen (vgl. <span class="cite">Lapitsky'99</span>):
+			<ul>
+				<li>$\sigma: I \leftarrow J$ Spielerabbildung</li>
+				<li>$\phi_j: X_{\sigma(j)} \to Y_j$ Strateegieabbildung von Spieler $j$</li>
+			</ul>
+			induziert Abbildung von Strategieprofilen: $\phi: X \to Y: x \mapsto (\phi_j(x_{\sigma(j)}))_{j \in J}$.
+		</div>
+		
+		<h3>Verträglichkeit mit den Kostenfunktionen</h3>
+		
+		<div class="theoremstyle d">$(\sigma, \phi): \Gamma \to \Delta$ Morphismus von Spielen heißt:
+			<ul>
+				<li><em>kostenerhaltend</em>, wenn f.a. $x \in X, j \in J: c_{\sigma(j)}(x) = d_j(\phi(x))$</li>
+				<li><em>exakt</em>, wenn f.a. $x \in X, j \in J, \hat{x}_{\sigma(j)}$ gilt:<br />
+				$c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))$</li>
+				<li><em>monoton/ordinal</em>, wenn ...</li>
+				<li>...</li>
+			</ul>
+		</div>
     </div>
 
+	<div class="step onlyActive" data-x="0" data-y="25" data-z="220" data-rotate-x="-30" data-scale="1" style="height:430px; background-color:#FFFFFF;">
+		<div class="proofstyle">
+			Definiere $M := (I, R, S, (g_r))$ mittels $R := R_K \cup R_D \subseteq \prod_{i \in I}\mathcal{P}(X_i)$ wobei 
+			<ul>
+			<li>$R_K := \{(\{x_i\})_{i \in I} | x_i \in X_i \}$ und</li> 
+			<li>$R_D := \{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \vert X_i \setminus Y_i\vert = 1\}$</li>
+			</ul>
+			$g_r(k) := 
+					\begin{cases}
+						P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
+						c_{\hat{\imath}}(x) - P(x), 	&r = \left(X_i\setminus\{x_i\}\right)_{i \in I\setminus\{\hat{\imath}\}} \times X_{\hat{\imath}} \in R_D, x_{\hat{\imath}} \in X_{\hat{\imath}} \text{ bel. und } k=1
+					\end{cases}
+			$
+			Und schließlich $S_i := \{ \{r \in R | x_i \in r_i\} | x_i \in X_i \}$.<br /><br />
+			
+			Dann ist $(\mathrm{id}, \phi): \Gamma \to \Gamma(M)$ mit $\phi_i(x_i) := \{r \in R | x_i \in r_i\}$ ein kostenerhaltender Iso.
+		</div>
+    </div>
+	
+	
+    <div id="gewPotentialspiele" class="step" data-x="600" data-y="300" data-z="0" data-scale="1">
+		<div style="width:44%; position:absolute; right:0px; top:0px; text-align:center;">
+			skalierte Bilder...
+		</div>
+		
+		<div style="position:absolute; left:100px; top:310px; text-align:center; border:5px solid #0000FF; padding:5px;">
+			<h2>gewichtetes Potential</h2>
+			$c_i(x) - c_i(x\mid \hat{x}_i) = w_i\cdot\big(P(x) - P(x\mid \hat{x}_i)\big)$<br />
+			mit Gewichtsvektor $(w_i)_{i \in I} \in \mathbb{R}^I_{\geq 0}$.
+		</div>
+
+    </div>
+
+    <div id="gewAuslastungsspiele" class="step" data-x="0" data-y="300" data-z="0" data-scale="1">
+		<div class="substep" style="position:absolute; left:-100px; top:310px; text-align:center; border:5px solid #FF0000; padding:5px;">
+			<br /><br /><br />
+			<h2>gewichtetes<br />Auslastungsspiel</h2>
+			<ul style="text-align:left;">
+				<li>$c_i(s) := \sum_{r \in s_i} w_i g_r(l_r(s))$</li>
+				<li>$l_r(s) := \sum\{w_i | r \in s_i\}$</li>
+			</ul>
+		</div>
+		
+		<div class="substep" style="position:absolute; left:0px; top:320px; border-radius:10px; background-color:#999999; color:red; padding:0px 10px;">
+			nur aff.-lin. $g_r$
+		</div>
+		
+		<div class="substep" style="position:absolute; left:0px; top:380px; border-radius:10px; background-color:#999999; color:red; padding:0px 10px;">
+			nur aff.-exp. $g_r$
+		</div>
+
+		<div class="substep onlyActive" style="transform:rotateX(-30deg) translateY(-200px) scale(.8,.8); transform-style:preserve-3d; position:absolute; top:180px; left:-100px; ">
+			<div style="background-color:#FFFFFF; padding:10px 30px;">
+				<div class="theoremstyle s">
+				Sei $C$ eine Menge stetiger Funktionen. Genau dann besitzt jedes gewichtete Auslastungsspiel mit Ressourcenkosten aus $C$ ein gewichtetes Potential, wenn $C$
+				<ul>
+					<li>entweder nur Funktionen der Form $g(k) = a_g \cdot k + d_g$ enthält</li>
+					<li>oder nur Funktionen der Form $g(k) = a_g\cdot b^k + d_g$ (mit gemeinsamem $b > 0$).</li>
+				</ul>
+				Alle Spiele besitzen genau dann sogar ein exaktes Potential, wenn $C$ ausschließlich affin-lineare Funktionen enthält. <br />
+				<span class="cite">Harks/Klimm/Möhring'11</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="substep" style="transform:rotateX(-30deg) rotateZ(20deg) translateY(-150px) scale(.8,.8); transform-style:preserve-3d; position:absolute; top:580px; left:140px; ">
+			<img src="images/PfeilMS.svg" width="400" />
+		</div>		
+		
+		<div class="substep onlyActive" style="background-color:#FFFFFF; padding:10px 30px; transform:rotateX(-30deg) translateY(-300px) scale(.8,.8); transform-style:preserve-3d; position:absolute; top:590px; left:140px; width:550px;">
+			<p class="theoremstyle s">
+			Jedes Spiel ist äquivalent zu einem gewichteten Auslastungsspiel. <span class="cite">Milchtaich'13</span>
+			</p>
+		</div>
+	</div>
+
+	<div id="kostengewAuslastungsspiele" class="step" data-x="0" data-y="300" data-z="0" data-scale="1">
+		<div class="substep" style="position:absolute; left:300px; top:310px; text-align:center; border:5px solid #FF0000; padding:5px;">
+			<h2>kostengew.<br />Auslastungsspiel</h2>
+			<ul style="text-align:left;">
+				<li>$c_i(s) := \sum_{r \in s_i} w_i g_r(l_r(s))$</li>
+			</ul>
+		</div>
+
+		<div class="substep" style="transform:rotateX(-30deg) translateY(-180px) scale(.8,.8); transform-style:preserve-3d; position:absolute; top:200px; left:150px; ">
+			<div class="onlyActive" style="background-color:#FFFFFF; padding:10px 30px;">
+				<p class="theoremstyle s">
+				Jedes gewichtete Potentialspiel ist äquivalent zu einem kostengewichtetes Auslastungsspiel.
+				</p>
+				
+				<p class="proofstyle substep">
+				Wie beim Satz von Monderer und Shapley (exakte Potentialspiele)
+				</p>
+			</div><br />
+			
+			<img src="images/PfeilMS.svg" width="500" style="margin-left:300px;" />
+		</div>
+	</div>
+
+	
+    <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1">
+        
+    </div>
+	
     <div id="overview" class="step" data-x="0" data-y="200" data-z="-1" data-scale="2.5">
     </div>
 
+	<div id="skalAuslastungsspiele" class="step" data-x="0" data-y="400" data-z="0" data-scale="1">
+		<div class="substep" style="position:absolute; left:300px; top:400px; text-align:center; border:5px solid #FF0000; padding:5px;">
+			<h2>skaliertes<br />Auslastungsspiel</h2>
+			<ul style="text-align:left;">
+				<li>$c_i(s) := \sum_{r \in s_i} f_i\big(g_r(l_r(s))\big)$</li>
+			</ul>
+		</div>
+		
+		<div class="substep" style="position:absolute; left:700px; top:400px; text-align:center; border:5px solid #0000FF; padding:5px;">
+			<h2>skaliertes Potential</h2>
+			$c_i(x) - c_i(x\mid \hat{x}_i) = f_i\big(P(x)\big) - f_i\big(P(x\mid \hat{x}_i)\big)$<br />
+			mit streng monotonen $f_i: \mathbb{R} \to \mathbb{R}$.
+		</div>
+
+		<div class="substep" style="transform:rotateX(-30deg) translateY(-180px) scale(.8,.8); transform-style:preserve-3d; position:absolute; top:330px; left:150px; ">
+			<div class="onlyActive" style="background-color:#FFFFFF; padding:10px 30px;">
+				<p class="theoremstyle s">
+				Jedes skalierte Potentialspiel ist exakt isomorph zu einem skalierten Auslastungsspiel.
+				</p>
+			</div><br />
+			
+			<img src="images/PfeilMS.svg" width="500" style="margin-left:300px;" />
+		</div>
+		
+		<div class="substep" style="position:absolute; left:700px; top:580px; text-align:center; border:5px solid #0000FF; padding:5px;">
+			<h2>ordinales Potential</h2>
+			$c_i(x) \gt c_i(x\mid \hat{x}_i) \Leftrightarrow P(x) \gt P(x\mid \hat{x}_i)$
+		</div>
+	</div>
+	
+	<div id="skalAuslastungsspiele2" class="step" data-x="0" data-y="400" data-z="0" data-scale="1">
+	
+	</div>
+	
 </div>
 
 <!--

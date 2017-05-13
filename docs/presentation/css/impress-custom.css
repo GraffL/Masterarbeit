@@ -6,7 +6,7 @@ ul {margin-left:1em;}
 
 
 .onlyActive {transition: opacity 1s;}
-.past .onlyActive {opacity: 0;}
+.past > .onlyActive, .past .onlyActive {opacity: 0 !important;}
 
 .TeXFake {transition: opacity .5s;}
 .past .TeXFake { opacity: 0;}
@@ -37,6 +37,7 @@ span.highlightcolor {transition: color 7s;}
 
 .theoremstyle {
 	margin-left:3em;
+	margin-bottom:.5em;
 }
 
 .theoremstyle::before {
@@ -53,6 +54,24 @@ span.highlightcolor {transition: color 7s;}
 .theoremstyle.g::before {content:"Ges.:";}
 .theoremstyle.l::before {content:"Lem.:";}
 .theoremstyle.d::before {content:"Def.:";}
+
+.proofstyle {
+	margin-left:3em;
+	margin-bottom:.5em;
+}
+
+.proofstyle::before {
+	font-variant:small-caps;
+	font-weight:bold;
+	color:#808080;
+	text-shadow: 1px 1px 4px rgba(170,170,170,0.9);
+	display:block;
+	float:left;
+	margin-left:-3em;
+	content:"Bew.:";
+}
+
+
 
 .theoremstyletop::before {
 	font-variant:small-caps;
@@ -121,11 +140,24 @@ span.vanish.past {display:none;}
 
 .katex {font-size:110% !important;}
 
-/* Erstellen: */
+#DefSpiele {margin-left:0px; transition: margin-left 1s opacity 1s;}
+.impress-on-UngewAuslastungsspiele #DefSpiele {margin-left:-100px;}
+.impress-on-Potentialspiele #DefSpiele {margin-left:100px;}
+
+#RosenthalPot.past {opacity:0;}
+
+.impress-on-skalAuslastungsspiele #DefSpiele {opacity:0;}
+.impress-on-skalAuslastungsspiele2 #DefSpiele {opacity:0;}
+
+.cite::before {content:"[";}
+.cite::after {content:"]";}
+.cite {font-size:90%; font-style:italic; color:#555555;}
+
+/* Erstellen: 
 .step {
 	border:2px #000000 solid;
 	opacity: 1 !important;
-	background-color:#FFFFFFC0;
+	background-color:#FFFFFF80;
 	background-image:url(./../Grid.png);
 }
 
