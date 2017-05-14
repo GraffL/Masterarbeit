@@ -2,11 +2,11 @@ h1 {text-align:center; font-size:225%;}
 h2 {text-align:center; font-size:150%;}
 h3 {text-align:center; font-size:125%;}
 
-ul {margin-left:1em;}
+ul {margin-left:2em;}
 
 
 .onlyActive {transition: opacity 1s;}
-.past > .onlyActive, .past .onlyActive {opacity: 0 !important;}
+.past > .onlyActive, .past .onlyActive, .past.onlyActive {opacity: 0 !important;}
 
 .TeXFake {transition: opacity .5s;}
 .past .TeXFake { opacity: 0;}
@@ -140,7 +140,7 @@ span.vanish.past {display:none;}
 
 .katex {font-size:110% !important;}
 
-#DefSpiele {margin-left:0px; transition: margin-left 1s opacity 1s;}
+#DefSpiele {margin-left:0px; transition: margin 1s, opacity 1s;}
 .impress-on-UngewAuslastungsspiele #DefSpiele {margin-left:-100px;}
 .impress-on-Potentialspiele #DefSpiele {margin-left:100px;}
 

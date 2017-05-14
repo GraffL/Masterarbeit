@@ -52,19 +52,19 @@
 		
 		<p style="text-align:center;">$\Gamma = (I, X := \prod_{i\in I} X_i, (c_i)_{i\in I})$</p><br />
 		
-        <div class="theoremstyle d">Ein <strong>endliches (nichtkooperatives) Spiel (in strategischer Form)</strong> ist gegeben durch
+        <div class="substep theoremstyle d">Ein <strong>endliches (nichtkooperatives) Spiel (in strategischer Form)</strong> ist gegeben durch
 		<ul>
 			<li class="substep">$I$ - Spielermenge (endlich)</li>
-			<li class="substep">$X_i$ - Strategiemenge von Spieler $i \in I$ (endlich) <br />
-				Strategieprofil und Strategieprofilraum</li>
-			<li class="substep">$c_i: X \to \mathbb{R}$ - Kostenfunktion von Spieler $i \in I$</li>
-		</ul>		
+			<li class="substep">$X_i$ - spielerspezifischen Strategiemengen (endlich) und</li>
+			<li class="substep">$c_i: X \to \mathbb{R}$ - spielerspezifischen Kostenfunktionen.</li>
+		</ul>
+		<p class="substep">Ferner heißen $X := \prod_{i\in I}X_i$ <strong>Strategieprofilraum</strong> und $x = (x_i)_{i\in I} \in X$ <strong>Strategieprofile</strong>.</p>
 		</div>
 		
-		<div class="theoremstyle d">Ein Strategieprofil $x \in X$ ist ein <strong>Nash-Gleichgewicht</strong>, wenn jeder Spieler $i \in I$ sich durch Wahl einer Alternativstrategie $\hat{x}_i \in X_i$ nicht verbessern kann, d.h. $c_i(x\mid \hat{x}_i) \geq c_i(x)$.</p>
+		<div class="substep theoremstyle d">Ein Strategieprofil $x \in X$ ist ein <strong>Nash-Gleichgewicht</strong>, wenn jeder Spieler $i \in I$ sich durch Wahl einer Alternativstrategie $\hat{x}_i \in X_i$ nicht verbessern kann, d.h. $c_i(x\mid \hat{x}_i) \geq c_i(x)$.</p>
 		</div>
 		
-		<div class="theoremstyle d">Ein Spiel $\Gamma$ ist ein <strong>Koordinationsspiel</strong>, wenn alle Spieler eine gemeinsame Kostenfunktion verwenden, d.h. $c_i = c_{\hat{\imath}}$ für alle Spieler $i, \hat{\imath} \in I$.</div>
+		<div class="substep theoremstyle d">Ein Spiel $\Gamma$ ist ein <strong>Koordinationsspiel</strong>, wenn alle Spieler eine gemeinsame Kostenfunktion verwenden, d.h. $c_i = c_{\hat{\imath}}$ für alle Spieler $i, \hat{\imath} \in I$.</div>
     </div>
 
     <div class="step" data-x="0" data-y="200" data-z="-1" data-scale="1.5">
@@ -76,10 +76,10 @@
 			<h2>Auslastungsmodell</h2>
 			$M = (I, R, (S_i)_{i\in I}, (g_r)_{r \in R})$
 			<ul style="text-align:left;">
-				<li>$I$ - Spielermenge (endl.)</li>
-				<li>$R$ - Ressourcenmenge (endl.)</li>
-				<li>$S_i \subseteq \mathcal{P}(R)$ - für Spieler $i$ zulässige Ressourcenwahlen</li>
-				<li>$g_r: \mathbb{R}_{\geq 0} \to \mathbb{R}$ - Ressourcenkosten für Ressource $r$</li>
+				<li class="substep">$I$ - Spielermenge (endl.)</li>
+				<li class="substep">$R$ - Ressourcenmenge (endl.)</li>
+				<li class="substep">$S_i \subseteq \mathcal{P}(R)$ - für Spieler $i$ zulässige Ressourcenwahlen</li>
+				<li class="substep">$g_r: \mathbb{R}_{\geq 0} \to \mathbb{R}$ - Ressourcenkosten für Ressource $r$</li>
 			</ul>
 		</div>
 		
@@ -87,31 +87,31 @@
 			<h2>(ungewichtetes) Auslastungsspiel</h2>
 			$\Gamma(M) := (I, S := \prod_{i\in I}S_i, (c_i)_{i\in I})$
 			<ul style="text-align:left;">
-				<li>Kostenfunktion: $c_i(s) := \sum_{r \in s_i} g_r(l_r(s))$</li>
-				<li>Lastfunktion: $l_r(s) := \#\{i \in I | r \in s_i\}$</li>
+				<li class="substep">Kostenfunktion: $c_i(s) := \sum_{r \in s_i} g_r(l_r(s))$</li>
+				<li class="substep">Lastfunktion: $l_r(s) := \#\{i \in I | r \in s_i\}$</li>
 			</ul>
 		</div>
     </div>
 	
     <div id="RosenthalPot" class="step" data-x="0" data-y="300" data-z="0" data-scale="1">
 		<div style="width:50%; position:absolute; right:0px; top:100px; margin-right:-50px;">
-			<div class="theoremstyle s">
+			<div class="substep theoremstyle s">
 				Jedes (ungewichtete) Auslastungsspiel besitzt ein Nash-Gleichgewicht. <span class="cite">Rosenthal'73</span>
 			</div>
 			
-			<div class="proofstyle">
-				Definiere ein <strong>Potential</strong>:<br />
-					$P: S \to \mathbb{R}: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k)$<br />
-				Für jede Abweichung $s \to (s\mid \hat{s}_i)$ gilt:<br />
-					$c_i(s) - c_i(s\mid \hat{s}_i) = P(s) - P(s\mid \hat{s}_i)$<br />
-				Jeder Verbesserungsschritt verringert also auch das Potential.<br />
-				Ein Minimum von $P$ entspricht daher einem Nash-Gleichgewicht.
+			<div class="substep proofstyle">
+				<p class="substep">Definiere ein <strong>Potential</strong>:</p>
+					<p class="substep" style="margin-left:2em;">$P: S \to \mathbb{R}: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k)$</p>
+				<p class="substep">Für jede Abweichung $s \to (s\mid \hat{s}_i)$ gilt:</p>
+					<p class="substep" style="margin-left:2em;">$c_i(s) - c_i(s\mid \hat{s}_i) = P(s) - P(s\mid \hat{s}_i)$</p>
+				<p class="substep">Jeder Verbesserungsschritt verringert also auch das Potential.</p>
+				<p class="substep">Ein Minimum von $P$ entspricht daher einem Nash-Gleichgewicht.</p>
 			</div>
 		</div>
     </div>
 	
     <div id="Potentialspiele" class="step" data-x="600" data-y="300" data-z="0" data-scale="1">
-		<div style="width:40%; position:absolute; left:100px; top:100px; text-align:center; border:5px solid #0000FF; padding:5px;">
+		<div class="substep" style="width:40%; position:absolute; left:100px; top:100px; text-align:center; border:5px solid #0000FF; padding:5px;">
 			<h2>exaktes Potential</h2>
 			$P: X \to \mathbb{R}$ mit <br />
 			$c_i(x) - c_i(x\mid \hat{x}_i) = P(x) - P(x\mid \hat{x}_i)$<br />
@@ -120,9 +120,9 @@
         
 		
 		<div style="width:44%; position:absolute; right:0px; top:0px; text-align:center;">
-			<img src="images/exaktesPotentialSp1.svg" width="49%" />
-			<img src="images/exaktesPotentialSp2.svg" width="49%" /><br />
-			<img src="images/exaktesPotential.svg" width="50%" />
+			<img class="substep" src="images/exaktesPotentialSp1.svg" width="49%" />
+			<img class="substep" src="images/exaktesPotentialSp2.svg" width="49%" /><br />
+			<img class="substep" src="images/exaktesPotential.svg" width="50%" />
 		</div>
     </div>
 	
@@ -133,7 +133,7 @@
 	<div class="step" data-x="0" data-y="25" data-z="50" data-rotate-x="-30" data-scale=".8" style="height:200px;">
 		<img src="images/PfeilMS.svg" width="500" style="position:absolute; left:500px; bottom: 20px; z-index:100;" />
 		
-		<div class="onlyActive" style="position:absolute; bottom:250px; left:300px; background-color:#FFFFFF; padding:10px 30px;">
+		<div class="substep" class="onlyActive" style="position:absolute; bottom:250px; left:300px; background-color:#FFFFFF; padding:10px 30px;">
 			<p class="theoremstyle s">
 			Jedes exakte Potentialspiel &bdquo;ist&ldquo; ein ungewichtetes Auslastungsspiel. <span class="cite">Monderer/Shapley'96</span>
 			</p>
@@ -143,23 +143,23 @@
     <div id="Morphismen" class="step" data-x="0" data-y="-350" data-z="0" data-scale=".8">
         <h2>Morphismen von Spielen</h2>
 		
-		<div class="theoremstyle d">$(\sigma, \phi): \Gamma = (I, X, (c_i)) \to \Delta = (J, Y, (d_j))$ <em>Morphismus</em> von Spielen (vgl. <span class="cite">Lapitsky'99</span>):
+		<div class="substep theoremstyle d">$(\sigma, \phi): \Gamma = (I, X, (c_i)) \to \Delta = (J, Y, (d_j))$ <em>Morphismus</em> von Spielen (vgl. <span class="cite">Lapitsky'99</span>):
 			<ul>
-				<li>$\sigma: I \leftarrow J$ Spielerabbildung</li>
-				<li>$\phi_j: X_{\sigma(j)} \to Y_j$ Strateegieabbildung von Spieler $j$</li>
+				<li class="substep">$\sigma: I \leftarrow J$ Spielerabbildung</li>
+				<li class="substep">$\phi_j: X_{\sigma(j)} \to Y_j$ Strateegieabbildung von Spieler $j$</li>
 			</ul>
-			induziert Abbildung von Strategieprofilen: $\phi: X \to Y: x \mapsto (\phi_j(x_{\sigma(j)}))_{j \in J}$.
+			<p class="substep">induziert Abbildung von Strategieprofilen: $\phi: X \to Y: x \mapsto$ <span class="substep">$($<span class="substep">$\phi_j(x_{\sigma(j)})$</span>$)_{j \in J}$.</span></p>
 		</div>
 		
-		<h3>Verträglichkeit mit den Kostenfunktionen</h3>
+		<h3 class="substep">Verträglichkeit mit den Kostenfunktionen</h3>
 		
-		<div class="theoremstyle d">$(\sigma, \phi): \Gamma \to \Delta$ Morphismus von Spielen heißt:
+		<div class="substep theoremstyle d">$(\sigma, \phi): \Gamma \to \Delta$ Morphismus von Spielen heißt:
 			<ul>
-				<li><em>kostenerhaltend</em>, wenn f.a. $x \in X, j \in J: c_{\sigma(j)}(x) = d_j(\phi(x))$</li>
-				<li><em>exakt</em>, wenn f.a. $x \in X, j \in J, \hat{x}_{\sigma(j)}$ gilt:<br />
+				<li class="substep"><em>kostenerhaltend</em>, wenn f.a. $x \in X, j \in J: c_{\sigma(j)}(x) = d_j(\phi(x))$</li>
+				<li class="substep"><em>exakt</em>, wenn f.a. $x \in X, j \in J, \hat{x}_{\sigma(j)}$ gilt:<br />
 				$c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))$</li>
-				<li><em>monoton/ordinal</em>, wenn ...</li>
-				<li>...</li>
+				<li class="substep"><em>monoton/ordinal</em>, wenn ...</li>
+				<li class="substep">...</li>
 			</ul>
 		</div>
     </div>
