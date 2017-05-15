@@ -87,8 +87,8 @@
 			<h2>(ungewichtetes) Auslastungsspiel</h2>
 			$\Gamma(M) := (I, S := \prod_{i\in I}S_i, (c_i)_{i\in I})$
 			<ul style="text-align:left;">
-				<li class="substep">Kostenfunktion: $c_i(s) := \sum_{r \in s_i} g_r(l_r(s))$</li>
 				<li class="substep">Lastfunktion: $l_r(s) := \#\{i \in I | r \in s_i\}$</li>
+				<li class="substep">Kostenfunktion: $c_i(s) := \sum_{r \in s_i} g_r(l_r(s))$</li>
 			</ul>
 		</div>
     </div>
@@ -103,7 +103,7 @@
 				<p class="substep">Definiere ein <strong>Potential</strong>:</p>
 					<p class="substep" style="margin-left:2em;">$P: S \to \mathbb{R}: s \mapsto \sum_{r \in R}\sum_{k=1}^{l_r(s)} g_r(k)$</p>
 				<p class="substep">Für jede Abweichung $s \to (s\mid \hat{s}_i)$ gilt:</p>
-					<p class="substep" style="margin-left:2em;">$c_i(s) - c_i(s\mid \hat{s}_i) = P(s) - P(s\mid \hat{s}_i)$</p>
+					<p class="substep" style="margin-left:2em;">$c_i(s) - c_i(s\mid \hat{s}_i) =$<span class="substep">$\,P(s) - P(s\mid \hat{s}_i)$</span></p>
 				<p class="substep">Jeder Verbesserungsschritt verringert also auch das Potential.</p>
 				<p class="substep">Ein Minimum von $P$ entspricht daher einem Nash-Gleichgewicht.</p>
 			</div>
@@ -133,7 +133,7 @@
 	<div class="step" data-x="0" data-y="25" data-z="50" data-rotate-x="-30" data-scale=".8" style="height:200px;">
 		<img src="images/PfeilMS.svg" width="500" style="position:absolute; left:500px; bottom: 20px; z-index:100;" />
 		
-		<div class="substep" class="onlyActive" style="position:absolute; bottom:250px; left:300px; background-color:#FFFFFF; padding:10px 30px;">
+		<div class="substep onlyActive" style="position:absolute; bottom:250px; left:300px; background-color:#FFFFFF; padding:10px 30px;">
 			<p class="theoremstyle s">
 			Jedes exakte Potentialspiel &bdquo;ist&ldquo; ein ungewichtetes Auslastungsspiel. <span class="cite">Monderer/Shapley'96</span>
 			</p>
@@ -148,7 +148,12 @@
 				<li class="substep">$\sigma: I \leftarrow J$ Spielerabbildung</li>
 				<li class="substep">$\phi_j: X_{\sigma(j)} \to Y_j$ Strateegieabbildung von Spieler $j$</li>
 			</ul>
-			<p class="substep">induziert Abbildung von Strategieprofilen: $\phi: X \to Y: x \mapsto$ <span class="substep">$($<span class="substep">$\phi_j(x_{\sigma(j)})$</span>$)_{j \in J}$.</span></p>
+			<p class="substep">induziert Abbildung von Strategieprofilen: $\phi: X \to Y: x \mapsto$ <span class="substep">$($<span class="substep"><span class="substep">$\phi_j$</span>$(x_{\sigma(j)})$</span>$)_{j \in J}$.</span></p>
+		</div>
+		
+		<div class="substep theoremstyle d">
+			$(\sigma, \phi): \Gamma \to \Delta$ <em>Isomorphismus</em>, <span class="substep">wenn es einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ gibt, sodass:</span>
+			<p class="substep" style="text-align:center;">$(\tau, \psi)\circ(\sigma, \phi) := (\sigma\circ\tau, \psi\circ\phi) = (\mathrm{id}, \mathrm{id})$ und $(\sigma, \phi)\circ(\tau, \psi) = (\mathrm{id},\mathrm{id})$</p>
 		</div>
 		
 		<h3 class="substep">Verträglichkeit mit den Kostenfunktionen</h3>
@@ -158,8 +163,7 @@
 				<li class="substep"><em>kostenerhaltend</em>, wenn f.a. $x \in X, j \in J: c_{\sigma(j)}(x) = d_j(\phi(x))$</li>
 				<li class="substep"><em>exakt</em>, wenn f.a. $x \in X, j \in J, \hat{x}_{\sigma(j)}$ gilt:<br />
 				$c_{\sigma(j)}(x) - c_{\sigma(j)}(x \mid \hat{x}_{\sigma(j)}) = d_j(\phi(x)) - d_j(\phi(x \mid \hat{x}_{\sigma(j)}))$</li>
-				<li class="substep"><em>monoton/ordinal</em>, wenn ...</li>
-				<li class="substep">...</li>
+				<li class="substep"><em>monoton/ordinal/</em> ...</li>
 			</ul>
 		</div>
     </div>
@@ -189,7 +193,7 @@
 			skalierte Bilder...
 		</div>
 		
-		<div style="position:absolute; left:100px; top:310px; text-align:center; border:5px solid #0000FF; padding:5px;">
+		<div class="substep" style="position:absolute; left:100px; top:310px; text-align:center; border:5px solid #0000FF; padding:5px;">
 			<h2>gewichtetes Potential</h2>
 			$c_i(x) - c_i(x\mid \hat{x}_i) = w_i\cdot\big(P(x) - P(x\mid \hat{x}_i)\big)$<br />
 			mit Gewichtsvektor $(w_i)_{i \in I} \in \mathbb{R}^I_{\geq 0}$.
