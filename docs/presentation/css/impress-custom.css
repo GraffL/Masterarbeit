@@ -1,4 +1,4 @@
-h1 {text-align:center; font-size:225%;}
+h1 {text-align:center; font-size:220%;}
 h2 {text-align:center; font-size:150%;}
 h3 {text-align:center; font-size:125%;}
 
@@ -8,13 +8,13 @@ ul {margin-left:2em;}
 .onlyActive {transition: opacity 1s;}
 .past > .onlyActive, .past .onlyActive, .past.onlyActive {opacity: 0 !important;}
 
-.TeXFake {transition: opacity .5s;}
+.TeXFake {transition: opacity .5s; transition-delay:2s;}
 .past .TeXFake { opacity: 0;}
 
 
 .TeXTitle {border-radius: 25px; background:darkgreen; color:#FFFFFF; padding:20px; box-shadow: 10px 10px 8px #868686;
-		transition: background 2s, color 20s, box-shadow 2s;}
-.past .TeXTitle {background:none; color:#000000; padding:20px; box-shadow: 5px 5px 0px #FFFFFF;}
+		transition: background 2s, color 2s, box-shadow 2s;}
+.past .TeXTitle {background:none; color:#000000; padding:20px; box-shadow: 0px 0px 0px #FFFFFF;}
 
 .problemdef::before {
 	text-decoration:underline;
@@ -37,7 +37,7 @@ span.highlightcolor {transition: color 7s;}
 
 .theoremstyle {
 	margin-left:3em;
-	margin-bottom:.5em;
+	margin-bottom:1em;
 }
 
 .theoremstyle::before {
@@ -57,7 +57,7 @@ span.highlightcolor {transition: color 7s;}
 
 .proofstyle {
 	margin-left:3em;
-	margin-bottom:.5em;
+	margin-bottom:1em;
 }
 
 .proofstyle::before {
@@ -138,26 +138,42 @@ span.vanish.past {display:none;}
 .impress-on-Overview .sidebar-container {transition: width 2s;}
 
 
+table.listtable td:first-child {padding-right:1em; padding-left:1em;}
+
+.card {background-color:#FFFFFF; padding:10px 30px; box-shadow: 5px 5px 10px 10px #868686;}
+
+.keIsom {color:#008000;}
+.exIsom {color:#00BE6E;}
+
 .katex {font-size:110% !important;}
 
 #DefSpiele {margin-left:0px; transition: margin 1s, opacity 1s;}
-.impress-on-UngewAuslastungsspiele #DefSpiele {margin-left:-100px;}
-.impress-on-Potentialspiele #DefSpiele {margin-left:100px;}
+.impress-on-UngewAuslastungsspiele #DefSpiele {margin-left:-200px;}
+.impress-on-Potentialspiele #DefSpiele {margin-left:200px;}
+
+.impress-on-skalAuslastungsspiele #DefSpiele, .impress-on-skalAuslastungsspiele .alleSpieleIso {opacity:0 !important;}
+.impress-on-skalAuslastungsspiele2 #DefSpiele, .impress-on-skalAuslastungsspiele2 .alleSpieleIso {opacity:0 !important;}
+
+.impress-on-overview2 #DefSpiele {margin-top:220px;}
 
 #RosenthalPot.past {opacity:0;}
-
-.impress-on-skalAuslastungsspiele #DefSpiele {opacity:0;}
-.impress-on-skalAuslastungsspiele2 #DefSpiele {opacity:0;}
 
 .cite::before {content:"[";}
 .cite::after {content:"]";}
 .cite {font-size:90%; font-style:italic; color:#555555;}
 
+/* UngewAuslastungsspiele, RosenthalPot, Potentialspiele, step-8, step-9, Morphismen, step-11, gewPotentialspiele, gewAuslastungsspiele, step-15, overview, skalAuslastungsspiele, skalAuslastungsspiele2, overview2 */
+.titleZsh, .titleAusl, .titlePot {transition:color 2s;}
+.impress-on-UngewAuslastungsspiele .titleAusl, .impress-on-RosenthalPot .titleAusl, .impress-on-Potentialspiele .titleAusl, .impress-on-step-8 .titleAusl, .impress-on-step-9 .titleAusl, .impress-on-Morphismen .titleAusl, .impress-on-step-11 .titleAusl, .impress-on-step-12 .titleAusl,.impress-on-gewPotentialspiele .titleAusl, .impress-on-gewAuslastungsspiele .titleAusl, .impress-on-step-16 .titleAusl, .impress-on-overview .titleAusl, .impress-on-skalAuslastungsspiele .titleAusl, .impress-on-skalAuslastungsspiele2 .titleAusl, .impress-on-overview2 .titleAusl {color:#FF0000;}
+.impress-on-Potentialspiele .titlePot, .impress-on-step-8 .titlePot, .impress-on-step-9 .titlePot, .impress-on-Morphismen .titlePot, .impress-on-step-11 .titlePot, .impress-on-step-12 .titlePot, .impress-on-gewPotentialspiele .titlePot, .impress-on-gewAuslastungsspiele .titlePot, .impress-on-step-16 .titlePot, .impress-on-overview .titlePot, .impress-on-skalAuslastungsspiele .titlePot, .impress-on-skalAuslastungsspiele2 .titlePot, .impress-on-overview2 .titlePot {color:#0000FF;}
+.impress-on-Morphismen .titleZsh, .impress-on-step-11 .titleZsh, .impress-on-step-12 .titleZsh, .impress-on-gewPotentialspiele .titleZsh, .impress-on-gewAuslastungsspiele .titleZsh, .impress-on-step-16 .titleZsh, .impress-on-overview .titleZsh, .impress-on-skalAuslastungsspiele .titleZsh, .impress-on-skalAuslastungsspiele2 .titleZsh, .impress-on-overview2 .titleZsh {color:#008000;}
+
+
 /* Erstellen: 
 .step {
 	border:2px #000000 solid;
 	opacity: 1 !important;
-	background-color:#FFFFFF80;
+/*	background-color:#FFFFFF80;
 	background-image:url(./../Grid.png);
 }
 
@@ -168,3 +184,5 @@ span.vanish.past {display:none;}
 .TeXFake {opacity:0;}
 .TeXFakeShadow  {box-shadow:none;}
 .TeXTitle {background:none; color:#000000; padding:20px; box-shadow: 5px 5px 0px #FFFFFF;}
+
+/*.onlyActive {display:none;}*/

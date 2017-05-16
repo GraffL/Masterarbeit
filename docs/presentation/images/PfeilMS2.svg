@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="PfeilMS.svg">
+   sodipodi:docname="PfeilMS2.svg">
   <defs
      id="defs4">
     <marker
@@ -29,7 +29,7 @@
       <path
          id="path4151"
          d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
-         style="fill:#008000;fill-opacity:1;fill-rule:evenodd;stroke:#008000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#00be6e;fill-opacity:1;fill-rule:evenodd;stroke:#00be6e;stroke-width:1pt;stroke-opacity:1"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
          inkscape:connector-curvature="0" />
     </marker>
@@ -89,7 +89,7 @@
      id="layer1"
      transform="translate(-106.97546,-167.60599)">
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       style="fill:none;fill-rule:evenodd;stroke:#00be6e;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 297.14286,209.50506 c -57.08823,-50.23405 -117.69084,-54.78107 -182.85715,0"
        id="path3336"
        inkscape:connector-curvature="0"

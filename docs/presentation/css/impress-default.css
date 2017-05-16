@@ -131,7 +131,7 @@ a {
 
 .step {
     position: relative;
-    width: 1250px;
+    width: 1200px;
 	height: 700px;
     padding: 20px;
     margin: 20px auto;
@@ -202,10 +202,11 @@ a {
     We also make other steps visible and give them a pointer cursor using the
     `impress-on-` class.
 */
-.impress-on-Overview .step {
+/* .impress-on-overview .step {
     opacity: 1;
     cursor: pointer;
 }
+*/
 
 
 
