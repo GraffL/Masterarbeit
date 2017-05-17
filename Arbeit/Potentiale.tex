@@ -529,7 +529,7 @@ Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\l
 \end{prop}
 
 \begin{proof}
-	Angenommen $\Gamma$ enthielte einen Verbesserungszykel $\gamma = (x^0, \dots, x^n)$, so wäre für alle $0 < k \leq n$
+	Angenommen $\Gamma$ enthielte einen schwachen Beste-Antwort-Verbesserungszykel $\gamma = (x^0, \dots, x^n)$, so wäre für alle $0 < k \leq n$
 		\[c_{i(k)}(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} c_{i(k)}(x^{k-1} \mid \hat{x}_{i(k)})\]
 	und, da $P$ ein Beste-Antwort-Potential ist, ebenso 
 		\[P(x^k) = \min_{\hat{x}_{i(k)} \in X_{i(k)}} P(x^{k-1} \mid \hat{x}_{i(k)}) \leq P(x^{k-1}).\]
@@ -556,7 +556,7 @@ Auf dem dadurch erzeugten Raum von Äquivalenzklassen $\XmodBA \coloneqq \left\l
 				\item[2. Fall:] Gilt $c_i(x \mid \hat{x}_i) = c_i(x \mid x'_i)$, so sind sowohl $((x \mid x'_i), (x \mid \hat{x}_i))$ als auch $((x \mid \hat{x}_i), (x \mid x'_i))$ Beste-Antwort-Pfade und folglich $(x \mid x'_i) \BArel (x \mid \hat{x}_i)$. Somit folgt $P(x \mid \hat{x}_i) = f([(x \mid \hat{x}_i)]) = f([(x \mid x'_i)]) = P(x \mid x'_i)$.
 			\end{description}
 			Insgesamt haben wir so für alle $x'_i \in X_i$ gezeigt, dass $P(x \mid \hat{x}_i) \leq P(x \mid x'_i)$ und daher $\hat{x}_i \in \arg \min_{x'_i \in X_i} P(x \mid x'_i)$ gilt.
-		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x})$, d.h. es gäbe es also eine beste Antwort $x'_i \in X_i$ auf $x$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann wäre $((x \mid \hat{x}_i), (x \mid x'_i))$ ein Beste-Antwort-Verbesserungspfad und daher $[(x \mid x'_i)] \BAord [(x \mid \hat{x}_i)]$. Somit wäre auch $P(x \mid x'_i) = f([x \mid x'_i]) < f([x \mid \hat{x}_i]) = P(x \mid \hat{x}_i)$, im Widerspruch zu $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Also gibt es kein solches $x'_i$ und es gilt $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i)$. \qedhere
+		\item[\glqq$\bm{\supseteq}$\grqq:] Sei $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Angenommen es wäre $\hat{x}_i \notin \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i)$, d.h. es gäbe eine beste Antwort $x'_i \in X_i$ auf $x$ mit $c_i(x \mid x'_i) < c_i(x \mid \hat{x}_i)$. Dann wäre $((x \mid \hat{x}_i), (x \mid x'_i))$ ein Beste-Antwort-Verbesserungspfad und daher $[(x \mid x'_i)] \BAord [(x \mid \hat{x}_i)]$. Somit wäre auch $P(x \mid x'_i) = f([x \mid x'_i]) < f([x \mid \hat{x}_i]) = P(x \mid \hat{x}_i)$, im Widerspruch zu $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}P(x \mid \hat{x}_i)$. Also gibt es kein solches $x'_i$ und es gilt $\hat{x}_i \in \arg \min_{\hat{x}_i \in X_i}c_i(x \mid \hat{x}_i)$. \qedhere
 	\end{description}
 \end{proof}
 

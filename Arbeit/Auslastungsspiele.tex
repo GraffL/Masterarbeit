@@ -25,7 +25,7 @@ In \cite{RosenthalPotential} führte \citeauthor{RosenthalPotential} mit Auslast
 				\item $R_K \coloneqq \Set{\left(\{x_i\}\right)_{i \in I} | x_i \in X_i }$ und 
 				\item $R_D \coloneqq \Set{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \abs{X_i \setminus Y_i} = 1 }$.
 			\end{itemize}
-		\item Die Ressourcenkosten sind jeweils nur für genau eine Auslastung nicht null: Ressourcen aus $R_K$ genau dann, wenn alle Spieler sie nutzen, Ressourcen aus $R_D$, wenn sie genau ein Spieler nutzt:
+		\item Die Ressourcenkosten sind jeweils nur für genau eine Auslastung nicht null: Bei Ressourcen aus $R_K$ genau dann, wenn alle Spieler sie nutzen, bei Ressourcen aus $R_D$, wenn sie genau ein Spieler nutzt:
 				\[g_r(k) \coloneqq 
 					\begin{cases}
 						P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
@@ -127,7 +127,7 @@ Die Menge der lastgewichteten Auslastungsspiele umfasst also (bis auf kostenerha
 	Sei $\Gamma = (I\!\!=\!\!\set{1, \dots, n}, X, (c_i))$ ein endliches Spiel und $w \coloneqq (n+i-2)_{i \in I}$ der Gewichtsvektor aus \Cref{satz:JedesSpielLastGewAusl}. Nach diesem Satz gibt es dann ein Auslastungsmodell $M$, sodass das lastgewichtete Auslastungsspiel $\Gamma_l(M, w)$ äquivalent zu dem Spiel $\Gamma_{1/w_i} = (I, X, (\frac{1}{w_i}c_i))$ ist. Und damit ist dann das gewichtete Auslastungsspiel $\Gamma(M, w)$ äquivalent zum Ausgangsspiel $\Gamma$ (vgl. den Beweis zu \Cref{lemma:lastgewAuslIsomGewAusl}). 
 \end{proof}
 
-Für endliche Spiele erhalten wir aus \Cref{satz:JedesSpielLastGewAusl} und \Cref{kor:JedesSpielGewAusl} zusammen noch eine Version von \Cref{lemma:lastgewAuslIsomGewAusl} mit einem Isomorphiebegriff:
+Für endliche Spiele erhalten wir aus \Cref{satz:JedesSpielLastGewAusl} und \Cref{kor:JedesSpielGewAusl} zusammen noch eine Version von \Cref{lemma:lastgewAuslIsomGewAusl} mit einem stärkeren Isomorphiebegriff:
 
 \begin{kor}\label{kor:endlLastGewAuslIsomGewAusl}
 	Jedes endliche lastgewichtete Auslastungsspiel ist konstenerhaltend isomorph zu einem endlichen gewichteten Auslastungspiel und umgkehrt.
