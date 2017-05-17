@@ -8,5 +8,8 @@ Quellen
 *.gz
 *.toc
 *.tdo
+*.idx
+*.ilg
+*.ind
 *.RData
 *.Rhistory

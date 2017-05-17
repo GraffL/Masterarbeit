@@ -37,7 +37,7 @@
 			<h1><span class="titleZsh">Zusammenhänge</span> von<br /><span class="titleAusl">Auslastungsspiele</span>n und <span class="titlePot">Potentialspiele</span>n</h1>
 		</div>
 		
-		<div style="text-align:center; font-size:120%;" class="TeXFake">
+		<div style="text-align:center; font-size:120%; margin-top:100px;" class="TeXFake">
 			Kolloquium zur Masterarbeit<br /><span style="font-size:80%;">18. Mai 2017</span>
 		</div>
 		
@@ -48,9 +48,9 @@
 	</div>
 
     <div id="DefSpiele" class="step" data-x="0" data-y="900">
-		<h2>Endliche (nichtkooperative) Spiele</h2>
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;Endliche (nichtkooperative) Spiele</h2>
 		
-		<p style="text-align:center;">$\Gamma = (I, X := \prod_{i\in I} X_i, (c_i)_{i\in I})$</p><br />
+		<p style="text-align:center;">&nbsp;&nbsp;$\Gamma = (I, X := \prod_{i\in I} X_i, (c_i)_{i\in I})$</p><br />
 		
         <div class="substep theoremstyle d">Ein <strong>endliches (nichtkooperatives) Spiel (in strategischer Form)</strong> ist gegeben durch
 		<table class="listtable">
@@ -111,7 +111,7 @@
     </div>
 	
     <div id="Potentialspiele" class="step" data-x="600" data-y="300" data-z="0" data-scale="1">
-		<div class="substep" style="width:40%; position:absolute; left:100px; top:100px; text-align:center;">
+		<div class="substep" style="width:40%; position:absolute; left:100px; top:100px; text-align:center; padding-left:15px;">
 			<h2 style="color:#000080;">exaktes Potential</h2>
 			$P: X \to \mathbb{R}$ mit <br />
 			$c_i(x) - c_i(x\mid \hat{x}_i) = P(x) - P(x\mid \hat{x}_i)$<br />
@@ -132,7 +132,7 @@
     </div>
 	
 	<div class="step" data-x="0" data-y="25" data-z="50" data-rotate-x="-30" data-scale=".8" style="height:200px;">
-		<img src="images/PfeilMS.svg" width="500" style="position:absolute; left:500px; bottom: 20px; z-index:100;" />
+		<img class="substep" src="images/PfeilMS.svg" width="500" style="position:absolute; left:500px; bottom: 20px; z-index:100;" />
 		
 		<div class="substep onlyActive card" style="position:absolute; bottom:250px; left:300px;">
 			<p class="theoremstyle s">
@@ -153,7 +153,7 @@
 		</div>
 		
 		<div class="substep theoremstyle d">
-			$(\sigma, \phi): \Gamma \to \Delta$ <strong>Isomorphismus</strong>, <span class="substep">wenn es einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ gibt, sodass:</span>
+			$(\sigma, \phi): \Gamma \to \Delta$ <strong>Isomorphismus</strong>, <span class="substep">wenn es einen Morphismus $(\tau, \psi): \Delta \to \Gamma$ gibt mit:</span>
 			<p class="substep" style="text-align:center;">$(\tau, \psi)\circ(\sigma, \phi) := (\sigma\circ\tau, \psi\circ\phi) = (\mathrm{id}, \mathrm{id})$ und $(\sigma, \phi)\circ(\tau, \psi) = (\mathrm{id},\mathrm{id})$</p>
 		</div>
 		
@@ -178,7 +178,7 @@
 		
 		<div class="card substep" style="position:absolute; bottom:160px; left:0px;"><div class="proofstyle">
 			Definiere $M := (I, R, S, (g_r))$ <span class="substep">mittels $R := R_K \cup R_D \subseteq \prod_{i \in I}\mathcal{P}(X_i)$ wobei</span> 
-			<p class="substep">$R_K := \{(\{x_i\})_{i \in I} | x_i \in X_i \}$, $R_D := \{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \vert X_i \setminus Y_i\vert = 1\}$</p>
+			<p class="substep">$R_K := \{(\{x_i\})_{i \in I} | x_i \in X_i \}$, <span class="substep">$R_D := \{(Y_i)_{i \in I} | \exists \hat{\imath} \in I: Y_{\hat{\imath}} = X_{\hat{\imath}}, \forall i \neq \hat{\imath}: \vert X_i \setminus Y_i\vert = 1\}$</span></p>
 			<p class="substep">\[g_r(k) := 
 					\begin{cases}
 						P(x), 					&r = \left(\{x_i\}\right)_{i \in I} \in R_k 													\text{ und } k=N \\
@@ -207,10 +207,10 @@
 			<img class="substep" src="images/GewPot.svg" style="background-color:#FFFFFF;" width="50%" />
 		</div>
 		
-		<div class="substep" style="position:absolute; left:100px; top:320px; text-align:center;">
+		<div class="substep" style="position:absolute; left:100px; top:320px; text-align:center; padding-left:15px;">
 			<h2 style="color:#0000FF;">gewichtetes Potential</h2>
-			$c_i(x) - c_i(x\mid \hat{x}_i) = w_i\cdot\big(P(x) - P(x\mid \hat{x}_i)\big)$<br />
-			mit Gewichtsvektor $(w_i)_{i \in I} \in \mathbb{R}^I_{\geq 0}$.
+			$c_i(x) - c_i(x\mid \hat{x}_i) =\,$<span class="substep">$w_i\cdot$</span>$\big(P(x) - P(x\mid \hat{x}_i)\big)$<br />
+			<span class="substep">mit Gewichtsvektor $(w_i)_{i \in I} \in \mathbb{R}^I_{\geq 0}$.</span>
 		</div>
 
     </div>

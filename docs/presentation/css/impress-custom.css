@@ -1,4 +1,4 @@
-h1 {text-align:center; font-size:220%;}
+﻿h1 {text-align:center; font-size:220%;}
 h2 {text-align:center; font-size:150%;}
 h3 {text-align:center; font-size:125%;}
 
@@ -69,6 +69,14 @@ span.highlightcolor {transition: color 7s;}
 	float:left;
 	margin-left:-3em;
 	content:"Bew.:";
+}
+
+.proofstyle::after {
+	position:absolute;
+	right:20px;
+	bottom:15px;
+	font-size:35px;
+	content:"□";
 }
 
 
@@ -166,7 +174,7 @@ table.listtable td:first-child {padding-right:1em; padding-left:1em;}
 .titleZsh, .titleAusl, .titlePot {transition:color 2s;}
 .impress-on-UngewAuslastungsspiele .titleAusl, .impress-on-RosenthalPot .titleAusl, .impress-on-Potentialspiele .titleAusl, .impress-on-step-8 .titleAusl, .impress-on-step-9 .titleAusl, .impress-on-Morphismen .titleAusl, .impress-on-step-11 .titleAusl, .impress-on-step-12 .titleAusl,.impress-on-gewPotentialspiele .titleAusl, .impress-on-gewAuslastungsspiele .titleAusl, .impress-on-step-16 .titleAusl, .impress-on-overview .titleAusl, .impress-on-skalAuslastungsspiele .titleAusl, .impress-on-skalAuslastungsspiele2 .titleAusl, .impress-on-overview2 .titleAusl {color:#FF0000;}
 .impress-on-Potentialspiele .titlePot, .impress-on-step-8 .titlePot, .impress-on-step-9 .titlePot, .impress-on-Morphismen .titlePot, .impress-on-step-11 .titlePot, .impress-on-step-12 .titlePot, .impress-on-gewPotentialspiele .titlePot, .impress-on-gewAuslastungsspiele .titlePot, .impress-on-step-16 .titlePot, .impress-on-overview .titlePot, .impress-on-skalAuslastungsspiele .titlePot, .impress-on-skalAuslastungsspiele2 .titlePot, .impress-on-overview2 .titlePot {color:#0000FF;}
-.impress-on-Morphismen .titleZsh, .impress-on-step-11 .titleZsh, .impress-on-step-12 .titleZsh, .impress-on-gewPotentialspiele .titleZsh, .impress-on-gewAuslastungsspiele .titleZsh, .impress-on-step-16 .titleZsh, .impress-on-overview .titleZsh, .impress-on-skalAuslastungsspiele .titleZsh, .impress-on-skalAuslastungsspiele2 .titleZsh, .impress-on-overview2 .titleZsh {color:#008000;}
+.impress-on-step-9 .titleZsh, .impress-on-Morphismen .titleZsh, .impress-on-step-11 .titleZsh, .impress-on-step-12 .titleZsh, .impress-on-gewPotentialspiele .titleZsh, .impress-on-gewAuslastungsspiele .titleZsh, .impress-on-step-16 .titleZsh, .impress-on-overview .titleZsh, .impress-on-skalAuslastungsspiele .titleZsh, .impress-on-skalAuslastungsspiele2 .titleZsh, .impress-on-overview2 .titleZsh {color:#008000;}
 
 
 /* Erstellen: 
